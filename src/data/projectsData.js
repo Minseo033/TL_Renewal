@@ -2,7 +2,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "87",
     "name": "다이소 세종 온라인센터",
-    "image": "/assets/images/projects/project_87.jpg",
+    "image": "./assets/images/projects/project_87.jpg",
     "type": ".",
     "address": "세종특별자치시 소정면 고등리 805",
     "client": "(주)아성다이소",
@@ -20,7 +20,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "85",
     "name": "용인 Cluster 1기 OBL",
-    "image": "/assets/images/projects/project_85.jpg",
+    "image": "./assets/images/projects/project_85.jpg",
     "type": ".",
     "address": "경기 용인시 처인구 원삼면 보개원삼로1924번길 65#6 게이트",
     "client": "에스케이하이닉스(주)",
@@ -37,7 +37,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "84",
     "name": "Westin Seoul Parnas 리모델링공사",
-    "image": "/assets/images/projects/project_84.jpg",
+    "image": "./assets/images/projects/project_84.jpg",
     "type": ".",
     "address": "서울 강남구 봉은사로 524",
     "client": "파르나스호텔㈜",
@@ -54,7 +54,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "83",
     "name": "용인 Cluster 1기 공동구",
-    "image": "/assets/images/projects/project_83.jpg",
+    "image": "./assets/images/projects/project_83.jpg",
     "type": ".",
     "address": "경기 용인시 처인구 원삼면 보개원삼로1924번길 65#6 게이트",
     "client": "에스케이하이닉스(주)",
@@ -71,7 +71,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "82",
     "name": "한국일보용산사옥 신축공사",
-    "image": "/assets/images/projects/project_82.jpg",
+    "image": "./assets/images/projects/project_82.jpg",
     "type": "업무시설, 근린생활시설",
     "address": "서울 용산구 갈월동 98-11",
     "client": "(주)한국일보사",
@@ -88,7 +88,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "80",
     "name": "디지털 엠파이어 평촌 비즈밸리 신축공사",
-    "image": "/assets/images/projects/project_80.jpg",
+    "image": "./assets/images/projects/project_80.jpg",
     "type": "비즈밸리",
     "address": "경기 안양시 동안구 호계동 533-1",
     "client": "주식회사 케이티앤지",
@@ -105,7 +105,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "81",
     "name": "엔씨소프트 글로벌 RDI센터",
-    "image": "/assets/images/projects/project_81.jpg",
+    "image": "./assets/images/projects/project_81.jpg",
     "type": "RDI센터",
     "address": "경기 성남시 분당구 삼평동 642경기도 성남시 분당구 삼평동 641번지",
     "client": "엔씨소프트(주)",
@@ -122,7 +122,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "79",
     "name": "수원연무동 주상복합",
-    "image": "/assets/images/projects/project_79.jpg",
+    "image": "./assets/images/projects/project_79.jpg",
     "type": "공동주택, 근린생활시설",
     "address": "경기 수원시 장안구 창훈로60번길 5경기 수원시 장안구 연무동 58-1",
     "client": "HL 디앤아이한라 주식회사",
@@ -139,7 +139,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "78",
     "name": "과천지식정보타운 11-3블럭 신축공사",
-    "image": "/assets/images/projects/project_78.jpg",
+    "image": "./assets/images/projects/project_78.jpg",
     "type": "지식산업센터(공장)",
     "address": "경기 과천시 문원동 887-2과천시 문원동 897-2",
     "client": "(주)다원시스",
@@ -156,7 +156,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "76",
     "name": "가산 데이터센터",
-    "image": "/assets/images/projects/project_76.jpg",
+    "image": "./assets/images/projects/project_76.jpg",
     "type": "방송통신시설(데이터센터)",
     "address": "서울 금천구 가산동 481-7",
     "client": "가산디씨제이브이 주식회사",
@@ -173,7 +173,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "75",
     "name": "시흥 장현지구 업무시설 신축공사",
-    "image": "/assets/images/projects/project_75.jpg",
+    "image": "./assets/images/projects/project_75.jpg",
     "type": "업무시설, 근린생활시설",
     "address": "경기 시흥시 시흥대로 490",
     "client": "주식회사 디허브",
@@ -190,7 +190,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "74",
     "name": "안성 물류센터 신축공사",
-    "image": "/assets/images/projects/project_74.jpg",
+    "image": "./assets/images/projects/project_74.jpg",
     "type": "물류창",
     "address": "경기 안성시 일죽면 신흥리 산 13-1",
     "client": "페블스톤 자산운용",
@@ -207,7 +207,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "73",
     "name": "판교 G2 업무시설",
-    "image": "/assets/images/projects/project_73.jpg",
+    "image": "./assets/images/projects/project_73.jpg",
     "type": "업무시설, 근린생활시설",
     "address": "경기 성남시 수정구 금토동 293",
     "client": "주식회사 우아한형제들",
@@ -224,7 +224,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "72",
     "name": "미래인로지스부천 복합물류센터 신축공사",
-    "image": "/assets/images/projects/project_72.jpg",
+    "image": "./assets/images/projects/project_72.jpg",
     "type": "창고시설",
     "address": "경기 부천시 내동 222-11",
     "client": "미래인로지스부천피에프브이(주)",
@@ -241,7 +241,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "71",
     "name": "평택 P4 RC공사 1공구",
-    "image": "/assets/images/projects/project_71.jpg",
+    "image": "./assets/images/projects/project_71.jpg",
     "type": "공장",
     "address": "경기 평택시 삼성로 114",
     "client": "삼성전자(주)",
@@ -258,7 +258,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "70",
     "name": "비상교육 사옥 신축공사",
-    "image": "/assets/images/projects/project_70.jpg",
+    "image": "./assets/images/projects/project_70.jpg",
     "type": "업무시설, 근린생활시설, 운동시설",
     "address": "경기 성남시 중원구 갈현동 238-7지식정보타운 12-1블록",
     "client": "주식회사 비상교육",
@@ -275,7 +275,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "69",
     "name": "삼성전자(주) P3 154KV 변전소 신축공사 (Ph.3)",
-    "image": "/assets/images/projects/project_69.jpg",
+    "image": "./assets/images/projects/project_69.jpg",
     "type": "변전소",
     "address": "경기 평택시 삼성로 41삼성전자 평택 고덕사업장 내",
     "client": "삼성전자(주)",
@@ -292,7 +292,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "68",
     "name": "몬트레아 한남 신축공사",
-    "image": "/assets/images/projects/project_68.jpg",
+    "image": "./assets/images/projects/project_68.jpg",
     "type": "업무시설(오피스텔/오피스), 근린생활시설",
     "address": "서울 용산구 한남대로 57",
     "client": "엠스페이스한남 PFV 주식회사",
@@ -309,7 +309,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "67",
     "name": "평택 전자 P3 대기방지 신축공사 (P3장비기초공사)",
-    "image": "/assets/images/projects/project_67.jpg",
+    "image": "./assets/images/projects/project_67.jpg",
     "type": "공장",
     "address": "경기 평택시 고덕면 삼성로 41",
     "client": "삼성전자(주)",
@@ -327,7 +327,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "66",
     "name": "CJ제일제당 논산공장 COOKIT 공장 신축공사",
-    "image": "/assets/images/projects/project_66.jpg",
+    "image": "./assets/images/projects/project_66.jpg",
     "type": "공장",
     "address": "충남 논산시 연무읍 죽본리 799",
     "client": "CJ제일제당(주)",
@@ -344,7 +344,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "65",
     "name": "부천소사본동 주상복합 신축공사",
-    "image": "/assets/images/projects/project_65.jpg",
+    "image": "./assets/images/projects/project_65.jpg",
     "type": "공동주택 및 부대복리시설, 근린생활시설",
     "address": "경기 부천시 소사본동 70-12",
     "client": "(주)한라",
@@ -361,7 +361,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "64",
     "name": "평택 FAB 3기 신축공사 RC공사 3공구",
-    "image": "/assets/images/projects/project_64.jpg",
+    "image": "./assets/images/projects/project_64.jpg",
     "type": "공장",
     "address": "경기 평택시 고덕면 삼성로 41",
     "client": "삼성전자(주)",
@@ -378,7 +378,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "62",
     "name": "만도 NEXT M",
-    "image": "/assets/images/projects/project_62.jpg",
+    "image": "./assets/images/projects/project_62.jpg",
     "type": "교육연구시설(연구소)",
     "address": "경기 성남시 수정구 금토동 411-4",
     "client": "(주)만도",
@@ -395,7 +395,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "63",
     "name": "텔레칩스사옥 신축공사",
-    "image": "/assets/images/projects/project_63.jpg",
+    "image": "./assets/images/projects/project_63.jpg",
     "type": "교육연구시설, 업무시설",
     "address": "경기 성남시 수정구 금토동 411-4경기 성남시 수정구 금토동 411-1",
     "client": "(주)텔레칩스",
@@ -413,7 +413,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "61",
     "name": "삼성전자(주) P3 154KV 변전소 신축공사",
-    "image": "/assets/images/projects/project_61.jpg",
+    "image": "./assets/images/projects/project_61.jpg",
     "type": "변전소",
     "address": "경기 평택시 고덕면 여염리 1646삼성전자 평택 고덕사업장 내",
     "client": "삼성전자(주)",
@@ -430,7 +430,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "60",
     "name": "가산동 549-1번지 지식산업센터 신축공사",
-    "image": "/assets/images/projects/project_60.jpg",
+    "image": "./assets/images/projects/project_60.jpg",
     "type": "지식산업센타 및 근린생활시설/업무시설",
     "address": "서울 금천구 가산동 550-1",
     "client": "케이원디(주)",
@@ -447,7 +447,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "56",
     "name": "삼성전자(주) 평택 P2L 하층서편마감 RC공사 3-1공구 신축공사",
-    "image": "/assets/images/projects/project_56.jpg",
+    "image": "./assets/images/projects/project_56.jpg",
     "type": "공장",
     "address": "경기 평택시 고덕면 여염리 1646",
     "client": "삼성전자(주)",
@@ -464,7 +464,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "55",
     "name": "삼성전자(주) 평택 P2-PJT UT동 P2L PH2,3 신축공사",
-    "image": "/assets/images/projects/project_55.jpg",
+    "image": "./assets/images/projects/project_55.jpg",
     "type": "공장",
     "address": "경기 평택시 고덕면 여염리 1646",
     "client": "삼성전자(주)",
@@ -481,7 +481,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "57",
     "name": "삼성전자(주) 평택 P2-PJT 초순수 [PH3]PVDF SHOP장 기초 PAD설치 공사",
-    "image": "/assets/images/projects/project_57.jpg",
+    "image": "./assets/images/projects/project_57.jpg",
     "type": "공장",
     "address": "경기 평택시 고덕면 여염리 1646",
     "client": "삼성전자(주)",
@@ -498,7 +498,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "58",
     "name": "삼성전자(주) 평택 P2L PH2 상동마감 RC 2-1공구",
-    "image": "/assets/images/projects/project_58.jpg",
+    "image": "./assets/images/projects/project_58.jpg",
     "type": "공장",
     "address": "경기 평택시 고덕면 여염리 1646",
     "client": "삼성전자(주)",
@@ -515,7 +515,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "54",
     "name": "판교 알파돔 6-1블럭 복합시설 개발 신축공사 중 2차발주공사",
-    "image": "/assets/images/projects/project_54.jpg",
+    "image": "./assets/images/projects/project_54.jpg",
     "type": "업무시설(오피스), 판매시설",
     "address": "경기 성남시 분당구 백현동 531백현동 532",
     "client": "(주)국민은행",
@@ -533,7 +533,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "59",
     "name": "브라이튼 여의도 복합시설 신축공사 1공구",
-    "image": "/assets/images/projects/project_59.jpg",
+    "image": "./assets/images/projects/project_59.jpg",
     "type": "업무시설(오피스), 오피스텔",
     "address": "서울 영등포구 여의도동 30",
     "client": "여의도MBC부지복합개발PFV",
@@ -551,7 +551,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "53",
     "name": "숭인동 오피스텔 신축공사",
-    "image": "/assets/images/projects/project_53.jpg",
+    "image": "./assets/images/projects/project_53.jpg",
     "type": "업무시설(오피스텔, 사무소), 판매시설, 근린생활시설",
     "address": "서울 종로구 숭인동 1425",
     "client": "티움21 (주)",
@@ -569,7 +569,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "12",
     "name": "강릉시 주문진읍 공동주택 신축공사",
-    "image": "/assets/images/projects/project_12.jpg",
+    "image": "./assets/images/projects/project_12.jpg",
     "type": "공동주택, 아파트",
     "address": "강원 강릉시 주문진읍 교항리 260-5null",
     "client": "(주) 노엘컴퍼니",
@@ -586,7 +586,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "11",
     "name": "컬쳐랜드 대치동 사옥 신축공사",
-    "image": "/assets/images/projects/project_11.jpg",
+    "image": "./assets/images/projects/project_11.jpg",
     "type": "업무시설, 근린생활시설",
     "address": "서울 강남구 영동대로 326null",
     "client": "(주)컬쳐랜드",
@@ -603,7 +603,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "2",
     "name": "판교 알파돔 6-1블럭 복합시설 개발 신축공사 중 1차발주공사",
-    "image": "/assets/images/projects/project_2.jpg",
+    "image": "./assets/images/projects/project_2.jpg",
     "type": "업무시설(오피스), 판매시설",
     "address": "경기 성남시 분당구 백현동 531백현동 532",
     "client": "(주)국민은행",
@@ -620,7 +620,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "10",
     "name": "신사동 504 복합개발사업 신축공사",
-    "image": "/assets/images/projects/project_10.jpg",
+    "image": "./assets/images/projects/project_10.jpg",
     "type": "업무시설, 근린생활시설, 판매시설, 운동시설",
     "address": "서울 강남구 신사동 504-11null",
     "client": "김정훈",
@@ -637,7 +637,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "9",
     "name": "삼원특수지 중곡동 복합시설 신축공사",
-    "image": "/assets/images/projects/project_9.jpg",
+    "image": "./assets/images/projects/project_9.jpg",
     "type": "업무시설, 근린생활시설",
     "address": "서울 광진구 중곡동 649-4null",
     "client": "(주)삼원특수지",
@@ -654,7 +654,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "52",
     "name": "여의도 MBC 개발사업 철근콘크리트공사 2공구 Precon",
-    "image": "/assets/images/projects/project_52.jpg",
+    "image": "./assets/images/projects/project_52.jpg",
     "type": "공동주택, 오피스텔, 오피스, 판매시설",
     "address": "서울 영등포구 여의도동 30",
     "client": "",
@@ -673,7 +673,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "8",
     "name": "현대백화점사옥 신축공사",
-    "image": "/assets/images/projects/project_8.jpg",
+    "image": "./assets/images/projects/project_8.jpg",
     "type": "업무시설",
     "address": "서울 강남구 대치동 945-15null",
     "client": "(주)현대백화점",
@@ -690,7 +690,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "51",
     "name": "삼성 SDS 춘천데이터센터 신축공사",
-    "image": "/assets/images/projects/project_51.jpg",
+    "image": "./assets/images/projects/project_51.jpg",
     "type": "공장",
     "address": "강원 춘천시 칠전동 324-4http://kko.to/leU59zK00",
     "client": "삼성SDS(주)",
@@ -707,7 +707,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "6",
     "name": "삼성전자(주) 평택 고덕국제화산업단지 냉각탑(CT2) 신축공사",
-    "image": "/assets/images/projects/project_6.jpg",
+    "image": "./assets/images/projects/project_6.jpg",
     "type": "공장(기계실)",
     "address": "경기 평택시 고덕면 여염리 1646null",
     "client": "삼성전자(주)",
@@ -724,7 +724,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "5",
     "name": "삼성전자(주) 평택 고덕국제화산업단지 용역동(UT2) 신축공사",
-    "image": "/assets/images/projects/project_5.jpg",
+    "image": "./assets/images/projects/project_5.jpg",
     "type": "공장(용역동)",
     "address": "경기 평택시 고덕면 여염리 1646null",
     "client": "삼성전자(주)",
@@ -741,7 +741,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "4",
     "name": "삼성전자(주) 평택 고덕국제화산업단지 설비동(Fab2) 신축공사",
-    "image": "/assets/images/projects/project_4.jpg",
+    "image": "./assets/images/projects/project_4.jpg",
     "type": "공장(확산동)",
     "address": "경기 평택시 고덕면 여염리 1646null",
     "client": "삼성전자(주)",
@@ -758,7 +758,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "7",
     "name": "하남 미사 중심상업용지 11-1블럭 복합시설 신축공사",
-    "image": "/assets/images/projects/project_7.jpg",
+    "image": "./assets/images/projects/project_7.jpg",
     "type": "오피스텔, 판매시설",
     "address": "경기 하남시 망월동 1098-1null",
     "client": "에이에이치디앤씨(주)",
@@ -776,7 +776,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "50",
     "name": "삼성전자(주) 평택 고덕국제화산업단지 UT/CT PH4",
-    "image": "/assets/images/projects/project_50.jpg",
+    "image": "./assets/images/projects/project_50.jpg",
     "type": "공장(용역동), 공장(기계실)",
     "address": "경기 평택시 고덕면 여염리 1646",
     "client": "삼성전자(주)",
@@ -793,7 +793,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "49",
     "name": "삼성전자(주) 평택 고덕국제화산업단지 설비동(Fab) 동편 마감공사",
-    "image": "/assets/images/projects/project_49.jpg",
+    "image": "./assets/images/projects/project_49.jpg",
     "type": "공장(확산동)",
     "address": "경기 평택시 고덕면 여염리 1646",
     "client": "삼성전자(주)",
@@ -810,7 +810,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "48",
     "name": "평택공장(부속창고) 신축공사",
-    "image": "/assets/images/projects/project_48.jpg",
+    "image": "./assets/images/projects/project_48.jpg",
     "type": "공장(부속창고)",
     "address": "경기 평택시 고덕면 여염리 1646",
     "client": "삼성전자(주)",
@@ -827,7 +827,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "46",
     "name": "김포풍무2차 센트럴푸르지오 신축공사(4공구)",
-    "image": "/assets/images/projects/project_46.jpg",
+    "image": "./assets/images/projects/project_46.jpg",
     "type": "공동주택(아파트)",
     "address": "경기 김포시 유현로 215",
     "client": "스카이랜드(주)",
@@ -844,7 +844,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "47",
     "name": "인천지방합동청사 신축공사",
-    "image": "/assets/images/projects/project_47.jpg",
+    "image": "./assets/images/projects/project_47.jpg",
     "type": "업무시설(공공업무시설)",
     "address": "인천 미추홀구 석정로 239",
     "client": "조달청",
@@ -861,7 +861,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "44",
     "name": "삼성전자(주) 평택 고덕국제화산업단지 설비동(Fab) 서편 마감공사",
-    "image": "/assets/images/projects/project_44.jpg",
+    "image": "./assets/images/projects/project_44.jpg",
     "type": "공장(확산동)",
     "address": "경기 평택시 고덕면 여염리 1646",
     "client": "삼성전자(주)",
@@ -878,7 +878,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "45",
     "name": "평촌자이엘라 신축공사",
-    "image": "/assets/images/projects/project_45.jpg",
+    "image": "./assets/images/projects/project_45.jpg",
     "type": "업무시설(오피스텔), 근린생활시설",
     "address": "경기 안양시 동안구 관양동 1591-12",
     "client": "GS건설(주)",
@@ -896,7 +896,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "3",
     "name": "울산 야음주공2단지 아파트 주택재건축 정비사업 신축공사",
-    "image": "/assets/images/projects/project_3.jpg",
+    "image": "./assets/images/projects/project_3.jpg",
     "type": "아파트",
     "address": "울산 남구 야음동 725-27null",
     "client": "야음주공2단지 재건축조합",
@@ -913,7 +913,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "43",
     "name": "청라 디오스텔 신축공사",
-    "image": "/assets/images/projects/project_43.jpg",
+    "image": "./assets/images/projects/project_43.jpg",
     "type": "업무시설(오피스텔), 근린생활시설",
     "address": "인천 서구 청라에메랄드로76번길 7",
     "client": "슈프림종합건설(주)",
@@ -931,7 +931,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "42",
     "name": "오라카이 서초 관광호텔 신축공사",
-    "image": "/assets/images/projects/project_42.jpg",
+    "image": "./assets/images/projects/project_42.jpg",
     "type": "숙박시설(관광호텔)",
     "address": "서울 서초구 신원동 271-21",
     "client": "금보개발(주)",
@@ -948,7 +948,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "39",
     "name": "남양주 다산진건 힐스테이트",
-    "image": "/assets/images/projects/project_39.jpg",
+    "image": "./assets/images/projects/project_39.jpg",
     "type": "공동주택 및 근린생활시설",
     "address": "경기 남양주시 다산순환로 365",
     "client": "코리아에셋매니지먼트(주) 진건지점",
@@ -966,7 +966,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "41",
     "name": "김포풍무2차 센트럴푸르지오 신축공사(4공구)",
-    "image": "/assets/images/projects/project_41.jpg",
+    "image": "./assets/images/projects/project_41.jpg",
     "type": "공동주택(아파트)",
     "address": "경기 김포시 유현로 215",
     "client": "스카이랜드(주)",
@@ -983,7 +983,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "40",
     "name": "해성산업 복합시설 신축공사",
-    "image": "/assets/images/projects/project_40.jpg",
+    "image": "./assets/images/projects/project_40.jpg",
     "type": "업무시설, 숙박시설",
     "address": "서울 중구 남대문로4가 17-19",
     "client": "해성산업(주)",
@@ -1001,7 +1001,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "27",
     "name": "서초동 꽃마을 복합시설 신축공사(지하층)",
-    "image": "/assets/images/projects/project_27.jpg",
+    "image": "./assets/images/projects/project_27.jpg",
     "type": "업무시설, 공동주택, 판매시설, 공공이용시설",
     "address": "서울 서초구 서초동 1500-1",
     "client": "엠스케위피에프브이",
@@ -1020,7 +1020,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "38",
     "name": "삼성전자(주) 평택 고덕국제화산업단지 용역동(UT) 신축공사",
-    "image": "/assets/images/projects/project_38.jpg",
+    "image": "./assets/images/projects/project_38.jpg",
     "type": "공장(용역동)",
     "address": "경기 평택시 고덕면 여염리 1646",
     "client": "삼성전자(주)",
@@ -1037,7 +1037,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "37",
     "name": "운정신도시 센트럴푸르지오",
-    "image": "/assets/images/projects/project_37.jpg",
+    "image": "./assets/images/projects/project_37.jpg",
     "type": "공동주택 및 근린생활시설",
     "address": "경기 파주시 목동동 1142",
     "client": "운정신도시A25BL공동주택사업",
@@ -1054,7 +1054,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "36",
     "name": "서대전역 우방 아이유셀 스카이 팰리스 신축공사",
-    "image": "/assets/images/projects/project_36.jpg",
+    "image": "./assets/images/projects/project_36.jpg",
     "type": "공동주택(아파트 298세대), 근린생활시설",
     "address": "대전 중구 오류동 73-1",
     "client": "(주)티케이케미칼",
@@ -1072,7 +1072,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "35",
     "name": "파주운정 A21BL 아파트(행복주택) 건설공사 17공구",
-    "image": "/assets/images/projects/project_35.jpg",
+    "image": "./assets/images/projects/project_35.jpg",
     "type": "아파트",
     "address": "경기 파주시 교하로 20",
     "client": "한국토지주택공사",
@@ -1089,7 +1089,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "34",
     "name": "삼성전자(주) 평택 고덕국제화산업단지 냉각탑(CT) 신축공사",
-    "image": "/assets/images/projects/project_34.jpg",
+    "image": "./assets/images/projects/project_34.jpg",
     "type": "공장(기계실)",
     "address": "경기 평택시 고덕면 여염리 1646",
     "client": "삼성전자(주)",
@@ -1106,7 +1106,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "33",
     "name": "금계초 증축공사 및 백석초 다목적강당 증축공사",
-    "image": "/assets/images/projects/project_33.jpg",
+    "image": "./assets/images/projects/project_33.jpg",
     "type": "교육시설(학교)",
     "address": "경기 고양시 일산동구 백석동 1192",
     "client": "요진개발(주)",
@@ -1123,7 +1123,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "32",
     "name": "마곡럭스나인 오피스텔 C1-2 신축공사",
-    "image": "/assets/images/projects/project_32.jpg",
+    "image": "./assets/images/projects/project_32.jpg",
     "type": "업무시설(오피스텔), 근린생활시설",
     "address": "서울 강서구 마곡중앙5로1길 21",
     "client": "(주)안강건설",
@@ -1142,7 +1142,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "31",
     "name": "마곡럭스나인 오피스텔 C1-5 신축공사",
-    "image": "/assets/images/projects/project_31.jpg",
+    "image": "./assets/images/projects/project_31.jpg",
     "type": "업무시설(오피스텔), 근린생활시설",
     "address": "서울 강서구 마곡중앙5로1길 21",
     "client": "(주)우리도시개발",
@@ -1161,7 +1161,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "30",
     "name": "인천 기아차 서비스센터 신축공사",
-    "image": "/assets/images/projects/project_30.jpg",
+    "image": "./assets/images/projects/project_30.jpg",
     "type": "자동차관련시설, 창고시설, 근린생활시설",
     "address": "인천 미추홀구 도화동 378-15",
     "client": "(주)기아자동차",
@@ -1179,7 +1179,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "28",
     "name": "수원 광교 힐스테이트 신축현장",
-    "image": "/assets/images/projects/project_28.jpg",
+    "image": "./assets/images/projects/project_28.jpg",
     "type": "오피스텔, 판매시설",
     "address": "경기 수원시 영통구 하동 1021",
     "client": "레이크시티(주)",
@@ -1197,7 +1197,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "29",
     "name": "광진경찰서청사 신축공사",
-    "image": "/assets/images/projects/project_29.jpg",
+    "image": "./assets/images/projects/project_29.jpg",
     "type": "공공업무시설(경찰서)",
     "address": "서울 광진구 구의동 254-32",
     "client": "서울지방경찰청 광진경찰서",
@@ -1214,7 +1214,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "24",
     "name": "삼성전자(주) 평택 고덕국제화산업단지 154kv 신축공사",
-    "image": "/assets/images/projects/project_24.jpg",
+    "image": "./assets/images/projects/project_24.jpg",
     "type": "공장(부대시설)",
     "address": "경기 평택시 고덕면 삼성로 114",
     "client": "삼성전자(주)",
@@ -1231,7 +1231,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "26",
     "name": "서초동 꽃마을 복합시설 신축공사(지상층)",
-    "image": "/assets/images/projects/project_26.jpg",
+    "image": "./assets/images/projects/project_26.jpg",
     "type": "업무시설, 공동주택, 판매시설, 공공이용시설",
     "address": "서울 서초구 서초동 1500-1",
     "client": "엠스케위피에프브이",
@@ -1250,7 +1250,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "25",
     "name": "대구 테크노 A-7BL아파트",
-    "image": "/assets/images/projects/project_25.jpg",
+    "image": "./assets/images/projects/project_25.jpg",
     "type": "아파트, 공동주택",
     "address": "대구 달성군 현풍읍 중리 481",
     "client": "한국토지주택공사",
@@ -1267,7 +1267,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "22",
     "name": "BYC 본사 대수선 공사",
-    "image": "/assets/images/projects/project_22.jpg",
+    "image": "./assets/images/projects/project_22.jpg",
     "type": "업무시설",
     "address": "서울 영등포구 대림동 1104-1",
     "client": "(주)BYC",
@@ -1284,7 +1284,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "23",
     "name": "거제 피솔공장 도장공장",
-    "image": "/assets/images/projects/project_23.jpg",
+    "image": "./assets/images/projects/project_23.jpg",
     "type": "공장",
     "address": "경남 거제시 장평동 530",
     "client": "삼성중공업 조선해양사업부",
@@ -1301,7 +1301,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "21",
     "name": "평택정보시설 현장",
-    "image": "/assets/images/projects/project_21.jpg",
+    "image": "./assets/images/projects/project_21.jpg",
     "type": "",
     "address": "경기 평택시 가재길 14",
     "client": "",
@@ -1318,7 +1318,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "20",
     "name": "거제 장평 종합복지관 신축공사",
-    "image": "/assets/images/projects/project_20.jpg",
+    "image": "./assets/images/projects/project_20.jpg",
     "type": "운동시설(실내체육관/주차동/부속시설), 장학회관",
     "address": "경남 거제시 장평동 산 28",
     "client": "삼성중공업 조선해양사업부",
@@ -1336,7 +1336,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "19",
     "name": "수원 광교 이마트 신축현장",
-    "image": "/assets/images/projects/project_19.jpg",
+    "image": "./assets/images/projects/project_19.jpg",
     "type": "판매시설",
     "address": "경기 수원시 영통구 광교로 191수원 광교 이마트",
     "client": "(주)이마트",
@@ -1353,7 +1353,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "18",
     "name": "도곡동신아파트 주택재건축 공사",
-    "image": "/assets/images/projects/project_18.jpg",
+    "image": "./assets/images/projects/project_18.jpg",
     "type": "아파트",
     "address": "서울 강남구 도곡동 893-1",
     "client": "동신아파트 재건축조합",
@@ -1370,7 +1370,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "17",
     "name": "삼성창원병원 제3관 증축공사",
-    "image": "/assets/images/projects/project_17.jpg",
+    "image": "./assets/images/projects/project_17.jpg",
     "type": "의료시설",
     "address": "경남 창원시 마산회원구 합성동 50삼성창원병원",
     "client": "삼성창원병원",
@@ -1387,7 +1387,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "16",
     "name": "거제 사외 기숙사",
-    "image": "/assets/images/projects/project_16.jpg",
+    "image": "./assets/images/projects/project_16.jpg",
     "type": "공동주택(기숙사) 및 부대복리시설, 제2종 근생",
     "address": "경남 거제시 장평동 24",
     "client": "삼성중공업 조선해양사업부",
@@ -1404,7 +1404,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "15",
     "name": "판교 디테라스 신축공사",
-    "image": "/assets/images/projects/project_15.jpg",
+    "image": "./assets/images/projects/project_15.jpg",
     "type": "업무시설, 근린생활시설",
     "address": "경기 성남시 분당구 삼평동 691",
     "client": "(주)투비에이앤디 건축사",
@@ -1421,7 +1421,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "14",
     "name": "전주효자동 BYC빌딩 신축공사",
-    "image": "/assets/images/projects/project_14.jpg",
+    "image": "./assets/images/projects/project_14.jpg",
     "type": "근린생활시설",
     "address": "전북 전주시 완산구 홍산로 261",
     "client": "(주)BYC",
@@ -1438,7 +1438,7 @@ export const RECENT_PROJECTS = [
   {
     "id": "13",
     "name": "거제 조선 유틸리티공사(8콤프, K콤프)",
-    "image": "/assets/images/projects/project_13.jpg",
+    "image": "./assets/images/projects/project_13.jpg",
     "type": "",
     "address": "경남 거제시 장평3로 80",
     "client": "민간(법인)",

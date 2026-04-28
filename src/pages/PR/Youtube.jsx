@@ -3,7 +3,7 @@ import AnimatedSection from '../../components/ui/AnimatedSection';
 import './PR.css';
 
 const COMPANY_VIDEO = './assets/videos/intro.mp4';
-const VIDEO_POSTER  = '/assets/images/esg/esg-main.png';
+const VIDEO_POSTER  = './assets/images/esg/esg-main.png';
 
 const SUB_NAV = [
   { label: 'News', path: '/pr/news' },

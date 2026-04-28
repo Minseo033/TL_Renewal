@@ -4,9 +4,9 @@ import { Leaf, Globe, Recycle, HardHat, CheckCircle, Handshake, GraduationCap, S
 import './ESG.css';
 
 const IMG = {
-  esg:    '/assets/images/esg/esg-main.png',
-  env:    '/assets/images/esg/environment.jpg',
-  ethics: '/assets/images/esg/ethics.png',
+  esg:    './assets/images/esg/esg-main.png',
+  env:    './assets/images/esg/environment.jpg',
+  ethics: './assets/images/esg/ethics.png',
 };
 
 const ESG_SECTIONS = [
@@ -15,6 +15,7 @@ const ESG_SECTIONS = [
     title: '환경 (Environmental)',
     color: '#2E8B4A',
     icon: <Leaf size={40} strokeWidth={1} />,
+    summary: '저탄소 시공과 폐기물 저감으로 현장 환경 영향을 줄입니다.',
     items: [
       { title: '탄소 중립 목표', desc: '2050 탄소중립 달성을 위한 친환경 시공 기술 개발 및 온실가스 배출량 단계적 감축', icon: <Globe size={20} strokeWidth={1.5} /> },
       { title: '건설 폐기물 관리', desc: '현장 폐기물 분리수거 및 재활용률 극대화. 폐자재 재활용 기술 적극 도입', icon: <Recycle size={20} strokeWidth={1.5} /> },
@@ -27,6 +28,7 @@ const ESG_SECTIONS = [
     title: '사회 (Social)',
     color: '#1B3A5C',
     icon: <Handshake size={40} strokeWidth={1} />,
+    summary: '안전과 상생을 중심으로 사람과 지역사회에 기여합니다.',
     items: [
       { title: '지역사회 공헌', desc: '지역 청소년 대상 장학금 지원, 취약계층 주거 지원, 지역 행사 후원 등 사회공헌 활동', icon: <GraduationCap size={20} strokeWidth={1.5} /> },
       { title: '안전 제일주의', desc: '"Zero Accident" 달성을 위한 안전 교육 강화, ISO 45001 기반 안전보건경영시스템 운영', icon: <ShieldCheck size={20} strokeWidth={1.5} /> },
@@ -39,6 +41,7 @@ const ESG_SECTIONS = [
     title: '지배구조 (Governance)',
     color: '#C9A84C',
     icon: <Landmark size={40} strokeWidth={1} />,
+    summary: '윤리·투명 경영 체계로 신뢰 가능한 의사결정을 만듭니다.',
     items: [
       { title: '투명한 경영', desc: '정기 감사 및 외부 감사를 통한 재무 투명성 확보와 이해관계자에 대한 정보 공개', icon: <BarChart size={20} strokeWidth={1.5} /> },
       { title: '윤리 경영', desc: '부패방지 청렴 서약, 공정거래 준수, 반부패 교육을 통한 건전한 기업 문화 조성', icon: <Scale size={20} strokeWidth={1.5} /> },
@@ -75,6 +78,7 @@ export default function ESG() {
               <div className="esg-key">{s.key}</div>
               <div className="esg-overview-icon">{s.icon}</div>
               <h3>{s.title}</h3>
+              <p>{s.summary}</p>
             </div>
           </AnimatedSection>
         ))}
