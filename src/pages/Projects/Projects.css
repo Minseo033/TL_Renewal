@@ -100,36 +100,12 @@
 }
 
 .capability-card {
-  position: relative;
   height: 100%;
   padding: 30px;
   border-radius: var(--radius-xl);
   background: #fff;
   border: 1px solid var(--color-border-light);
   box-shadow: var(--shadow-card);
-  overflow: hidden;
-  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
-}
-
-.capability-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 110px;
-  height: 110px;
-  background: radial-gradient(circle, rgba(201,168,76,0.18), transparent 70%);
-}
-
-.capability-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-card-hover);
-  border-color: rgba(46,139,74,0.28);
-}
-
-.capability-card > * {
-  position: relative;
-  z-index: 1;
 }
 
 .capability-icon {
@@ -168,28 +144,11 @@
 }
 
 .management-panel {
-  position: relative;
   padding: 38px;
   border-radius: var(--radius-2xl);
-  background:
-    radial-gradient(circle at 92% 12%, rgba(201,168,76,0.2), transparent 28%),
-    linear-gradient(135deg, rgba(27, 58, 92, 0.96), rgba(13, 27, 42, 0.94));
+  background: linear-gradient(135deg, rgba(27, 58, 92, 0.96), rgba(13, 27, 42, 0.94));
   color: #fff;
   box-shadow: var(--shadow-xl);
-  overflow: hidden;
-}
-
-.management-panel::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
-  mask-image: linear-gradient(90deg, rgba(0,0,0,0.45), transparent 75%);
-}
-
-.management-panel > * {
-  position: relative;
 }
 
 .management-panel-heading h3 {
@@ -212,12 +171,6 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   gap: 14px;
-  transition: transform var(--transition-base), background var(--transition-base);
-}
-
-.management-item:hover {
-  transform: translateY(-4px);
-  background: rgba(255,255,255,0.12);
 }
 
 .management-icon {

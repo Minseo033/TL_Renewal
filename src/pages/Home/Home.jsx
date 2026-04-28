@@ -94,7 +94,7 @@ export default function Home() {
             muted 
             loop 
             playsInline
-            poster="./assets/images/esg/esg-main.png"
+            poster="/assets/images/esg/esg-main.png"
           >
             <source src="./assets/videos/intro.mp4" type="video/mp4" />
           </video>
@@ -118,11 +118,6 @@ export default function Home() {
               <Link to="/projects/orders" className="btn btn-outline-white hero-btn-sub">
                 사업 실적 보기
               </Link>
-            </div>
-            <div className="hero-proof-row" aria-label="핵심 신뢰 지표">
-              <span><strong>30년+</strong> 전문 시공 경험</span>
-              <span><strong>85건+</strong> 주요 프로젝트</span>
-              <span><strong>ISO</strong> 품질·환경·안전</span>
             </div>
           </div>
         </div>
@@ -392,7 +387,7 @@ export default function Home() {
                   <video
                     className="youtube-iframe"
                     controls
-                    poster="./assets/images/esg/esg-main.png"
+                    poster="/assets/images/esg/esg-main.png"
                     preload="metadata"
                   >
                     <source src="./assets/videos/intro.mp4" type="video/mp4" />

@@ -111,7 +111,7 @@ export default function Header() {
             {NAV_ITEMS.map((item, idx) => (
               <li
                 key={idx}
-                className={`nav-item ${activeMenu === idx ? 'active' : ''} ${location.pathname === item.path || location.pathname.startsWith(`${item.path}/`) ? 'current' : ''}`}
+                className={`nav-item ${activeMenu === idx ? 'active' : ''}`}
                 onMouseEnter={() => setActiveMenu(idx)}
                 onMouseLeave={() => setActiveMenu(null)}
               >

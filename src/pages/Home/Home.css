@@ -28,9 +28,7 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 72% 32%, rgba(201, 168, 76, 0.22), transparent 28%),
-    linear-gradient(105deg, rgba(8, 18, 30, 0.88) 0%, rgba(13, 27, 42, 0.72) 46%, rgba(22, 69, 42, 0.66) 100%);
+  background: linear-gradient(135deg, rgba(13, 27, 42, 0.7) 0%, rgba(27, 58, 92, 0.6) 50%, rgba(13, 42, 26, 0.7) 100%);
 }
 
 .hero-content {
@@ -65,11 +63,10 @@
   font-size: var(--font-size-hero);
   font-weight: 900;
   color: #fff;
-  line-height: 1.12;
+  line-height: 1.2;
   margin-bottom: 20px;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   word-break: keep-all;
-  text-shadow: 0 14px 44px rgba(0,0,0,0.28);
 }
 
 .hero-subtitle {
@@ -85,31 +82,6 @@
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-}
-
-.hero-proof-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 28px;
-}
-
-.hero-proof-row span {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 14px;
-  border-radius: var(--radius-full);
-  background: rgba(255,255,255,0.11);
-  border: 1px solid rgba(255,255,255,0.18);
-  color: rgba(255,255,255,0.78);
-  font-size: 13px;
-  backdrop-filter: blur(10px);
-}
-
-.hero-proof-row strong {
-  color: var(--color-accent-light);
-  font-weight: 900;
 }
 
 .hero-btn-main {
@@ -416,10 +388,7 @@
 
 .business-card {
   position: relative;
-  min-height: 230px;
-  background:
-    linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.94)),
-    var(--color-bg-card);
+  background: #fff;
   border-radius: var(--radius-xl);
   padding: 36px 28px;
   display: flex;
@@ -431,20 +400,9 @@
   border: 1px solid var(--color-border-light);
 }
 
-.business-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: var(--card-color);
-}
-
 .business-card:hover {
   transform: translateY(-6px);
   box-shadow: var(--shadow-card-hover);
-  border-color: color-mix(in srgb, var(--card-color) 28%, white);
 }
 
 .business-card:hover .business-card-bg {
@@ -454,29 +412,15 @@
 .business-card-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 86% 12%, color-mix(in srgb, var(--card-color) 18%, transparent), transparent 34%),
-    linear-gradient(135deg, color-mix(in srgb, var(--card-color) 8%, transparent) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(var(--card-color), 0.05) 0%, transparent 60%);
   opacity: 0;
   transition: opacity var(--transition-base);
 }
 
 .business-card-icon {
-  width: 62px;
-  height: 62px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  color: #fff;
-  background: var(--card-color);
-  box-shadow: 0 12px 28px color-mix(in srgb, var(--card-color) 28%, transparent);
+  font-size: 36px;
   position: relative;
   z-index: 1;
-}
-
-.business-icon-lucide {
-  stroke: currentColor;
 }
 
 .business-card-title {
@@ -496,12 +440,9 @@
 }
 
 .business-card-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
   font-size: 13px;
   font-weight: 600;
-  color: var(--card-color);
+  color: var(--color-brand);
   position: relative;
   z-index: 1;
   margin-top: auto;
@@ -900,15 +841,6 @@
 
   .hero-subtitle {
     font-size: 15px;
-  }
-
-  .hero-proof-row {
-    gap: 8px;
-  }
-
-  .hero-proof-row span {
-    font-size: 12px;
-    padding: 8px 10px;
   }
 
   .stats-grid {
