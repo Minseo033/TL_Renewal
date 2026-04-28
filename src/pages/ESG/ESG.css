@@ -7,24 +7,16 @@
   border-radius: var(--radius-2xl);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
-  background:
-    radial-gradient(circle at 88% 14%, rgba(201,168,76,0.22), transparent 30%),
-    var(--gradient-dark);
+  background: var(--color-primary-dark);
   min-height: 280px;
 }
 
 .esg-hero-img-wrap {
   position: relative;
   min-height: 260px;
-  background: linear-gradient(135deg, rgba(46, 139, 74, 0.22), rgba(27, 58, 92, 0.36));
+  background: var(--color-bg);
 }
 
-.esg-hero-img-wrap::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, transparent 55%, rgba(13, 27, 42, 0.28));
-}
 
 .esg-hero-img {
   width: 100%;
@@ -61,16 +53,9 @@
   overflow: hidden;
 }
 
-.esg-overview-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% -10%, color-mix(in srgb, var(--esg-color) 16%, transparent), transparent 42%);
-  opacity: 0.9;
-}
 
 .esg-overview-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   box-shadow: var(--shadow-card-hover);
 }
 

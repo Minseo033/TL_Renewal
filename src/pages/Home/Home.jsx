@@ -60,9 +60,9 @@ const HERO_SLIDES = [
     accent: '태일씨앤티',
   },
   {
-    headline: '스마트 건설로 여는\n미래 건축의 지평',
-    sub: 'BIM 기술과 혁신으로 대한민국 건설 산업을 선도합니다',
-    accent: '기술혁신',
+    headline: '검증된 기술로 완성하는\n안전한 건설 현장',
+    sub: '철근콘크리트 전문성과 현장 관리 역량으로 품질을 지켜갑니다',
+    accent: '기술역량',
   },
   {
     headline: '함께 성장하는\n인재를 기다립니다',
@@ -118,11 +118,6 @@ export default function Home() {
               <Link to="/projects/orders" className="btn btn-outline-white hero-btn-sub">
                 사업 실적 보기
               </Link>
-            </div>
-            <div className="hero-proof-row" aria-label="핵심 신뢰 지표">
-              <span><strong>30년+</strong> 전문 시공 경험</span>
-              <span><strong>85건+</strong> 주요 프로젝트</span>
-              <span><strong>ISO</strong> 품질·환경·안전</span>
             </div>
           </div>
         </div>
@@ -206,7 +201,7 @@ export default function Home() {
                 </h2>
                 <div className="intro-desc-wrap">
                   <p className="intro-desc lead">
-                    1994년 설립 이래, 철근콘크리트 전문 건설회사로서 혁신적인 기술력과 완벽한 품질로 대한민국 건설의 새로운 지평을 열어갑니다.
+                    1994년 설립 이래, 철근콘크리트 전문 건설회사로서 혁신적인 기술력과 완벽한 품질로 신뢰받는 시공 품질을 쌓아가고 있습니다.
                   </p>
                   <p className="intro-desc">
                     삼성물산, GS건설, 현대건설 등 국내 최상위 대형 건설사들의 신뢰받는 파트너로서 주택, 초고층, 플랜트 등 모든 핵심 분야에서 최고의 가치를 창출합니다.
@@ -232,7 +227,7 @@ export default function Home() {
                     <div className="intro-value-icon-wrap"><Target size={20} strokeWidth={1.5} /></div>
                     <div className="intro-value-text">
                       <strong>근면성실</strong>
-                      <p>꾸준한 혁신으로 미래 경쟁력을 확보합니다</p>
+                      <p>꾸준한 개선으로 현장 품질을 높입니다</p>
                     </div>
                   </div>
                 </div>
@@ -285,11 +280,6 @@ export default function Home() {
                 <p className="section-subtitle">
                   기존 홈페이지의 기술자료 메뉴를 복원하고, BIM·품질·안전관리 메시지를 정적 콘텐츠로 재정리했습니다.
                 </p>
-                <div className="technology-chip-row">
-                  <span><Cpu size={16} /> BIM 검토</span>
-                  <span><ShieldCheck size={16} /> 품질·안전 표준</span>
-                  <span><Zap size={16} /> 현장 개선</span>
-                </div>
                 <Link to="/technology/overview" className="btn btn-primary">
                   기술자료 보기 <ArrowRight size={16} />
                 </Link>
