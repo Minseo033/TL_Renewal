@@ -4,9 +4,9 @@ import { Leaf, Globe, Recycle, HardHat, CheckCircle, Handshake, GraduationCap, S
 import './ESG.css';
 
 const IMG = {
-  esg:    './assets/images/esg/esg-main.png',
-  env:    './assets/images/esg/environment.jpg',
-  ethics: './assets/images/esg/ethics.png',
+  esg:    '/assets/images/esg/esg-main.png',
+  env:    '/assets/images/esg/environment.jpg',
+  ethics: '/assets/images/esg/ethics.png',
 };
 
 const ESG_SECTIONS = [
@@ -56,7 +56,7 @@ export default function ESG() {
     >
       <AnimatedSection className="esg-hero">
         <div className="esg-hero-img-wrap">
-          <img src={IMG.esg} alt="ESG 경영" className="esg-hero-img" onError={e=>e.currentTarget.style.display='none'}/>
+          <img src={IMG.esg} alt="ESG 경영" className="esg-hero-img" />
         </div>
         <div className="esg-hero-text">
           <p className="section-eyebrow">ESG MANAGEMENT</p>
@@ -92,7 +92,7 @@ export default function ESG() {
             </div>
             {sectionImg && (
               <div className="esg-section-img-wrap">
-                <img src={sectionImg} alt={s.title} className="esg-section-img" onError={e=>e.currentTarget.style.display='none'}/>
+                <img src={sectionImg} alt={s.title} className="esg-section-img" />
               </div>
             )}
             <div className="esg-items-grid">

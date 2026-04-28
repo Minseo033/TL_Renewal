@@ -14,6 +14,7 @@
 .esg-hero-img-wrap {
   position: relative;
   min-height: 260px;
+  background: linear-gradient(135deg, rgba(46, 139, 74, 0.22), rgba(27, 58, 92, 0.36));
 }
 
 .esg-hero-img {
@@ -87,6 +88,7 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   max-height: 300px;
+  background: var(--color-bg);
 }
 
 .esg-section-img {

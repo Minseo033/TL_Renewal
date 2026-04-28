@@ -94,7 +94,7 @@ export default function Home() {
             muted 
             loop 
             playsInline
-            poster="./assets/images/esg/esg-main.png"
+            poster="/assets/images/esg/esg-main.png"
           >
             <source src="./assets/videos/intro.mp4" type="video/mp4" />
           </video>
@@ -387,7 +387,7 @@ export default function Home() {
                   <video
                     className="youtube-iframe"
                     controls
-                    poster="./assets/images/esg/esg-main.png"
+                    poster="/assets/images/esg/esg-main.png"
                     preload="metadata"
                   >
                     <source src="./assets/videos/intro.mp4" type="video/mp4" />
