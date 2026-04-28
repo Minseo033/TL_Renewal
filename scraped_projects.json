@@ -1,0 +1,38 @@
+[
+  {
+    "id": "87",
+    "name": "다이소 세종 온라인센터",
+    "client": "(주)아성다이소",
+    "image": "/assets/images/projects/project_87.jpg"
+  },
+  {
+    "id": "85",
+    "name": "용인 Cluster 1기 OBL",
+    "client": "에스케이하이닉스(주)",
+    "image": "/assets/images/projects/project_85.jpg"
+  },
+  {
+    "id": "84",
+    "name": "Westin Seoul Parnas 리모델링공사",
+    "client": "파르나스호텔㈜",
+    "image": "/assets/images/projects/project_84.jpg"
+  },
+  {
+    "id": "83",
+    "name": "용인 Cluster 1기 공동구",
+    "client": "에스케이하이닉스(주)",
+    "image": "/assets/images/projects/project_83.jpg"
+  },
+  {
+    "id": "82",
+    "name": "한국일보용산사옥 신축공사",
+    "client": "(주)한국일보사",
+    "image": "/assets/images/projects/project_82.jpg"
+  },
+  {
+    "id": "80",
+    "name": "디지털 엠파이어 평촌 비즈밸리 신축공사",
+    "client": "주식회사 케이티앤지",
+    "image": "/assets/images/projects/project_80.jpg"
+  }
+]
