@@ -13,6 +13,8 @@ import Certifications from './pages/Company/Certifications';
 import Location from './pages/Company/Location';
 import ProjectOrders from './pages/Projects/ProjectOrders';
 import ProjectCategory from './pages/Projects/ProjectCategory';
+import Capability from './pages/Projects/Capability';
+import Technology from './pages/Technology/Technology';
 import News from './pages/PR/News';
 import Youtube from './pages/PR/Youtube';
 import ESG from './pages/ESG/ESG';
@@ -40,6 +42,9 @@ export default function App() {
 
         {/* 사업실적 */}
         <Route path="/projects/orders" element={<ProjectOrders />} />
+        <Route path="/projects/capability" element={<Capability />} />
+        <Route path="/projects/quality" element={<Capability />} />
+        <Route path="/projects/safety" element={<Capability />} />
         <Route path="/projects/housing" element={<ProjectCategory category="주택" />} />
         <Route path="/projects/office" element={<ProjectCategory category="업무시설" />} />
         <Route path="/projects/education" element={<ProjectCategory category="교육/의료" />} />
@@ -48,9 +53,15 @@ export default function App() {
         <Route path="/projects/retail" element={<ProjectCategory category="판매시설" />} />
         <Route path="/projects/others" element={<ProjectCategory category="기타" />} />
 
+        {/* 기술자료 */}
+        <Route path="/technology" element={<Technology />} />
+        <Route path="/technology/overview" element={<Technology />} />
+        <Route path="/technology/news" element={<Technology mode="news" />} />
+
         {/* 홍보센터 */}
         <Route path="/pr/news" element={<News />} />
         <Route path="/pr/youtube" element={<Youtube />} />
+        <Route path="/pr/video" element={<Youtube />} />
 
         {/* ESG경영 */}
         <Route path="/esg" element={<ESG />} />

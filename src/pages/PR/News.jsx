@@ -14,9 +14,12 @@ import 'swiper/css/effect-fade';
 
 import './News.css';
 
+const MotionDiv = motion.div;
+const MotionP = motion.p;
+
 const SUB_NAV = [
   { label: 'News', path: '/pr/news' },
-  { label: '홍보동영상', path: '/pr/video' },
+  { label: '홍보동영상', path: '/pr/youtube' },
 ];
 
 const FALLBACK_IMG =
@@ -169,7 +172,7 @@ export default function News() {
       {/* ── Detail Modal (Framer Motion) ── */}
       <AnimatePresence>
         {selectedNews && (
-          <motion.div
+          <MotionDiv
             className="news-modal-overlay"
             variants={overlayVariants}
             initial="hidden"
@@ -177,7 +180,7 @@ export default function News() {
             exit="exit"
             onClick={closeModal}
           >
-            <motion.div
+            <MotionDiv
               className="news-modal"
               variants={modalVariants}
               initial="hidden"
@@ -209,7 +212,7 @@ export default function News() {
               </div>
 
               {/* Body with stagger animation */}
-              <motion.div
+              <MotionDiv
                 ref={modalBodyRef}
                 className="news-modal-content"
                 variants={contentStagger}
@@ -218,16 +221,16 @@ export default function News() {
               >
                 {/* Lead paragraph — first one is bigger */}
                 {paragraphs.length > 0 && (
-                  <motion.p className="news-modal-lead" variants={paraVariants}>
+                  <MotionP className="news-modal-lead" variants={paraVariants}>
                     {paragraphs[0]}
-                  </motion.p>
+                  </MotionP>
                 )}
                 {paragraphs.slice(1).map((para, i) => (
-                  <motion.p key={i} variants={paraVariants}>{para}</motion.p>
+                  <MotionP key={i} variants={paraVariants}>{para}</MotionP>
                 ))}
-              </motion.div>
-            </motion.div>
-          </motion.div>
+              </MotionDiv>
+            </MotionDiv>
+          </MotionDiv>
         )}
       </AnimatePresence>
     </PageLayout>

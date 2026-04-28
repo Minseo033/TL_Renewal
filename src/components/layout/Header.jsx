@@ -20,6 +20,7 @@ const NAV_ITEMS = [
     path: '/projects',
     sub: [
       { title: '공사수주 현황', path: '/projects/orders' },
+      { title: '시공능력/품질·안전', path: '/projects/capability' },
       { title: '주택', path: '/projects/housing' },
       { title: '업무시설', path: '/projects/office' },
       { title: '교육/의료', path: '/projects/education' },
@@ -27,6 +28,14 @@ const NAV_ITEMS = [
       { title: '초고층', path: '/projects/highrise' },
       { title: '판매시설', path: '/projects/retail' },
       { title: '기타', path: '/projects/others' },
+    ],
+  },
+  {
+    title: '기술자료',
+    path: '/technology',
+    sub: [
+      { title: '기술자료 안내', path: '/technology/overview' },
+      { title: '기술자료 News', path: '/technology/news' },
     ],
   },
   {
@@ -71,17 +80,17 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
+  const closeMobileMenu = () => {
     setMobileOpen(false);
     setActiveMenu(null);
-  }, [location]);
+  };
 
   const headerClass = `header ${scrolled || !isHome ? 'header-solid' : 'header-transparent'}`;
 
   return (
     <header className={headerClass} ref={headerRef}>
       <div className="header-inner">
-        <Link to="/" className="header-logo">
+        <Link to="/" className="header-logo" onClick={closeMobileMenu}>
           <div className="logo-icon">
             <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <rect x="2" y="20" width="10" height="18" rx="1" fill="#2E8B4A"/>
@@ -106,7 +115,11 @@ export default function Header() {
                 onMouseEnter={() => setActiveMenu(idx)}
                 onMouseLeave={() => setActiveMenu(null)}
               >
-                <Link to={item.sub.length > 0 ? item.sub[0].path : item.path} className="nav-link">
+                <Link
+                  to={item.sub.length > 0 ? item.sub[0].path : item.path}
+                  className="nav-link"
+                  onClick={closeMobileMenu}
+                >
                   {item.title}
                 </Link>
                 {item.sub.length > 0 && (
@@ -117,6 +130,7 @@ export default function Header() {
                           key={subIdx}
                           to={sub.path}
                           className={`nav-dropdown-link ${location.pathname === sub.path ? 'active' : ''}`}
+                          onClick={closeMobileMenu}
                         >
                           {sub.title}
                         </Link>

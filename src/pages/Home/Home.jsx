@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, Building, Factory, Hospital, Store, Zap, Handshake, Target, Landmark } from 'lucide-react';
+import { Building2, Building, Factory, Hospital, Store, Zap, Handshake, Target, Landmark, Cpu, ShieldCheck, ArrowRight } from 'lucide-react';
 import AnimatedSection from '../../components/ui/AnimatedSection';
 import './Home.css';
 
@@ -73,11 +73,9 @@ const HERO_SLIDES = [
 
 export default function Home() {
   const [heroIdx, setHeroIdx] = useState(0);
-  const [prevIdx, setPrevIdx] = useState(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setPrevIdx(heroIdx);
       setHeroIdx(i => (i + 1) % HERO_SLIDES.length);
     }, 5000);
     return () => clearInterval(interval);
@@ -129,7 +127,7 @@ export default function Home() {
             <button
               key={i}
               className={`hero-dot ${i === heroIdx ? 'active' : ''}`}
-              onClick={() => { setPrevIdx(heroIdx); setHeroIdx(i); }}
+              onClick={() => setHeroIdx(i)}
               aria-label={`슬라이드 ${i + 1}`}
             />
           ))}
@@ -267,6 +265,50 @@ export default function Home() {
                 </Link>
               </AnimatedSection>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Technology ── */}
+      <section className="section technology-highlight-section">
+        <div className="container">
+          <div className="technology-highlight-grid">
+            <AnimatedSection direction="left">
+              <div className="technology-highlight-copy">
+                <p className="section-eyebrow">TECHNICAL RESOURCES</p>
+                <h2 className="section-title">기술자료까지 갖춘<br/>현장 중심 홈페이지</h2>
+                <p className="section-subtitle">
+                  기존 홈페이지의 기술자료 메뉴를 복원하고, BIM·품질·안전관리 메시지를 정적 콘텐츠로 재정리했습니다.
+                </p>
+                <div className="technology-chip-row">
+                  <span><Cpu size={16} /> BIM 검토</span>
+                  <span><ShieldCheck size={16} /> 품질·안전 표준</span>
+                  <span><Zap size={16} /> 현장 개선</span>
+                </div>
+                <Link to="/technology/overview" className="btn btn-primary">
+                  기술자료 보기 <ArrowRight size={16} />
+                </Link>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection direction="right" delay={120}>
+              <div className="technology-highlight-panel">
+                <div className="tech-panel-item">
+                  <strong>01</strong>
+                  <span>시공 전 검토</span>
+                  <p>도면·공정·물량 리스크 사전 확인</p>
+                </div>
+                <div className="tech-panel-item">
+                  <strong>02</strong>
+                  <span>품질 관리</span>
+                  <p>검측 체크리스트와 ISO 인증 체계 기반 운영</p>
+                </div>
+                <div className="tech-panel-item">
+                  <strong>03</strong>
+                  <span>안전 실행</span>
+                  <p>위험성 평가와 현장 교육으로 사고 예방</p>
+                </div>
+              </div>
+            </AnimatedSection>
           </div>
         </div>
       </section>
