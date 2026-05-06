@@ -1,16 +1,47 @@
-# React + Vite
+# 태일씨앤티 홈페이지 리뉴얼
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+철근콘크리트 전문 건설회사인 태일씨앤티의 정체성, 주요 실적, 채용 정보, 뉴스·사회공헌을 정적 호스팅 환경에 맞춰 구성한 React 기반 홈페이지입니다.
 
-Currently, two official plugins are available:
+## 실행 환경
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js 22 LTS 권장
+- JavaScript + React + Vite
+- 서버 API 없이 정적 호스팅 기준
 
-## React Compiler
+```bash
+npm install
+npm run dev
+npm run build
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 운영 방식
 
-## Expanding the ESLint configuration
+- 프로젝트 실적: `src/data/projectsData.js`
+- 뉴스/사회공헌: `src/data/newsData.js`
+- 이미지: `public/assets/images`
+- 영상: `public/assets/videos/intro.mp4`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+새 이미지를 추가할 때는 `public/assets/images/...` 아래에 넣고 데이터 파일의 `image` 값을 `./assets/images/...` 형태로 작성합니다. 중간 발표와 정적 배포를 고려해 리소스 경로는 상대경로를 사용합니다.
+
+## 데이터 기준
+
+페이지 문구와 수치 정보는 아래 공개 자료에서 확인되는 항목만 사용합니다.
+
+- 태일씨앤티 운영 홈페이지: 회사소개, 회사연혁, 공사 수주현황, 뉴스
+- 사람인 기업정보: 업종, 주소, 복리후생, 기업 소개
+- 잡코리아/NICE 공개정보: 매출액, 동종업계 순위, 대표자, 주요사업
+- 산군 공개정보: 전문건설업 도급순위, 시공능력평가액
+
+확인되지 않은 채용 절차, 직무 자격, 관리자 임의 수치, 가상의 기술자료 News, 외부 영상 목록은 넣지 않습니다.
+
+## 리뉴얼 방향
+
+- 첫 화면에서 철근콘크리트 전문 건설회사임을 즉시 인지
+- 홍보영상의 메시지를 홈페이지 섹션 구조로 압축
+- 지원자가 자주 찾는 채용 메뉴를 홈에서 빠르게 접근
+- 공개 자료 기반으로 실적, 파트너, 안전·품질 메시지를 빠르게 확인할 수 있도록 구성
+- 모바일 반응형과 애니메이션 유지
+
+## 복원 기준점
+
+리팩토링 전 상태는 Git 태그 `restore-before-renewal-refactor`에 보관했습니다.

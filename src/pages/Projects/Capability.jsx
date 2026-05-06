@@ -5,7 +5,9 @@ import './Projects.css';
 
 const SUB_NAV = [
   { label: '공사수주 현황', path: '/projects/orders' },
-  { label: '시공능력/품질·안전', path: '/projects/capability' },
+  { label: '건설시공능력', path: '/projects/capability' },
+  { label: '품질경영', path: '/projects/quality' },
+  { label: '안전경영', path: '/projects/safety' },
   { label: '주택', path: '/projects/housing' },
   { label: '업무시설', path: '/projects/office' },
   { label: '교육/의료', path: '/projects/education' },
@@ -16,29 +18,52 @@ const SUB_NAV = [
 ];
 
 const CAPABILITY_ITEMS = [
-  { icon: <TrendingUp size={26} />, label: '철근콘크리트 전문 순위', value: '전국 61위', desc: '전문건설 시공능력 평가 기준의 신뢰도 강조' },
-  { icon: <Award size={26} />, label: '주요 원청 파트너', value: '25개사+', desc: '삼성물산, 현대건설, GS건설 등 대형 건설사 협업' },
-  { icon: <BarChart3 size={26} />, label: '프로젝트 포트폴리오', value: '85건+', desc: '주택·업무·플랜트·초고층 등 다양한 수행 경험' },
+  { icon: <TrendingUp size={26} />, label: '철근콘크리트공사 도급순위', value: '55위', desc: '철근콘크리트공사 전문 역량 지표' },
+  { icon: <Award size={26} />, label: '시공능력평가액', value: '978억', desc: '철근콘크리트공사 시공능력평가액' },
+  { icon: <BarChart3 size={26} />, label: '동종업계 순위', value: '61위', desc: '동종업계 내 경쟁력 지표' },
 ];
 
 const SYSTEM_ITEMS = [
-  { icon: <CheckCircle2 size={24} />, title: '품질경영', desc: '착공 전 품질 계획, 주요 공정 검측, 하자 예방 점검을 표준 프로세스로 운영합니다.' },
-  { icon: <ShieldCheck size={24} />, title: '안전경영', desc: '위험성 평가와 현장 교육, 일일 안전점검으로 중대재해 예방 문화를 정착시킵니다.' },
-  { icon: <HardHat size={24} />, title: '현장 실행력', desc: '전문 인력과 협력사 네트워크를 기반으로 공정 준수와 현장 대응 속도를 높입니다.' },
+  { icon: <CheckCircle2 size={24} />, title: 'KS Q ISO 9001:2015', desc: '품질경영시스템 기반의 현장 관리' },
+  { icon: <ShieldCheck size={24} />, title: 'OHSAS 18001:2017', desc: '안전보건경영 체계 기반의 현장 운영' },
+  { icon: <HardHat size={24} />, title: '철근콘크리트공사', desc: '주력 사업으로 축적한 현장 수행 역량' },
 ];
 
-export default function Capability() {
+const PAGE_META = {
+  capability: {
+    label: '건설시공능력',
+    eyebrow: 'CONSTRUCTION CAPABILITY',
+    title: '건설시공능력',
+    subtitle: '철근콘크리트공사 전문 역량과 주요 실적을 한눈에 확인할 수 있습니다.',
+  },
+  quality: {
+    label: '품질경영',
+    eyebrow: 'QUALITY MANAGEMENT',
+    title: '품질경영',
+    subtitle: '품질경영시스템과 현장 관리 원칙으로 안정적인 시공 품질을 만듭니다.',
+  },
+  safety: {
+    label: '안전경영',
+    eyebrow: 'SAFETY MANAGEMENT',
+    title: '안전경영',
+    subtitle: '오늘의 안전은 어제로부터, 내일의 안전은 오늘로부터라는 마음으로 안전 문화를 지킵니다.',
+  },
+};
+
+export default function Capability({ mode = 'capability' }) {
+  const meta = PAGE_META[mode] || PAGE_META.capability;
+
   return (
     <PageLayout
       title="사업실적"
-      breadcrumb={[{ label: '사업실적', path: '/projects/orders' }, { label: '시공능력/품질·안전' }]}
+      breadcrumb={[{ label: '사업실적', path: '/projects/orders' }, { label: meta.label }]}
       subNav={SUB_NAV}
     >
       <AnimatedSection>
-        <p className="section-eyebrow">CAPABILITY & MANAGEMENT</p>
-        <h2 className="section-title">시공능력과 품질·안전경영</h2>
+        <p className="section-eyebrow">{meta.eyebrow}</p>
+        <h2 className="section-title">{meta.title}</h2>
         <p className="section-subtitle">
-          기존 홈페이지의 시공능력, 품질경영, 안전경영 메뉴를 하나의 정적 페이지로 재구성해 사업 신뢰도를 빠르게 확인할 수 있도록 정리했습니다.
+          {meta.subtitle}
         </p>
       </AnimatedSection>
 

@@ -1,136 +1,103 @@
-import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, Building, Factory, Hospital, Store, Zap, Handshake, Target, Landmark, Cpu, ShieldCheck, ArrowRight } from 'lucide-react';
+import {
+  ArrowRight,
+  BadgeCheck,
+  BriefcaseBusiness,
+  Building2,
+  CalendarCheck,
+  HardHat,
+  MapPinned,
+  ShieldCheck,
+  Sparkles,
+  Users,
+} from 'lucide-react';
 import AnimatedSection from '../../components/ui/AnimatedSection';
+import { RECENT_PROJECTS } from '../../data/projectsData';
+import { NEWS_DATA } from '../../data/newsData';
 import './Home.css';
 
-/* ── Stat Counter ── */
-function Counter({ target, suffix = '', duration = 2000 }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef();
-  const started = useRef(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !started.current) {
-        started.current = true;
-        const step = target / (duration / 16);
-        let current = 0;
-        const timer = setInterval(() => {
-          current += step;
-          if (current >= target) {
-            setCount(target);
-            clearInterval(timer);
-          } else {
-            setCount(Math.floor(current));
-          }
-        }, 16);
-      }
-    }, { threshold: 0.5 });
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [target, duration]);
-
-  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
-}
-
-/* ── Business Cards data ── */
-const BUSINESS_AREAS = [
-  { icon: <Building2 className="business-icon-lucide" size={36} />, title: '철근콘크리트', desc: '고품질 철근콘크리트 시공', color: '#1B3A5C', path: '/projects/housing' },
-  { icon: <Building className="business-icon-lucide" size={36} />, title: '업무시설', desc: '오피스·상업건물 전문 시공', color: '#2E8B4A', path: '/projects/office' },
-  { icon: <Landmark className="business-icon-lucide" size={36} />, title: '초고층건물', desc: '초고층 구조물 전문 시공', color: '#C9A84C', path: '/projects/highrise' },
-  { icon: <Factory className="business-icon-lucide" size={36} />, title: '플랜트', desc: '산업설비·플랜트 시공', color: '#2A5580', path: '/projects/plant' },
-  { icon: <Hospital className="business-icon-lucide" size={36} />, title: '교육·의료', desc: '학교·병원 건축 전문', color: '#3AA65C', path: '/projects/education' },
-  { icon: <Store className="business-icon-lucide" size={36} />, title: '판매시설', desc: '리테일·복합시설 시공', color: '#A68A30', path: '/projects/retail' },
+const CORE_STRENGTHS = [
+  {
+    icon: <HardHat size={24} />,
+    title: '철근콘크리트 전문 시공',
+    text: '주택, 업무시설, 초고층, 플랜트까지 구조체 공사의 핵심 공정을 수행합니다.',
+  },
+  {
+    icon: <ShieldCheck size={24} />,
+    title: '품질·안전 실행 체계',
+    text: '위험성 평가, 검측 기준, ISO 인증 체계를 현장 운영 언어로 연결합니다.',
+  },
+  {
+    icon: <Users size={24} />,
+    title: '대형 건설사 파트너십',
+    text: '삼성물산, GS건설, KCC건설, SK에코플랜트 등 주요 건설사와 함께 프로젝트를 수행해 왔습니다.',
+  },
 ];
 
-/* ── Recent News ── */
-const NEWS = [
-  { date: '2026.02', title: '삼성물산 2026년 우수 시공 역량 수상', category: '수상' },
-  { date: '2025.11', title: '지역 청소년 장학금 전달식 진행', category: '사회공헌' },
-  { date: '2025.09', title: 'K-BIM 우수기업 선정', category: '기술혁신' },
-  { date: '2025.06', title: '2025 안전경영대상 수상', category: '수상' },
+const BUSINESS_LINKS = [
+  { label: '주택', path: '/projects/housing', count: '공동주택·주상복합' },
+  { label: '업무시설', path: '/projects/office', count: '오피스·R&D·데이터센터' },
+  { label: '초고층', path: '/projects/highrise', count: '고난도 구조체' },
+  { label: '플랜트', path: '/projects/plant', count: '산업·반도체 인프라' },
+  { label: '판매시설', path: '/projects/retail', count: '리테일·물류센터' },
+  { label: '교육/의료', path: '/projects/education', count: '학교·병원·공공시설' },
 ];
 
-/* ── Hero Slides ── */
-const HERO_SLIDES = [
-  {
-    headline: '대한민국을 짓는\n철근콘크리트 전문기업',
-    sub: '30년의 신뢰, 기술력으로 더 안전한 내일을 만들어갑니다',
-    accent: '태일씨앤티',
-  },
-  {
-    headline: '스마트 건설로 여는\n미래 건축의 지평',
-    sub: 'BIM 기술과 혁신으로 대한민국 건설 산업을 선도합니다',
-    accent: '기술혁신',
-  },
-  {
-    headline: '함께 성장하는\n인재를 기다립니다',
-    sub: '열정 있는 인재와 함께 도전하고 성장하는 태일씨앤티',
-    accent: '인재채용',
-  },
+const PROCESS_STEPS = [
+  { step: '01', title: '착공 전 검토', text: '도면, 물량, 공정 리스크를 사전에 확인합니다.' },
+  { step: '02', title: '구조체 시공', text: '철근, 거푸집, 콘크리트 타설 품질을 집중 관리합니다.' },
+  { step: '03', title: '품질·안전 검측', text: '현장 기준과 안전 교육을 반복 가능한 운영 체계로 만듭니다.' },
+  { step: '04', title: '준공·피드백', text: '프로젝트 데이터를 다음 현장의 표준으로 축적합니다.' },
+];
+
+const FEATURED_PROJECTS = RECENT_PROJECTS.slice(0, 3);
+const FEATURED_NEWS = NEWS_DATA.slice(0, 3);
+
+const TRUST_METRICS = [
+  { label: '설립', value: '1994', note: '지인개발 설립' },
+  { label: '도급순위', value: '55위', note: '철근콘크리트공사' },
+  { label: '시공능력평가액', value: '978억', note: '2025년' },
+  { label: '매출액', value: '700억', note: '2024년' },
 ];
 
 export default function Home() {
-  const [heroIdx, setHeroIdx] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setHeroIdx(i => (i + 1) % HERO_SLIDES.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [heroIdx]);
-
-  const slide = HERO_SLIDES[heroIdx];
-
   return (
     <div className="home">
-      {/* ── Hero ── */}
-      <section className="hero">
+      <section className="hero renewal-hero">
         <div className="hero-bg">
-          <video 
+          <video
             className="hero-video-bg"
-            autoPlay 
-            muted 
-            loop 
+            autoPlay
+            muted
+            loop
             playsInline
-            poster="/assets/images/esg/esg-main.png"
+            poster="./assets/images/esg/esg-main.png"
           >
             <source src="./assets/videos/intro.mp4" type="video/mp4" />
           </video>
           <div className="hero-overlay" />
-          <div className="hero-grid-pattern" />
         </div>
 
-        <div className="hero-content">
-          <div key={heroIdx} className="hero-slide">
-            <span className="hero-badge">{slide.accent}</span>
+        <div className="hero-content renewal-hero-content">
+          <div className="hero-copy">
+            <span className="hero-badge">REINFORCED CONCRETE SPECIALIST</span>
             <h1 className="hero-title">
-              {slide.headline.split('\n').map((line, i) => (
-                <span key={i}>{line}<br /></span>
-              ))}
+              철근콘크리트로<br />
+              대한민국의 골조를 세웁니다
             </h1>
-            <p className="hero-subtitle">{slide.sub}</p>
+            <p className="hero-subtitle">
+              태일씨앤티는 30년 현장 경험과 품질·안전 실행력으로
+              대형 건설 프로젝트의 구조체 공사를 책임지는 전문 건설회사입니다.
+            </p>
             <div className="hero-actions">
-              <Link to="/company/greeting" className="btn btn-brand hero-btn-main">
-                회사 소개 보기 →
+              <Link to="/projects/orders" className="btn btn-brand hero-btn-main">
+                주요 실적 보기 <ArrowRight size={17} />
               </Link>
-              <Link to="/projects/orders" className="btn btn-outline-white hero-btn-sub">
-                사업 실적 보기
+              <Link to="/recruitment/jobs" className="btn btn-outline-white hero-btn-sub">
+                지원자 채용 정보
               </Link>
             </div>
           </div>
-        </div>
-
-        <div className="hero-dots">
-          {HERO_SLIDES.map((_, i) => (
-            <button
-              key={i}
-              className={`hero-dot ${i === heroIdx ? 'active' : ''}`}
-              onClick={() => setHeroIdx(i)}
-              aria-label={`슬라이드 ${i + 1}`}
-            />
-          ))}
         </div>
 
         <div className="hero-scroll-hint">
@@ -139,173 +106,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Stats Bar ── */}
-      <section className="stats-bar">
-        <div className="container">
-          <div className="stats-grid">
-            <AnimatedSection className="stat-item" delay={0}>
-              <span className="stat-number"><Counter target={30} suffix="년+" /></span>
-              <span className="stat-label">업계 경력</span>
-            </AnimatedSection>
-            <div className="stat-divider" />
-            <AnimatedSection className="stat-item" delay={100}>
-              <span className="stat-number"><Counter target={85} suffix="+" /></span>
-              <span className="stat-label">완료 프로젝트</span>
-            </AnimatedSection>
-            <div className="stat-divider" />
-            <AnimatedSection className="stat-item" delay={200}>
-              <span className="stat-number"><Counter target={25} suffix="개사+" /></span>
-              <span className="stat-label">주요 파트너</span>
-            </AnimatedSection>
-            <div className="stat-divider" />
-            <AnimatedSection className="stat-item" delay={300}>
-              <span className="stat-number"><Counter target={61} suffix="위" /></span>
-              <span className="stat-label">전국 철근콘크리트 순위</span>
-            </AnimatedSection>
-          </div>
-        </div>
+      <section className="decision-strip" aria-label="빠른 이동">
+        <Link to="/company/greeting">
+          <Building2 size={20} />
+          <span>어떤 회사인가요?</span>
+        </Link>
+        <Link to="/projects/orders">
+          <BadgeCheck size={20} />
+          <span>실적과 신뢰도</span>
+        </Link>
+        <Link to="/recruitment/jobs">
+          <BriefcaseBusiness size={20} />
+          <span>입사 지원 정보</span>
+        </Link>
+        <Link to="/pr/news">
+          <Sparkles size={20} />
+          <span>뉴스·사회공헌</span>
+        </Link>
       </section>
 
-      {/* ── Company Intro ── */}
-      <section className="section company-intro">
+      <section className="trust-metric-strip" aria-label="태일씨앤티 주요 지표">
         <div className="container">
-          <div className="company-intro-grid">
-            <AnimatedSection direction="left">
-              <div className="company-intro-visual clean-visual">
-                <div className="intro-image-main">
-                  <img src="./assets/images/company/greeting.jpg" alt="전문성" />
-                  
-                  <div className="intro-experience-badge">
-                    <span className="years">30</span>
-                    <span className="text">Years of<br/>Excellence</span>
-                  </div>
-                </div>
-                
-                <div className="intro-iso-badges side-badges">
-                  <div className="iso-badge"><span className="dot gold"></span>ISO 9001</div>
-                  <div className="iso-badge"><span className="dot green"></span>ISO 14001</div>
-                  <div className="iso-badge"><span className="dot blue"></span>ISO 45001</div>
-                </div>
+          <div className="trust-metric-grid">
+            {TRUST_METRICS.map((metric) => (
+              <div className="trust-metric-item" key={metric.label}>
+                <span>{metric.label}</span>
+                <strong>{metric.value}</strong>
+                <p>{metric.note}</p>
               </div>
-            </AnimatedSection>
-
-            <AnimatedSection direction="right" delay={150}>
-              <div className="company-intro-text">
-                <div className="section-eyebrow-wrap">
-                  <span className="section-line"></span>
-                  <p className="section-eyebrow">ABOUT TAEIL C&T</p>
-                </div>
-                <h2 className="section-title">
-                  <span className="text-gradient">30년의 신뢰,</span><br/>
-                  대한민국 건설을 선도합니다
-                </h2>
-                <div className="intro-desc-wrap">
-                  <p className="intro-desc lead">
-                    1994년 설립 이래, 철근콘크리트 전문 건설회사로서 혁신적인 기술력과 완벽한 품질로 대한민국 건설의 새로운 지평을 열어갑니다.
-                  </p>
-                  <p className="intro-desc">
-                    삼성물산, GS건설, 현대건설 등 국내 최상위 대형 건설사들의 신뢰받는 파트너로서 주택, 초고층, 플랜트 등 모든 핵심 분야에서 최고의 가치를 창출합니다.
-                  </p>
-                </div>
-                
-                <div className="intro-values">
-                  <div className="intro-value-item">
-                    <div className="intro-value-icon-wrap"><Zap size={20} strokeWidth={1.5} /></div>
-                    <div className="intro-value-text">
-                      <strong>책임완수</strong>
-                      <p>타협 없는 품질로 약속을 현실로 만듭니다</p>
-                    </div>
-                  </div>
-                  <div className="intro-value-item">
-                    <div className="intro-value-icon-wrap"><Handshake size={20} strokeWidth={1.5} /></div>
-                    <div className="intro-value-text">
-                      <strong>인화단결</strong>
-                      <p>최고의 팀워크로 한계를 넘어섭니다</p>
-                    </div>
-                  </div>
-                  <div className="intro-value-item">
-                    <div className="intro-value-icon-wrap"><Target size={20} strokeWidth={1.5} /></div>
-                    <div className="intro-value-text">
-                      <strong>근면성실</strong>
-                      <p>꾸준한 혁신으로 미래 경쟁력을 확보합니다</p>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="intro-actions">
-                  <Link to="/company/greeting" className="btn btn-primary btn-lg">
-                    회사소개 자세히 보기 →
-                  </Link>
-                </div>
-              </div>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* ── Business Areas ── */}
-      <section className="section business-section">
-        <div className="container">
-          <AnimatedSection className="section-header center">
-            <p className="section-eyebrow">BUSINESS AREAS</p>
-            <h2 className="section-title center">전문 사업 분야</h2>
-            <p className="section-subtitle center">
-              철근콘크리트 전문 기술을 기반으로 다양한 건설 분야에서 최고의 성과를 창출합니다
-            </p>
-          </AnimatedSection>
-          <div className="business-grid">
-            {BUSINESS_AREAS.map((area, idx) => (
-              <AnimatedSection key={idx} delay={idx * 80}>
-                <Link to={area.path} className="business-card" style={{ '--card-color': area.color }}>
-                  <div className="business-card-icon">{area.icon}</div>
-                  <h3 className="business-card-title">{area.title}</h3>
-                  <p className="business-card-desc">{area.desc}</p>
-                  <span className="business-card-link">자세히 보기 →</span>
-                  <div className="business-card-bg" />
-                </Link>
-              </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── Technology ── */}
-      <section className="section technology-highlight-section">
+      <section className="section identity-section">
         <div className="container">
-          <div className="technology-highlight-grid">
+          <div className="identity-grid">
             <AnimatedSection direction="left">
-              <div className="technology-highlight-copy">
-                <p className="section-eyebrow">TECHNICAL RESOURCES</p>
-                <h2 className="section-title">기술자료까지 갖춘<br/>현장 중심 홈페이지</h2>
-                <p className="section-subtitle">
-                  기존 홈페이지의 기술자료 메뉴를 복원하고, BIM·품질·안전관리 메시지를 정적 콘텐츠로 재정리했습니다.
-                </p>
-                <div className="technology-chip-row">
-                  <span><Cpu size={16} /> BIM 검토</span>
-                  <span><ShieldCheck size={16} /> 품질·안전 표준</span>
-                  <span><Zap size={16} /> 현장 개선</span>
+              <div className="identity-media">
+                <img src="./assets/images/company/greeting.jpg" alt="태일씨앤티 현장 이미지" />
+                <div className="identity-caption">
+                  <span>Concrete Frame Work</span>
+                  <strong>구조체 공사의 품질이 건축의 수명을 결정합니다.</strong>
                 </div>
-                <Link to="/technology/overview" className="btn btn-primary">
-                  기술자료 보기 <ArrowRight size={16} />
-                </Link>
               </div>
             </AnimatedSection>
+
             <AnimatedSection direction="right" delay={120}>
-              <div className="technology-highlight-panel">
-                <div className="tech-panel-item">
-                  <strong>01</strong>
-                  <span>시공 전 검토</span>
-                  <p>도면·공정·물량 리스크 사전 확인</p>
-                </div>
-                <div className="tech-panel-item">
-                  <strong>02</strong>
-                  <span>품질 관리</span>
-                  <p>검측 체크리스트와 ISO 인증 체계 기반 운영</p>
-                </div>
-                <div className="tech-panel-item">
-                  <strong>03</strong>
-                  <span>안전 실행</span>
-                  <p>위험성 평가와 현장 교육으로 사고 예방</p>
+              <div className="identity-copy">
+                <p className="section-eyebrow">WHAT WE BUILD</p>
+                <h2 className="section-title">골조 공사의 기본을 지키는 회사</h2>
+                <p className="section-subtitle">
+                  태일씨앤티는 철근콘크리트 골조 공사를 중심으로 품질, 안전,
+                  공정의 균형을 지키며 프로젝트의 신뢰를 완성합니다.
+                </p>
+                <div className="strength-list">
+                  {CORE_STRENGTHS.map((item) => (
+                    <div className="strength-item" key={item.title}>
+                      <div className="strength-icon">{item.icon}</div>
+                      <div>
+                        <strong>{item.title}</strong>
+                        <p>{item.text}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </AnimatedSection>
@@ -313,43 +177,76 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Partners ── */}
-      <section className="section partners-section">
+      <section className="section portfolio-section">
         <div className="container">
           <AnimatedSection className="section-header center">
-            <p className="section-eyebrow">OUR PARTNERS</p>
-            <h2 className="section-title center">주거래 시공사</h2>
+            <p className="section-eyebrow">PROJECT PORTFOLIO</p>
+            <h2 className="section-title center">실적으로 증명하는 전문성</h2>
+            <p className="section-subtitle center">
+              다양한 현장에서 축적한 시공 경험과 주요 건설사와의 협업으로
+              태일씨앤티의 기술력을 증명합니다.
+            </p>
           </AnimatedSection>
-          <AnimatedSection delay={100}>
-            <div className="partners-ticker-wrap">
-              <div className="partners-ticker">
-                {['삼성물산', 'GS건설', '현대건설', '대우건설', '한라', 'SK에코플랜트', '롯데건설', '포스코건설', '현대산업개발', '두산건설',
-                  '삼성물산', 'GS건설', '현대건설', '대우건설', '한라', 'SK에코플랜트', '롯데건설', '포스코건설', '현대산업개발', '두산건설'].map((p, i) => (
-                  <span key={i} className="partner-item">{p}</span>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
+
+          <div className="featured-project-grid">
+            {FEATURED_PROJECTS.map((project, index) => (
+              <AnimatedSection key={project.id} delay={index * 100}>
+                <Link to="/projects/orders" className="featured-project-card">
+                  <img src={project.image} alt={project.name} />
+                  <div className="featured-project-body">
+                    <span>{project.categories?.[0] || 'Project'}</span>
+                    <h3>{project.name}</h3>
+                    <p><MapPinned size={14} />{project.address}</p>
+                    <p><CalendarCheck size={14} />{project.period}</p>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
+          <div className="mobile-scroll-cue" aria-hidden="true" />
+
+          <div className="business-link-grid">
+            {BUSINESS_LINKS.map((item) => (
+              <Link to={item.path} className="business-link-card" key={item.path}>
+                <span>{item.label}</span>
+                <p>{item.count}</p>
+                <ArrowRight size={16} />
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── News ── */}
-      <section className="section news-section">
+      <section className="section process-section">
         <div className="container">
-          <div className="news-inner">
-            <AnimatedSection direction="left" className="news-header">
-              <p className="section-eyebrow">NEWS & NOTICE</p>
-              <h2 className="section-title">최신 소식</h2>
-              <Link to="/pr/news" className="btn btn-outline news-more-btn">전체 보기</Link>
+          <div className="process-grid">
+            <AnimatedSection direction="left">
+              <div className="process-copy">
+                <p className="section-eyebrow">SITE OPERATION</p>
+                <h2 className="section-title">현장이 납득하는 운영 방식</h2>
+                <p className="section-subtitle">
+                  착공 전 검토부터 구조체 시공, 품질·안전 점검까지
+                  현장의 기준을 세우고 끝까지 지키는 실행력을 추구합니다.
+                </p>
+                <blockquote className="safety-quote">
+                  오늘의 안전은 어제로부터,<br />
+                  내일의 안전은 오늘로부터!
+                </blockquote>
+                <Link to="/technology/overview" className="btn btn-primary">
+                  기술자료 보기 <ArrowRight size={16} />
+                </Link>
+              </div>
             </AnimatedSection>
-            <div className="news-list">
-              {NEWS.map((item, idx) => (
-                <AnimatedSection key={idx} delay={idx * 80} direction="right">
-                  <Link to="/pr/news" className="news-item">
-                    <span className="news-category">{item.category}</span>
-                    <span className="news-title">{item.title}</span>
-                    <span className="news-date">{item.date}</span>
-                  </Link>
+            <div className="process-timeline">
+              {PROCESS_STEPS.map((item, index) => (
+                <AnimatedSection key={item.step} delay={index * 90} direction="right">
+                  <div className="process-item">
+                    <span>{item.step}</span>
+                    <div>
+                      <strong>{item.title}</strong>
+                      <p>{item.text}</p>
+                    </div>
+                  </div>
                 </AnimatedSection>
               ))}
             </div>
@@ -357,58 +254,75 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Recruitment Banner ── */}
-      <section className="recruit-banner">
-        <div className="recruit-banner-bg" />
+      <section className="recruit-focus-section">
         <div className="container">
-          <AnimatedSection className="recruit-banner-content" direction="up">
-            <span className="recruit-badge">RECRUITMENT</span>
-            <h2>도전하는 인재를<br/>기다립니다</h2>
-            <p>태일씨앤티와 함께 대한민국의 미래를 만들어 갈 열정 있는 인재를 모십니다</p>
-            <Link to="/recruitment/jobs" className="btn btn-brand recruit-btn">
-              채용 바로가기 →
-            </Link>
+          <AnimatedSection className="recruit-focus-card">
+            <div>
+              <span className="recruit-badge">FOR APPLICANTS</span>
+              <h2>태일씨앤티와 함께 성장할 인재를 기다립니다</h2>
+              <p>
+                현장을 이해하고 책임 있게 움직이는 사람,
+                더 나은 방식으로 성장하려는 사람에게 태일씨앤티의 문은 열려 있습니다.
+              </p>
+            </div>
+            <div className="recruit-links">
+              <Link to="/recruitment/jobs">직무소개</Link>
+              <Link to="/recruitment/system">인사제도</Link>
+              <Link to="/recruitment/benefits">복리후생</Link>
+              <Link to="/recruitment/faq">채용FAQ</Link>
+            </div>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* ── YouTube / PR ── */}
-      <section className="section youtube-section">
+      <section className="section news-section">
+        <div className="container">
+          <div className="news-inner renewal-news-inner">
+            <AnimatedSection direction="left" className="news-header">
+              <p className="section-eyebrow">NEWS & CONTRIBUTION</p>
+              <h2 className="section-title">태일씨앤티의 새로운 소식</h2>
+              <p className="section-subtitle">
+                수상, 사회공헌, 현장 소식까지 태일씨앤티의 활동을 전합니다.
+              </p>
+              <Link to="/pr/news" className="btn btn-outline news-more-btn">전체 보기</Link>
+            </AnimatedSection>
+            <div className="news-highlight-list">
+              {FEATURED_NEWS.map((item, idx) => (
+                <AnimatedSection key={item.id} delay={idx * 80} direction="right">
+                  <Link to="/pr/news" className="news-highlight-item">
+                    <img src={item.image} alt={item.title} />
+                    <div>
+                      <span>{item.category}</span>
+                      <h3>{item.title}</h3>
+                      <p>{item.date}</p>
+                    </div>
+                  </Link>
+                </AnimatedSection>
+              ))}
+            </div>
+            <div className="mobile-scroll-cue" aria-hidden="true" />
+          </div>
+        </div>
+      </section>
+
+      <section className="section media-section">
         <div className="container">
           <AnimatedSection className="section-header center">
-            <p className="section-eyebrow">TAEIL C&T MEDIA</p>
-            <h2 className="section-title center">홍보 영상</h2>
-            <p className="section-subtitle center">태일씨앤티의 현장과 기업 문화를 영상으로 만나보세요</p>
+            <p className="section-eyebrow">COMPANY FILM</p>
+            <h2 className="section-title center">현장과 사람, 기술을 영상으로 만나다</h2>
           </AnimatedSection>
           <AnimatedSection delay={100}>
-            <div className="youtube-grid">
-              <div className="youtube-main">
-                <div className="youtube-embed-wrap">
-                  <video
-                    className="youtube-iframe"
-                    controls
-                    poster="/assets/images/esg/esg-main.png"
-                    preload="metadata"
-                  >
-                    <source src="./assets/videos/intro.mp4" type="video/mp4" />
-                    브라우저가 동영상을 지원하지 않습니다.
-                  </video>
-                </div>
-              </div>
-              <div className="youtube-side">
-                <div className="youtube-cta-card">
-                  <div className="yt-icon">▶</div>
-                  <h3>태일씨앤티 공식 채널</h3>
-                  <p>현장 시공 과정, 안전 경영, 기업 소개 등 다양한 콘텐츠를 확인하세요</p>
-                  <a
-                    href="https://www.youtube.com/@taeilcnt"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="btn btn-primary"
-                  >
-                    유튜브 채널 방문
-                  </a>
-                </div>
+            <div className="media-panel">
+              <video controls poster="./assets/images/esg/esg-main.png" preload="metadata">
+                <source src="./assets/videos/intro.mp4" type="video/mp4" />
+                브라우저가 동영상을 지원하지 않습니다.
+              </video>
+              <div className="media-summary">
+                <strong>태일씨앤티 기업 소개</strong>
+                <p>철근콘크리트 전문 시공 현장과 품질·안전을 향한 태일씨앤티의 기준을 영상으로 확인해 보세요.</p>
+                <Link to="/company/greeting" className="btn btn-primary">
+                  회사소개로 이동 <ArrowRight size={16} />
+                </Link>
               </div>
             </div>
           </AnimatedSection>

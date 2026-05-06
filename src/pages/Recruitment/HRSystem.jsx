@@ -1,6 +1,6 @@
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
-import { BarChart3, Coins, TrendingUp, GraduationCap } from 'lucide-react';
+import { BarChart3, GraduationCap, HeartHandshake, MessageSquare } from 'lucide-react';
 import './Recruitment.css';
 
 const SYSTEM_IMGS = {
@@ -17,10 +17,10 @@ const SUB_NAV = [
 ];
 
 const SYSTEMS = [
-  { title: '평가 제도', icon: <BarChart3 size={40} strokeWidth={1} />, items: ['반기별 성과 평가 (KPI 기반)', '역량 평가 (기술·리더십·소통)', '360도 다면평가 도입', '공정하고 투명한 평가 기준'] },
-  { title: '보상 제도', icon: <Coins size={40} strokeWidth={1} />, items: ['업계 상위 수준 급여 지급', '성과 인센티브 (연 2회)', '장기 근속 포상금', '우수 성과자 특별 보너스'] },
-  { title: '승진 제도', icon: <TrendingUp size={40} strokeWidth={1} />, items: ['사원 → 대리 → 과장 → 차장 → 부장', '능력 중심 발탁 승진 가능', '연 1회 정기 승진심사', '임원 育成 로드맵'] },
-  { title: '교육 제도', icon: <GraduationCap size={40} strokeWidth={1} />, items: ['신입 OJT 교육 (3개월)', '직무별 전문 교육 지원', '외부 자격증 취득 지원', 'BIM·스마트건설 교육'] },
+  { title: '인재 운영 방향', icon: <MessageSquare size={40} strokeWidth={1} />, items: ['책임과 성장', '정직과 소통', '더 나은 방식', '공동체 의식'] },
+  { title: '성과 관리', icon: <BarChart3 size={40} strokeWidth={1} />, items: ['투명한 성과관리 지향', '전략적 인적자원관리 운영', '기본과 원칙에 충실한 조직 운영'] },
+  { title: '교육 프로그램', icon: <GraduationCap size={40} strokeWidth={1} />, items: ['임직원 교육 프로그램 운영', '신규 입사자 교육(OJT)', '자격증 취득 지원', '교육비 지원'] },
+  { title: '복리후생 연계', icon: <HeartHandshake size={40} strokeWidth={1} />, items: ['각종 경조사 지원', '단체 상해보험', '선택적복리후생', '자유로운 연차 사용'] },
 ];
 
 export default function HRSystem() {
@@ -32,9 +32,9 @@ export default function HRSystem() {
     >
       <AnimatedSection>
         <p className="section-eyebrow">HR SYSTEM</p>
-        <h2 className="section-title">공정한 인사 제도</h2>
+        <h2 className="section-title">인사제도</h2>
         <p className="section-subtitle">
-          능력과 성과 중심의 공정한 인사 시스템으로 임직원의 성장을 지원합니다.
+          책임과 성장, 정직과 소통, 더 나은 방식, 공동체 의식을 바탕으로 인재 성장을 지원합니다.
         </p>
       </AnimatedSection>
 

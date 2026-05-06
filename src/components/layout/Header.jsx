@@ -10,6 +10,7 @@ const NAV_ITEMS = [
       { title: '인사말', path: '/company/greeting' },
       { title: '경영이념', path: '/company/philosophy' },
       { title: '회사연혁', path: '/company/history' },
+      { title: '기구조직도', path: '/company/organization' },
       { title: '주거래 시공사', path: '/company/partners' },
       { title: '업·면허/인증', path: '/company/certifications' },
       { title: '찾아오시는 길', path: '/company/location' },
@@ -20,7 +21,9 @@ const NAV_ITEMS = [
     path: '/projects',
     sub: [
       { title: '공사수주 현황', path: '/projects/orders' },
-      { title: '시공능력/품질·안전', path: '/projects/capability' },
+      { title: '건설시공능력', path: '/projects/capability' },
+      { title: '품질경영', path: '/projects/quality' },
+      { title: '안전경영', path: '/projects/safety' },
       { title: '주택', path: '/projects/housing' },
       { title: '업무시설', path: '/projects/office' },
       { title: '교육/의료', path: '/projects/education' },
@@ -92,12 +95,7 @@ export default function Header() {
       <div className="header-inner">
         <Link to="/" className="header-logo" onClick={closeMobileMenu}>
           <div className="logo-icon">
-            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="2" y="20" width="10" height="18" rx="1" fill="#2E8B4A"/>
-              <rect x="15" y="12" width="10" height="26" rx="1" fill="#2E8B4A"/>
-              <rect x="28" y="4" width="10" height="34" rx="1" fill="#1B3A5C"/>
-              <rect x="2" y="2" width="36" height="4" rx="1" fill="#C9A84C"/>
-            </svg>
+            <img src="./assets/images/logo/logo-circle.png" alt="" />
           </div>
           <div className="logo-text">
             <span className="logo-company">주식회사</span>

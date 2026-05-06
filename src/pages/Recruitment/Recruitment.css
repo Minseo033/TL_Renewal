@@ -381,7 +381,8 @@
   padding: 28px 20px;
   box-shadow: var(--shadow-card);
   transition: all var(--transition-base);
-  text-align: center;
+  text-align: left;
+  min-height: 100%;
 }
 
 .benefit-card:hover {
@@ -391,7 +392,14 @@
 }
 
 .benefit-icon {
-  font-size: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: rgba(46,139,74,0.1);
+  color: var(--color-brand);
+  border-radius: var(--radius-lg);
   margin-bottom: 8px;
 }
 
@@ -418,6 +426,33 @@
   color: var(--color-text-light);
   line-height: 1.5;
   word-break: keep-all;
+}
+
+.benefit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.benefit-list li {
+  position: relative;
+  padding-left: 14px;
+  color: var(--color-text-light);
+  font-size: 13px;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.benefit-list li::before {
+  content: '';
+  position: absolute;
+  top: 0.7em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  background: var(--color-brand);
+  border-radius: 50%;
 }
 
 /* ── FAQ ── */
@@ -549,11 +584,103 @@
   .talent-values-grid { grid-template-columns: 1fr 1fr; }
   .process-flow { flex-direction: column; align-items: stretch; }
   .process-arrow { display: none; }
-  .process-step { width: 100%; }
-  .benefits-grid { grid-template-columns: 1fr; }
+  .process-step {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 12px;
+    text-align: left;
+    align-items: center;
+  }
+
+  .process-step-icon {
+    grid-row: span 3;
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-md);
+    background: rgba(46,139,74,0.1);
+    color: var(--color-brand);
+    font-size: 18px;
+    font-weight: 900;
+    margin-bottom: 0;
+  }
+
+  .process-step-num {
+    display: none;
+  }
+
+  .process-step-title,
+  .process-step-desc {
+    margin-bottom: 0;
+  }
+
+  .process-step-duration {
+    justify-self: start;
+  }
+
   .job-item { flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 480px) {
-  .talent-values-grid { grid-template-columns: 1fr; }
+  .talent-img-banner {
+    height: 210px;
+    border-radius: var(--radius-lg);
+  }
+
+  .talent-values-grid,
+  .benefits-grid,
+  .hr-system-grid {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    margin-right: -18px;
+    padding: 2px 18px 12px 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .talent-values-grid::-webkit-scrollbar,
+  .benefits-grid::-webkit-scrollbar,
+  .hr-system-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .talent-values-grid > *,
+  .benefits-grid > *,
+  .hr-system-grid > * {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+
+  .job-categories-section,
+  .guide-tips,
+  .faq-contact {
+    margin-left: -4px;
+    margin-right: -4px;
+    padding: 22px 18px;
+    border-radius: var(--radius-lg);
+  }
+
+  .job-item {
+    padding: 16px;
+    border-radius: var(--radius-md);
+  }
+
+  .process-step {
+    min-height: auto;
+    padding: 20px;
+    border-radius: var(--radius-lg);
+  }
+
+  .faq-question {
+    gap: 10px;
+    padding: 16px;
+  }
+
+  .faq-answer {
+    padding: 0 16px 16px;
+  }
 }

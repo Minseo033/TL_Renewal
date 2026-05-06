@@ -2,12 +2,14 @@ import { useState } from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
 import { RECENT_PROJECTS } from '../../data/projectsData';
-import { Calendar, Building, MapPin, X, Info, Plus } from 'lucide-react';
+import { Calendar, Building, MapPin, X, Plus } from 'lucide-react';
 import './Projects.css';
 
 const SUB_NAV = [
   { label: '공사수주 현황', path: '/projects/orders' },
-  { label: '시공능력/품질·안전', path: '/projects/capability' },
+  { label: '건설시공능력', path: '/projects/capability' },
+  { label: '품질경영', path: '/projects/quality' },
+  { label: '안전경영', path: '/projects/safety' },
   { label: '주택', path: '/projects/housing' },
   { label: '업무시설', path: '/projects/office' },
   { label: '교육/의료', path: '/projects/education' },
@@ -18,10 +20,10 @@ const SUB_NAV = [
 ];
 
 const STATS = [
-  { label: '철근콘크리트 전국 순위', value: '61위', sub: '2024년 기준' },
-  { label: '철근콘크리트 지역 순위', value: '35위', sub: '수도권 기준' },
-  { label: '비계 전국 순위', value: '216위', sub: '2024년 기준' },
-  { label: '비계 지역 순위', value: '98위', sub: '수도권 기준' },
+  { label: '철근콘크리트공사 도급순위', value: '55위', sub: '철근콘크리트공사' },
+  { label: '철근콘크리트공사 시공능력평가액', value: '978억', sub: '철근콘크리트공사' },
+  { label: '동종업계 순위', value: '61위', sub: '동종업계' },
+  { label: '2024년 매출액', value: '700억', sub: '2024년' },
 ];
 
 export default function ProjectOrders() {
@@ -44,7 +46,7 @@ export default function ProjectOrders() {
         <p className="section-eyebrow">CONSTRUCTION ORDERS</p>
         <h2 className="section-title">공사수주 현황</h2>
         <p className="section-subtitle">
-          대한민국 주요 건설사와의 협력을 통해 다양한 분야에서 탁월한 시공 실적을 달성하고 있습니다. (총 {RECENT_PROJECTS.length}건)
+          태일씨앤티가 수행해 온 주요 공사 수주 현황입니다. (등록 {RECENT_PROJECTS.length}건)
         </p>
       </AnimatedSection>
 
@@ -66,7 +68,7 @@ export default function ProjectOrders() {
             <div className="project-card" onClick={() => setSelectedProject(project)}>
               <div className="project-card-image">
                 <img src={project.image} alt={project.name} onError={(e) => {
-                  e.target.src = 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&w=800&q=80';
+                  e.target.src = './assets/images/company/greeting.jpg';
                 }} />
                 <div className="project-card-overlay">
                   <span className="view-detail-btn">상세보기 +</span>
@@ -77,7 +79,7 @@ export default function ProjectOrders() {
                 <div className="project-card-meta">
                   <div className="meta-item">
                     <Building size={14} className="meta-icon" />
-                    <span>{project.client || '정보 없음'}</span>
+                    <span>{project.client}</span>
                   </div>
                   {project.period && (
                     <div className="meta-item">
@@ -110,7 +112,7 @@ export default function ProjectOrders() {
             <div className="modal-body">
               <div className="modal-image-wrap">
                 <img src={selectedProject.image} alt={selectedProject.name} onError={(e) => {
-                  e.target.src = 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&w=800&q=80';
+                  e.target.src = './assets/images/company/greeting.jpg';
                 }} />
               </div>
               <div className="modal-info-wrap">

@@ -195,15 +195,62 @@
 @media (max-width: 640px) {
   .tech-hero-card,
   .tech-cta {
-    padding: 26px;
+    padding: 22px;
+    border-radius: var(--radius-lg);
+  }
+
+  .tech-hero-card {
+    margin: 28px 0 22px;
+    gap: 22px;
+  }
+
+  .tech-hero-card h3 {
+    font-size: 1.35rem;
+  }
+
+  .tech-hero-metrics {
+    grid-template-columns: 1fr 1fr;
+    padding: 18px;
+  }
+
+  .tech-hero-metrics strong,
+  .tech-hero-metrics span {
+    display: block;
   }
 
   .tech-card-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    margin-right: -18px;
+    padding: 2px 18px 12px 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .tech-card-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tech-card-grid > * {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+  }
+
+  .tech-card {
+    min-height: 250px;
+    padding: 24px;
   }
 
   .tech-cta {
     align-items: flex-start;
     flex-direction: column;
+    gap: 16px;
+  }
+
+  .tech-cta .btn {
+    width: 100%;
+    justify-content: center;
   }
 }

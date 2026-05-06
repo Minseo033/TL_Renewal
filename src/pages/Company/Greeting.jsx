@@ -9,6 +9,7 @@ const SUB_NAV = [
   { label: '인사말', path: '/company/greeting' },
   { label: '경영이념', path: '/company/philosophy' },
   { label: '회사연혁', path: '/company/history' },
+  { label: '기구조직도', path: '/company/organization' },
   { label: '주거래 시공사', path: '/company/partners' },
   { label: '업·면허/인증', path: '/company/certifications' },
   { label: '찾아오시는 길', path: '/company/location' },
@@ -28,24 +29,28 @@ export default function Greeting() {
           <div className="greeting-divider" />
           <div className="greeting-body">
             <p>
-              안녕하십니까. 태일씨앤티(주) 대표이사 김경수입니다.
+              태일씨앤티 홈페이지를 방문해 주신 고객 여러분 감사드립니다.
             </p>
             <p>
-              저희 태일씨앤티는 1994년 지인개발(주)로 설립된 이래, 2013년 새롭게 태어나 철근콘크리트 전문 건설회사로서 대한민국 건설 산업 발전에 기여해 왔습니다.
+              1994년 창립된 당사는 2013년 지인개발(주)에서 (주)태일씨앤티로 사명을 변경하여,
+              철근·콘크리트 전문건설업계의 차별화된 서비스를 제공하기 위해 새로운 도전을 이어오고 있습니다.
             </p>
             <p>
-              지난 30년간 쌓아온 기술력과 안전 경영을 바탕으로, 삼성물산, GS건설, 현대건설, 대우건설, 한라 등 국내 최고의 건설사들과 함께 주택, 초고층, 업무시설, 플랜트 등 다양한 분야에서 최고의 품질로 고객 여러분의 꿈을 실현해 왔습니다.
+              책임완수, 근면성실, 인화단결의 사훈을 바탕으로 기본과 원칙에 충실한 투명한 경영 구조를 이루는 것과 동시에
+              철저한 품질안전 관리로 고객감동을 실현하고, 상호존중 및 소통을 바탕으로 협력사와 상생하고자 합니다.
             </p>
             <p>
-              저희는 "오늘의 안전은 어제로부터, 내일의 안전은 오늘로부터"라는 슬로건 아래 안전 제일주의를 실천하며, ISO 9001, 14001, 45001 등 국제 인증을 통해 품질·환경·안전 경영을 체계적으로 관리하고 있습니다.
+              태일씨앤티는 안전·품질 역량 강화, 자재기술 및 관리 혁신 등을 통하여 최상의 파트너십을 형성하여
+              국내외 건설산업 발전에 기여하는 전문기업의 입지를 공고히 할 것입니다.
             </p>
             <p>
-              앞으로도 스마트 건설 기술(BIM)과 혁신적인 시공 방법을 개발하여, 더 안전하고 더 아름다운 건물을 짓는 데 최선을 다하겠습니다. 고객 여러분의 끊임없는 성원과 신뢰에 깊이 감사드립니다.
+              임직원 교육 프로그램, 투명한 성과관리 등 전략적 인적자원관리를 통해
+              책임과 성장, 정직과 소통, 더 나은 방식, 공동체 의식이라는 태일인 DNA를 발휘할 수 있도록 노력하고 있습니다.
             </p>
           </div>
           <div className="greeting-signature">
             <p>태일씨앤티(주) 대표이사</p>
-            <strong>김 경 수</strong>
+            <strong>김경수 · 배준희</strong>
           </div>
         </AnimatedSection>
 
@@ -60,7 +65,7 @@ export default function Greeting() {
               />
               <div className="ceo-img-label">
                 <span>대표이사</span>
-                <strong>김 경 수</strong>
+                <strong>김경수 · 배준희</strong>
               </div>
             </div>
             <div className="ceo-info">

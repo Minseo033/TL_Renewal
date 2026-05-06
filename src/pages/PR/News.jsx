@@ -22,8 +22,15 @@ const SUB_NAV = [
   { label: '홍보동영상', path: '/pr/youtube' },
 ];
 
-const FALLBACK_IMG =
-  'https://images.unsplash.com/photo-1585829365234-750ca431e21b?auto=format&fit=crop&w=1200&q=80';
+const FALLBACK_IMG = './assets/images/company/greeting.jpg';
+
+const cleanText = (value = '') => value
+  .replace(/&lsquo;|&rsquo;/g, "'")
+  .replace(/&ldquo;|&rdquo;/g, '"')
+  .replace(/&amp;/g, '&')
+  .replace(/\.?더보기$/g, '')
+  .replace(/202년/g, '2025년')
+  .trim();
 
 // Framer Motion variants
 const overlayVariants = {
@@ -76,7 +83,7 @@ export default function News() {
   const closeModal = () => setSelectedNews(null);
 
   const paragraphs = selectedNews
-    ? selectedNews.content.split('\n').filter(p => p.trim())
+    ? cleanText(selectedNews.content).split('\n').filter(p => p.trim())
     : [];
 
   return (
@@ -109,7 +116,7 @@ export default function News() {
                 <div className="news-slide" onClick={() => setSelectedNews(item)}>
                   <img
                     src={item.image || FALLBACK_IMG}
-                    alt={item.title}
+                    alt={cleanText(item.title)}
                     className="news-slide-img"
                     onError={e => { e.target.src = FALLBACK_IMG; }}
                   />
@@ -118,7 +125,7 @@ export default function News() {
                     {item.category && (
                       <span className="news-tag news-tag--white">{item.category}</span>
                     )}
-                    <h2 className="news-slide-title">{item.title}</h2>
+                    <h2 className="news-slide-title">{cleanText(item.title)}</h2>
                     <div className="news-slide-meta">
                       <span className="news-date"><Calendar size={14} />{item.date}</span>
                       <span className="news-read-more">기사 보기 <ArrowRight size={15} /></span>
@@ -140,7 +147,7 @@ export default function News() {
                 <div className="news-card-image">
                   <img
                     src={item.image || FALLBACK_IMG}
-                    alt={item.title}
+                    alt={cleanText(item.title)}
                     onError={e => { e.target.src = FALLBACK_IMG; }}
                   />
                   {item.category && (
@@ -149,8 +156,8 @@ export default function News() {
                 </div>
                 <div className="news-card-body">
                   <time className="news-date"><Calendar size={13} />{item.date}</time>
-                  <h3 className="news-card-title">{item.title}</h3>
-                  <p className="news-card-excerpt">{item.content.slice(0, 80)}…</p>
+                  <h3 className="news-card-title">{cleanText(item.title)}</h3>
+                  <p className="news-card-excerpt">{cleanText(item.content).slice(0, 80)}...</p>
                 </div>
                 <div className="news-card-footer">
                   <span className="news-read-more">자세히 보기 <ChevronRight size={14} /></span>
@@ -196,7 +203,7 @@ export default function News() {
               <div className="news-modal-hero">
                 <img
                   src={selectedNews.image || FALLBACK_IMG}
-                  alt={selectedNews.title}
+                  alt={cleanText(selectedNews.title)}
                   onError={e => { e.target.src = FALLBACK_IMG; }}
                 />
                 <div className="news-modal-hero-gradient" />
@@ -204,7 +211,7 @@ export default function News() {
                   {selectedNews.category && (
                     <span className="news-tag news-tag--white">{selectedNews.category}</span>
                   )}
-                  <h2 className="news-modal-title">{selectedNews.title}</h2>
+                  <h2 className="news-modal-title">{cleanText(selectedNews.title)}</h2>
                   <time className="news-modal-date">
                     <Calendar size={14} />{selectedNews.date}
                   </time>
@@ -222,11 +229,11 @@ export default function News() {
                 {/* Lead paragraph — first one is bigger */}
                 {paragraphs.length > 0 && (
                   <MotionP className="news-modal-lead" variants={paraVariants}>
-                    {paragraphs[0]}
+                    {cleanText(paragraphs[0])}
                   </MotionP>
                 )}
                 {paragraphs.slice(1).map((para, i) => (
-                  <MotionP key={i} variants={paraVariants}>{para}</MotionP>
+                  <MotionP key={i} variants={paraVariants}>{cleanText(para)}</MotionP>
                 ))}
               </MotionDiv>
             </MotionDiv>

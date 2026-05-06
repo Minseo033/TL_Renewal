@@ -8,6 +8,7 @@ import Home from './pages/Home/Home';
 import Greeting from './pages/Company/Greeting';
 import Philosophy from './pages/Company/Philosophy';
 import History from './pages/Company/History';
+import Organization from './pages/Company/Organization';
 import Partners from './pages/Company/Partners';
 import Certifications from './pages/Company/Certifications';
 import Location from './pages/Company/Location';
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/company/greeting" element={<Greeting />} />
         <Route path="/company/philosophy" element={<Philosophy />} />
         <Route path="/company/history" element={<History />} />
+        <Route path="/company/organization" element={<Organization />} />
         <Route path="/company/partners" element={<Partners />} />
         <Route path="/company/certifications" element={<Certifications />} />
         <Route path="/company/location" element={<Location />} />
@@ -43,8 +45,8 @@ export default function App() {
         {/* 사업실적 */}
         <Route path="/projects/orders" element={<ProjectOrders />} />
         <Route path="/projects/capability" element={<Capability />} />
-        <Route path="/projects/quality" element={<Capability />} />
-        <Route path="/projects/safety" element={<Capability />} />
+        <Route path="/projects/quality" element={<Capability mode="quality" />} />
+        <Route path="/projects/safety" element={<Capability mode="safety" />} />
         <Route path="/projects/housing" element={<ProjectCategory category="주택" />} />
         <Route path="/projects/office" element={<ProjectCategory category="업무시설" />} />
         <Route path="/projects/education" element={<ProjectCategory category="교육/의료" />} />

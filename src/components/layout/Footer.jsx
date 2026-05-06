@@ -58,10 +58,6 @@ export default function Footer() {
                   <span className="footer-contact-icon">📞</span>
                   <span>070-8897-0761</span>
                 </li>
-                <li>
-                  <span className="footer-contact-icon">📧</span>
-                  <span>info@taeilcnt.co.kr</span>
-                </li>
               </ul>
             </div>
           </div>
@@ -72,10 +68,6 @@ export default function Footer() {
         <div className="container">
           <div className="footer-bottom-inner">
             <p>© {new Date().getFullYear()} 태일씨앤티(주). All Rights Reserved.</p>
-            <div className="footer-bottom-links">
-              <Link to="/company/greeting">개인정보처리방침</Link>
-              <Link to="/company/greeting">이용약관</Link>
-            </div>
           </div>
         </div>
       </div>

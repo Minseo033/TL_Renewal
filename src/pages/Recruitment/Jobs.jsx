@@ -22,27 +22,27 @@ const VALUES = [
 
 const JOB_CATEGORIES = [
   {
-    category: '현장 시공',
+    category: '철근콘크리트공사',
     icon: <HardHat size={22} />,
     jobs: [
-      { title: '철근콘크리트 기술자', desc: '철근콘크리트 설계 및 현장 시공', required: '관련 학과 졸업 또는 경력 3년 이상' },
-      { title: '현장 소장', desc: '공사 현장 전반 관리 및 운영', required: '건설 관련 학과 + 경력 7년 이상' },
+      { title: '현장 시공 관리', desc: '철근콘크리트공사 수행과 현장 운영에 관련된 직무 영역입니다.' },
+      { title: '공사 관리', desc: '공정, 자재, 협력사와의 현장 운영을 지원하는 직무 영역입니다.' },
     ],
   },
   {
-    category: '안전·품질',
+    category: '품질·안전 관리',
     icon: <ShieldCheck size={22} />,
     jobs: [
-      { title: '안전관리자', desc: '건설 현장 안전 시스템 수립 및 관리', required: '산업안전기사 이상 + 경력 2년 이상' },
-      { title: '품질관리자', desc: '시공 품질 검사 및 품질 관리 시스템 운영', required: '건축·토목 관련 자격증 + 경력 2년 이상' },
+      { title: '품질 관리', desc: '품질안전 관리 기준을 현장에 적용하는 직무 영역입니다.' },
+      { title: '안전 관리', desc: '안전 제일주의와 현장 안전관리에 관련된 직무 영역입니다.' },
     ],
   },
   {
-    category: '경영 지원',
+    category: '경영·지원',
     icon: <Briefcase size={22} />,
     jobs: [
-      { title: '경영기획', desc: '사업 계획 수립 및 경영 성과 관리', required: '경영학 관련 학과 졸업 이상' },
-      { title: 'IT/BIM 담당', desc: 'BIM 모델링 및 스마트 건설 기술 도입', required: 'BIM 관련 자격증 또는 경험자 우대' },
+      { title: '경영 지원', desc: '회사 운영과 현장 업무가 원활히 이어지도록 지원하는 직무 영역입니다.' },
+      { title: '기술·관리 지원', desc: '자재기술 및 관리 혁신을 지원하는 직무 영역입니다.' },
     ],
   },
 ];
@@ -58,7 +58,7 @@ export default function Jobs() {
         <p className="section-eyebrow">TALENT RECRUITMENT</p>
         <h2 className="section-title">태일씨앤티가 찾는 인재상</h2>
         <p className="section-subtitle">
-          태일씨앤티와 함께 대한민국 건설의 미래를 만들어 갈 열정적인 인재를 기다립니다.
+          태일씨앤티는 책임과 성장, 정직과 소통, 더 나은 방식, 공동체 의식을 갖춘 인재를 기다립니다.
         </p>
       </AnimatedSection>
 
@@ -87,7 +87,7 @@ export default function Jobs() {
       </div>
 
       <AnimatedSection delay={200} className="job-categories-section">
-        <h3 className="jobs-section-title">모집 직무</h3>
+        <h3 className="jobs-section-title">주요 직무 영역</h3>
         {JOB_CATEGORIES.map((cat, catIdx) => (
           <div key={catIdx} className="job-category-block">
             <div className="job-category-header">
@@ -100,11 +100,8 @@ export default function Jobs() {
                   <div className="job-item-info">
                     <h5 className="job-title">{job.title}</h5>
                     <p className="job-desc">{job.desc}</p>
-                    <p className="job-required">
-                      <span className="required-label">자격요건:</span> {job.required}
-                    </p>
                   </div>
-                  <button className="btn btn-outline job-apply-btn">지원하기</button>
+                  <span className="job-required">모집 공고 확인</span>
                 </div>
               ))}
             </div>

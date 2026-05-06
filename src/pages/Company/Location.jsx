@@ -6,6 +6,7 @@ const SUB_NAV = [
   { label: '인사말', path: '/company/greeting' },
   { label: '경영이념', path: '/company/philosophy' },
   { label: '회사연혁', path: '/company/history' },
+  { label: '기구조직도', path: '/company/organization' },
   { label: '주거래 시공사', path: '/company/partners' },
   { label: '업·면허/인증', path: '/company/certifications' },
   { label: '찾아오시는 길', path: '/company/location' },
@@ -25,14 +26,12 @@ export default function Location() {
 
       <div className="location-grid">
         <AnimatedSection direction="left" className="location-map">
-          <div className="map-wrap">
-            <iframe
-              title="태일씨앤티 지도"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.169!2d126.8823!3d37.4563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z7YGs7JeF6rSR!5e0!3m2!1sko!2skr!4v1!5m2!1sko!2skr"
-              style={{ border: 0, width: '100%', height: '100%' }}
-              allowFullScreen
-              loading="lazy"
-            />
+          <div className="map-wrap location-summary-panel">
+            <span className="location-summary-kicker">TAEIL C&T HEAD OFFICE</span>
+            <strong>가산디지털단지역 인근<br />한라원앤원타워 B동 17층</strong>
+            <p>서울특별시 금천구 가산디지털2로 101, B동 1701호</p>
+            <div className="location-summary-line" />
+            <span>방문 전 대표번호로 문의해 주세요.</span>
           </div>
         </AnimatedSection>
 
@@ -52,13 +51,6 @@ export default function Location() {
                 <div>
                   <strong>전화</strong>
                   <p>070-8897-0761</p>
-                </div>
-              </li>
-              <li>
-                <span className="loc-icon">📠</span>
-                <div>
-                  <strong>팩스</strong>
-                  <p>02-000-0000</p>
                 </div>
               </li>
             </ul>

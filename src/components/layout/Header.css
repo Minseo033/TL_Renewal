@@ -53,9 +53,11 @@
   flex-shrink: 0;
 }
 
-.logo-icon svg {
-  width: 36px;
-  height: 36px;
+.logo-icon img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  display: block;
 }
 
 .logo-text {

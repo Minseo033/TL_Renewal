@@ -1,30 +1,31 @@
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
-import { Award, Leaf, ShieldCheck, HardHat, Paintbrush, Wrench, Laptop, BarChart2, ClipboardList } from 'lucide-react';
+import { Award, Building2, FlaskConical, HardHat, Leaf, Medal, ShieldCheck, Wrench } from 'lucide-react';
 import './Company.css';
 
 const SUB_NAV = [
   { label: '인사말', path: '/company/greeting' },
   { label: '경영이념', path: '/company/philosophy' },
   { label: '회사연혁', path: '/company/history' },
+  { label: '기구조직도', path: '/company/organization' },
   { label: '주거래 시공사', path: '/company/partners' },
   { label: '업·면허/인증', path: '/company/certifications' },
   { label: '찾아오시는 길', path: '/company/location' },
 ];
 
 const CERTS = [
-  { title: 'ISO 9001', sub: '품질경영시스템', org: '국제표준화기구', year: '2015', color: '#1B3A5C', icon: <Award size={36} strokeWidth={1.5} /> },
-  { title: 'ISO 14001', sub: '환경경영시스템', org: '국제표준화기구', year: '2018', color: '#2E8B4A', icon: <Leaf size={36} strokeWidth={1.5} /> },
-  { title: 'ISO 45001', sub: '안전보건경영시스템', org: '국제표준화기구', year: '2023', color: '#C9A84C', icon: <ShieldCheck size={36} strokeWidth={1.5} /> },
+  { title: 'KS Q ISO 9001:2015', sub: '품질경영시스템', org: '건연인증원', year: '2017', color: '#1B3A5C', icon: <Award size={36} strokeWidth={1.5} /> },
+  { title: 'KS I ISO 14001:2015', sub: '환경경영시스템', org: '건연인증원', year: '2017', color: '#2E8B4A', icon: <Leaf size={36} strokeWidth={1.5} /> },
+  { title: 'OHSAS 18001:2017', sub: '안전보건경영시스템', org: '건연인증원', year: '2017', color: '#C9A84C', icon: <ShieldCheck size={36} strokeWidth={1.5} /> },
 ];
 
 const LICENSES = [
-  { title: '철근콘크리트공사업', desc: '전문건설업 면허 (주력 분야)', icon: <HardHat size={22} /> },
-  { title: '도장·방수공사업', desc: '전문건설업 면허', icon: <Paintbrush size={22} /> },
+  { title: '철근콘크리트공사업', desc: '전문건설업 면허 / 주력 분야', icon: <HardHat size={22} /> },
+  { title: '습식·방수공사업', desc: '전문건설업 면허', icon: <Building2 size={22} /> },
   { title: '구조물해체·비계공사업', desc: '전문건설업 면허', icon: <Wrench size={22} /> },
-  { title: 'K-BIM 우수기업', desc: '스마트건설 기술 인증', icon: <Laptop size={22} /> },
-  { title: '철근콘크리트 전국 61위', desc: '2024년 시공능력평가', icon: <BarChart2 size={22} /> },
-  { title: '비계 전국 216위', desc: '2024년 시공능력평가', icon: <ClipboardList size={22} /> },
+  { title: '기업부설연구소', desc: '2014년 인정 승인 이력', icon: <FlaskConical size={22} /> },
+  { title: '벤처기업', desc: '2015년, 2018년 인증 이력', icon: <Medal size={22} /> },
+  { title: 'MAIN-BIZ', desc: '경영혁신형 중소기업 인증 이력', icon: <Award size={22} /> },
 ];
 
 export default function Certifications() {
@@ -38,7 +39,7 @@ export default function Certifications() {
         <p className="section-eyebrow">CERTIFICATIONS & LICENSES</p>
         <h2 className="section-title">국제 인증 및 면허 현황</h2>
         <p className="section-subtitle">
-          엄격한 국제 인증과 전문 면허를 통해 품질·환경·안전을 체계적으로 관리합니다.
+          전문 면허와 품질·환경·안전 인증을 바탕으로 체계적인 현장 관리를 이어갑니다.
         </p>
       </AnimatedSection>
 
@@ -59,7 +60,7 @@ export default function Certifications() {
       </div>
 
       <AnimatedSection delay={200} className="license-section">
-        <h3 className="license-section-title">면허 및 실적</h3>
+        <h3 className="license-section-title">면허 및 인증 이력</h3>
         <div className="license-grid">
           {LICENSES.map((l, idx) => (
             <div key={idx} className="license-item">

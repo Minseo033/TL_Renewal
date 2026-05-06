@@ -7,7 +7,9 @@ import './Projects.css';
 
 const SUB_NAV = [
   { label: '공사수주 현황', path: '/projects/orders' },
-  { label: '시공능력/품질·안전', path: '/projects/capability' },
+  { label: '건설시공능력', path: '/projects/capability' },
+  { label: '품질경영', path: '/projects/quality' },
+  { label: '안전경영', path: '/projects/safety' },
   { label: '주택', path: '/projects/housing' },
   { label: '업무시설', path: '/projects/office' },
   { label: '교육/의료', path: '/projects/education' },
@@ -57,7 +59,7 @@ export default function ProjectCategory({ category }) {
             <div className="project-card" onClick={() => setSelectedProject(project)}>
               <div className="project-card-image">
                 <img src={project.image} alt={project.name} onError={(e) => {
-                  e.target.src = 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&w=800&q=80';
+                  e.target.src = './assets/images/company/greeting.jpg';
                 }} />
                 <div className="project-card-overlay">
                   <span className="view-detail-btn">상세보기 +</span>
@@ -68,7 +70,7 @@ export default function ProjectCategory({ category }) {
                 <div className="project-card-meta">
                   <div className="meta-item">
                     <Building size={14} className="meta-icon" />
-                    <span>{project.client || '정보 없음'}</span>
+                    <span>{project.client}</span>
                   </div>
                   {project.period && (
                     <div className="meta-item">
@@ -93,7 +95,7 @@ export default function ProjectCategory({ category }) {
 
       {filteredProjects.length === 0 && (
         <div className="no-data-wrap">
-          <p>해당 카테고리의 실적 준비 중입니다.</p>
+          <p>해당 카테고리에 등록된 실적이 없습니다.</p>
         </div>
       )}
 
@@ -107,7 +109,7 @@ export default function ProjectCategory({ category }) {
             <div className="modal-body">
               <div className="modal-image-wrap">
                 <img src={selectedProject.image} alt={selectedProject.name} onError={(e) => {
-                  e.target.src = 'https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&w=800&q=80';
+                  e.target.src = './assets/images/company/greeting.jpg';
                 }} />
               </div>
               <div className="modal-info-wrap">

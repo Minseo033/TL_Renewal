@@ -6,6 +6,7 @@ const SUB_NAV = [
   { label: '인사말', path: '/company/greeting' },
   { label: '경영이념', path: '/company/philosophy' },
   { label: '회사연혁', path: '/company/history' },
+  { label: '기구조직도', path: '/company/organization' },
   { label: '주거래 시공사', path: '/company/partners' },
   { label: '업·면허/인증', path: '/company/certifications' },
   { label: '찾아오시는 길', path: '/company/location' },
@@ -13,65 +14,73 @@ const SUB_NAV = [
 
 const HISTORY = [
   {
-    year: '2024',
+    year: '2025',
     items: [
-      '삼성물산 2024 우수 시공능력 수상',
-      '철근콘크리트 전국 61위 달성',
-      'BIM 스마트건설 본격 도입',
+      'Westin Seoul Parnas 리모델링공사 수주',
+      '용인 Cluster 1기 OBL 수주',
+      '다이소 세종 온라인센터 수주',
     ],
   },
   {
-    year: '2023',
+    year: '2023~2024',
     items: [
-      '창립 30주년 기념행사',
-      'ISO 45001 안전보건경영시스템 인증',
-      '수주액 역대 최대 달성',
+      '엔씨소프트 글로벌 RDI센터 수주',
+      '한국일보용산사옥 신축공사 수주',
+      '용인 Cluster 1기 공동구 수주',
     ],
   },
   {
     year: '2022',
     items: [
-      '서울 서초 플랜트 프로젝트 착공',
-      'K-BIM 우수기업 선정',
-      '사회공헌 장학금 사업 시작',
+      '평택 P4 RC공사 1공구 수주',
+      '판교 G2 업무시설 신축공사 수주',
+      '비상교육 사옥 신축공사 수주',
     ],
   },
   {
     year: '2020',
     items: [
-      'SK하이닉스 용인 클러스터 참여',
-      '파트너사 15개사 확대',
-      '안전경영 무재해 2000일 달성',
+      '판교 알파돔 6-1블럭 수주',
+      'P2-PJT 철근콘크리트 공사 수주',
+      '브라이튼 여의도 복합시설 신축공사 수주',
     ],
   },
   {
     year: '2018',
     items: [
-      'ISO 14001 환경경영시스템 인증',
-      '초고층 건물 시공 분야 진출',
-      '직원 100명 돌파',
+      '기술보증기금 벤처기업 인증',
+      '국세청장 모범납세자 표창',
+      '국토교통부장관 건설기능인의 날 표창',
+    ],
+  },
+  {
+    year: '2017',
+    items: [
+      'KS Q ISO 9001:2015 인증',
+      'KS I ISO 14001:2015 인증',
+      'OHSAS 18001:2017 인증',
     ],
   },
   {
     year: '2015',
     items: [
-      'ISO 9001 품질경영시스템 인증',
-      '업무시설·교육시설 분야 확장',
+      '벤처기업 등록',
+      '한라 안전부문 우수협력업체 선정',
     ],
   },
   {
     year: '2013',
     items: [
       '(주)태일씨앤티로 사명 변경',
-      '철근콘크리트 전문 건설업 면허 취득',
-      '본사 현 위치(서울 금천구) 이전',
+      '김경수 대표이사 취임',
+      'ISO 9001 인증 갱신',
     ],
   },
   {
     year: '1994',
     items: [
-      '지인개발(주) 설립 (창업)',
-      '건설업 등록',
+      '지인개발 설립',
+      '철근콘크리트공사업 면허 양수',
     ],
   },
 ];
@@ -86,7 +95,7 @@ export default function History() {
       <AnimatedSection className="history-header">
         <p className="section-eyebrow">OUR HISTORY</p>
         <h2 className="section-title">30년의 역사, 무한한 도전</h2>
-        <p className="section-subtitle">1994년 창립 이래 대한민국 건설 산업과 함께 성장해 왔습니다</p>
+        <p className="section-subtitle">1994년 설립 이후 태일씨앤티가 걸어온 주요 이력입니다.</p>
       </AnimatedSection>
 
       <div className="history-timeline">
