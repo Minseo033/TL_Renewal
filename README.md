@@ -237,17 +237,17 @@ public/
 - 공통 컴포넌트가 2곳 이상 반복될 때만 `components/ui`로 분리합니다.
 - 모바일에서 카드가 단순히 세로로만 쌓이지 않도록 필요하면 가로 스크롤, 2열 카드, 요약형 레이아웃을 고려합니다.
 
-## 추천 역할 분담
+## 확정 역할 분담
 
-현재 팀 구성 기준 추천입니다.
+현재 팀 구성 기준 확정된 역할입니다.
 
-| 담당자 | 추천 담당 영역 | 이유 |
-| --- | --- | --- |
-| 관리자 페이지 담당 | `Admin`, 데이터 입력 구조, `projectsData.js` 연동 방식 | 공사수주 추가 흐름과 데이터 형식을 잡아야 함 |
-| 팀원 A | `Home`, `Company`, `Recruitment` | 회사 정체성, 지원자 경험, 홈 메시지가 서로 연결됨 |
-| 팀원 B | `Projects`, `Technology`, `PR`, `ESG` | 실적, 공법, 뉴스, ESG는 실제 데이터와 수상/공사 이력의 일관성이 중요함 |
+| 담당자 | 담당 영역 | 주 작업 폴더 | 역할 |
+| --- | --- | --- | --- |
+| 민서 | 관리자 페이지, 데이터 입력 구조 | `src/pages/Admin`, `src/data/projectsData.js` 연동 방식 | 공사수주 추가 흐름과 데이터 형식 설계 |
+| 태관 | `Company`, `Recruitment`, `Home` | `src/pages/Company`, `src/pages/Recruitment`, `src/pages/Home` | 회사 정체성, 지원자 경험, 홈 메시지 정리 |
+| 동훈 | `Projects`, `Technology`, `PR`, `ESG` | `src/pages/Projects`, `src/pages/Technology`, `src/pages/PR`, `src/pages/ESG` | 실적, 공법, 뉴스, ESG 정보의 일관성 관리 |
 
-`Home`은 여러 페이지의 요약이 모이는 곳이라 충돌이 잘 납니다. 한 명이 최종 편집을 맡고, 다른 담당자는 홈에 넣을 핵심 문장이나 데이터만 전달하는 방식이 좋습니다.
+`Home`은 여러 페이지의 요약이 모이는 곳이라 충돌이 잘 납니다. 태관이 최종 편집을 맡고, 동훈은 홈에 반영하면 좋을 핵심 실적/뉴스/ESG 문장을 제안하는 방식이 좋습니다.
 
 ## AI에게 작업을 맡길 때 쓰는 프롬프트 예시
 
@@ -262,19 +262,19 @@ public/
 작업 후 변경 파일 목록과 npm run lint / npm run build 결과를 알려줘.
 ```
 
-### 팀원 A: Home, Company, Recruitment 담당
+### 태관: Company, Recruitment, Home 담당
 
 ```txt
-나는 Home, Company, Recruitment 영역을 맡았어.
-src/pages/Home, src/pages/Company, src/pages/Recruitment 중심으로 개선해줘.
+나는 태관이고 Company, Recruitment, Home 영역을 맡았어.
+src/pages/Company, src/pages/Recruitment, src/pages/Home 중심으로 개선해줘.
 지원자가 자주 방문한다는 요구사항을 고려해서 회사 정체성, 채용 흐름, 복리후생, 인재상 문구를 자연스럽게 다듬어줘.
 Projects, Technology, PR, ESG 데이터 구조는 건드리지 말고 필요한 요약 문장만 제안해줘.
 ```
 
-### 팀원 B: Projects, Technology, PR, ESG 담당
+### 동훈: Projects, Technology, PR, ESG 담당
 
 ```txt
-나는 Projects, Technology, PR, ESG 영역을 맡았어.
+나는 동훈이고 Projects, Technology, PR, ESG 영역을 맡았어.
 src/pages/Projects, src/pages/Technology, src/pages/PR, src/pages/ESG 중심으로 개선해줘.
 공사수주 현황, 기술 역량, 뉴스, ESG 문구가 실제 회사 사이트처럼 보이게 다듬어줘.
 확인되지 않은 실적이나 뉴스는 추가하지 마.
@@ -284,7 +284,7 @@ Home은 직접 크게 수정하지 말고, 홈에 반영하면 좋을 핵심 실
 ### 관리자 페이지 담당
 
 ```txt
-나는 관리자 페이지를 맡았어.
+나는 민서이고 관리자 페이지를 맡았어.
 정적 호스팅 환경을 전제로 src/pages/Admin 안에 공사수주 입력 보조 도구를 설계해줘.
 진짜 서버 저장이나 프론트엔드 비밀번호 보안처럼 보이는 기능은 만들지 마.
 입력한 내용을 projectsData.js에 붙여넣을 수 있는 JSON/JS 객체 형태로 생성하는 방향으로 작업해줘.
@@ -342,7 +342,7 @@ git pull origin main
 작업 브랜치를 만들어서 진행합니다.
 
 ```bash
-git checkout -b feature/company-pages
+git checkout -b feature/작업자-작업영역
 ```
 
 작업 후 확인합니다.
@@ -357,14 +357,14 @@ npm run build
 ```bash
 git add .
 git commit -m "Update recruitment pages"
-git push origin feature/company-pages
+git push origin feature/작업자-작업영역
 ```
 
 권장 브랜치 예시입니다.
 
-- `feature/admin`
-- `feature/company-recruitment`
-- `feature/projects-esg`
+- `feature/admin-minseo`
+- `feature/taegwan-company-recruitment-home`
+- `feature/donghoon-projects-tech-pr-esg`
 - `fix/mobile-layout`
 - `docs/readme`
 
