@@ -2,7 +2,7 @@ import { useState } from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
 import { RECENT_PROJECTS } from '../../data/projectsData';
-import { Calendar, Building, MapPin, X, Plus, BarChart3, Users } from 'lucide-react';
+import { Calendar, Building, MapPin, X, Plus } from 'lucide-react';
 import './Projects.css';
 
 const SUB_NAV = [
@@ -25,40 +25,6 @@ const STATS = [
   { label: '동종업계 순위', value: '61위', sub: '동종업계' },
   { label: '2024년 매출액', value: '700억', sub: '2024년' },
 ];
-
-const PROJECT_CATEGORIES = ['업무시설', '판매시설', '플랜트', '주택', '기타', '교육/의료'];
-
-const CATEGORY_OVERVIEW = PROJECT_CATEGORIES.map((category) => ({
-  category,
-  count: RECENT_PROJECTS.filter((project) => project.categories?.includes(category)).length,
-}));
-
-const MAX_CATEGORY_COUNT = Math.max(...CATEGORY_OVERVIEW.map((item) => item.count));
-
-const PARTNER_OVERVIEW = Array.from(
-  RECENT_PROJECTS.reduce((acc, project) => {
-    if (project.partner && project.partner !== '.') {
-      acc.set(project.partner, (acc.get(project.partner) || 0) + 1);
-    }
-    return acc;
-  }, new Map())
-)
-  .sort((a, b) => b[1] - a[1])
-  .slice(0, 6);
-
-const YEAR_OVERVIEW = Array.from(
-  RECENT_PROJECTS.reduce((acc, project) => {
-    const year = project.period?.match(/20\d{2}/)?.[0];
-    if (year) {
-      acc.set(year, (acc.get(year) || 0) + 1);
-    }
-    return acc;
-  }, new Map())
-)
-  .sort(([a], [b]) => Number(b) - Number(a))
-  .slice(0, 8);
-
-const MAX_YEAR_COUNT = Math.max(...YEAR_OVERVIEW.map(([, count]) => count));
 
 export default function ProjectOrders() {
   const [visibleCount, setVisibleCount] = useState(6);
@@ -95,72 +61,6 @@ export default function ProjectOrders() {
           </AnimatedSection>
         ))}
       </div>
-
-      <AnimatedSection delay={120}>
-        <section className="orders-dashboard-panel">
-          <div className="orders-dashboard-heading">
-            <div>
-              <p className="section-eyebrow">PROJECT DATA VIEW</p>
-              <h3>유형, 연도, 시공사 기준으로 보는 공사수주 현황</h3>
-            </div>
-            <span>{RECENT_PROJECTS.length} Projects</span>
-          </div>
-
-          <div className="orders-dashboard-grid">
-            <article className="orders-dashboard-card category-view">
-              <div className="orders-card-title">
-                <BarChart3 size={18} />
-                <strong>공사 유형별 비중</strong>
-              </div>
-              <div className="orders-category-bars">
-                {CATEGORY_OVERVIEW.map((item) => (
-                  <div className="orders-category-row" key={item.category}>
-                    <span>{item.category}</span>
-                    <div>
-                      <i style={{ width: `${Math.max(12, (item.count / MAX_CATEGORY_COUNT) * 100)}%` }} />
-                    </div>
-                    <strong>{item.count}</strong>
-                  </div>
-                ))}
-              </div>
-            </article>
-
-            <article className="orders-dashboard-card year-view">
-              <div className="orders-card-title">
-                <Calendar size={18} />
-                <strong>최근 수주 흐름</strong>
-              </div>
-              <div className="orders-year-bars">
-                {YEAR_OVERVIEW.map(([year, count]) => (
-                  <div className="orders-year-row" key={year}>
-                    <span>{year}</span>
-                    <div>
-                      <i style={{ height: `${Math.max(16, (count / MAX_YEAR_COUNT) * 100)}%` }} />
-                    </div>
-                    <strong>{count}</strong>
-                  </div>
-                ))}
-              </div>
-            </article>
-
-            <article className="orders-dashboard-card partner-view">
-              <div className="orders-card-title">
-                <Users size={18} />
-                <strong>주요 시공사</strong>
-              </div>
-              <div className="orders-partner-list">
-                {PARTNER_OVERVIEW.map(([partner, count], index) => (
-                  <div key={partner} className="orders-partner-item">
-                    <span>{String(index + 1).padStart(2, '0')}</span>
-                    <p>{partner}</p>
-                    <strong>{count}건</strong>
-                  </div>
-                ))}
-              </div>
-            </article>
-          </div>
-        </section>
-      </AnimatedSection>
 
       <div className="projects-grid">
         {RECENT_PROJECTS.slice(0, visibleCount).map((project, i) => (

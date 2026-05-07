@@ -54,7 +54,7 @@ const CORE_STRENGTHS = [
 ];
 
 const TRUST_METRICS = [
-  { label: '공사수주 데이터', value: `${RECENT_PROJECTS.length}건`, note: '주요 프로젝트' },
+  { label: '설립', value: '1994', note: '지인개발 설립' },
   { label: '도급순위', value: '55위', note: '철근콘크리트공사' },
   { label: '시공능력평가액', value: '978억', note: '2025년' },
   { label: '매출액', value: '700억', note: '2024년' },
@@ -62,15 +62,11 @@ const TRUST_METRICS = [
 
 const FEATURED_PROJECTS = RECENT_PROJECTS.slice(0, 4);
 const FEATURED_NEWS = NEWS_DATA.slice(0, 3);
-const MAX_CATEGORY_COUNT = Math.max(
-  ...BUSINESS_LINKS.map((item) => RECENT_PROJECTS.filter((project) => project.categories?.includes(item.label)).length)
-);
-
 const CATEGORY_DASHBOARD = BUSINESS_LINKS.map((item) => ({
   ...item,
   count: RECENT_PROJECTS.filter((project) => project.categories?.includes(item.label)).length,
 }));
-
+const MAX_CATEGORY_COUNT = Math.max(1, ...CATEGORY_DASHBOARD.map((item) => item.count));
 const TOP_PARTNERS = Array.from(
   RECENT_PROJECTS.reduce((acc, project) => {
     if (project.partner && project.partner !== '.') {
@@ -104,41 +100,27 @@ export default function Home() {
           <div className="hero-copy">
             <span className="hero-badge">REINFORCED CONCRETE SPECIALIST</span>
             <h1 className="hero-title">
-              건물의 겉보다 먼저,<br />
-              골조의 기준을 세웁니다
+              철근콘크리트로<br />
+              대한민국의 골조를 세웁니다
             </h1>
             <p className="hero-subtitle">
-              태일씨앤티는 철근콘크리트 구조체 공사를 중심으로 도면 검토부터 타설,
-              검측, 안전관리까지 현장의 핵심 공정을 수행하는 전문 건설회사입니다.
+              태일씨앤티는 30년 현장 경험과 품질·안전 실행력으로
+              대형 건설 프로젝트의 구조체 공사를 책임지는 전문 건설회사입니다.
             </p>
             <div className="hero-actions">
               <Link to="/projects/orders" className="btn btn-brand hero-btn-main">
-                실적 대시보드 보기 <ArrowRight size={17} />
+                주요 실적 보기 <ArrowRight size={17} />
               </Link>
-              <Link to="/technology/overview" className="btn btn-outline-white hero-btn-sub">
-                공정 흐름 보기
+              <Link to="/recruitment/jobs" className="btn btn-outline-white hero-btn-sub">
+                지원자 채용 정보
               </Link>
             </div>
           </div>
+        </div>
 
-          <div className="hero-command-panel" aria-label="태일씨앤티 현장 지휘판">
-            <div className="command-panel-head">
-              <span>SITE COMMAND BOARD</span>
-              <strong>RC FRAME WORK</strong>
-            </div>
-            <div className="command-metric-large">
-              <span>{RECENT_PROJECTS.length}</span>
-              <p>등록 프로젝트</p>
-            </div>
-            <div className="command-process-mini">
-              {FIELD_PROCESS.slice(0, 4).map((step) => (
-                <div key={step.code}>
-                  <span>{step.code}</span>
-                  <p>{step.title}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+        <div className="hero-scroll-hint">
+          <span>Scroll</span>
+          <div className="hero-scroll-arrow" />
         </div>
       </section>
 
@@ -149,7 +131,7 @@ export default function Home() {
         </Link>
         <Link to="/projects/orders">
           <BadgeCheck size={20} />
-          <span>실적 대시보드</span>
+          <span>실적과 신뢰도</span>
         </Link>
         <Link to="/recruitment/jobs">
           <BriefcaseBusiness size={20} />
@@ -284,25 +266,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section method-section">
-        <div className="container">
-          <AnimatedSection className="method-panel">
-            <div className="method-copy">
-              <p className="section-eyebrow">SITE METHOD</p>
-              <h2>RC, OPEN-CUT, TOP-DOWN, SRC까지 현장 조건에 맞게 적용합니다</h2>
-              <p>
-                현장마다 다른 구조, 지반, 공정 조건에 맞춰 품질과 안전을 함께 고려한 시공 방식을 적용합니다.
-              </p>
-            </div>
-            <div className="method-chip-grid">
-              {['RC', 'OPEN-CUT', 'TOP-DOWN', 'SRC', '품질검측', '안전관리'].map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
       <section className="recruit-focus-section">
         <div className="container">
           <AnimatedSection className="recruit-focus-card">
@@ -330,7 +293,7 @@ export default function Home() {
               <p className="section-eyebrow">NEWS & CONTRIBUTION</p>
               <h2 className="section-title">수상과 사회공헌을 한 화면에서</h2>
               <p className="section-subtitle">
-                안전 수상, 사회공헌, 현장 소식으로 태일씨앤티의 신뢰 활동을 전합니다.
+                안전 성과와 지역사회 나눔, 현장 소식까지 태일씨앤티가 지켜온 책임의 기록을 전합니다.
               </p>
               <Link to="/pr/news" className="btn btn-outline news-more-btn">전체 보기</Link>
             </AnimatedSection>
@@ -355,17 +318,23 @@ export default function Home() {
 
       <section className="section media-section">
         <div className="container">
-          <AnimatedSection className="media-panel">
-            <video controls poster="./assets/images/esg/esg-main.png" preload="metadata">
-              <source src="./assets/videos/intro.mp4" type="video/mp4" />
-              브라우저가 동영상을 지원하지 않습니다.
-            </video>
-            <div className="media-summary">
-              <strong>현장과 사람, 품질·안전을 영상으로 만나다</strong>
-              <p>철근콘크리트 전문 시공 현장과 태일씨앤티가 지켜온 품질·안전의 기준을 확인할 수 있습니다.</p>
-              <Link to="/company/greeting" className="btn btn-primary">
-                회사소개로 이동 <ArrowRight size={16} />
-              </Link>
+          <AnimatedSection className="section-header center">
+            <p className="section-eyebrow">COMPANY FILM</p>
+            <h2 className="section-title center">현장과 사람, 기술을 영상으로 만나다</h2>
+          </AnimatedSection>
+          <AnimatedSection delay={100}>
+            <div className="media-panel">
+              <video controls poster="./assets/images/esg/esg-main.png" preload="metadata">
+                <source src="./assets/videos/intro.mp4" type="video/mp4" />
+                브라우저가 동영상을 지원하지 않습니다.
+              </video>
+              <div className="media-summary">
+                <strong>태일씨앤티 기업 소개</strong>
+                <p>철근콘크리트 전문 시공 현장과 품질·안전을 향한 태일씨앤티의 기준을 영상으로 확인해 보세요.</p>
+                <Link to="/company/greeting" className="btn btn-primary">
+                  회사소개로 이동 <ArrowRight size={16} />
+                </Link>
+              </div>
             </div>
           </AnimatedSection>
         </div>
