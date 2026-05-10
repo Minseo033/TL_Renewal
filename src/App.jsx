@@ -24,6 +24,7 @@ import HRSystem from './pages/Recruitment/HRSystem';
 import Guide from './pages/Recruitment/Guide';
 import Benefits from './pages/Recruitment/Benefits';
 import FAQ from './pages/Recruitment/FAQ';
+import Admin from './pages/Admin/Admin';
 
 export default function App() {
   return (
@@ -74,6 +75,9 @@ export default function App() {
         <Route path="/recruitment/guide" element={<Guide />} />
         <Route path="/recruitment/benefits" element={<Benefits />} />
         <Route path="/recruitment/faq" element={<FAQ />} />
+
+        {/* 관리자 도구 */}
+        <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
     </HashRouter>

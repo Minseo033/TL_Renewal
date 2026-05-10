@@ -321,6 +321,14 @@ global.css는 최소한으로 건드리고 각 페이지 CSS에서 해결해줘.
 - 입력 결과를 바로 서버에 저장하지 않고, 운영자가 검토 후 `projectsData.js`에 반영
 - 공개 배포 시 관리자 페이지를 숨기거나 내부용 빌드에서만 사용하는 방식 고려
 
+현재 `/admin`에 들어간 운영 보조 기능은 다음과 같습니다.
+
+- 홈 노출 관리: `src/data/homeDisplayData.js`의 프로젝트/뉴스 ID 순서 생성
+- 공사수주 입력: `src/data/projectsData.js`에 추가할 프로젝트 객체 생성
+- 뉴스 입력: `src/data/newsData.js`에 추가할 뉴스 객체 생성
+- 채용 FAQ 입력: `src/pages/Recruitment/FAQ.jsx`의 `FAQS` 배열에 추가할 객체 생성
+- 이미지 경로 점검: 입력한 이미지와 홈 노출 이미지가 실제로 로드되는지 확인
+
 피해야 할 방식입니다.
 
 - React 코드 안에 관리자 비밀번호를 넣는 방식

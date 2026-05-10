@@ -16,6 +16,7 @@ import {
 import AnimatedSection from '../../components/ui/AnimatedSection';
 import { RECENT_PROJECTS } from '../../data/projectsData';
 import { NEWS_DATA } from '../../data/newsData';
+import { HOME_DISPLAY } from '../../data/homeDisplayData';
 import './Home.css';
 
 const BUSINESS_LINKS = [
@@ -60,8 +61,17 @@ const TRUST_METRICS = [
   { label: '매출액', value: '700억', note: '2024년' },
 ];
 
-const FEATURED_PROJECTS = RECENT_PROJECTS.slice(0, 4);
-const FEATURED_NEWS = NEWS_DATA.slice(0, 3);
+const pickDisplayItems = (items, ids, limit) => {
+  const selected = ids
+    .map((id) => items.find((item) => item.id === id))
+    .filter(Boolean);
+  const fallback = items.filter((item) => !ids.includes(item.id));
+
+  return [...selected, ...fallback].slice(0, limit);
+};
+
+const FEATURED_PROJECTS = pickDisplayItems(RECENT_PROJECTS, HOME_DISPLAY.featuredProjectIds, 4);
+const FEATURED_NEWS = pickDisplayItems(NEWS_DATA, HOME_DISPLAY.featuredNewsIds, 3);
 const CATEGORY_DASHBOARD = BUSINESS_LINKS.map((item) => ({
   ...item,
   count: RECENT_PROJECTS.filter((project) => project.categories?.includes(item.label)).length,
