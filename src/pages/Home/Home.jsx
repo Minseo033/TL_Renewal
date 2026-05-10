@@ -100,8 +100,7 @@ export default function Home() {
           <div className="hero-copy">
             <span className="hero-badge">REINFORCED CONCRETE SPECIALIST</span>
             <h1 className="hero-title">
-              철근콘크리트로<br />
-              대한민국의 골조를 세웁니다
+              철근콘크리트로 대한민국의 골조를 세웁니다
             </h1>
             <p className="hero-subtitle">
               태일씨앤티는 30년 현장 경험과 품질·안전 실행력으로
@@ -163,7 +162,7 @@ export default function Home() {
             <AnimatedSection direction="left">
               <div className="field-system-copy">
                 <p className="section-eyebrow">WHAT TAEIL BUILDS</p>
-                <h2 className="section-title">골조 공정으로 증명하는 태일씨앤티의 경쟁력</h2>
+                <h2 className="section-title">골조로 입증된 태일씨앤티의 경쟁력</h2>
                 <p className="section-subtitle">
                   태일씨앤티는 도면 검토, 철근 배근, 거푸집, 콘크리트 타설, 품질·안전 검측까지
                   구조체 공사의 핵심 공정을 책임 있게 수행합니다.
@@ -271,15 +270,15 @@ export default function Home() {
           <AnimatedSection className="recruit-focus-card">
             <div>
               <span className="recruit-badge">FOR APPLICANTS</span>
-              <h2>지원자가 자주 찾는 정보를 홈에서 바로 연결합니다</h2>
+              <h2>내일의 설계, 필요한 것만 단단하게</h2>
               <p>
                 회사 정체성, 직무, 인사제도, 복리후생, FAQ까지 지원자가 궁금해하는 정보를 빠르게 확인할 수 있습니다.
               </p>
             </div>
             <div className="recruit-links">
-              <Link to="/recruitment/jobs">직무소개</Link>
               <Link to="/recruitment/system">인사제도</Link>
-              <Link to="/recruitment/benefits">복리후생</Link>
+              <Link to="/recruitment/benefits">복리후생</Link>              
+              <Link to="/recruitment/jobs">채용공고</Link>
               <Link to="/recruitment/faq">채용FAQ</Link>
             </div>
           </AnimatedSection>
@@ -291,7 +290,7 @@ export default function Home() {
           <div className="news-inner renewal-news-inner">
             <AnimatedSection direction="left" className="news-header">
               <p className="section-eyebrow">NEWS & CONTRIBUTION</p>
-              <h2 className="section-title">수상과 사회공헌을 한 화면에서</h2>
+              <h2 className="section-title">수상을 넘어 사회적 공헌으로</h2>
               <p className="section-subtitle">
                 안전 성과와 지역사회 나눔, 현장 소식까지 태일씨앤티가 지켜온 책임의 기록을 전합니다.
               </p>
@@ -324,7 +323,7 @@ export default function Home() {
           </AnimatedSection>
           <AnimatedSection delay={100}>
             <div className="media-panel">
-              <video controls poster="./assets/images/esg/esg-main.png" preload="metadata">
+              <video controls autoPlay muted loop playsInline preload="auto">
                 <source src="./assets/videos/intro.mp4" type="video/mp4" />
                 브라우저가 동영상을 지원하지 않습니다.
               </video>

@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import { PiPhoneCall } from "react-icons/pi";
+import { IoLocationOutline } from "react-icons/io5";
+import { LiaFaxSolid } from "react-icons/lia";
 
 export default function Footer() {
   return (
@@ -18,12 +21,12 @@ export default function Footer() {
                   </svg>
                 </div>
                 <div>
-                  <span className="footer-logo-name">태일씨앤티</span>
+                  <span className="footer-logo-name">(주)태일씨앤티</span>
                   <span className="footer-logo-eng">TAEIL C&T CO., LTD.</span>
                 </div>
               </div>
               <p className="footer-desc">
-                철근콘크리트 전문 건설회사로서 30년간의 기술력과 신뢰를 바탕으로 대한민국 건설 산업의 미래를 선도합니다.
+                오늘의 안전은 어제로부터, 내일의 안전은 오늘로부터!
               </p>
             </div>
 
@@ -51,12 +54,16 @@ export default function Footer() {
               <h4>연락처</h4>
               <ul className="footer-contact">
                 <li>
-                  <span className="footer-contact-icon">📍</span>
+                  <span className="footer-contact-icon"><IoLocationOutline /></span>
                   <span>서울특별시 금천구 가산디지털2로 101<br/>한라원앤원타워 B동 17층 1701호</span>
                 </li>
                 <li>
-                  <span className="footer-contact-icon">📞</span>
+                  <span className="footer-contact-icon"><PiPhoneCall /></span>
                   <span>070-8897-0761</span>
+                </li>
+                <li>
+                  <span className="footer-contact-icon"><LiaFaxSolid /></span>
+                  <span>02-2101-2141</span>
                 </li>
               </ul>
             </div>
@@ -67,7 +74,7 @@ export default function Footer() {
       <div className="footer-bottom">
         <div className="container">
           <div className="footer-bottom-inner">
-            <p>© {new Date().getFullYear()} 태일씨앤티(주). All Rights Reserved.</p>
+            <p>© {new Date().getFullYear()} (주)태일씨앤티. All Rights Reserved.</p>
           </div>
         </div>
       </div>

@@ -37,9 +37,9 @@ const VALUES = [
 ];
 
 const VISION_ITEMS = [
-  { label: '태일인 DNA', value: '책임과 성장, 정직과 소통, 더 나은 방식, 공동체 의식', icon: <TrendingUp size={24} /> },
-  { label: '경영 기준', value: '기본과 원칙에 충실한 투명한 경영 구조', icon: <MessageSquare size={24} /> },
-  { label: '슬로건', value: '오늘의 안전은 어제로부터, 내일의 안전은 오늘로부터!', icon: <ShieldCheck size={24} /> },
+  { label: '비전', value: '시대 변화에 적응하여 누구보다 앞선 기술로 전문건설산업의 선도적 역할을 해나갈 것입니다.', icon: <TrendingUp size={24} /> },
+  { label: '핵심가치', value: '고객감동 및 철저한 품질관리 · 무재해 완벽시공 철저한 사후관리 · 지속적 기술개발과 원가절감', icon: <MessageSquare size={24} /> },
+  { label: '슬로건', value: '하나된 태일! 혁신적인 태일! 백년대계 태일!', icon: <ShieldCheck size={24} /> },
 ];
 
 export default function Philosophy() {
@@ -60,7 +60,7 @@ export default function Philosophy() {
           <p className="section-eyebrow">OUR PHILOSOPHY</p>
           <h2 className="philosophy-main-title">책임완수 · 근면성실 · 인화단결</h2>
           <p className="philosophy-main-desc">
-            태일씨앤티는 사훈과 태일인 DNA를 바탕으로 고객과 협력사에 신뢰를 제공합니다
+            태일씨앤티는 사훈과 태일인 DNA를 바탕으로 고객과 협력사에 신뢰를 제공합니다.
           </p>
         </div>
       </AnimatedSection>
@@ -81,7 +81,7 @@ export default function Philosophy() {
       </div>
 
       <AnimatedSection delay={200} className="vision-section">
-        <h3 className="vision-section-title">경영 기준</h3>
+        <h3 className="vision-section-title">경영이념</h3>
         <div className="vision-grid">
           {VISION_ITEMS.map((item, idx) => (
             <div key={idx} className="vision-item">

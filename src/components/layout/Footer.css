@@ -100,6 +100,13 @@
   margin-top: 2px;
 }
 
+.footer-contact-icon ion-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  color: var(--color-accent);
+}
+
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,0.1);
   padding: 20px 0;
