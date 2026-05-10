@@ -199,7 +199,7 @@ public/
   category: "수상",
   title: "삼성물산 공사수행 역량평가 수행우수사 선정, 최우수상 수상",
   date: "2026.03.23",
-  image: "./assets/images/news/news_1_0_1776186515.jpg",
+  image: "./assets/images/news/news_1_0_main.jpg",
   content: "...",
   isReal: true
 }

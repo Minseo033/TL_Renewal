@@ -14,8 +14,7 @@ export const NEWS_DATA = [
     "date": "2025.12.16",
     "image": "./assets/images/news/news_1_1_main.jpg",
     "images": [
-      "./assets/images/news/news_1_1_extra_1.jpg",
-      "./assets/images/news/news_1_1_extra_2.jpg"
+      "./assets/images/news/news_1_1_extra_1.jpg"
     ],
     "content": "태경이노베이션에서 한국청소년육성회 금천지구회 모범청소년 장학금 수여 행사를 진행 하였습니다.\n- 일시 : 2025년 12월 16일\n- 장소 : 금천구청\n- 수여식 참석 : 태경이노베이션 최정훈 대표"
   },
@@ -27,8 +26,7 @@ export const NEWS_DATA = [
     "image": "./assets/images/news/news_1_2_main.jpg",
     "images": [
       "./assets/images/news/news_1_2_extra_1.jpg",
-      "./assets/images/news/news_1_2_extra_2.jpg",
-      "./assets/images/news/news_1_2_extra_3.jpg"
+      "./assets/images/news/news_1_2_extra_2.jpg"
     ],
     "content": "김경수 대표님께서 12월 9일 한국산업단지경영자연합회서울(이하 KIBA서울) 제6대 회장에 취임하셨습니다.\n김 회장님은 이날 오후 6시 G밸리에 위치한 L컨벤션에서 취임식을 갖고 본격 활동을 시작하셨습니다.\n김 회장님은 이날 취임식에서 KIBA서울 제6대 회장 취임에 감사 인사를 전하며,\nG밸리와 산업 생태계에 헌신하는 모든 분들께 감사의 뜻을 밝혔습니다.\nG밸리가 기술 변화와 산업 구조 전환의 중심에 있는 만큼,\n회장으로서 큰 책임감을 느끼고 성과로 보답하겠다고 다짐하셨습니다.\nAI·디지털 전환·ESG 등 빠르게 변하는 환경 속에서 기업들의 어려움을 인식하며,\n위기를 기회로 바꾸기 위해 KIBA서울의 역할을 강화하겠다고 밝혔습니다.\n핵심 운영 방향으로 ▲기업 애로 해결을 위한 컨트롤타워 강화 ▲기업 간 협업 생태계 구축\n▲정부·지자체 지원제도 활용도 제고 등을 제시하셨습니다.\nG밸리를 혁신과 협력의 중심축으로 성장시키기 위해 낮은 자세로 소통하며,\n입주기업과 함께 세계적 산업 생태계를 만들겠다는 의지를 강조하셨습니다.\n김 회장님은 취임식 이후 곧바로 G밸리 입주기업의 애로와 규제 해소,\n경영·근로환경 개선 등을 위해 유관단체 등을 방문하여 본격적인 활동을 시작할 예정입니다."
   },
@@ -40,8 +38,7 @@ export const NEWS_DATA = [
     "image": "./assets/images/news/news_2_0_main.jpg",
     "images": [
       "./assets/images/news/news_2_0_extra_1.jpg",
-      "./assets/images/news/news_2_0_extra_2.jpg",
-      "./assets/images/news/news_2_0_extra_3.jpg"
+      "./assets/images/news/news_2_0_extra_2.jpg"
     ],
     "content": "태일씨앤티(대표이사 김경수, 배준희)는 2025년 12월 4일~5일에 '제2회 G밸리 지산학한마당'에 참가 했습니다.\n김경수 대표이사님께서는 KIBA차기 회장님으로서 축사 및 개막식 테이프컷팅 세리머니도 직접 참여하셨습니다 .\n배준희 대표님께서도 참석하시어 뜻깊게 격려해 주셨습니다.\n이번 행사는 동양미래대와 서울 서남권의 기업들이 서로를 알아가는 만남의 장을 마련하고,\n동양미래대 RISE 사업의 성과를 공유한다는 취지로 마련되었습니다.\n작년에 이어 2회째인 'G밸리 지산학한마당'은 서울 RISE 사업 중 한 꼭지인'지역현안 문제해결' 과제를\n동양미래대와 구로구청, 금천구청이 공동으로 운영했습니다.\n이번 행사는 모두 6개의 한마당으로 진행되었습니다. 기업과 학과들이 서로를 알아가는 눈맞춤 한마당,\n동양미래대 23개 전공학과의 우수한 교육역량을 소개하는 '기술 한마당',\n재학생들이 스스로 개발한 작품을 소개하는 '작품 한마당',\n동양미래대 서울 RISE 사업 및 G밸리 유관기관들을 소개하는 '사업 한마당',\n행사 참여자들이 교류하는 '소통 한마당' 및 지역주민이 참여하는 '행사 한마당'으로 구성되었습니다.\n한편, 태일 직원들도 행사에 참여하여 회사 소개 부스에서 홍보 업무 및 태일씨앤티에 입사 지원하고자 하는\n재학생 및 졸업생을 대상으로 면접을 진행했습니다.\n동양미래대학교 김교일 총장은 \"동양미래대학교는 1965년 개교한 서울 서남권의 유일한 고등직업교육기관으로\n타 대학과 차별화된 핵심 직무 교육을 기반으로 고숙련 전문 기술 인재를 양성하고 있습니다.\n또한 서울 서남권의 지자체 및 기관들과 지·산·학 협력으로 산학협력 활성화, 지역 문제 해결, 평생직업교육,\n상호문화도시 지원 등을 추진하여 머무르고 싶은 서울시를 만들기 위해 노력하고 있습니다. ."
   },
@@ -51,9 +48,6 @@ export const NEWS_DATA = [
     "title": "2025년 위험성평가 우수사례 발표대표 대회 최우수상 수상",
     "date": "2025.11.25",
     "image": "./assets/images/news/news_2_1_main.png",
-    "images": [
-      "./assets/images/news/news_2_1_extra_1.png"
-    ],
     "content": "2025년 11월 25일 고용노동부 와 한국산업안전보건공단 주관으로 실시한\n2025년 위험성평가 우수사례 발표대회에서\n저희 (주)태일씨앤티가 건설분야(중.소) 최우수상을 수상 하였습니다."
   },
   {
@@ -63,8 +57,7 @@ export const NEWS_DATA = [
     "date": "2025.11.26",
     "image": "./assets/images/news/news_2_2_main.jpg",
     "images": [
-      "./assets/images/news/news_2_2_extra_1.jpg",
-      "./assets/images/news/news_2_2_extra_2.jpg"
+      "./assets/images/news/news_2_2_extra_1.jpg"
     ],
     "content": "태일씨앤티(대표이사 김경수, 배준희)는 서울 G밸리 임직원의 ESG 활동을 지원하는 'FUN한 김장담그기' 에서\n500포기 김장김치를 금천누리종합사회복지관을 통해 G밸리 인근 어르신·저소득층 등\n취약계층에 나눔하는 행사에 참가하였습니다.\n일시 : 202년 11월 26일(수) 오전 11시부터 오후 12시 40분까지\n장소 : 마리오아울렛 3관 광장\n직장인의 점심시간을 활용한 자원봉사활동\n이번 'G밸리 대환장 김장 페스타'는 와 금천누리종합사회복지관이 공동으로 주최하였습니다.\n이날 담근 500포기 김장김치는 금천누리종합사회복지관을 통해 G밸리 인근 어르신·저소득층 등 취약계층에 나누었습니다."
   },
@@ -74,9 +67,6 @@ export const NEWS_DATA = [
     "title": "KIBA서울 회장 이·취임식 및 송년회",
     "date": "2025.12.09",
     "image": "./assets/images/news/news_3_0_main.png",
-    "images": [
-      "./assets/images/news/news_3_0_extra_1.png"
-    ],
     "content": "2025 KIBA서울 송년의 밤 및 회장 이·취임식\n2025 KIBA서울 송년의 밤 및 회장 이· 취임식은\n이임회장님의 헌신에 감사드리고,\n새롭게 출발하는 취임회장님과 함께\n미래의 도약을 다짐하는 자리입니다.\n따뜻한 관심과 참여로\n함께 성장과 나눔의 의미를 더해주시기 바랍니다.\n태일씨앤티도 새로운 KIBA서울 취임식 및 출발을 축하합니다."
   },
   {
@@ -85,9 +75,6 @@ export const NEWS_DATA = [
     "title": "안전보건 체계구축/운영 우수상 수상",
     "date": "2025.11.19",
     "image": "./assets/images/news/news_3_1_main.png",
-    "images": [
-      "./assets/images/news/news_3_1_extra_1.png"
-    ],
     "content": "태일씨앤티는 삼성형 인정제 관련하여\n2025년 11월 19일 삼성물산(주) 건설안전연구소로 부터\n안전관리 체계 구축/운영 우수사로 선정되어 상장을 수여 받았습니다."
   },
   {
@@ -97,8 +84,7 @@ export const NEWS_DATA = [
     "date": "2025.11.19",
     "image": "./assets/images/news/news_3_2_main.jpg",
     "images": [
-      "./assets/images/news/news_3_2_extra_1.jpg",
-      "./assets/images/news/news_3_2_extra_2.jpg"
+      "./assets/images/news/news_3_2_extra_1.jpg"
     ],
     "content": "금천구청에서는 11월 19일(수) 12층 대강당에서\n2025 따뜻한 겨울나기사업 캠페인 선포식 기념행사를 개최하였습니다.\n이날 태일씨앤티 김경수 대표님 도 참석하시어 금천구청으로부터 표창장을 수상하셨습니다.\n앞으로도 주변의 어려움에 조금이라도 기여하고자 노력하는 태일씨앤티가 되겠습니다.\n행사명 : 희망온돌 따뜻한 겨울나기사업 캠페인 선포식\n일 시 : 2025.11.19 (수) 14:30~15:30\n장 소 : 금천구청 대강당 (12층)\n참 석 : 태일씨앤티(김경수대표), 태진이노베이션 (전명훈대표)"
   },
@@ -108,9 +94,6 @@ export const NEWS_DATA = [
     "title": "태일씨앤티, DL이앤씨 우수 협력사  ‘한숲 파트너스’에 선정 및 수상",
     "date": "2025.11.17",
     "image": "./assets/images/news/news_4_0_main.jpg",
-    "images": [
-      "./assets/images/news/news_4_0_extra_1.jpg"
-    ],
     "content": "태일씨앤티(대표이사 김경수, 배준희) 는 2025년 11월 17일(월) DL이앤씨 에서 개최한\n2025년 한 해 동안 우수한 성과를 거둔 협력사에 수여하는 '한숲 파트너스' 에 선정되었습니다.\n이날 태일씨앤티 배준희 대표님 이 참석하시어 DL이앤씨로부터 '한숲 파트너스' 상을 수상하셨습니다.\nDL이앤씨는 매년 최우수 협력사를 선정하여 '한숲 베스트 파트너스' 로 시상하고 있습니다.\n선정된 업체에는 상패와 함께 동반성장몰 복지포인트, 계약이행보증요율 50% 감면 등 다양한 인센티브 가 제공됩니다.\n또한 3년 연속 베스트 등급을 달성한 협력사에는 입찰참여우선권과 계약이행보증면제 등 추가 혜택 을 부여합니다.\n올해는 협력회사 소장 및 근로자를 위한 포상도 신설되어, 한숲 파트너스로 선정된 회사 중 DL이앤씨 현장에서 근무한 우수 소장과 근로자 14명을 선발해 포상을 진행되었습니다.\n태일씨앤티 조광래 소장 수상 장면"
   },
   {
@@ -120,8 +103,7 @@ export const NEWS_DATA = [
     "date": "2025.10.15",
     "image": "./assets/images/news/news_4_1_main.jpg",
     "images": [
-      "./assets/images/news/news_4_1_extra_1.jpg",
-      "./assets/images/news/news_4_1_extra_2.jpg"
+      "./assets/images/news/news_4_1_extra_1.jpg"
     ],
     "content": "10월 15일 금천구 '금천구민의 날'을 기념하는 행사에서\n구민과 함께 성장해 온 우수 기업인 태일씨앤티 김경수 대표님 께서 2025 금천구 기업인 상을 수상 하셨습니다.\n기념식은 ▲ 사전공연 ▲ '어제와 내일, 미래30년' 영상 상영 ▲ 금천 미래전략 '버킷리스트 30' 발표 ▲ 금천구민상과 기업인상 시상 ▲ 축하공연 등으로 구성되었으며, 다양한 영역에서 공헌한 구민 7명과, 지역경제 활성화와 일자리 창출, 사회공헌 활동에 앞장선 기업인 12명이 각각 수상하였습니다."
   },
@@ -131,9 +113,6 @@ export const NEWS_DATA = [
     "title": "2025년 위험성평가 우수사례 지역 발표대회 우수상 수상",
     "date": "2025.09.23",
     "image": "./assets/images/news/news_4_2_main.png",
-    "images": [
-      "./assets/images/news/news_4_2_extra_1.png"
-    ],
     "content": "2025년 위험성평가 우수사례 지역발표대회에서\n저희 태일씨앤티가 서울권역 중소규모 부문에서\n우수상을 수상 하였습니다."
   },
   {
@@ -142,9 +121,6 @@ export const NEWS_DATA = [
     "title": "Y25 HL디앤아이한라 기술공모전 태일씨앤티 입상",
     "date": "2025.09.09",
     "image": "./assets/images/news/news_5_0_main.png",
-    "images": [
-      "./assets/images/news/news_5_0_extra_1.png"
-    ],
     "content": "국내 70여 업체 가 참가한 「Y25 HL디앤아이한라 기술공모전」에서\n태일씨앤티가 최종평가 6개사 에 선정되어 PT발표 및 입상 하였습니다.\n- 일시 : 2025년 9월 9일 오전 9시\n- 장소 : HL 디앤아이한라 인재개발원\n- 내용 : 현장 건설인력 근로계약 관리 플랫폼(다국어 챗봇 연계)"
   },
   {
@@ -154,8 +130,7 @@ export const NEWS_DATA = [
     "date": "2025.08.11",
     "image": "./assets/images/news/news_5_1_main.jpg",
     "images": [
-      "./assets/images/news/news_5_1_extra_1.jpg",
-      "./assets/images/news/news_5_1_extra_2.jpg"
+      "./assets/images/news/news_5_1_extra_1.jpg"
     ],
     "content": "2022년 1월 27일 부터 시행 된 『중대재해 처벌 등에 관한 법률 시행령』 제 4조 제5항에\n[안전보건관리책임자 등이 해당 업무를 충실하게 수행하는지를 평가하는 기준을 마련하고, 그 기준에 따라\n반기1회 이상 평가] 하도록 되어 있어, 당사에서는 2025년 상반기 안전보건관리책임자와 관리감독자 평가를\n실시하여 평가 결과 우수자에 대한 포상을 실시 하였습니다.\n1. 안전보건관리책임자 : SK에코플랜트 용인Cluster1기 OBL현장 류경호 부장\n2. 관리감독자 : KCC건설 과천 지식정보타운현장 김찬영 과장"
   },
@@ -166,8 +141,7 @@ export const NEWS_DATA = [
     "date": "2025.07.07",
     "image": "./assets/images/news/news_5_2_main.png",
     "images": [
-      "./assets/images/news/news_5_2_extra_1.jpg",
-      "./assets/images/news/news_5_2_extra_2.jpg"
+      "./assets/images/news/news_5_2_extra_1.jpg"
     ],
     "content": "태일씨앤티가 언론에 소개된 내용에 따르면, 임직원에게 성과 중심의 파격적인 보상을 제공하며 업계의 주목을 받고 있습니다.\n김경수 대표는 성장보다는 공정한 보상을 우선시한다는 경영 철학을 강조했습니다.\n건설 분야에서 독자적인 기술력으로 대형 프로젝트를 수행하며 빠르게 성장해온 배경도 함께 조명됐습니다.\n사내 복지와 조직 문화 면에서도 직원 참여와 소통을 중시하는 시스템이 운영되고 있다는 점이 부각됐습니다.\n또한 지주회사를 통한 스타트업 투자와 해외 진출 계획 등 미래 성장 전략도 공개되었습니다.\n매일경제 https://n.news.naver.com/article/009/0005520470?sid=101\n전자신문 h ttps://www.etnews.com/20250707000258\n이데일리 https://n.news.naver.com/article/018/0006058483?sid=101\n아시아경제 https://view.asiae.co.kr/article/2025070610042322097\n메트로신문 https://www.metroseoul.co.kr/article/20250706500042\n내일신문 https://www.naeil.com/news/read/554057?ref=naver\n매일일보 https://www.m-i.kr/news/articleView.html?idxno=1257294\n중소기업신문 h ttps://www.smedaily.co.kr/news/articleView.html?idxno=331041\n핀포인트뉴스 https://www.pinpointnews.co.kr/news/articleView.html?idxno=357546"
   },
@@ -177,9 +151,6 @@ export const NEWS_DATA = [
     "title": "메인비즈 경영혁신 우수기업 기자단 간담회",
     "date": "2025.06.26",
     "image": "./assets/images/news/news_6_0_main.jpg",
-    "images": [
-      "./assets/images/news/news_6_0_extra_1.jpg"
-    ],
     "content": "'더 나은 내일을 건설합니다.'\n철근콘크리트 전문건설업체 태일씨앤티(대표이사 김경수, 배준희)는\n2025 메인비즈 경영혁신 우수기업으로 선정되어 본사에서 기자단 간담회를 성공리에 개최하였습니다.\n국내 메이저 언론사로 구성된 기자단이 본사를 방문하여 심도있는 질의 및 응답을 진행하였습니다.\n또한 기자단 간담회를 통해 김경수 대표는 태일씨앤티의 성장 배경 및 앞으로의 성장 모멘텀 등에 대해서도\n진솔하고 허물없는 말씀을 해주셨으며 좋은 분위기속에 기자들과 대화를 이어 나갔습니다.\n온라인 기사는 7월6일, 지면신문은 7월7일 조간으로 보도 될 예정입니다.\n■ 일시 : 2025년 6월 25일 13:00 ~ 15:00\n■ 장소 : 서울 금천구 가산동 태일씨앤티 본사\n■ 참석 : 태일씨앤티 김경수 대표, 박치호 상무, 세르파멤버스 최창석 대표, 메인비즈협회 권영학 부회장 외 3명, 기자단 12명"
   },
   {
@@ -188,9 +159,6 @@ export const NEWS_DATA = [
     "title": "DL E&C 가산데이터센터 무재해 1천만시 달성",
     "date": "2025.06.24",
     "image": "./assets/images/news/news_6_1_main.jpg",
-    "images": [
-      "./assets/images/news/news_6_1_extra_1.jpg"
-    ],
     "content": "DL E&C 가산데이터센터 현장 무재해 1천만시 달성을 기념하여\n발주처인 DCI Date Centers로 부터 감사패를 수상 하였습니다.\n어려운 여건 속에서도 무재해로 현장을 이끌어 주신 조왕래 소장님 이하\n임직원의 노고에 보상을 받은 것 같았습니다.\n이 자리에는 본사 안전보건팀 천병조 상무님께서 참석 하시어\n수상을 하였습니다.\n당사 타 현장에서도 무재해 달성을 통해 이와 같은 사례가 많아지길 기원 합니다."
   },
   {
@@ -207,9 +175,6 @@ export const NEWS_DATA = [
     "title": "삼성 안전관리시스템 인정서 획득",
     "date": "2025.04.02",
     "image": "./assets/images/news/news_7_0_main.png",
-    "images": [
-      "./assets/images/news/news_7_0_extra_1.png"
-    ],
     "content": "태일씨앤티는2025년 삼성물산 건설부문 안전관리시스템 인정서를 획득했습니다."
   },
   {
@@ -218,9 +183,6 @@ export const NEWS_DATA = [
     "title": "[메인비즈협회 선정, ‘이달의 혁신기업인’] 김경수 태일씨앤티 대표 인터뷰",
     "date": "2025.03.19",
     "image": "./assets/images/news/news_7_1_main.png",
-    "images": [
-      "./assets/images/news/news_7_1_extra_1.png"
-    ],
     "content": "기사 링크 : https://www.mk.co.kr/news/business/11267522#none\n'더 나은 내일을 건설한다.'\n철근콘크리트 전문건설업체 태일씨앤티는 혁신기업으로 손꼽힌다.\n종합건설사들도 자존심을 내려 놓고 태일씨앤티가 펼치는 혁신경영을 배울 정도다.\n삼성전자의 평택반도체공장을 1기부터 5기(건설 중)까지를 연달아 수주했다는 사실 하나만으로도 이미 철근콘크리트 전문건설업체로서의 실력을 인정받은 셈이다.\n중소벤처기업부가 주최한 '2022 중소기업경영혁신대회'에서 경영혁신부문 동탑산업훈장을 받기도 했다.\n지난해 10월엔 SK하이닉스 용인클러스터 1기 건설에도 합류했다. 대형구조물의 발주처는 물론이고 시공사들도 앞다퉈 태일씨앤티와 함께 일하기를 원할 정도다.\n메인비즈협회(한국경영혁신중소기업협회)는 태일씨앤티 김경수 대표를 '이달의 혁신기업인'으로 선정했다. 메인비즈협회(협회장 김명진)는 국내 중소기업의 경영혁신과 글로벌 경쟁력 강화를 목적으로 지난해 7월부터 '혁신기업인 알리기 프로그램'을 진행하고 있다.\n태일씨앤티는 전문건설업에 만족하지 않고 새로운 혁신을 시도하고 있다. 스타트업 투자는 말할 것도 없고, 친환경사업에도 뛰어들었다. 건설업계에서 혁신의 아이콘으로 주목받는 김경수 대표(63)를 서울디지털산업단지에 자리한 본사에서 만났다.\nhttps://www.mk.co.kr/news/business/11267522#none"
   },
   {
@@ -236,8 +198,7 @@ export const NEWS_DATA = [
       "./assets/images/news/news_7_2_extra_4.jpg",
       "./assets/images/news/news_7_2_extra_5.jpg",
       "./assets/images/news/news_7_2_extra_6.jpg",
-      "./assets/images/news/news_7_2_extra_7.jpg",
-      "./assets/images/news/news_7_2_extra_8.jpg"
+      "./assets/images/news/news_7_2_extra_7.jpg"
     ],
     "content": "본사 사옥에 화재 발생시 초기 진화 및 안전한 대피 방법을 습득하고 훈련을 통해\n비상상황시 신속한 조치를 통한 인명과 재산 손실을 최소화 하기 위한\n비상사태 모의 훈련을 실시 하였습니다.\n▶ 화재발생 상황 알림\n▶ 화재발생 신고(119)\n▶ 대피유도\n▶ 초기대응(화재진화)\n▶ 응급구조팀 부상자 구호(심폐소생술)\n▶ 총평\n▶ AED 사용법 및 심폐소생술 실습\n▶ AED사용법 및 심폐소생술, 소화기 점검법 교육"
   },
@@ -250,8 +211,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_8_0_extra_1.jpg",
       "./assets/images/news/news_8_0_extra_2.jpg",
-      "./assets/images/news/news_8_0_extra_3.jpg",
-      "./assets/images/news/news_8_0_extra_4.jpg"
+      "./assets/images/news/news_8_0_extra_3.jpg"
     ],
     "content": "SK에코플랜트 용인 반도체 클러스터 WWT 및 공동구 선행공사 안전기원제에\n김경수 대표님을 비록한 이정순전무, 현장소장 류경호부장, 본사안전보건팀 천병조상무 외\n당사 직원들이 참석하여\n무사고를 기원하고 무재해 준공을 위한 안전기원제를 지내고 왔습니다.\n이번 공동구 공사를 시작으로 용인 반도체 클러스터 공사의 시발점이라 생각 하고\n더욱 증진하고 발전하는 주식회사 태일씨앤티가 되도록 다짐하는 자리가 되었습니다.\n■ 5대 악습 재해 타파 박 깨기\n■ 무재해 기원 메세지 작석\n■ 김경수 대표님 무재해 기원 메세지\n■ SK에코플랜트 정재현 총괄안전팀장 면담"
   },
@@ -264,8 +224,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_8_1_extra_1.jpg",
       "./assets/images/news/news_8_1_extra_2.jpg",
-      "./assets/images/news/news_8_1_extra_3.jpg",
-      "./assets/images/news/news_8_1_extra_4.jpg"
+      "./assets/images/news/news_8_1_extra_3.jpg"
     ],
     "content": "2024년 (주)태일씨앤티 Jump-Up 1year 슬로건 아래\n배준희 대표님께서 10월 13일 KCC건설 과천지식정보타운 현장을 순회하며\n안전점검을 실시 하였습니다.\n동절기 보양공사 관련하여 안전 수칙 준수 여부를 확인하고 안 전사고 예방에\n만전을 기해 줄것을 당부 하며 당사 직원 및 현장 종사자를 독려 하셨습니다.\n원도급사 현장 소장을 면담하여 당사의 애로사항 및 당사에 요구사항을 공유 하여 협의점을 찾아\n보다 안전하고 효율적인 업무를 진행 할 수 있도록 하였습니다\n■ 안전조회 참석 및 당일 위험성평가 전파 확인\n■ 안전보건총괄책임자(원도급사 소장) 합동점검\n■ 동절기 화재 사고예방 소화기 점검\n■ 현장점검 강평 및 종사자 의견 청취"
   },
@@ -275,10 +234,6 @@ export const NEWS_DATA = [
     "title": "[사내교육] Auto CAD 3D Revit 교육",
     "date": "2024.09.26",
     "image": "./assets/images/news/news_8_2_main.jpg",
-    "images": [
-      "./assets/images/news/news_8_2_extra_1.jpg",
-      "./assets/images/news/news_8_2_extra_2.jpg"
-    ],
     "content": "본사 및 현장직원 3D CAD 경쟁력 강화를 위한 실무 교육을 실시 하였습니다.\n□ 일 시 : 2024. 09. 25 (수) ~26(목)\n□ 장 소 : 태일씨앤티 본사\n□ 내 용 : 오토캐드 社 의 BIM 소프트웨어 \"Revit\" 초급-> 중급->고급->심화 단계별 교육 중 \"초급\"\n□ 강 사 : 줌인테크 오토캐드코리아 공식영업사\n사진 더보기"
   },
   {
@@ -290,8 +245,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_9_0_extra_1.jpg",
       "./assets/images/news/news_9_0_extra_2.jpg",
-      "./assets/images/news/news_9_0_extra_3.jpg",
-      "./assets/images/news/news_9_0_extra_4.jpg"
+      "./assets/images/news/news_9_0_extra_3.jpg"
     ],
     "content": "2024년 (주)태일씨앤티 Jump-Up 1year 슬로건 아래\n배준희 대표님께서 8월 14일 DL E&C 가산데이터센터 현장을 순회하며\n안전점검을 실시 하였습니다.\n폭염으로 인한 온열질환 3대 예방 수칙 준수 여부를 확인하고 안 전사고 예방에\n만전을 기해 줄것을 당부 하며 당사 직원 및 현장 종사자를 독려 하셨습니다.\n원도급사 현장 소장을 면담하여 당사의 애로사항 및 당사에 요구사항을 공유 하여 협의점을 찾아\n보다 안전하고 효율적인 업무를 진행 할 수 있도록 하였습니다\n■ 근로자 안전보건교육\n■ 현장점검\n■ 온열질환 예방 대비 이행 점검\n■ 대표이사 격려금 전달"
   },
@@ -304,8 +258,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_9_1_extra_1.jpg",
       "./assets/images/news/news_9_1_extra_2.jpg",
-      "./assets/images/news/news_9_1_extra_3.jpg",
-      "./assets/images/news/news_9_1_extra_4.jpg"
+      "./assets/images/news/news_9_1_extra_3.jpg"
     ],
     "content": "2024년 (주)태일씨앤티 Jump-Up 1year 슬로건 아래\n배준희 대표님께서 7월 18일 DL E&C 판교 G2 업무시설 현장을 순회하며\n안전점검을 실시 하였습니다.\n장마철을 맞아 배수설비 및 우천으로 인한 안전사고 예방에 만전을 기해 줄것을\n당부 하며 당사 직원 및 현장 종사자를 독려 하셨습니다.\n원도급사 현장 소장을 면담하여 당사의 애로사항 및 당사에 요구사항을 공유 하여 협의점을 찾아\n보다 안전하고 효율적인 업무를 진행 할 수 있도록 하였습니다\n■ 현장 점검\n■ 현장 근로자 안전보건교육\n■ 안전우수자 포상\n■ 당사 관리감독자 교육"
   },
@@ -316,8 +269,7 @@ export const NEWS_DATA = [
     "date": "2024.07.08",
     "image": "./assets/images/news/news_9_2_main.jpg",
     "images": [
-      "./assets/images/news/news_9_2_extra_1.jpg",
-      "./assets/images/news/news_9_2_extra_2.jpg"
+      "./assets/images/news/news_9_2_extra_1.jpg"
     ],
     "content": "2022년 1월 27일부터 시행된 「중대재해 처벌 등에 관한 법률 시행령」 제4호 제5항에 (안전보건관리책임자 등이 해당 업무를 충실히 수행하는지를 평가하는 기준을 마련하고, 그 기준에 따란 반기2회 이상 평가하도록 하고 있어) 당사에서는 2024년 상반기 안전보건관리책임자 평가를 실시하여 평가 우수자에 대한 포상을 진행 하였습니다.\n수상자 : DL E&C 가산데이터센터 현장소장 조왕래 부장\n포상내역 : 표창장 및 포상금 300만원\n안전보건관리책임자 우수자 시상\n안전보건관리책임자 우수자 시상\n대표이사 지시 사항\n업무를 성실히 수행하는 안전보건관리책임자에 대한 포상금 외 인센티브 부여\n저조한 현장에 대한 패널티 부여(외부 점검 기관 의뢰 점검, 감봉, 권고사직 등)"
   },
@@ -330,8 +282,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_10_0_extra_1.jpg",
       "./assets/images/news/news_10_0_extra_2.jpg",
-      "./assets/images/news/news_10_0_extra_3.jpg",
-      "./assets/images/news/news_10_0_extra_4.jpg"
+      "./assets/images/news/news_10_0_extra_3.jpg"
     ],
     "content": "배준희 대표님께서 6월11일 DL E&C 가산데이터 센터 현장을 불시 방문하시어\n순회 안전 점검 및 공정진행 현황을 확인 하셨습니다.\n차후 당사가 데이터센터 수주에 대한 전반적인 업무 역량 확인 및 기술적/안전적 사항을\n체크 하시는 방문 이였습니다.\n■ 현장점검\n■ 현장점검\n■ 현장점검\n■ 현장점검"
   },
@@ -344,8 +295,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_10_1_extra_1.jpg",
       "./assets/images/news/news_10_1_extra_2.jpg",
-      "./assets/images/news/news_10_1_extra_3.jpg",
-      "./assets/images/news/news_10_1_extra_4.jpg"
+      "./assets/images/news/news_10_1_extra_3.jpg"
     ],
     "content": "2024년 (주)태일씨앤티 Jump-Up 1year 슬로건 아래\n배준희 대표님께서 5월 22일 KCC건설 과천지식정보타운 현장을 순회하며\n안전점검을 실시 하였습니다.\n2024년 당해 목표인 추락사고 예방에 대한 중점 점검하고 Feed-Back을 실시하였으며,\n안전사고 예방에 만전을 기해 줄것을 당부 하며 당사 직원 및 현장 종사자를 독려 하셨습니다.\n원도급사 현장 소장을 면담하여 당사의 애로사항 및 당사에 요구사항을 공유 하여 협의점을 찾아\n보다 안전하고 효율적인 업무를 진행 할 수 있도록 하였습니다\n■ 위험성평가회의 참석(종사자 의견 청취)\n■ 현장 점검\n■ 현장 점검\n■ 격려금 전달"
   },
@@ -356,8 +306,7 @@ export const NEWS_DATA = [
     "date": "2024.05.01",
     "image": "./assets/images/news/news_10_2_main.png",
     "images": [
-      "./assets/images/news/news_10_2_extra_1.jpg",
-      "./assets/images/news/news_10_2_extra_2.jpg"
+      "./assets/images/news/news_10_2_extra_1.jpg"
     ],
     "content": "태일씨앤티에 도입된 \"장기근속 포상제도\"가 벌써 2년째를 맞이했습니다.\n올해 5월 1일에는 5년 근속자 2명에게 각각 포상이 지급되었습니다.\n먼저 대상자부터 알려드릴게요.\n대상자 : 5년 근속\n부서\n이름\n직급\n경영기획실\n이종훈\n사원\nG2 업무시설\n최지원\n과장\n※ 10년 근속자 : 없음\n- 포 상 : 순금 5돈(황금열쇠) + 휴가 1일\n포상자분 그동안 정말로 고생하셨습니다\n앞으로도 계속해서 자리를 빛내 주시기 바랍니다.\n장기근속 포상제도에 대해 다시 한번 알려드리니 참고하시기 바랍니다.\n대상자\n상용직으로 재직 중인 포상 대상 근로자\n상용직으로 만 3년 이상 근로한 근로자 중 근로의 단절 없이 일용직 근속기간이 2년 이하인 근로자\n포상 종류\n- 5년 근속상 : 순금 5돈 + 휴가 1일\n- 10년 근속상 : 순금 5돈 + 휴가 5일\n포상 시기\n- 상반기(근로자의날)\n: 전년 11월 1일 ~ 당해 4월 30일 기간 중 장기근속 대상 근로자\n- 하반기(창립기념일)\n: 당해 5월 1일 ~ 당해 10월 31일 기간 중 장기근속 대상 근로자"
   },
@@ -370,8 +319,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_11_0_extra_1.jpg",
       "./assets/images/news/news_11_0_extra_2.jpg",
-      "./assets/images/news/news_11_0_extra_3.jpg",
-      "./assets/images/news/news_11_0_extra_4.jpg"
+      "./assets/images/news/news_11_0_extra_3.jpg"
     ],
     "content": "2024년 (주)태일씨앤티 Jump-Up 1year 슬로건 아래\n배준희 대표님께서 4월 17일 HL D&I한라 시흥 장현 업무시설 현장을 순회하며\n안전점검을 실시 하였습니다.\n2024년 당해 목표인 추락사고 예방에 대한 중점 점검하고 Feed-Back을 실시하였으며,\n안전사고 예방에 만전을 기해 줄것을 당부 하며 당사 직원 및 현장 종사자를 독려 하셨습니다.\n원도급사 현장 소장을 면담하여 당사의 애로사항 및 당사에 요구사항을 공유 하여 협의점을 찾아\n보다 안전하고 효율적인 업무를 진행 할 수 있도록 하였습니다.\n■ TBM참석\n■ 현장 점검\n■ 현장 점검\n■ 격려금 전달"
   },
@@ -381,9 +329,6 @@ export const NEWS_DATA = [
     "title": "ESG 경영 컨설팅 교육",
     "date": "2024.03.27",
     "image": "./assets/images/news/news_11_1_main.jpg",
-    "images": [
-      "./assets/images/news/news_11_1_extra_1.jpg"
-    ],
     "content": "2024년 ESG 경영 전략평가 수립의 일환인 현황 진단을 위한 컨설팅 교육을 실시 하였습니다.\n□ 일 시 : 2024. 03. 27 (수)\n□ 장 소 : 태일씨앤티 본사\n□ 내 용 : 기업의 ESG 실천 전략\n□ 강 사 : 김혜란 박사 - 한림국제대학원대학교 ESG탄소경영 전공"
   },
   {
@@ -392,9 +337,6 @@ export const NEWS_DATA = [
     "title": "제58회 납세자의 날 수상 및 기념행사",
     "date": "2024.03.04",
     "image": "./assets/images/news/news_11_2_main.png",
-    "images": [
-      "./assets/images/news/news_11_2_extra_1.png"
-    ],
     "content": "제58회 납세자의 날 수상 및 기념행사\n금천세무서 지난 3월 4일(월) 15층 대강당에서 제58회 납세자의 날을 맞이하여\n모범납세자들에게 성실납세와 세정협조에 대한 감사를 표하는 기념행사를\n개최하였습니다.\n이날 태일씨앤티 김경수 대표님도 참석하시어 금천무서로부터 세정발전에 기여한\n모범납세자에게 수여하는 표창장을 수여하셨습니다.\n앞으로도 성실납세 및 세정협조로 세정발전에 기여하고자 노력하는 태일씨앤티가 되겠습니다.\n더보기 클릭하고 추가사진 보기\nhttps://s.nts.go.kr/geumcheon/prgn/selectPrgnTaxpyerBdInfo.do?prgnNttYear=2024&prgnNttTmeNm=58&mi=5620"
   },
   {
@@ -406,8 +348,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_12_0_extra_1.jpg",
       "./assets/images/news/news_12_0_extra_2.jpg",
-      "./assets/images/news/news_12_0_extra_3.jpg",
-      "./assets/images/news/news_12_0_extra_4.jpg"
+      "./assets/images/news/news_12_0_extra_3.jpg"
     ],
     "content": "2024년 (주)태일씨앤티 Jump-Up 1year 슬로건 아래\n배준희 대표님께서 3월 4일 삼성물산 평택P4-PJT, P5-PJT 현장을 순회하며\n안전점검을 실시 하였습니다.\n2024년 당해 목표인 추락사고 예방에 대한 중점 점검하고 Feed-Back을 실시하였으며,\n안전사고 예방에 만전을 기해 줄것을 당부 하며 당사 직원 및 현장 종사자를 독려 하셨습니다.\n원도급사 현장 소장을 면담하여 당사의 애로사항 및 당사에 요구사항을 공유 하여 협의점을 찾아\n보다 안전하고 효율적인 업무를 진행 할 수 있도록 하였습니다.\n■ 현장점검\n■ 현장점검\n■ 종사자 독려 및 계도활동\n■ 점검 Feed-Back 및 관리감독자 교육"
   },
@@ -420,8 +361,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_12_1_extra_1.jpg",
       "./assets/images/news/news_12_1_extra_2.jpg",
-      "./assets/images/news/news_12_1_extra_3.jpg",
-      "./assets/images/news/news_12_1_extra_4.jpg"
+      "./assets/images/news/news_12_1_extra_3.jpg"
     ],
     "content": "2024년 (주)태일씨앤티 Jump-Up 1year 슬로건 아래\n배준희 대표님께서 2월 22일 DL이앤씨 판교G2업무시설 현장을 순회하며 안전점검을 실시 하였습니다.\n2024년 당해 목표인 추락사고 예방에 대한 중점 점검하고 Feed-Back을 실시하였으며,\n안전사고 예방에 만전을 기해 줄것을 당부 하며 당사 직원 및 현장 종사자를 독려 하셨습니다.\n원도급사 현장 소장을 면담하여 당사의 애로사항 및 당사에 요구사항을 공유 하여 협의점을 찾아\n보다 안전하고 효율적인 업무를 진행 할 수 있도록 하였습니다.\n■ 현장 점검\n■ 현장 점검\n■ 점검 Feed Back 및 관리감독자 교육\n■ 임직원 독려"
   },
@@ -438,8 +378,7 @@ export const NEWS_DATA = [
       "./assets/images/news/news_12_2_extra_4.jpg",
       "./assets/images/news/news_12_2_extra_5.jpg",
       "./assets/images/news/news_12_2_extra_6.jpg",
-      "./assets/images/news/news_12_2_extra_7.jpg",
-      "./assets/images/news/news_12_2_extra_8.jpg"
+      "./assets/images/news/news_12_2_extra_7.jpg"
     ],
     "content": "(주)태일씨앤티 2대 대표이사로 선임되신 배준희 대표께서 2024년 새해를 맞아\n당사가 수행하고 있는 전현장을 방문하여 안전점검을 실시하고 직원들을 독려 하여 주시고\n현장근로자에 의견을 청취하고 개선하도록 하였습니다.\n1월 10일 DL E&C 판교G2업무시설\n1월 16일 HL D&I한라 시흥장현 업무시설\n1월19일 DL E&C 가산데이터센터\n1월23일 HL D&I한라 안성일죽 물류센터"
   },
@@ -452,8 +391,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_13_0_extra_1.jpg",
       "./assets/images/news/news_13_0_extra_2.jpg",
-      "./assets/images/news/news_13_0_extra_3.jpg",
-      "./assets/images/news/news_13_0_extra_4.jpg"
+      "./assets/images/news/news_13_0_extra_3.jpg"
     ],
     "content": "(주)태일씨앤티는 2024년 한단계 더 도약하자는 의미로\nJump-Up 1year! 슬로건으로 정하고 2024년을 시작하였습니다.\n그 첫 행보로 김경수 대표님과 배준희 신임대표님은 삼성물산 평택P4-PJT 및 P5-PJT현장을\n돌아 보시고 현장 직원들을 독려 하였습니다.\n■ 현장 직원 독려\n■ P5-PJT 견학\n■ 장비 작업계획 확인 및 작업관리 확인\n■ 현장 종사자 교육 및 의견 청취"
   },
@@ -466,8 +404,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_13_1_extra_1.jpg",
       "./assets/images/news/news_13_1_extra_2.jpg",
-      "./assets/images/news/news_13_1_extra_3.jpg",
-      "./assets/images/news/news_13_1_extra_4.jpg"
+      "./assets/images/news/news_13_1_extra_3.jpg"
     ],
     "content": "모두가 함께하는 \"ESG Innnovation 원년!\" 을 맞아\n김경수 대표이사는 당사 중대재해 ZERO를 목표로\n당월은 DL E&C 가산데이터 센터 현장을 순회하며 안전점검을 실시 하였습니다.\n매월 당사가 수행중인 현장을 순회 점검하며\n2023년 당사의 안전보건 경영목표 인 종사자 의견 청취를 통한 Feeg-Back을 실시하고\n안전보건관련 법령에 대한 기준 준수가 이루어질 수 있도록 당사 직원 및 현장 근로자를 독려 하였습니다.\n뿐만 아니라 [추락,끼임,부딪힘] 3대 사고에 대한 7대 위험요인을 점검하여\n원도급사 안전보건총괄책임자(현장소장)과의 면담을 통해 지원 부분을 논의 하였으며,\n당사가 지원 가능한 부분에 대해서도 적극 지원 할것을 약속 하였습니다 .\n■ 종사자 의견 청취\n■ 안전우수자 포상\n■ 현장 점검\n■ 근로자 정기안전교육"
   },
@@ -480,8 +417,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_13_2_extra_1.jpg",
       "./assets/images/news/news_13_2_extra_2.jpg",
-      "./assets/images/news/news_13_2_extra_3.jpg",
-      "./assets/images/news/news_13_2_extra_4.jpg"
+      "./assets/images/news/news_13_2_extra_3.jpg"
     ],
     "content": "모두가 함께하는 \"ESG Innnovation 원년!\" 을 맞아\n김경수 대표이사는 당사 중대재해 ZERO를 목표로\n당월은 DL E&C 판교G2업무시설 현장을 순회하며 안전점검을 실시 하였습니다.\n매월 당사가 수행중인 현장을 순회 점검하며\n2023년 당사의 안전보건 경영목표 인 종사자 의견 청취를 통한 Feeg-Back을 실시하고\n안전보건관련 법령에 대한 기준 준수가 이루어질 수 있도록 당사 직원 및 현장 근로자를 독려 하였습니다.\n뿐만 아니라 [추락,끼임,부딪힘] 3대 사고에 대한 7대 위험요인을 점검하여\n원도급사 안전보건총괄책임자(현장소장)과의 면담을 통해 지원 부분을 논의 하였으며,\n당사가 지원 가능한 부분에 대해서도 적극 지원 할것을 약속 하였습니다 .\n■ 아침 조회 및 TBM참석\n■ 현장 점검\n■ 현장 점검\n■ 종사자 의견 청취"
   },
@@ -494,8 +430,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_14_0_extra_1.jpg",
       "./assets/images/news/news_14_0_extra_2.jpg",
-      "./assets/images/news/news_14_0_extra_3.jpg",
-      "./assets/images/news/news_14_0_extra_4.jpg"
+      "./assets/images/news/news_14_0_extra_3.jpg"
     ],
     "content": "모두가 함께하는 \"ESG Innnovation 원년!\" 을 맞아\n김경수 대표이사는 당사 중대재해 ZERO를 목표로\n당월은 HL D&I한라 시흥장현 업무시설 현장을 순회하며 안전점검을 실시 하였습니다.\n매월 당사가 수행중인 현장을 순회 점검하며\n2023년 당사의 안전보건 경영목표 인 종사자 의견 청취를 통한 Feeg-Back을 실시하고\n안전보건관련 법령에 대한 기준 준수가 이루어질 수 있도록 당사 직원 및 현장 근로자를 독려 하였습니다.\n뿐만 아니라 [추락,끼임,부딪힘] 3대 사고에 대한 7대 위험요인을 점검하여\n원도급사 안전보건총괄책임자(현장소장)과의 면담을 통해 지원 부분을 논의 하였으며,\n당사가 지원 가능한 부분에 대해서도 적극 지원 할것을 약속 하였습니다 .\n■ 아침 조회 및 TBM참석\n■ 안전우수자 포상\n■ 현장 점검\n■ 종사자 의견 청취"
   },
@@ -511,8 +446,7 @@ export const NEWS_DATA = [
       "./assets/images/news/news_14_1_extra_3.jpg",
       "./assets/images/news/news_14_1_extra_4.jpg",
       "./assets/images/news/news_14_1_extra_5.jpg",
-      "./assets/images/news/news_14_1_extra_6.jpg",
-      "./assets/images/news/news_14_1_extra_7.jpg"
+      "./assets/images/news/news_14_1_extra_6.jpg"
     ],
     "content": "1. 안전관리자 협의회 워크샵의 목적\n업무분야\n- 중대산업재해 예방 및 안전 · 보건관리 직무역량 향상과 본사 현장간 업무효율 증대\n- '23 년 안전활동 결과 공유 및 '24 년 안전활동 추진 계획 선정\n조직분야 : 안전관리자 협의회를 통해 소속감 및 의사소통 강화 등\n2, 주요 일정\n일시 : '23.10.21 ~ 23.10.22(1 박 2 일 )\n장소 : 경기도 안성 소재 에코그린 펜션\n3, 행사사진\n[ 단체 사진]\n[단합 족구]\n[안전보건 퀴즈]\n[안전관리자 협의회 회장/간사 임명장 수여]\n[본부장 격려사 및 석식]\n[중처법 및 삼성인정제 교육]\n[교육 설문지 작성]"
   },
@@ -525,8 +459,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_14_2_extra_1.jpg",
       "./assets/images/news/news_14_2_extra_2.jpg",
-      "./assets/images/news/news_14_2_extra_3.jpg",
-      "./assets/images/news/news_14_2_extra_4.jpg"
+      "./assets/images/news/news_14_2_extra_3.jpg"
     ],
     "content": "모두가 함께하는 \"ESG Innnovation 원년!\" 을 맞아\n김경수 대표이사는 당사 중대재해 ZERO를 목표로\n당월은 삼성물산 P4-PJT 현장을 순회하며 안전점검을 실시 하였습니다.\n매월 당사가 수행중인 현장을 순회 점검하며\n2023년 당사의 안전보건 경영목표 인 종사자 의견 청취를 통한 Feeg-Back을 실시하고\n안전보건관련 법령에 대한 기준 준수가 이루어질 수 있도록 당사 직원 및 현장 근로자를 독려 하였습니다.\n뿐만 아니라 [추락,끼임,부딪힘] 3대 사고에 대한 7대 위험요인을 점검하여\n원도급사 안전보건총괄책임자(현장소장)과의 면담을 통해 지원 부분을 논의 하였으며,\n당사가 지원 가능한 부분에 대해서도 적극 지원 할것을 약속 하였습니다 .\n■ 대표이사 안전보건 교육\n■ 안전우수자 포상\n■ 현장점검\n■ 종사자 의견 청취"
   },
@@ -539,8 +472,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_15_0_extra_1.jpg",
       "./assets/images/news/news_15_0_extra_2.jpg",
-      "./assets/images/news/news_15_0_extra_3.jpg",
-      "./assets/images/news/news_15_0_extra_4.jpg"
+      "./assets/images/news/news_15_0_extra_3.jpg"
     ],
     "content": "모두가 함께하는 \"ESG Innnovation 원년!\" 을 맞아\n김경수 대표이사는 당사 중대재해 ZERO를 목표로\n당월은 DL E&C 판교G2업무시설 현장을 순회하며 안전점검을 실시 하였습니다.\n매월 당사가 수행중인 현장을 순회 점검하며\n2023년 당사의 안전보건 경영목표 인 종사자 의견 청취를 통한 Feeg-Back을 실시하고\n안전보건관련 법령에 대한 기준 준수가 이루어질 수 있도록 당사 직원 및 현장 근로자를 독려 하였습니다.\n뿐만 아니라 [추락,끼임,부딪힘] 3대 사고에 대한 7대 위험요인을 점검하여\n원도급사 안전보건총괄책임자(현장소장)과의 면담을 통해 지원 부분을 논의 하였으며,\n당사가 지원 가능한 부분에 대해서도 적극 지원 할것을 약속 하였습니다 .\n■ 대표이사 안전보건 교육\n■ 안전우수자 포상\n■ 현장점검\n■ 종사자 의견 청취"
   },
@@ -550,9 +482,6 @@ export const NEWS_DATA = [
     "title": "ESG 교육 수료",
     "date": "2023.08.01",
     "image": "./assets/images/news/news_15_1_main.png",
-    "images": [
-      "./assets/images/news/news_15_1_extra_1.png"
-    ],
     "content": "2023년 4월부터 IBK 기업은행과 진행한 ESG 경영 평가 컨설팅을 성실히 수행하여\nESG교육 수료증을 받았습니다."
   },
   {
@@ -562,8 +491,7 @@ export const NEWS_DATA = [
     "date": "2023.07.21",
     "image": "./assets/images/news/news_15_2_main.png",
     "images": [
-      "./assets/images/news/news_15_2_extra_1.png",
-      "./assets/images/news/news_15_2_extra_2.png"
+      "./assets/images/news/news_15_2_extra_1.png"
     ],
     "content": "모두가 함께하는 \"ESG Innnovation 원년!\" 을 맞아\n김경수 대표이사는 당사 중대재해 ZERO를 목표로\n당월은 DL E&C 판교G2업무시설 현장을 순회하며 안전점검을 실시 하였습니다.\n최근 계속 되는 안전사고에 따른 [추락,끼임,부딪힘] 3대 사고에 대한 7대 위험요인을 점검하여\n원도급사 안전보건총괄책임자(현장소장)과의 면담을 통해 지원 부분을 논의 하였으며,\n하절기 열사병등 안전사고 예방을 위한 노력을 약속 하였습니다.\n<조회 참석 / 안전체조 실시> <현장 점검 실시>\n."
   },
@@ -576,8 +504,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_16_0_extra_1.png",
       "./assets/images/news/news_16_0_extra_2.png",
-      "./assets/images/news/news_16_0_extra_3.png",
-      "./assets/images/news/news_16_0_extra_4.png"
+      "./assets/images/news/news_16_0_extra_3.png"
     ],
     "content": "모두가 함께하는 \"ESG Innnovation 원년!\" 을 맞아\n김경수 대표이사는 당사 중대재해 ZERO를 목표로\n당월은 HL D&I한라 안성일죽 물류센터 현장을 순회하며 안전점검을 실시 하였습니다.\n매월 삼성물산 평택P4-PJT현장을 비롯한 당사가 수행중인 현장을 순회 점검하며\n2023년 당사의 안전보건 경영목표 인 종사자 의견 청취를 통한 Feeg-Back을 실시하고\n안전보건관련 법령에 대한 기준 준수가 이루어질 수 있도록 당사 직원 및 현장 근로자를 독려 하였습니다.\n뿐만 아니라 [추락,끼임,부딪힘] 3대 사고에 대한 7대 위험요인을 점검하여\n원도급사 안전보건총괄책임자(현장소장)과의 면담을 통해 지원 부분을 논의 하였으며,\n당사가 지원 가능한 부분에 대해서도 적극 지원 할것을 약속 하였습니다.\n대표이사 안전보건 교육\n안전우수자 시상\n현장 점검\n종사자 의견 청취\n."
   },
@@ -588,8 +515,7 @@ export const NEWS_DATA = [
     "date": "2023.07.05",
     "image": "./assets/images/news/news_16_1_main.png",
     "images": [
-      "./assets/images/news/news_16_1_extra_1.png",
-      "./assets/images/news/news_16_1_extra_2.png"
+      "./assets/images/news/news_16_1_extra_1.png"
     ],
     "content": "2023년 삼성물산과 추락재해 예방을 위함 Dfs협의체를\n평택P4-PJT 이정순 전무\n본사 안전환경팀 천병조 상무\n본사 안전환경팀 천순일 차장 이 참석하여 금년 목표인 추락재해 예방에 대한\n각사의 우수사례 및 애로사항을 공유하여 개선방안을 도출하는 등의 협의를 진행 하였습니다.\n우수 사례 발표 중인 이정순 전무\n당사가 제시한 우수사례 - 스마트 양생 관리 시스템"
   },
@@ -601,8 +527,7 @@ export const NEWS_DATA = [
     "image": "./assets/images/news/news_16_2_main.png",
     "images": [
       "./assets/images/news/news_16_2_extra_1.png",
-      "./assets/images/news/news_16_2_extra_2.png",
-      "./assets/images/news/news_16_2_extra_3.png"
+      "./assets/images/news/news_16_2_extra_2.png"
     ],
     "content": "2023년 06월에는 과천비상교육 사옥 현장에 임직원 및 종사자에 안전교육을 실시하고\n현장 안전점검을 통한 지적 개선 사항 조치 및 우수사례를 전파 함으로써 보다 안전한\n현장을 만들어가는데 총력을 다 하고 있습니다.\n<종사자 안전교육 및 의견 청취>\n<현장점검>\n<"
   },
@@ -621,8 +546,7 @@ export const NEWS_DATA = [
     "date": "2023.06.03",
     "image": "./assets/images/news/news_17_1_main.jpg",
     "images": [
-      "./assets/images/news/news_17_1_extra_1.jpg",
-      "./assets/images/news/news_17_1_extra_2.jpg"
+      "./assets/images/news/news_17_1_extra_1.jpg"
     ],
     "content": "□ 목적\n- 정기적인 직급별 모임 실행으로 소속감 및 친목도모 형성\n- 본사 현장 간 소통으로 업무효율화 기대\n□ 일시, 장소\n2023.06.03(토)~06.04(일) / 라비돌리조트\n□ 행사 사진\n[DISC검사, 조직활성화, 미술심리검사]\n[야외 석식 BBQ]"
   },
@@ -633,8 +557,7 @@ export const NEWS_DATA = [
     "date": "2022.12.14",
     "image": "./assets/images/news/news_17_2_main.jpg",
     "images": [
-      "./assets/images/news/news_17_2_extra_1.jpg",
-      "./assets/images/news/news_17_2_extra_2.jpg"
+      "./assets/images/news/news_17_2_extra_1.jpg"
     ],
     "content": "2022년 12월 14일 태일씨앤티 김경수 대표이사 동탑산업훈장 (경영혁신분야)\nhttps://www.edaily.co.kr/news/read?newsId=02286166632558848&mediaCodeNo=257"
   },
@@ -645,8 +568,7 @@ export const NEWS_DATA = [
     "date": "2022.10.07",
     "image": "./assets/images/news/news_18_0_main.jpg",
     "images": [
-      "./assets/images/news/news_18_0_extra_1.jpg",
-      "./assets/images/news/news_18_0_extra_2.jpg"
+      "./assets/images/news/news_18_0_extra_1.jpg"
     ],
     "content": "과천비상교육센터 현장 및 임직원들은 대표님의 참석하에 꼼꼼한 안전지도를 받으며 교육을 완료 하였습니다.\n태일씨앤티는 정기적으로 안전점검을 대표님과 함께 진행하고 있으며, 안전관리에 총력을 다하고 있습니다.\n<현장 실사 모습>\n<현장 안전교육>"
   },
@@ -657,8 +579,7 @@ export const NEWS_DATA = [
     "date": "2022.09.26",
     "image": "./assets/images/news/news_18_1_main.jpg",
     "images": [
-      "./assets/images/news/news_18_1_extra_1.jpg",
-      "./assets/images/news/news_18_1_extra_2.jpg"
+      "./assets/images/news/news_18_1_extra_1.jpg"
     ],
     "content": "2022년 09월 26일 여의도 브라이튼 현장 점검\n여의도 현장 및 임직원들은 대표님의 참석하에 꼼꼼한 안전지도를 받으며 교육을 완료 하였습니다.\n태일씨앤티는 정기적으로 안전점검을 대표님과 함께 진행하고 있으며, 안전관리에 총력을 다하고 있습니다.\n<현장 실사 모습>\n<현장 안전교육>"
   },
@@ -669,8 +590,7 @@ export const NEWS_DATA = [
     "date": "2022.08.11",
     "image": "./assets/images/news/news_18_2_main.jpg",
     "images": [
-      "./assets/images/news/news_18_2_extra_1.jpg",
-      "./assets/images/news/news_18_2_extra_2.jpg"
+      "./assets/images/news/news_18_2_extra_1.jpg"
     ],
     "content": "2022년 08월 11일 한남동 오피스텔 현장 점검\n한남동 현장 및 임직원들은 대표님의 참석하에 꼼꼼한 안전지도를 받으며 교육을 완료 하였습니다.\n태일씨앤티는 정기적으로 안전점검을 대표님과 함께 진행하고 있으며, 안전관리에 총력을 다하고 있습니다.\n<현장실사 모습>\n<현장 안전 교육, 대표이사>"
   },
@@ -681,8 +601,7 @@ export const NEWS_DATA = [
     "date": "2022.06.28",
     "image": "./assets/images/news/news_19_0_main.jpg",
     "images": [
-      "./assets/images/news/news_19_0_extra_1.jpg",
-      "./assets/images/news/news_19_0_extra_2.jpg"
+      "./assets/images/news/news_19_0_extra_1.jpg"
     ],
     "content": "2022년 06월 30일 부천소사 현장 안전점검.\n부천소사 임직원들은 대표님의 참석하에 꼼꼼한 안전지도를 받으며 교육을 완료 하였습니다.\n태일씨앤티는 정기적으로 안전점검을 대표님과 함께 진행하고 있으며, 안전관리에 총력을 다하고 있습니다."
   },
@@ -695,8 +614,7 @@ export const NEWS_DATA = [
     "images": [
       "./assets/images/news/news_19_1_extra_1.jpg",
       "./assets/images/news/news_19_1_extra_2.jpg",
-      "./assets/images/news/news_19_1_extra_3.jpg",
-      "./assets/images/news/news_19_1_extra_4.jpg"
+      "./assets/images/news/news_19_1_extra_3.jpg"
     ],
     "content": "제28기 정기주주총회가 성료되었습니다.\n제1호 2021 귀속 재무제표 승인의 건\n제2호 2022사업연도 임원보수한도 및 상여금에 관한 건\n제3호 이익배당(정기배당) 승인에 관한 건\n안건 모두 가결되었습니다.\n특히 사내근로복지기금 배당금을 활용한 직원들의 근로복지 향상에 활발한 주문이 있었으며\n향후에도 지속적인 지원을 아끼지 않겠다는 김경수대표님의 맺음말로 성황리에 종료되었습니다."
   },
@@ -706,9 +624,6 @@ export const NEWS_DATA = [
     "title": "여의도 현장 안전 점검",
     "date": "2022.03.30",
     "image": "./assets/images/news/news_19_2_main.jpg",
-    "images": [
-      "./assets/images/news/news_19_2_extra_1.jpg"
-    ],
     "content": "상반기 현장 점검\n현장 : 여의도브라이튼 현장\n일시 : 2022년 03월 30일"
   },
   {
@@ -717,9 +632,6 @@ export const NEWS_DATA = [
     "title": "여의도브라이튼 현장점검",
     "date": "2022.01.04",
     "image": "./assets/images/news/news_20_0_main.jpg",
-    "images": [
-      "./assets/images/news/news_20_0_extra_1.jpg"
-    ],
     "content": "2022년 01월 04일 태일씨앤티는 여의도 현장의 현장점검을 나섰습니다.\n여의도브라이튼 현장 임직원들은 대표님의 참석하에 꼼꼼한 안전지도를 받으며 교육을 완료 하였습니다.\n태일씨앤티는 정기적으로 안전점검을 대표님과 함께 진행하고 있으며, 안전관리에 총력을 다하고 있습니다.\n태일씨앤티는 앞으로도 꾸준한 안전점검을 진행 할 것을 약속드립니다."
   },
   {
@@ -728,9 +640,6 @@ export const NEWS_DATA = [
     "title": "숭인동 오피스텔 안전점검",
     "date": "2021.12.27",
     "image": "./assets/images/news/news_20_1_main.jpg",
-    "images": [
-      "./assets/images/news/news_20_1_extra_1.jpg"
-    ],
     "content": "2021년 12월 27일 태일씨앤티는 숭인동오피스텔 현장의 현장점검을 나섰습니다.\n숭인동오피스텔 현장 임직원들은 대표님의 참석하에 꼼꼼한 안전지도를 받으며 교육을 완료 하였습니다.\n태일씨앤티는 정기적으로 안전점검을 대표님과 함께 진행하고 있으며, 안전관리에 총력을 다하고 있습니다."
   },
   {
@@ -739,9 +648,6 @@ export const NEWS_DATA = [
     "title": "부천소사 안전점검",
     "date": "2021.12.23",
     "image": "./assets/images/news/news_20_2_main.jpg",
-    "images": [
-      "./assets/images/news/news_20_2_extra_1.jpg"
-    ],
     "content": "2021년 11월 23일 태일씨앤티는 부천소사 현장의 현장점검을 나섰습니다.\n부천소사 임직원들은 대표님의 참석하에 꼼꼼한 안전지도를 받으며 교육을 완료 하였습니다.\n태일씨앤티는 정기적으로 안전점검을 대표님과 함께 진행하고 있으며, 안전관리에 총력을 다하고 있습니다."
   },
   {
@@ -750,9 +656,6 @@ export const NEWS_DATA = [
     "title": "평택 P-3 154KV 안전점검",
     "date": "2021.12.21",
     "image": "./assets/images/news/news_21_0_main.jpg",
-    "images": [
-      "./assets/images/news/news_21_0_extra_1.jpg"
-    ],
     "content": "2021년 12월 21일 태일씨앤티는 안전에 민감한 시기임을 인지하고 현장점검을 나섰습니다.\n대표님 참석하에 154KV 임직원분들은 꼼꼼한 안전지도를 받으며 교육을 완료 하였습니다.\n태일씨앤티는 정기적으로 안전점검을 대표님과 함께 진행하고 있으며, 안전관리에 총력을 다하고 있습니다."
   },
   {
@@ -761,9 +664,6 @@ export const NEWS_DATA = [
     "title": "만도 NEXT M 안전점검",
     "date": "2021.11.29",
     "image": "./assets/images/news/news_21_1_main.jpg",
-    "images": [
-      "./assets/images/news/news_21_1_extra_1.jpg"
-    ],
     "content": "2021년 11월 29일 태일씨앤티는 안전에 민감한 시기임을 인지하고 대표님 주도 하에 현장점검을 나섰습니다.\n만도NEXT M 임직원분들과 함께 꼼꼼한 안전지도를 받으며 교육을 완료 하였습니다.\n태일씨앤티는 정기적으로 안전점검을 꼼꼼하게 진행하고 있으며, 안전관리에 총력을 다하고 있습니다.\n언제나 안전한 태일씨앤티가 될 것을 약속드립니다."
   },
   {
@@ -780,9 +680,6 @@ export const NEWS_DATA = [
     "title": "[행사소식] 태일씨앤티 책자 제목 공모전",
     "date": "2021.08.31",
     "image": "./assets/images/news/news_22_0_main.jpg",
-    "images": [
-      "./assets/images/news/news_22_0_extra_1.jpg"
-    ],
     "content": "태일씨앤티의 역사를 담은 책자가 출간되기 전 태일씨앤티에서는 공모전을 열었습니다.\n엄청난 접전 끝에 1등을 거둔 지권훈 과장님께 축하의 말씀을 전해 드립니다.\n태일이 꿈꾸는 경영가치를 책 제목으료 표현해주신 모든 분께 감사의 인사를 드리며\n1등에게는 300만원, 2등 두분 에게는 각 100만원 3등 두분에게는 각 50만원의 상금이 주어졌습니다."
   },
   {
@@ -791,9 +688,6 @@ export const NEWS_DATA = [
     "title": "[행사소식] 경영기획실장  감사패 수여식",
     "date": "2021.07.29",
     "image": "./assets/images/news/news_22_1_main.jpg",
-    "images": [
-      "./assets/images/news/news_22_1_extra_1.jpg"
-    ],
     "content": "경영기획실 전명훈 상무님은 2013년부터 현재까지 약 7년간 태일씨앤티의 전방위에서 활약하시며\n지금의 태일씨앤티를 만드는데 일조하셨습니다.\n이제는 투자를 사업영역으로 하는 셰르파벤처스의 대표이사로 영전하시게 되어 감사패 수여식을 치루게 되었습니다.\n지금까지의 감사한 마음을 담아 감사패와, 회사의 마음이 담긴 소정의 선물도 함께 전달하는 시간을 가졌습니다.\n세르파벤처스 전명훈 대표님의 앞날에 큰 성공과 행복만 있기를 바라겠습니다."
   },
   {
@@ -803,8 +697,7 @@ export const NEWS_DATA = [
     "date": "2021.06.28",
     "image": "./assets/images/news/news_22_2_main.jpg",
     "images": [
-      "./assets/images/news/news_22_2_extra_1.png",
-      "./assets/images/news/news_22_2_extra_2.png"
+      "./assets/images/news/news_22_2_extra_1.png"
     ],
     "content": "상명 : 표창장\n포상 : 신용보증기금 대출 연장 및 대출이율 경감\n수상 : 태일씨앤티\n시상 : 신용보증기금\n행사 : 2021 코로나 극복 메인비즈 회원포럼\n일자 : 2021.06.28 (월)"
   },
@@ -814,9 +707,6 @@ export const NEWS_DATA = [
     "title": "가산동지식산업센터 안전점검",
     "date": "2021.06.25",
     "image": "./assets/images/news/news_23_0_main.jpg",
-    "images": [
-      "./assets/images/news/news_23_0_extra_1.jpg"
-    ],
     "content": "2021년 6월 25일 태일씨앤티는 안전에 민감한 시기임을 인지하고 외주 컨설팅 업체와 현장점검을 나섰습니다.\n대표님 참석하에 꼼꼼한 안전지도를 받으며 교육을 완료 하였습니다.\n태일씨앤티는 정기적으로 안전점검을 대표님과 함께 진행하고 있으며, 안전관리에 총력을 다하고 있습니다."
   },
   {
@@ -849,9 +739,6 @@ export const NEWS_DATA = [
     "title": "축 결혼♥ 사내 2호 커플 기념 축하금 전달식",
     "date": "2021.06.23",
     "image": "./assets/images/news/news_24_1_main.jpg",
-    "images": [
-      "./assets/images/news/news_24_1_extra_1.jpg"
-    ],
     "content": "\" 축 경사 \" 태일의 2호 사내커플이 결혼식을 올립니다.\n태일의 2호 사내커플인 서유경 유정군 커플이 1864일 간의 연애 끝에 6월 27일 결혼식을 올립니다.\n그에따라 6월 14일 본사에서 결혼 축하금을 3천만원 을지급하는 전달식을 진행하였습니다.\n새로운 출발점에 서계신 두분에게 늘 행복한 일 가득하길 진심으로 기원하겠습니다.\n다시한번 두분의 결혼을 축하드립니다.\n(사진) 왼쪽부터 유정군 과장, 서유경 과장"
   },
   {
@@ -860,9 +747,6 @@ export const NEWS_DATA = [
     "title": "[삼성엔지니어링] 공로패",
     "date": "2021.04.26",
     "image": "./assets/images/news/news_24_2_main.jpg",
-    "images": [
-      "./assets/images/news/news_24_2_extra_1.jpg"
-    ],
     "content": "상명 : 공로패\n수상 : 태일씨앤티\n시상 : 삼성엔지니어링 대표이사 최성안\n일시 : 2021년 4월 26일"
   },
   {
@@ -871,9 +755,6 @@ export const NEWS_DATA = [
     "title": "[사회복지공동모금회] 감사패",
     "date": "2021.04.29",
     "image": "./assets/images/news/news_25_0_main.jpg",
-    "images": [
-      "./assets/images/news/news_25_0_extra_1.jpg"
-    ],
     "content": "상명 : 감사패\n수상 : 태일씨앤티\n시상 : 사회복지공동모금회\n일자 : 2021년 4월 29일"
   },
   {
@@ -882,9 +763,6 @@ export const NEWS_DATA = [
     "title": "[한라] 우수협력업체",
     "date": "2020.12.30",
     "image": "./assets/images/news/news_25_1_main.jpg",
-    "images": [
-      "./assets/images/news/news_25_1_extra_1.jpg"
-    ],
     "content": "상명 : 우수협력업체\n수상 : 태일씨앤티\n시상 : 주식회사 한라 대표이사 이석민\n일자 : 2020년 12월 31일"
   },
   {
@@ -910,8 +788,7 @@ export const NEWS_DATA = [
     "date": "2020.02.20",
     "image": "./assets/images/news/news_26_1_main.jpg",
     "images": [
-      "./assets/images/news/news_26_1_extra_1.jpg",
-      "./assets/images/news/news_26_1_extra_2.jpg"
+      "./assets/images/news/news_26_1_extra_1.jpg"
     ],
     "content": "\" 축 경사 \" 드디어 태일에서의 첫 사내커플 1호가 탄생 하였습니다 !\n두분은 약 3년정도의 사내 연애끝에 결혼이라는 큰 결실을 이루었습니다.\n결혼식 이틀전인 2월 20일 본사에서 결혼 축하금을 3천만원 을 지급하는 전달식을 진행하였습니다.\n회사설립 초기부터 사내 1호 커플에게 축하금을 지급하겠다는 공략을 내세우시고, 실천까지 해주신\n대표이사님께 감사드립니다.\n인생의 새로운 출발에 늘 행복한 일 가득하길 바라겠습니다. 다시한번 두분의 결혼을 진심으로 축하드립니다.\n( 좌측부터 전달자 배준희본부장님, 신부 최누리대리, 신랑 전준수대리)\n결혼식사진 보기 \" 더보기 \" 클릭!"
   },
@@ -969,9 +846,6 @@ export const NEWS_DATA = [
     "title": "2019년 3차 기사대리 모임",
     "date": "2019.11.16",
     "image": "./assets/images/news/news_28_2_main.jpg",
-    "images": [
-      "./assets/images/news/news_28_2_extra_1.jpg"
-    ],
     "content": "우리회사는 직급별로 모임을 진행 하고 있습니다.\n1, 2차 모임은 인재육성을 위한 교육 과정이었다면, 마지막 3차는 순수히 소통 및 친목도모를 목적으로 추진 하였습니다.\n일시 : 2019.11.16 ~ 11.17 (1박 2일)\n장소 : 대부도 독채펜션\n일정 : 집결 -> 미션레이스 게임프로그램 진행 -> 펜션이동 -> 레크레이션 -> 바베큐파티 -> 화합의 장\n이 날 대표님 이하 과장 차장 모임의 회장, 총무님도 참석해주셔서 더욱더 의미 있는 시간을 보내게 되었습니다.\n내년에도 꾸준한 교육 및 모임을 통해 한층 더 발전되는 태일의 기사 대리를 기대해주시기 바랍니다.\n#태일,태경의 기둥 #자라나는 꿈나무 #소통 # 화합 기사대리 화이팅!"
   },
   {
@@ -1132,9 +1006,6 @@ export const NEWS_DATA = [
     "title": "감사장 - 서울 사회복지공동모금회",
     "date": "2019.03.29",
     "image": "./assets/images/news/news_35_1_main.png",
-    "images": [
-      "./assets/images/news/news_35_1_extra_1.png"
-    ],
     "content": "일시 : 19년 3월 29일\n수여 : 희망온돌 따뜻한 겨울나기 사업 [감사장] / 관악구청장\n기부행사 참여에 대한 관악구청장의 감사장 수여가 있었습니다.\n저희 태일씨앤티는 성장과 사회적책임은 함께한다는 마음으로 임하고 있습니다."
   },
   {
@@ -1232,8 +1103,7 @@ export const NEWS_DATA = [
     "date": "2018.11.22",
     "image": "./assets/images/news/news_39_1_main.png",
     "images": [
-      "./assets/images/news/news_39_1_extra_1.jpg",
-      "./assets/images/news/news_39_1_extra_2.jpg"
+      "./assets/images/news/news_39_1_extra_1.jpg"
     ],
     "content": "11월 22일은 건설기능인의 날 !\n서서(11월) 일하고, 앉아서 (22일) 일하는 모습을 형상화하여 지정 된 날짜라고 합니다.\n이 날을 기념하는 자리에서 2018년도 국토교통부장관 (단체)표창은 태일씨앤티에서 수상하였습니다.\n모두 축하드립니다."
   },
@@ -1515,9 +1385,6 @@ export const NEWS_DATA = [
     "title": "태일씨앤티 우수협력업체 선정",
     "date": "2016.07.13",
     "image": "./assets/images/news/news_51_0_main.jpg",
-    "images": [
-      "./assets/images/news/news_51_0_extra_1.jpg"
-    ],
     "content": "(주)한라에서 선정한 우수협력업체 태일씨앤티!\n우리 태일人들의 노력이 보답을 받았습니다.\n전문성과 소통, 인간적인 신뢰를 바탕으로 한라와 함께 변화와 혁신을\n이끌어가면서 서로 Win Win 할 수있는 동반자가 되겠습니다."
   },
   {
