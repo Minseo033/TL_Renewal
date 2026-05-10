@@ -23,6 +23,8 @@ const SUB_NAV = [
 ];
 
 const FALLBACK_IMG = './assets/images/company/greeting.jpg';
+const FEATURED_COUNT = 3;
+const GRID_PAGE_SIZE = 6;
 
 const cleanText = (value = '') => value
   .replace(/&lsquo;|&rsquo;/g, "'")
@@ -62,7 +64,7 @@ const paraVariants = {
 };
 
 export default function News() {
-  const [visibleCount, setVisibleCount] = useState(7);
+  const [visibleGridCount, setVisibleGridCount] = useState(GRID_PAGE_SIZE);
   const [selectedNews, setSelectedNews] = useState(null);
   const modalBodyRef = useRef(null);
 
@@ -73,17 +75,21 @@ export default function News() {
     }
   }, [selectedNews]);
 
-  const featured = NEWS_DATA.slice(0, Math.min(3, NEWS_DATA.length)); // top 3 for carousel
-  const grid = NEWS_DATA.slice(3, visibleCount);
+  const featured = NEWS_DATA.slice(0, Math.min(FEATURED_COUNT, NEWS_DATA.length));
+  const gridStart = featured.length;
+  const grid = NEWS_DATA.slice(gridStart, gridStart + visibleGridCount);
 
   const loadMore = () => {
-    setVisibleCount(prev => Math.min(prev + 6, NEWS_DATA.length));
+    setVisibleGridCount(prev => Math.min(prev + GRID_PAGE_SIZE, NEWS_DATA.length - gridStart));
   };
 
   const closeModal = () => setSelectedNews(null);
 
   const paragraphs = selectedNews
     ? cleanText(selectedNews.content).split('\n').filter(p => p.trim())
+    : [];
+  const galleryImages = selectedNews
+    ? [...new Set(selectedNews.images || [])].filter(image => image && image !== selectedNews.image)
     : [];
 
   return (
@@ -168,7 +174,7 @@ export default function News() {
         </div>
       )}
 
-      {visibleCount < NEWS_DATA.length && (
+      {gridStart + visibleGridCount < NEWS_DATA.length && (
         <div className="news-load-more">
           <button className="btn btn-outline btn-lg" onClick={loadMore}>
             <Plus size={18} /> 더 많은 소식 보기
@@ -235,6 +241,19 @@ export default function News() {
                 {paragraphs.slice(1).map((para, i) => (
                   <MotionP key={i} variants={paraVariants}>{cleanText(para)}</MotionP>
                 ))}
+                {galleryImages.length > 0 && (
+                  <MotionDiv className="news-modal-gallery" variants={paraVariants}>
+                    {galleryImages.map((image, i) => (
+                      <figure className="news-modal-gallery-item" key={`${image}-${i}`}>
+                        <img
+                          src={image}
+                          alt={`${cleanText(selectedNews.title)} 현장 사진 ${i + 1}`}
+                          onError={e => { e.currentTarget.closest('figure').style.display = 'none'; }}
+                        />
+                      </figure>
+                    ))}
+                  </MotionDiv>
+                )}
               </MotionDiv>
             </MotionDiv>
           </MotionDiv>

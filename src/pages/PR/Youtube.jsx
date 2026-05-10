@@ -1,9 +1,12 @@
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
+import { ExternalLink } from 'lucide-react';
 import './PR.css';
 
 const COMPANY_VIDEO = './assets/videos/intro.mp4';
 const VIDEO_POSTER  = './assets/images/esg/esg-main.png';
+const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@태일씨앤티경영기획실';
+const YOUTUBE_CHANNEL_NAME = '태일씨앤티 경영기획실';
 
 const SUB_NAV = [
   { label: 'News', path: '/pr/news' },
@@ -38,8 +41,23 @@ export default function Youtube() {
           </div>
           <div className="yt-featured-info">
             <span className="yt-year-badge">Company Film</span>
-            <h3>태일씨앤티 회사 소개영상</h3>
-            <p>태일씨앤티의 현장, 사람, 품질·안전 문화를 영상으로 소개합니다.</p>
+            <h3>태일씨앤티 유튜브 채널</h3>
+            <p>공식 유튜브 채널에서 태일씨앤티의 현장, 사람, 품질·안전 문화를 더 자세히 만나보세요.</p>
+            <a
+              href={YOUTUBE_CHANNEL_URL}
+              className="yt-channel-link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="yt-channel-icon" aria-hidden="true">
+                <span className="yt-channel-play" />
+              </span>
+              <span className="yt-channel-text">
+                <span className="yt-channel-label">YouTube Channel</span>
+                <strong>{YOUTUBE_CHANNEL_NAME}</strong>
+              </span>
+              <ExternalLink size={15} />
+            </a>
           </div>
         </AnimatedSection>
       </div>
