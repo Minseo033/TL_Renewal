@@ -19,7 +19,7 @@ const MotionP = motion.p;
 
 const SUB_NAV = [
   { label: 'News', path: '/pr/news' },
-  { label: '홍보동영상', path: '/pr/youtube' },
+  { label: '유튜브', path: '/pr/youtube' },
 ];
 
 const FALLBACK_IMG = './assets/images/company/greeting.jpg';
