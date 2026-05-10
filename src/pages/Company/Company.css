@@ -154,6 +154,16 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.08);
 }
 
+.cert-table-card.is-disabled {
+  cursor: default;
+}
+
+.cert-table-card.is-disabled:hover {
+  transform: none;
+  border-color: var(--color-border-light);
+  box-shadow: none;
+}
+
 /* 왼쪽 정보 영역 */
 .card-info-side {
   flex: 1;
@@ -165,6 +175,7 @@
 .card-date-label { font-size: 12px; color: var(--color-brand); font-weight: 800; display: block; margin-bottom: 5px; }
 .card-title-label { font-size: 1.05rem; font-weight: 800; color: var(--color-primary); margin-bottom: 15px; word-break: keep-all; }
 .card-view-btn { font-size: 11px; font-weight: 700; color: var(--color-text-muted); display: flex; align-items: center; gap: 4px; }
+.card-view-btn.is-muted { color: var(--color-text-light); }
 
 /* 오른쪽 표 영역 */
 .card-table-side {
