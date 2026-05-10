@@ -1,6 +1,7 @@
+import React, { useState, useEffect } from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
-import { Award, Building2, FlaskConical, HardHat, Leaf, Medal, ShieldCheck, Wrench } from 'lucide-react';
+import { X, Search, FileText, CheckCircle } from 'lucide-react';
 import './Company.css';
 
 const SUB_NAV = [
@@ -13,22 +14,69 @@ const SUB_NAV = [
   { label: '찾아오시는 길', path: '/company/location' },
 ];
 
-const CERTS = [
-  { title: 'KS Q ISO 9001:2015', sub: '품질경영시스템', org: '건연인증원', year: '2017', color: '#1B3A5C', icon: <Award size={36} strokeWidth={1.5} /> },
-  { title: 'KS I ISO 14001:2015', sub: '환경경영시스템', org: '건연인증원', year: '2017', color: '#2E8B4A', icon: <Leaf size={36} strokeWidth={1.5} /> },
-  { title: 'OHSAS 18001:2017', sub: '안전보건경영시스템', org: '건연인증원', year: '2017', color: '#C9A84C', icon: <ShieldCheck size={36} strokeWidth={1.5} /> },
+// 업·면허 데이터 (8개 전체)
+const LICENSES = [
+  { title: '사업자 등록증', date: '2023. 12. 19', img: 'http://www.taeilcnt.co.kr/home/images/company/lisense_000.jpg', table: [{ k: '발급기관', v: '금천세무서' }, { k: '구분', v: '각자대표' }] },
+  { title: '사업자 등록증', date: '2015. 10. 28', img: 'http://www.taeilcnt.co.kr/home/images/company/lisense_00.jpg', table: [{ k: '발급기관', v: '관악세무서' }, { k: '상태', v: '정상' }] },
+  { title: (<>건설업 등록증<br/>(철근·콘크리트 공사업)</>), date: '2022. 11. 21', img: 'http://www.taeilcnt.co.kr/home/images/company/lisense_001.jpg', table: [{ k: '등록기관', v: '금천구청' }, { k: '비고', v: '재교부' }] },
+  { title: (<>건설업 등록증<br/>(도장·습식·방수공사업)</>), date: '2022. 11. 21', img: 'http://www.taeilcnt.co.kr/home/images/company/lisense_002.jpg', table: [{ k: '등록기관', v: '금천구청' }, { k: '분야', v: '습식·방수' }] },
+  { title: (<>건설업 등록증<br/>(구조물해체·비계공사업)</>), date: '2022. 11. 21', img: 'http://www.taeilcnt.co.kr/home/images/company/lisense_003.jpg', table: [{ k: '등록기관', v: '금천구청' }, { k: '분야', v: '해체·비계' }] },
+
+  { title: (<>건설업 등록증<br/>(철근·콘크리트 공사협)</>), date: '1992. 08. 31', img: 'http://www.taeilcnt.co.kr/home/file/upload/02.2019.pdf', table: [{ k: '등록기관', v: '관악구청' }, { k: '이력', v: '최초등록' }] },
+  { title: (<>건설업 등록증<br/>(미장·방수·조적 공사업)</>), date: '2014. 03. 11', img: 'http://www.taeilcnt.co.kr/home/file/upload/03.2019.pdf', table: [{ k: '등록기관', v: '관악구청' }, { k: '분야', v: '미장·방수' }] },
+  { title: (<>건설업 등록증<br/>(비계·구조물 해체 공사)</>), date: '2015. 08. 26', img: 'http://www.taeilcnt.co.kr/home/file/upload/04.2019.pdf', table: [{ k: '등록기관', v: '관악구청' }, { k: '분야', v: '해체·비계' }] },
 ];
 
-const LICENSES = [
-  { title: '철근콘크리트공사업', desc: '전문건설업 면허 / 주력 분야', icon: <HardHat size={22} /> },
-  { title: '습식·방수공사업', desc: '전문건설업 면허', icon: <Building2 size={22} /> },
-  { title: '구조물해체·비계공사업', desc: '전문건설업 면허', icon: <Wrench size={22} /> },
-  { title: '기업부설연구소', desc: '2014년 인정 승인 이력', icon: <FlaskConical size={22} /> },
-  { title: '벤처기업', desc: '2015년, 2018년 인증 이력', icon: <Medal size={22} /> },
-  { title: 'MAIN-BIZ', desc: '경영혁신형 중소기업 인증 이력', icon: <Award size={22} /> },
-];
+// 인증 데이터 (16개 전체)
+const CERTS = [
+  { title: '가족친화인증서', org: '여성가족부', date: '2022. 12. 14', img: 'http://www.taeilcnt.co.kr/home/images/company/lisense_008.jpg', table: [{ k: '기관', v: '여성가족부' }] },
+  { title: '좋은일자리기업인증서', org: '신용보증기금', img:'http://www.taeilcnt.co.kr/home/images/company/lisense_009.jpg', date: '2017. 09. 15', table: [{ k: '기관', v: '신용보증기금' }] },
+  { title: '인재육성형중소기업지정서', org: '중소벤처기업부', img:'http://www.taeilcnt.co.kr/home/images/company/lisense_010.jpg', date: '2022. 10. 01', table: [{ k: '기관', v: '중기부' }] },
+  { title: '근무혁신우수기업선정서', org: '고용노동부', img:'http://www.taeilcnt.co.kr/home/images/company/lisense_011.jpg', date: '2022. 11. 16', table: [{ k: '기관', v: '고용노동부' }] },
+  { title: (<>품질경영시스템인증서<br/> (KS Q ISO 9001)</>), org: 'International Cert.', img:'http://www.taeilcnt.co.kr/home/images/company/lisense_004.jpg', date: '2022. 05. 09', table: [{ k: '규격', v: 'ISO 9001:2015' }] },
+  { title: (<>환경경영시스템인증서<br/> (KS Q ISO 14001)</>), org: 'International Cert.', img:'http://www.taeilcnt.co.kr/home/images/company/lisense_005.jpg',date: '2022. 05. 09', table: [{ k: '규격', v: 'ISO 14001:2015' }] },
+  { title: (<>안전보건경영시스템인증서<br/> (KS Q ISO 14001)</>), org: 'International Cert.', img:'http://www.taeilcnt.co.kr/home/images/company/lisense_006.jpg', date: '2023. 07. 17', table: [{ k: '규격', v: 'ISO 45001:2018' }] },
+  { title: '경영혁신형 중소기업 확인서', org: 'MAIN Biz', img:'http://www.taeilcnt.co.kr/home/images/company/lisense_007.jpg',date: '2022. 10. 26', table: [{ k: '기관', v: '중소벤처기업부' }] },
+  { title: (<>품질경영시스템인증서<br/> (ISO 9001)</>), org: 'IMS Evaluation', img:'http://www.taeilcnt.co.kr/home/file/upload/iso9001_2020.jpg', date: '2020. 08. 28', table: [{ k: '규격', v: 'ISO 9001:2015' }] },
+  { title: (<>환경경영시스템인증서<br/> (ISO 14001)</>), org: 'IMS Evaluation', img:'http://www.taeilcnt.co.kr/home/file/upload/iso14001_2020.jpg', date: '2020. 08. 28', table: [{ k: '규격', v: 'ISO 14001:2015' }] },
+  { title: (<>안전보건경영시스템인증서<br/> (OHSAS 18001)</>), org: 'IMS Evaluation', img:'http://www.taeilcnt.co.kr/home/file/upload/iso45001_2020.jpg', date: '2020. 08. 28', table: [{ k: '규격', v: 'OHSAS 18001' }] },
+  { title: '경영혁신형 중소기업 확인서', org: 'MAIN Biz', img:'http://www.taeilcnt.co.kr/home/file/upload/mainbiz_2020.pdf', date: '2019. 10. 21', table: [{ k: '기관', v: '중소벤처기업부' }] },
+  { title: '벤처기업확인서', org: '벤처기업협회', img:'http://www.taeilcnt.co.kr/home/images/company/lisense_012.jpg',date: '2023. 01. 09', table: [{ k: '기관', v: '벤처기업협회' }] },
+  { title: '중소기업확인서', org: '중소벤처기업부', img:'http://www.taeilcnt.co.kr/home/images/company/lisense_013.jpg', date: '2023. 04. 13', table: [{ k: '기관', v: '중기부' }] },
+  { title: '성과공유기업확인서', org: '중소벤처기업부', date: '2023. 10. 26', img:'http://www.taeilcnt.co.kr/home/images/company/lisense_014.jpg', table: [{ k: '기관', v: '중기부' }] },
+  { title: '소프트웨어사업자확인서', org: '한국소프트웨어산업협회', date: '2024. 01. 30',img:'http://www.taeilcnt.co.kr/home/images/company/lisense_015.jpg', table: [{ k: '기관', v: 'KOSA' }] },
+].map((item, idx) => ({ ...item, img: item.img || `http://www.taeilcnt.co.kr/home/images/company/cert_${idx + 1}.jpg` }));
 
 export default function Certifications() {
+  const [selectedImg, setSelectedImg] = useState(null);
+
+  useEffect(() => {
+    if (selectedImg) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'unset';
+  }, [selectedImg]);
+
+  const renderCard = (data) => (
+    <div className="cert-table-card" onClick={() => setSelectedImg(data.img)}>
+      <div className="card-info-side">
+        <span className="card-date-label">{data.date}</span>
+        <h4 className="card-title-label">{data.title}</h4>
+        <div className="card-view-btn"><Search size={14} /> 원본보기</div>
+      </div>
+      <div className="card-table-side">
+        <table className="mini-table">
+          <tbody>
+            {data.table.map((row, i) => (
+              <tr key={i}>
+                <th>{row.k}</th>
+                <td>{row.v}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+
   return (
     <PageLayout
       title="업·면허/인증"
@@ -36,43 +84,45 @@ export default function Certifications() {
       subNav={SUB_NAV}
     >
       <AnimatedSection>
-        <p className="section-eyebrow">CERTIFICATIONS & LICENSES</p>
-        <h2 className="section-title">국제 인증 및 면허 현황</h2>
+        <p className="section-eyebrow">CREDENTIALS</p>
+        <h2 className="section-title">신뢰를 증명하는 태일의 기록</h2>
         <p className="section-subtitle">
           전문 면허와 품질·환경·안전 인증을 바탕으로 체계적인 현장 관리를 이어갑니다.
         </p>
       </AnimatedSection>
 
-      <div className="cert-grid">
-        {CERTS.map((c, idx) => (
-          <AnimatedSection key={idx} delay={idx * 100} direction="up">
-            <div className="cert-card" style={{ '--cert-color': c.color }}>
-              <div className="cert-icon-wrap">{c.icon}</div>
-              <div className="cert-title">{c.title}</div>
-              <div className="cert-sub">{c.sub}</div>
-              <div className="cert-detail">
-                <span>{c.org}</span>
-                <span>취득: {c.year}년</span>
-              </div>
-            </div>
-          </AnimatedSection>
-        ))}
-      </div>
-
-      <AnimatedSection delay={200} className="license-section">
-        <h3 className="license-section-title">면허 및 인증 이력</h3>
-        <div className="license-grid">
+      <section className="cert-group">
+        <h3 className="cert-group-title"><FileText size={20} /> 업 · 면허 (8건)</h3>
+        <div className="cert-table-grid">
           {LICENSES.map((l, idx) => (
-            <div key={idx} className="license-item">
-              <span className="license-icon">{l.icon}</span>
-              <div>
-                <strong>{l.title}</strong>
-                <p>{l.desc}</p>
-              </div>
-            </div>
+            <AnimatedSection key={idx} delay={idx * 50} direction="up">
+              {renderCard(l)}
+            </AnimatedSection>
           ))}
         </div>
-      </AnimatedSection>
+      </section>
+
+      <section className="cert-group" style={{ marginTop: '60px' }}>
+        <h3 className="cert-group-title"><CheckCircle size={20} /> 인증 현황 (16건)</h3>
+        <div className="cert-table-grid">
+          {CERTS.map((c, idx) => (
+            <AnimatedSection key={idx} delay={idx * 30} direction="up">
+              {renderCard(c)}
+            </AnimatedSection>
+          ))}
+        </div>
+      </section>
+
+      {selectedImg && (
+        <div className="cert-modal-overlay" onClick={() => setSelectedImg(null)}>
+          <div className="cert-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={() => setSelectedImg(null)}><X size={35} /></button>
+            <div className="modal-body">
+              <img src={selectedImg} alt="Original" />
+            </div>
+          </div>
+        </div>
+      )}
     </PageLayout>
   );
 }

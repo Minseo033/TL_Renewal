@@ -10,6 +10,39 @@
   box-shadow: var(--shadow-xl);
 }
 
+/* 페이지별: 섹션 서브타이틀을 한 줄로 고정 (복리후생 등에서 사용) */
+.section-subtitle.single-line {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+
+}
+.section-subtitle{
+  margin-bottom: 40px;
+}
+
+/* Header with icon: place an icon left and title/subtitle to the right */
+.section-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.section-with-icon .section-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: rgba(27,58,92,0.06);
+  color: var(--color-primary);
+  border-radius: 12px;
+}
+@media (max-width: 768px) {
+  .section-with-icon { flex-direction: column; text-align: center; }
+  .section-with-icon .section-icon { width: 48px; height: 48px; }
+}
+
 .talent-banner-img {
   width: 100%;
   height: 100%;
@@ -186,6 +219,123 @@
 }
 
 /* ── HR System ── */
+/* Recruitment.css */
+
+.hr-section { margin-bottom: 30px; }
+
+.hr-grid-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 240px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.hr-side-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+}
+
+.hr-side-title h3 { font-size: 1.6rem; font-weight: 800; }
+.side-bar { width: 40px; height: 4px; background: #63b155; margin-bottom: 15px; }
+
+/* 이미지 색상 반영 */
+.green-bg { background: #4a5a71; } /* 인재상 좌측 이미지 느낌 */
+.blue-bg { background: #5a6a81; }  /* 평가제도 좌측 이미지 느낌 */
+.dark-bg { background: #3a4a61; }  /* 보상제도 좌측 이미지 느낌 */
+
+.hr-content-box {
+  background: #fdfdfd;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gray-bg { background: #f4f4f4; }
+
+/* 인재상 4분할 디자인 */
+.ideals-quad-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: #ccc; /* 구분선 효과 */
+  position: relative;
+  border: 1px solid #ccc;
+}
+
+.ideal-item {
+  background: #666; /* 이미지의 어두운 배경 */
+  padding: 30px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.ideal-text strong { display: block; font-size: 1.1rem; margin-top: 10px; margin-bottom: 5px; }
+.ideal-text p { font-size: 0.85rem; opacity: 0.8; word-break: keep-all; }
+
+.center-person-icon {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000;
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  border: 4px solid #f4f4f4;
+}
+
+/* 수식(Formula) 레이아웃 */
+.system-formula {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.formula-item { text-align: center; color: #555; }
+.formula-item span, .formula-item strong { display: block; margin-top: 10px; font-weight: 800; }
+
+.formula-symbol { color: #63b155; }
+.formula-symbol-equal { background: #63b155; color: #fff; padding: 5px; }
+
+.formula-result-list {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.formula-result-list ul { list-style: none; padding: 0; margin-top: 10px; }
+.formula-result-list li { font-size: 0.9rem; margin-bottom: 5px; color: #666; }
+
+/* 보상제도 전용 아이콘 스타일 */
+.circle-icon {
+  width: 60px; height: 60px;
+  border: 4px solid #ccc;
+  border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 1.5rem; font-weight: 900; color: #63b155;
+}
+
+@media (max-width: 1024px) {
+  .hr-grid-layout { grid-template-columns: 1fr; }
+  .hr-side-title { padding: 20px; }
+  .system-formula { flex-direction: column; gap: 30px; }
+}
+
+
+
+
 .hr-system-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -263,110 +413,550 @@
   font-weight: 700;
 }
 
-/* ── Guide ── */
+/* Recruitment.css - 가이드 전용 최적화 */
+/* ── [AhnLab Style] Job Explorer ── */
+
+.job-explorer-container {
+  display: flex;
+  gap: 40px;
+  background: #fff;
+  border-radius: var(--radius-2xl);
+  padding: 40px;
+  box-shadow: var(--shadow-xl);
+  margin-top: 40px;
+  min-height: 650px;
+}
+
+/* 왼쪽 리스트 메뉴 */
+.job-explorer-nav {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid var(--color-primary);
+}
+
+.job-nav-item {
+  padding: 20px 15px;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-nav-item.active {
+  color: var(--color-brand);
+  background: rgba(46, 139, 74, 0.05);
+  padding-left: 25px;
+}
+
+.job-nav-item .nav-arrow {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.job-nav-item.active .nav-arrow {
+  opacity: 1;
+}
+
+/* 오른쪽 상세 디스플레이 영역 */
+.job-explorer-display {
+  flex: 1;
+  display: flex;
+  gap: 30px;
+  animation: fadeIn 0.4s ease;
+}
+
+.job-display-image {
+  flex: 0 0 350px;
+  height: 100%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.job-display-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.job-display-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.job-content-section h4 {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--color-brand);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.job-content-section p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text-light);
+  word-break: keep-all;
+}
+
+.job-content-section.vision p {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 1024px) {
+  .job-explorer-container { flex-direction: column; }
+  .job-explorer-nav { flex: none; width: 100%; }
+  .job-display-image { display: none; }
+}
+
+
+
+
+
+
+/* ── 섹션 헤더 ── */
+.guide-section {
+  margin-bottom: 80px;
+}
+
+.guide-group-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.guide-group-title::before {
+  content: '';
+  width: 5px;
+  height: 26px;
+  background: var(--color-brand);
+  border-radius: 3px;
+}
+
+/* ── 모집분야 (Job Introduction) ── */
+/* ── [채용공고] UI 정밀 교정 및 기능 스타일 ── */
+
+/* ── [인재상 카드] 이미지 사이즈 정밀 매칭 ── */
+
+.talent-values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4열 고정 */
+  gap: 20px; /* 카드 사이 간격 */
+  margin: 50px auto 100px;
+  max-width: 1400px; /* 전체 너비 제한으로 카드 크기 유지 */
+}
+
+.talent-value-card {
+  background: #fff;
+  border-radius: 30px; /* 더 둥글게 */
+  padding: 60px 30px; /* 내부 여백을 늘려 카드 사이즈 확보 */
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
+  border-top: 6px solid #1b3a5c; /* 이미지 상단의 진한 네이비 보더 */
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 320px; /* 카드 높이감 확보 */
+}
+
+.talent-value-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* 아이콘 스타일 */
+.talent-value-icon {
+  margin-bottom: 40px;
+  color: #63b155; /* 이미지의 초록색 아이콘 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 타이틀 스타일 */
+.talent-value-title {
+  font-size: 24px; /* 더 크고 굵게 */
+  font-weight: 800;
+  color: #1b3a5c;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+/* 설명문 스타일 */
+.talent-value-desc {
+  font-size: 16px;
+  color: #777;
+  line-height: 1.6;
+  word-break: keep-all; /* 단어 단위 줄바꿈으로 깔끔하게 */
+  max-width: 220px; /* 텍스트 너비 제한으로 이미지와 비슷한 호흡 */
+}
+
+/* 반응형: 화면이 작아지면 2열로 변경 */
+@media (max-width: 1200px) {
+  .talent-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .talent-values-grid {
+    grid-template-columns: 1fr;
+  }
+  .talent-value-card {
+    min-height: auto;
+    padding: 50px 20px;
+  }
+}
+
+
+.job-list-container {
+  margin-top: 50px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* 이미지의 제목 스타일 */
+.job-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.job-list-header h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1b1b1b;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 검색바 스타일 */
+.job-search-wrapper {
+  display: flex;
+  align-items: center;
+  background: #f1f5f9;
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  width: 320px;
+  transition: all 0.3s;
+}
+
+.job-search-wrapper:focus-within {
+  background: #fff;
+  border-color: #1b3a5c;
+  box-shadow: 0 0 0 3px rgba(27, 58, 92, 0.1);
+}
+
+.job-search-wrapper input {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  width: 100%;
+  font-size: 14px;
+}
+
+/* ★ 이미지와 매칭시킨 경고창 스타일 ★ */
+.job-warning-box {
+  background: #fff5f5; /* 연한 핑크 배경 */
+  border-left: 5px solid #d32f2f; /* 빨간색 굵은 왼쪽 보더 */
+  padding: 20px 25px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #d32f2f; /* 텍스트 색상 */
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 테이블 스타일 */
+.job-table-wrapper {
+  overflow-x: auto;
+}
+
+.job-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 2px solid #1b3a5c;
+}
+
+.job-table th {
+  background: #f8fafc;
+  padding: 18px 15px;
+  border-bottom: 1px solid #e2e8f0;
+  color: #1b3a5c;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.job-table td {
+  padding: 20px 15px;
+  border-bottom: 1px solid #f1f5f9;
+  text-align: center;
+  font-size: 15px;
+  color: #475569;
+}
+
+.job-table .title-cell {
+  text-align: left;
+  font-weight: 600;
+  color: #1b3a5c;
+  cursor: pointer;
+  width: 50%;
+}
+
+.job-table .title-cell:hover {
+  text-decoration: underline;
+}
+
+/* 페이지네이션 */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.page-btn {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  font-size: 14px;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.page-btn:hover:not(:disabled) {
+  background: #f1f5f9;
+  color: #1b3a5c;
+}
+
+.page-btn.active {
+  background: #1b3a5c;
+  color: #fff;
+  border-color: #1b3a5c;
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+
+
+
+
+
+
+.job-intro-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.job-intro-card {
+  background: #fff;
+  border-radius: var(--radius-xl);
+  padding: 35px 28px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-border-light);
+  border-top: 5px solid var(--color-brand);
+  transition: all var(--transition-base);
+}
+
+.job-intro-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.job-intro-card h4 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.job-intro-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.job-intro-item {
+  position: relative;
+}
+
+.job-intro-item strong {
+  display: block;
+  font-size: 15px;
+  color: var(--color-primary);
+  margin-bottom: 6px;
+  padding-left: 14px;
+  position: relative;
+}
+
+.job-intro-item strong::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  background: var(--color-brand);
+  border-radius: 1px;
+  transform: rotate(45deg);
+}
+
+.job-intro-item p {
+  font-size: 13.5px;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  padding-left: 14px;
+  word-break: keep-all;
+}
+
+/* ── 공개채용 프로세스 (Process Flow) ── */
+.process-wrapper {
+  background: linear-gradient(to right, #f8fbf9, #ffffff);
+  border-radius: var(--radius-2xl);
+  padding: 50px 40px;
+  border: 1px solid var(--color-border-light);
+}
+
 .process-flow {
   display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin: 36px 0;
-  overflow-x: auto;
-  padding-bottom: 12px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .process-step-wrap {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex-shrink: 0;
+  flex: 1;
 }
 
 .process-step {
   background: #fff;
   border-radius: var(--radius-xl);
-  padding: 28px 16px;
+  padding: 30px 20px;
   text-align: center;
-  box-shadow: var(--shadow-card);
-  width: 160px;
-  transition: all var(--transition-base);
-}
-
-.process-step:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-card-hover);
-}
-
-.process-step-icon {
-  font-size: 32px;
-  margin-bottom: 8px;
+  box-shadow: var(--shadow-md);
+  width: 100%;
+  max-width: 190px;
+  border: 1px solid var(--color-border-light);
 }
 
 .process-step-num {
   display: inline-block;
-  width: 28px;
-  height: 28px;
-  background: var(--gradient-brand);
+  padding: 4px 12px;
+  background: var(--color-brand);
   color: #fff;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   font-size: 12px;
   font-weight: 700;
-  line-height: 28px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .process-step-title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--color-primary);
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .process-step-desc {
-  font-size: 12px;
+  font-size: 12.5px;
   color: var(--color-text-light);
-  line-height: 1.4;
-  word-break: keep-all;
-  margin-bottom: 8px;
-}
-
-.process-step-duration {
-  font-size: 11px;
-  color: var(--color-brand);
-  font-weight: 600;
+  line-height: 1.5;
 }
 
 .process-arrow {
-  font-size: 24px;
-  color: var(--color-border);
-  flex-shrink: 0;
+  color: var(--color-brand);
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
 }
 
-.guide-tips {
-  background: var(--color-bg);
+/* ── 하단 팁 ── */
+.tip-box {
+  background: #fff;
   border-radius: var(--radius-xl);
-  padding: 32px;
-  margin-top: 36px;
+  padding: 40px;
+  border: 1px solid var(--color-border-light);
 }
 
-.guide-tips h3 {
-  font-size: 1.1rem;
+.tip-box h3 {
+  font-size: 1.3rem;
   font-weight: 700;
+  margin-bottom: 25px;
   color: var(--color-primary);
-  margin-bottom: 16px;
 }
 
-.guide-tips ul li {
-  font-size: 14px;
+.tip-list li {
+  display: flex;
+  padding: 15px 0;
+  border-bottom: 1px dotted var(--color-border);
+  font-size: 14.5px;
   color: var(--color-text-light);
-  padding: 8px 0;
-  border-bottom: 1px solid var(--color-border-light);
-  line-height: 1.5;
-  word-break: keep-all;
 }
 
-.guide-tips ul li:last-child {
-  border-bottom: none;
+.tip-list li strong {
+  width: 110px;
+  flex-shrink: 0;
+  color: var(--color-primary);
 }
 
+@media (max-width: 1024px) {
+  .job-intro-grid { grid-template-columns: 1fr; }
+  .process-flow { flex-wrap: wrap; justify-content: center; gap: 20px; }
+  .process-arrow { display: none; }
+}
+
+@media (max-width: 768px) {
+  .process-step { max-width: 100%; text-align: left; padding: 25px; }
+}
 /* ── Benefits ── */
 .benefits-grid {
   display: grid;
@@ -382,6 +972,9 @@
   box-shadow: var(--shadow-card);
   transition: all var(--transition-base);
   text-align: left;
+  position: relative;
+  /* ensure space for the top-right tag */
+  padding-top: 36px;
   min-height: 100%;
 }
 
@@ -412,6 +1005,11 @@
   font-size: 11px;
   font-weight: 600;
   margin-bottom: 10px;
+    position: absolute;
+      /* align with the top of the .benefit-icon (card padding-top) */
+      top: 36px;
+    right: 12px;
+  margin-bottom: 0;
 }
 
 .benefit-title {
@@ -523,6 +1121,7 @@
   background: var(--color-bg);
   display: flex;
   gap: 16px;
+  align-items: center;
   animation: fadeIn 0.3s ease;
 }
 
@@ -555,7 +1154,8 @@
 .faq-contact-inner {
   background: var(--gradient-dark);
   border-radius: var(--radius-xl);
-  padding: 24px 32px;
+  /* increase top padding so content sits lower inside the panel */
+  padding: 48px 32px 36px;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -684,3 +1284,413 @@
     padding: 0 16px 16px;
   }
 }
+
+
+
+/* ── [인사제도] 레이아웃 전면 수정 ── */
+
+.hr-system-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.hr-section-row {
+  display: grid;
+  grid-template-columns: 280px 1fr; /* 왼쪽 타이틀 280px 고정 */
+  gap: 40px;
+  margin-bottom: 100px;
+  align-items: stretch; /* 높이 맞춤 */
+}
+
+/* 왼쪽 타이틀 영역 */
+.hr-sticky-title {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 세로 중앙 정렬 */
+  padding: 40px;
+  background: #f8fafc; /* 은은한 배경색 */
+  border-radius: 24px;
+  text-align: center;
+}
+
+.hr-sticky-title .side-bar {
+  width: 40px;
+  height: 4px;
+  background: #63b155;
+  margin: 0 auto 20px;
+}
+
+.hr-sticky-title h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #1b3a5c;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.hr-sticky-title .side-eng {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* 오른쪽 콘텐츠 그리드 영역 */
+.hr-content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2열 배치 */
+  gap: 20px;
+}
+
+/* 인재상 카드 스타일 */
+.hr-value-card {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 24px;
+  border: 1px solid #edf2f7;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.hr-value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: #63b155;
+}
+
+.hr-card-icon {
+  width: 50px;
+  height: 50px;
+  background: #f1f5f9;
+  color: #1b3a5c;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  transition: 0.3s;
+}
+
+.hr-value-card:hover .hr-card-icon {
+  background: #63b155;
+  color: #fff;
+}
+
+.hr-value-card strong {
+  font-size: 1.25rem;
+  color: #1b3a5c;
+  font-weight: 700;
+}
+
+.hr-value-card p {
+  font-size: 0.95rem;
+  color: #64748b;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+/* 평가/보상 섹션 공통 (가로 배치가 필요한 경우) */
+.hr-system-panel {
+  background: #fff;
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid #edf2f7;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+}
+
+.system-node {
+  text-align: center;
+  flex: 1;
+}
+
+.system-node .node-circle {
+  width: 80px;
+  height: 80px;
+  background: #f8fafc;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+  display: grid;
+  place-items: center;
+  color: #1b3a5c;
+  border: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.system-node:hover .node-circle {
+  border-color: #63b155;
+  background: #fff;
+}
+
+.result-box-dark {
+  flex: 1.5;
+  background: #1b3a5c;
+  color: #fff;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.result-box-dark ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.result-box-dark li {
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  opacity: 0.8;
+  display: flex;
+  gap: 8px;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .hr-section-row { grid-template-columns: 1fr; }
+  .hr-sticky-title { padding: 30px; }
+  .hr-content-grid { grid-template-columns: 1fr; }
+  .hr-system-panel { flex-direction: column; padding: 30px 20px; }
+}
+
+/* ── [HR SYSTEM] Modernized Styling ── */
+
+:root {
+  --hr-primary: #1b3a5c;      /* 신뢰감 있는 네이비 */
+  --hr-accent: #63b155;       /* 성장과 활력을 주는 그린 */
+  --hr-bg-light: #f8fafc;
+  --hr-border: #e2e8f0;
+  --transition-cubic: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* 섹션 공통 애니메이션 */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hr-section {
+  margin-bottom: 120px;
+  opacity: 0;
+  animation: fadeInUp 0.8s forwards ease-out;
+}
+
+/* 레이아웃 구성 */
+.hr-grid-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.hr-side-title {
+  position: sticky;
+  top: 100px;
+  padding: 20px 0;
+}
+
+.hr-side-title .side-bar {
+  width: 40px;
+  height: 6px;
+  background: var(--hr-accent);
+  border-radius: 3px;
+  margin-bottom: 24px;
+}
+
+.hr-side-title h3 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--hr-primary);
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.hr-side-title .side-eng {
+  display: block;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* 1. 인재상 (Core Values) 카드 */
+.ideals-modern-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.ideal-card {
+  background: #fff;
+  padding: 45px 35px;
+  border-radius: 24px;
+  border: 1px solid var(--hr-border);
+  transition: var(--transition-cubic);
+  position: relative;
+  overflow: hidden;
+}
+
+.ideal-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 4px;
+  background: var(--hr-accent);
+  transform: scaleX(0);
+  transition: var(--transition-cubic);
+}
+
+.ideal-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+  border-color: transparent;
+}
+
+.ideal-card:hover::before {
+  transform: scaleX(1);
+}
+
+.ideal-icon-box {
+  width: 60px;
+  height: 60px;
+  background: var(--hr-bg-light);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hr-primary);
+  margin-bottom: 28px;
+  transition: var(--transition-cubic);
+}
+
+.ideal-card:hover .ideal-icon-box {
+  background: var(--hr-accent);
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+.ideal-text strong {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--hr-primary);
+  margin-bottom: 12px;
+}
+
+.ideal-text p {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+/* 2. 평가 및 보상 시스템 (Formula UI) */
+.system-card-panel {
+  background: #fff;
+  border-radius: 30px;
+  padding: 60px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+  border: 1px solid var(--hr-border);
+}
+
+.system-flex-flow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.flow-node {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.node-icon-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--hr-bg-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--hr-primary);
+  margin-bottom: 20px;
+  border: 2px solid transparent;
+  transition: var(--transition-cubic);
+}
+
+.flow-node:hover .node-icon-circle {
+  border-color: var(--hr-accent);
+  background: #fff;
+  transform: scale(1.1);
+}
+
+.flow-operator {
+  color: #cbd5e1;
+  font-size: 24px;
+}
+
+.flow-result-box {
+  flex: 1.4;
+  background: var(--hr-primary);
+  padding: 35px;
+  border-radius: 24px;
+  color: #fff;
+}
+
+.result-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  color: var(--hr-accent);
+}
+
+.result-list {
+  list-style: none;
+  padding: 0;
+}
+
+.result-list li {
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  opacity: 0.9;
+}
+
+.result-list li::before {
+  content: '→';
+  color: var(--hr-accent);
+}
+
+/* 보상제도 전용 포인트 */
+.reward-highlight {
+  background: var(--hr-accent) !important;
+  color: #fff !important;
+}
+
+/* 반응형 모바일 */
+@media (max-width: 1024px) {
+  .hr-grid-layout { grid-template-columns: 1fr; gap: 30px; }
+  .hr-side-title { position: static; text-align: center; }
+  .hr-side-title .side-bar { margin: 0 auto 20px; }
+  .ideals-modern-grid { grid-template-columns: 1fr; }
+  .system-flex-flow { flex-direction: column; gap: 40px; }
+  .flow-operator { transform: rotate(90deg); }
+  .system-card-panel { padding: 40px 20px; }
+}
+

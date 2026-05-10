@@ -1,6 +1,10 @@
+import React from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
 import './Company.css';
+import { IoLocationOutline } from "react-icons/io5";
+import { PiPhoneCall } from "react-icons/pi";
+import { LiaFaxSolid } from "react-icons/lia";
 
 const SUB_NAV = [
   { label: '인사말', path: '/company/greeting' },
@@ -27,30 +31,43 @@ export default function Location() {
       <div className="location-grid">
         <AnimatedSection direction="left" className="location-map">
           <div className="map-wrap location-summary-panel">
-            <span className="location-summary-kicker">TAEIL C&T HEAD OFFICE</span>
-            <strong>가산디지털단지역 인근<br />한라원앤원타워 B동 17층</strong>
-            <p>서울특별시 금천구 가산디지털2로 101, B동 1701호</p>
-            <div className="location-summary-line" />
-            <span>방문 전 대표번호로 문의해 주세요.</span>
+            {/* 태관님이 주신 마커 포함 iframe 코드 적용 */}
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.309520186373!2d126.87737597542836!3d37.47702167206195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9f88a14a6117%3A0x9eed50598162926!2zKOyjvCntg5zsnbzslKjslaTti7A!5e0!3m2!1sko!2skr!4v1778342459303!5m2!1sko!2skr"
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: '450px' }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="주식회사 태일씨앤티"
+            ></iframe>
           </div>
         </AnimatedSection>
 
         <AnimatedSection direction="right" delay={100} className="location-info">
           <div className="location-info-card">
-            <h3>본사</h3>
+            <h3>주식회사 태일씨앤티</h3>
             <ul className="location-detail">
               <li>
-                <span className="loc-icon">📍</span>
+                <span className="loc-icon"><IoLocationOutline /></span>
                 <div>
                   <strong>주소</strong>
                   <p>서울특별시 금천구 가산디지털2로 101<br/>한라원앤원타워 B동 17층 1701호</p>
                 </div>
               </li>
               <li>
-                <span className="loc-icon">📞</span>
+                <span className="loc-icon"><PiPhoneCall /></span>
                 <div>
-                  <strong>전화</strong>
+                  <strong>문의</strong>
                   <p>070-8897-0761</p>
+                </div>
+              </li>
+              <li>
+                <span className="loc-icon"><LiaFaxSolid /></span>
+                <div>
+                  <strong>FAX</strong>
+                  <p>02-2101-2141</p>
                 </div>
               </li>
             </ul>

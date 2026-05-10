@@ -63,20 +63,14 @@ export default function Greeting() {
                 className="ceo-real-img"
                 onError={e => { e.currentTarget.style.display='none'; }}
               />
-              <div className="ceo-img-label">
-                <span>대표이사</span>
-                <strong>김경수 · 배준희</strong>
-              </div>
             </div>
             <div className="ceo-info">
               <div style={{textAlign:'center',padding:'8px 0',marginBottom:'8px'}}>
-              <img src={signatureImg} alt="대표이사 서명" style={{height:'40px',objectFit:'contain'}}
-                onError={e => e.target.style.display='none'}/>
-            </div>
+                <img src={signatureImg} alt="대표이사 서명" className="ceo-signature-img"
+                  onError={e => e.currentTarget.style.display='none'} />
+              </div>
             <div className="ceo-slogan">
-                <span className="quote-mark">"</span>
                 <p>오늘의 안전은 어제로부터,<br />내일의 안전은 오늘로부터!</p>
-                <span className="quote-mark closing">"</span>
               </div>
               <div className="ceo-values">
                 <div className="ceo-value-tag">책임완수</div>

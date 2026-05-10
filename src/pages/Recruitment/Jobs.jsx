@@ -1,84 +1,90 @@
+import React, { useState } from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
-import { TrendingUp, MessageSquare, Globe, Rocket, HardHat, ShieldCheck, Briefcase } from 'lucide-react';
+import { 
+  Search, AlertCircle, ChevronLeft, ChevronRight, 
+  Users, MessageSquare, Lightbulb, BarChart3 
+} from 'lucide-react';
 import './Recruitment.css';
 
-const talentImg = './assets/images/recruitment/talent.jpg';
-
 const SUB_NAV = [
-  { label: '직무소개', path: '/recruitment/jobs' },
   { label: '인사제도', path: '/recruitment/system' },
-  { label: '채용가이드', path: '/recruitment/guide' },
   { label: '복리후생', path: '/recruitment/benefits' },
+  { label: '채용가이드', path: '/recruitment/guide' },
+  { label: '채용공고', path: '/recruitment/jobs' },
   { label: '채용FAQ', path: '/recruitment/faq' },
 ];
 
+// 사진의 내용으로 업데이트된 인재상 데이터
 const VALUES = [
-  { icon: <TrendingUp size={36} strokeWidth={1.5} />, title: '책임과 성장', desc: '맡은 일에 책임을 다하며, 지속적인 자기 계발을 통해 함께 성장하는 인재', color: '#1B3A5C' },
-  { icon: <MessageSquare size={36} strokeWidth={1.5} />, title: '정직과 소통', desc: '정직한 자세로 동료와의 원활한 소통을 통해 신뢰를 쌓아가는 인재', color: '#2E8B4A' },
-  { icon: <Globe size={36} strokeWidth={1.5} />, title: '공동체 의식', desc: '개인의 성과를 넘어 조직과 사회의 발전을 위해 함께 노력하는 인재', color: '#C9A84C' },
-  { icon: <Rocket size={36} strokeWidth={1.5} />, title: '더 나은 방식', desc: '현상에 안주하지 않고 더 좋은 방법을 끊임없이 탐구하는 창의적 인재', color: '#2A5580' },
+  { 
+    icon: <BarChart3 size={32} />, 
+    title: '책임과 성장', 
+    desc: '책임과 배움을 반복하며 성장한다' 
+  },
+  { 
+    icon: <MessageSquare size={32} />, 
+    title: '정직과 소통', 
+    desc: '원칙에 따라 정직하게 소통하여 신뢰를 만든다' 
+  },
+  { 
+    icon: <Users size={32} />, 
+    title: '공동체 의식', 
+    desc: '공동체를 강화하여 함께 어려움을 극복한다' 
+  },
+  { 
+    icon: <Lightbulb size={32} />, 
+    title: '더 나은 방식', 
+    desc: '관심있게 관찰하고 더 나은 방식을 찾는다' 
+  },
 ];
 
-const JOB_CATEGORIES = [
-  {
-    category: '철근콘크리트공사',
-    icon: <HardHat size={22} />,
-    jobs: [
-      { title: '현장 시공 관리', desc: '철근콘크리트공사 수행과 현장 운영에 관련된 직무 영역입니다.' },
-      { title: '공사 관리', desc: '공정, 자재, 협력사와의 현장 운영을 지원하는 직무 영역입니다.' },
-    ],
-  },
-  {
-    category: '품질·안전 관리',
-    icon: <ShieldCheck size={22} />,
-    jobs: [
-      { title: '품질 관리', desc: '품질안전 관리 기준을 현장에 적용하는 직무 영역입니다.' },
-      { title: '안전 관리', desc: '안전 제일주의와 현장 안전관리에 관련된 직무 영역입니다.' },
-    ],
-  },
-  {
-    category: '경영·지원',
-    icon: <Briefcase size={22} />,
-    jobs: [
-      { title: '경영 지원', desc: '회사 운영과 현장 업무가 원활히 이어지도록 지원하는 직무 영역입니다.' },
-      { title: '기술·관리 지원', desc: '자재기술 및 관리 혁신을 지원하는 직무 영역입니다.' },
-    ],
-  },
+const DUMMY_JOBS = [
+  { id: 224, title: '본사 경영기획실 재무회계(팀장급) 경력사원 모집', date: '2024-10-26', status: '접수마감' },
+  { id: 223, title: '철근콘크리트 공사 현장공무 및 시공관리 신입/경력 채용', date: '상시채용', status: '접수중' },
+  { id: 222, title: '안전보건팀 현장 안전관리자 경력사원 모집', date: '2024-09-15', status: '접수마감' },
+  { id: 221, title: '2024년 상반기 공무팀 신입 사원 모집', date: '2024-05-30', status: '접수마감' },
+  { id: 220, title: '현장 노무 관리 경력직 모집', date: '2024-04-12', status: '접수마감' },
+  { id: 219, title: '본사 자재팀 계약직 채용 공고', date: '2024-03-20', status: '접수마감' },
+  { id: 218, title: '현장 시공직 채용 (충청 지역)', date: '상시채용', status: '접수중' },
 ];
 
 export default function Jobs() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 5;
+
+  const filteredJobs = DUMMY_JOBS.filter(job => 
+    job.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const totalPages = Math.ceil(filteredJobs.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredJobs.slice(indexOfFirstItem, indexOfLastItem);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <PageLayout
       title="인재채용"
-      breadcrumb={[{ label: '인재채용', path: '/recruitment/jobs' }, { label: '직무소개' }]}
+      breadcrumb={[{ label: '인재채용', path: '/recruitment/jobs' }, { label: '채용공고' }]}
       subNav={SUB_NAV}
     >
       <AnimatedSection>
-        <p className="section-eyebrow">TALENT RECRUITMENT</p>
-        <h2 className="section-title">태일씨앤티가 찾는 인재상</h2>
-        <p className="section-subtitle">
-          태일씨앤티는 책임과 성장, 정직과 소통, 더 나은 방식, 공동체 의식을 갖춘 인재를 기다립니다.
-        </p>
-      </AnimatedSection>
-
-      <AnimatedSection delay={100} direction="up">
-        <div className="talent-img-banner">
-          <img src={talentImg} alt="태일씨앤티 인재상" className="talent-banner-img"
-            onError={e => e.currentTarget.style.display='none'} />
-          <div className="talent-banner-overlay">
-            <h3>함께 성장할 <span>인재</span>를 찾습니다</h3>
-            <p>책임 · 정직 · 공동체 · 혁신</p>
-          </div>
+        <div className="text-center mb-16">
+          <p className="section-eyebrow">TALENT RECRUITMENT</p>
+          <h2 className="section-title">함께 성장할 인재를 기다립니다</h2>
+          <p className="section-subtitle">사람을 세우고 내일을 건설하는 태일씨앤티의 비전에 동참할 인재를 찾습니다.</p>
         </div>
       </AnimatedSection>
 
-      <div className="talent-values-grid">
+      {/* 업데이트된 인재상 그리드 */}
+      <div className="talent-values-grid mb-24">
         {VALUES.map((v, idx) => (
-          <AnimatedSection key={idx} delay={idx * 80} direction="up">
-            <div className="talent-value-card" style={{ '--tv-color': v.color }}>
-              <div className="talent-value-num">0{idx + 1}</div>
-              <div className="talent-value-icon">{v.icon}</div>
+          <AnimatedSection key={idx} delay={idx * 100}>
+            <div className="talent-value-card">
+              <div className="talent-value-icon" style={{color: '#63b155'}}>{v.icon}</div>
               <h3 className="talent-value-title">{v.title}</h3>
               <p className="talent-value-desc">{v.desc}</p>
             </div>
@@ -86,27 +92,92 @@ export default function Jobs() {
         ))}
       </div>
 
-      <AnimatedSection delay={200} className="job-categories-section">
-        <h3 className="jobs-section-title">주요 직무 영역</h3>
-        {JOB_CATEGORIES.map((cat, catIdx) => (
-          <div key={catIdx} className="job-category-block">
-            <div className="job-category-header">
-              <span className="job-cat-icon">{cat.icon}</span>
-              <h4>{cat.category}</h4>
-            </div>
-            <div className="job-list">
-              {cat.jobs.map((job, jobIdx) => (
-                <div key={jobIdx} className="job-item">
-                  <div className="job-item-info">
-                    <h5 className="job-title">{job.title}</h5>
-                    <p className="job-desc">{job.desc}</p>
-                  </div>
-                  <span className="job-required">모집 공고 확인</span>
-                </div>
-              ))}
+      <AnimatedSection delay={300}>
+        <div className="job-list-container">
+          <div className="job-list-header">
+            <h3><Search size={24} /> 현재 진행중인 공고</h3>
+            <div className="job-search-wrapper">
+              <Search size={18} color="#64748b" />
+              <input 
+                type="text" 
+                placeholder="공고 제목으로 검색하세요" 
+                value={searchTerm}
+                onChange={(e) => {
+                  setSearchTerm(e.target.value);
+                  setCurrentPage(1);
+                }}
+              />
             </div>
           </div>
-        ))}
+
+          <div className="job-warning-box">
+            <AlertCircle size={22} />
+            입사지원서를 허위로 작성한 경우 입사가 취소될 수 있습니다.
+          </div>
+
+          <div className="job-table-wrapper">
+            <table className="job-table">
+              <thead>
+                <tr>
+                  <th style={{width: '10%'}}>번호</th>
+                  <th style={{width: '60%'}}>제목</th>
+                  <th style={{width: '15%'}}>마감일</th>
+                  <th style={{width: '15%'}}>상태</th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentItems.length > 0 ? (
+                  currentItems.map((job) => (
+                    <tr key={job.id}>
+                      <td>{job.id}</td>
+                      <td className="title-cell">{job.title}</td>
+                      <td>{job.date}</td>
+                      <td>
+                        <span className={`job-status-badge ${job.status === '접수중' ? 'active' : 'closed'}`}>
+                          {job.status}
+                        </span>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="4" style={{padding: '60px', color: '#94a3b8'}}>검색 결과가 없습니다.</td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+
+          {totalPages > 1 && (
+            <div className="pagination">
+              <button 
+                className="page-btn" 
+                onClick={() => paginate(currentPage - 1)}
+                disabled={currentPage === 1}
+              >
+                <ChevronLeft size={18} />
+              </button>
+              
+              {[...Array(totalPages)].map((_, i) => (
+                <button 
+                  key={i} 
+                  className={`page-btn ${currentPage === i + 1 ? 'active' : ''}`}
+                  onClick={() => paginate(i + 1)}
+                >
+                  {i + 1}
+                </button>
+              ))}
+
+              <button 
+                className="page-btn" 
+                onClick={() => paginate(currentPage + 1)}
+                disabled={currentPage === totalPages}
+              >
+                <ChevronRight size={18} />
+              </button>
+            </div>
+          )}
+        </div>
       </AnimatedSection>
     </PageLayout>
   );

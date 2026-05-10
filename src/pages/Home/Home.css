@@ -67,10 +67,11 @@
 .hero-title {
   margin-bottom: 22px;
   color: #fff;
-  font-size: clamp(2.35rem, 4.8vw, 4.35rem);
+  font-size: clamp(2.35rem, 4vw, 3.5rem);
   font-weight: 900;
   line-height: 1.14;
   word-break: keep-all;
+  white-space: nowrap;
 }
 
 .hero-subtitle {
@@ -80,6 +81,7 @@
   font-size: 1.04rem;
   line-height: 1.78;
   word-break: keep-all;
+  white-space: nowrap;
 }
 
 .hero-actions {
@@ -690,6 +692,7 @@
   background: var(--color-bg);
   border: 1px solid var(--color-border-light);
   border-radius: var(--radius-md);
+  align-items: baseline;
 }
 
 .field-process-step span {
@@ -886,6 +889,7 @@
 
   .hero-title {
     font-size: 2.18rem;
+    white-space: normal;
   }
 
   .hero-subtitle {
@@ -893,6 +897,7 @@
     font-size: 0.96rem;
     line-height: 1.65;
     margin-bottom: 24px;
+    white-space: normal;
   }
 
   .hero-badge {
@@ -1055,6 +1060,7 @@
 @media (max-width: 480px) {
   .hero-title {
     font-size: 2rem;
+    white-space: normal;
   }
 
   .featured-project-grid {

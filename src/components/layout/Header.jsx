@@ -58,10 +58,10 @@ const NAV_ITEMS = [
     title: '인재채용',
     path: '/recruitment',
     sub: [
-      { title: '직무소개', path: '/recruitment/jobs' },
       { title: '인사제도', path: '/recruitment/system' },
-      { title: '채용가이드', path: '/recruitment/guide' },
       { title: '복리후생', path: '/recruitment/benefits' },
+      { title: '채용가이드', path: '/recruitment/guide' },
+      { title: '채용공고', path: '/recruitment/jobs' },
       { title: '채용FAQ', path: '/recruitment/faq' },
     ],
   },
