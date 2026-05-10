@@ -54,7 +54,7 @@ export default function ESG() {
           <img src={IMG.esg} alt="ESG 경영" className="esg-hero-img" />
         </div>
         <div className="esg-hero-text">
-          <p className="section-eyebrow">ESG MANAGEMENT</p>
+          <p className="section-eyebrow" style={{color:'#fff'}}>ESG MANAGEMENT</p>
           <h2 className="section-title" style={{color:'#fff'}}>지속 가능한 가치를 실천하는 태일씨앤티</h2>
           <p className="section-subtitle" style={{color:'rgba(255,255,255,0.75)'}}>
             품질·환경·안전 관리와 사회공헌 활동을 통해 책임 있는 건설 문화를 만들어갑니다.

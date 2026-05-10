@@ -23,7 +23,7 @@ const STATS = [
   { label: '철근콘크리트공사 도급순위', value: '55위', sub: '철근콘크리트공사' },
   { label: '철근콘크리트공사 시공능력평가액', value: '978억', sub: '철근콘크리트공사' },
   { label: '동종업계 순위', value: '61위', sub: '동종업계' },
-  { label: '2024년 매출액', value: '700억', sub: '2024년' },
+  { label: '2025년 매출액', value: '840억', sub: '2025년' },
 ];
 
 export default function ProjectOrders() {
