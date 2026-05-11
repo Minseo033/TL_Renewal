@@ -20,7 +20,6 @@ const SUB_NAV = [
 ];
 
 export default function ProjectCategory({ category }) {
-  // Filter projects that match the current category tab
   const filteredProjects = RECENT_PROJECTS.filter(p => 
     p.categories && p.categories.includes(category)
   );

@@ -15,7 +15,8 @@ export const RECENT_PROJECTS = [
     "categories": [
       "업무시설",
       "기타"
-    ]
+    ],
+    "status": "진행"
   },
   {
     "id": "85",
@@ -32,7 +33,8 @@ export const RECENT_PROJECTS = [
     "material": ".",
     "categories": [
       "플랜트"
-    ]
+    ],
+    "status": "진행"
   },
   {
     "id": "84",
@@ -66,7 +68,8 @@ export const RECENT_PROJECTS = [
     "material": ".",
     "categories": [
       "플랜트"
-    ]
+    ],
+    "status": "진행"
   },
   {
     "id": "82",
@@ -83,7 +86,8 @@ export const RECENT_PROJECTS = [
     "material": ".",
     "categories": [
       "업무시설"
-    ]
+    ],
+    "status": "진행"
   },
   {
     "id": "80",
@@ -100,7 +104,8 @@ export const RECENT_PROJECTS = [
     "material": "[지하층] 기둥, 벽체 : 유로폼 슬래브 : 데크 ELE. PIT : 갱폼 [지상층] 외부 벽체 : 갱폼 내부 벽체, 기둥 : 유로폼 슬래브 : 데크 ELE. PIT : 갱폼",
     "categories": [
       "업무시설"
-    ]
+    ],
+    "status": "진행"
   },
   {
     "id": "81",
@@ -117,7 +122,8 @@ export const RECENT_PROJECTS = [
     "material": "[지하층] 기둥, 합벽 : 블루폼 벽체 : 유로폼 슬래브 : 데크 [저층부] 기둥 : 철제폼 벽체 : 유로폼 슬래브 : 합판 [기준층] 외부벽체 : RCS-P, 갱폼 기둥, 벽체 : 알폼 슬래브 : 데크, 테이블폼, 알파덱",
     "categories": [
       "업무시설"
-    ]
+    ],
+    "status": "진행"
   },
   {
     "id": "79",
@@ -134,7 +140,26 @@ export const RECENT_PROJECTS = [
     "material": "[지하층,저층부] 기둥, 벽체 : 유로폼 슬래브 : 데크 보 : 합판,유로폼(지하층), DH보(저층부) [기준층] 외부벽체 : 갱폼 내부벽체, 슬래브 : 알폼",
     "categories": [
       "주택"
-    ]
+    ],
+    "status": "진행"
+  },
+  {
+    "id": "77",
+    "name": "평택 P5 RC공사 2공구",
+    "image": "./assets/images/projects/project_77.jpg",
+    "type": "공장",
+    "address": "경기 평택시 삼성로 114",
+    "client": "삼성전자(주)",
+    "partner": "삼성물산(주)",
+    "scale": ".",
+    "period": "2024.01.25~2026.04.30",
+    "method": ".",
+    "scope": ".",
+    "material": ".",
+    "categories": [
+      "플랜트"
+    ],
+    "status": "진행"
   },
   {
     "id": "78",
@@ -151,7 +176,8 @@ export const RECENT_PROJECTS = [
     "material": "- 지하층/저층부 기둥, 벽체 : 유로폼 슬래브 : 합판 - 기준층 외부 벽체 : 갱폼 내부 벽체, 슬래브 : 알폼",
     "categories": [
       "판매시설"
-    ]
+    ],
+    "status": "진행"
   },
   {
     "id": "76",

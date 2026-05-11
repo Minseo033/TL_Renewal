@@ -1,6 +1,6 @@
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
-import { Award, CheckCircle, GraduationCap, Handshake, Landmark, Leaf, Scale, ShieldCheck } from 'lucide-react';
+import { Award, CheckCircle, GraduationCap, HandHeart, Handshake, HardHat, Landmark, Leaf, Scale, ShieldCheck, Users } from 'lucide-react';
 import './ESG.css';
 
 const IMG = {
@@ -29,6 +29,9 @@ const ESG_SECTIONS = [
       { title: '청소년 장학금 행사', desc: '지역 청소년을 위한 장학금 수여 활동에 함께하며 지역사회와 성장합니다.', icon: <GraduationCap size={20} strokeWidth={1.5} /> },
       { title: '김장 나눔 ESG 행사', desc: "태일씨앤티의 'FUN한 김장담그기' 참여를 통해 이웃과 따뜻한 나눔을 실천합니다.", icon: <Handshake size={20} strokeWidth={1.5} /> },
       { title: '안전 관련 수상', desc: '위험성평가와 안전보건 체계 운영 성과를 바탕으로 안전 문화를 강화합니다.', icon: <ShieldCheck size={20} strokeWidth={1.5} /> },
+      { title: '현장 안전 문화', desc: '근로자와 협력사가 함께 지키는 안전 원칙을 바탕으로 건강한 현장을 만들어갑니다.', icon: <HardHat size={20} strokeWidth={1.5} /> },
+      { title: '지역사회 동행', desc: '지역 행사와 나눔 활동에 참여하며 기업 시민으로서의 책임을 이어갑니다.', icon: <HandHeart size={20} strokeWidth={1.5} /> },
+      { title: '구성원 존중', desc: '현장과 사무 조직이 함께 성장할 수 있는 협력적 조직문화를 지향합니다.', icon: <Users size={20} strokeWidth={1.5} /> },
     ],
   },
   {

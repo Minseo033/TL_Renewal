@@ -73,42 +73,6 @@
   margin-top: 36px;
 }
 
-.youtube-featured {
-  display: grid;
-  grid-template-columns: 1fr 340px;
-  gap: 28px;
-  margin-bottom: 36px;
-  align-items: stretch;
-}
-
-.yt-embed-large {
-  position: relative;
-  padding-bottom: 56.25%;
-  border-radius: var(--radius-xl);
-  overflow: hidden;
-  background: #000;
-  box-shadow: var(--shadow-lg);
-}
-
-.yt-iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-.yt-featured-info {
-  background: var(--gradient-dark);
-  border-radius: var(--radius-xl);
-  padding: 32px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  height: 100%;
-}
-
 .yt-year-badge {
   display: inline-block;
   padding: 4px 12px;
@@ -122,20 +86,6 @@
 .yt-year-badge.sm {
   font-size: 11px;
   padding: 3px 8px;
-}
-
-.yt-featured-info h3 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 1.4;
-  word-break: keep-all;
-}
-
-.yt-featured-info p {
-  font-size: 14px;
-  color: rgba(255,255,255,0.7);
-  line-height: 1.7;
-  word-break: keep-all;
 }
 
 .yt-channel-link {
@@ -204,11 +154,14 @@
 
 .yt-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
 }
 
 .yt-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   background: #fff;
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -256,14 +209,15 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex: 1;
 }
 
-.yt-card-info h4 {
-  font-size: 14px;
-  font-weight: 600;
+.yt-card-info h3 {
+  font-size: 15px;
+  font-weight: 700;
   color: var(--color-primary);
   word-break: keep-all;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .yt-card-info p {
@@ -272,9 +226,41 @@
   line-height: 1.5;
 }
 
+.yt-channel-cta {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 28px;
+  align-items: center;
+  margin-top: 36px;
+  padding: 30px;
+  border-radius: var(--radius-xl);
+  background: var(--gradient-dark);
+  color: #fff;
+  box-shadow: var(--shadow-lg);
+}
+
+.yt-channel-cta h3 {
+  margin-top: 14px;
+  font-size: 1.35rem;
+  line-height: 1.35;
+  word-break: keep-all;
+}
+
+.yt-channel-cta p {
+  margin-top: 10px;
+  color: rgba(255,255,255,0.72);
+  font-size: 14px;
+  line-height: 1.7;
+  word-break: keep-all;
+}
+
+.yt-channel-link--cta {
+  margin-top: 0;
+}
+
 @media (max-width: 1024px) {
-  .youtube-featured { grid-template-columns: 1fr; }
   .yt-grid { grid-template-columns: repeat(2, 1fr); }
+  .yt-channel-cta { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {

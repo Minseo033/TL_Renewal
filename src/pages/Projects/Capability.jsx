@@ -87,7 +87,7 @@ export default function Capability({ mode = 'capability' }) {
             <h3>현장의 기본을 지키는 관리 체계</h3>
           </div>
           <div className="management-list">
-            {SYSTEM_ITEMS.map(item => (
+            {SYSTEM_ITEMS.map((item) => (
               <article key={item.title} className="management-item">
                 <div className="management-icon">{item.icon}</div>
                 <div>
