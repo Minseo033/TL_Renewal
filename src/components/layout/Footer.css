@@ -1,152 +1,188 @@
-/* Footer Styles */
-.footer {
-  background: var(--color-bg-dark);
-  color: rgba(255,255,255,0.8);
-}
-
-.footer-top {
+/* Footer Base Styles */
+.footer-container {
+  background-color: #0d1621;
+  color: #adb5bd;
   padding: 60px 0 40px;
+  font-family: 'Pretendard', sans-serif;
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
-  gap: 40px;
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+.footer-top-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 35px;
 }
 
-.footer-info {
-  padding-right: 20px;
+/* Brand Section */
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
 }
 
-.footer-logo {
+.footer-logo-svg { width: 34px; height: 34px; }
+
+.brand-title {
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.slogan-area p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Contact Section (Address Top) */
+.contact-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.contact-row {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 16px;
-}
-
-.footer-logo-icon svg {
-  width: 32px;
-  height: 32px;
-}
-
-.footer-logo-name {
-  display: block;
-  font-size: 18px;
-  font-weight: 700;
-  color: #fff;
-}
-
-.footer-logo-eng {
-  display: block;
-  font-size: 9px;
-  color: rgba(255,255,255,0.5);
-  letter-spacing: 0.5px;
-}
-
-.footer-desc {
-  font-size: 14px;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.6);
-}
-
-.footer-links-group h4 {
   font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 16px;
-  position: relative;
-  padding-bottom: 10px;
 }
 
-.footer-links-group h4::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 24px;
-  height: 2px;
-  background: var(--color-accent);
-  border-radius: 1px;
-}
-
-.footer-links-group ul li {
-  margin-bottom: 8px;
-}
-
-.footer-links-group ul li a {
-  font-size: 13px;
-  color: rgba(255,255,255,0.6);
-  transition: all var(--transition-fast);
-}
-
-.footer-links-group ul li a:hover {
-  color: var(--color-accent);
-  padding-left: 4px;
-}
-
-.footer-contact li {
+.contact-numbers {
   display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin-bottom: 12px;
-  font-size: 13px;
-  line-height: 1.6;
+  gap: 25px;
 }
 
-.footer-contact-icon {
-  font-size: 14px;
-  flex-shrink: 0;
-  margin-top: 2px;
+.green-accent { color: #3AA65C; font-size: 18px; }
+
+.white-bold {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 17px;
 }
 
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding: 20px 0;
+/* Divider & Bottom row */
+.footer-line-divider {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 25px;
 }
 
-.footer-bottom-inner {
+.footer-bottom-layout {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.footer-bottom-inner p {
-  font-size: 13px;
-  color: rgba(255,255,255,0.4);
+.copyright-info { font-size: 14px; color: #475569; }
+
+.policy-nav { display: flex; gap: 25px; }
+
+.nav-btn {
+  background: none; border: none; padding: 0;
+  color: #adb5bd; font-size: 14px; cursor: pointer; text-decoration: none;
 }
 
-.footer-bottom-links {
+.nav-btn.highlight { color: #ffffff; font-weight: 700; }
+.nav-btn:hover { color: #fff; }
+
+/* Modal General */
+.modal-back-overlay, .modal-overlay-email {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.8);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 10000; backdrop-filter: blur(5px);
+}
+
+.modal-panel-window {
+  background: #fff; width: 100%; max-width: 800px; border-radius: 12px; overflow: hidden;
+}
+
+.email-mini-size { max-width: 650px; }
+
+.modal-head {
+  padding: 20px 40px; border-bottom: 1px solid #eee;
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+.modal-head h3 { color: #111; font-weight: 800; margin: 0; font-size: 20px; }
+.modal-close-x { background: none; border: none; cursor: pointer; color: #999; }
+
+/* --- 개인정보 처리방침 수직 그리드 레이아웃 --- */
+.privacy-vertical-layout {
   display: flex;
-  gap: 20px;
+  flex-direction: column; /* 위아래로 쌓기 */
+  padding: 40px;
+  gap: 30px;
+  max-height: 75vh;
+  overflow-y: auto;
 }
 
-.footer-bottom-links a {
-  font-size: 13px;
-  color: rgba(255,255,255,0.4);
-  transition: color var(--transition-fast);
+.privacy-intro-top {
+  background: #f8fafc;
+  padding: 25px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  color: #444;
+  line-height: 1.8;
+  font-size: 1rem;
 }
 
-.footer-bottom-links a:hover {
-  color: rgba(255,255,255,0.8);
+.privacy-list-bottom {
+  width: 100%;
 }
 
-@media (max-width: 1024px) {
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-  }
+.article-ul { list-style: none; padding: 0; margin: 0; }
+.article-ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  color: #555;
+  font-size: 0.95rem;
 }
 
-@media (max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-  
-  .footer-bottom-inner {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
-  }
+.chk-icon-green { color: #3AA65C; flex-shrink: 0; margin-top: 3px; }
+
+/* --- 이메일 무단수집 거부 수직 레이아웃 --- */
+.email-vertical-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 40px;
+  text-align: center;
+}
+
+.email-main-text {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 40px;
+  word-break: keep-all;
+}
+
+.email-footer-line {
+  width: 100%;
+  height: 1px;
+  background: #eee;
+  margin-bottom: 25px;
+}
+
+.email-posting-date {
+  color: #111;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-top-layout { flex-direction: column; gap: 35px; }
+  .contact-side { align-items: flex-start; }
+  .contact-numbers { flex-direction: column; gap: 10px; }
+  .privacy-vertical-layout, .email-vertical-layout { padding: 25px; }
 }
