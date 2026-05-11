@@ -14,7 +14,6 @@ import Certifications from './pages/Company/Certifications';
 import Location from './pages/Company/Location';
 import ProjectOrders from './pages/Projects/ProjectOrders';
 import ProjectCategory from './pages/Projects/ProjectCategory';
-import Capability from './pages/Projects/Capability';
 import Technology from './pages/Technology/Technology';
 import News from './pages/PR/News';
 import Youtube from './pages/PR/Youtube';
@@ -45,9 +44,6 @@ export default function App() {
 
         {/* 사업실적 */}
         <Route path="/projects/orders" element={<ProjectOrders />} />
-        <Route path="/projects/capability" element={<Capability />} />
-        <Route path="/projects/quality" element={<Capability mode="quality" />} />
-        <Route path="/projects/safety" element={<Capability mode="safety" />} />
         <Route path="/projects/housing" element={<ProjectCategory category="주택" />} />
         <Route path="/projects/office" element={<ProjectCategory category="업무시설" />} />
         <Route path="/projects/education" element={<ProjectCategory category="교육/의료" />} />

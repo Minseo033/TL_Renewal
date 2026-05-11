@@ -102,10 +102,10 @@ export default function Technology({ mode = 'overview' }) {
       <AnimatedSection delay={180}>
         <div className="tech-cta">
           <div>
-            <strong>시공 역량과 품질·안전 체계가 궁금하신가요?</strong>
-            <p>사업실적 메뉴에서 주요 수주 현황과 관리 체계를 함께 확인할 수 있습니다.</p>
+            <strong>태일씨앤티의 주요 시공 현장이 궁금하신가요?</strong>
+            <p>사업실적 메뉴에서 주요 공사 수주 현황을 확인할 수 있습니다.</p>
           </div>
-          <a href="#/projects/capability" className="btn btn-primary">시공능력 보기 <ArrowRight size={16} /></a>
+          <a href="#/projects/orders" className="btn btn-primary">공사수주 현황 보기 <ArrowRight size={16} /></a>
         </div>
       </AnimatedSection>
     </PageLayout>

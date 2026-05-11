@@ -114,7 +114,7 @@ public/
 | --- | --- | --- |
 | `Home` | 메인 홈 | 첫 인상, 핵심 메시지, 실적 요약, 뉴스, 채용 CTA, 회사 영상 |
 | `Company` | 회사소개 | 인사말, 경영이념, 회사연혁, 조직도, 주거래 시공사, 업·면허/인증, 위치 |
-| `Projects` | 사업실적 | 공사수주 현황, 건설시공능력, 품질경영, 안전경영, 카테고리별 실적 |
+| `Projects` | 사업실적 | 공사수주 현황, 카테고리별 실적 |
 | `Technology` | 기술자료 | 철근콘크리트 기술 역량, 공법, 품질·환경·안전 인증, 기술자료 News |
 | `PR` | 홍보센터 | 뉴스, 회사 소개영상 |
 | `ESG` | ESG경영 | 환경, 사회공헌, 안전 수상, 경영 신뢰 요소 |
@@ -133,9 +133,6 @@ public/
 | 업·면허/인증 | `/#/company/certifications` |
 | 찾아오시는 길 | `/#/company/location` |
 | 공사수주 현황 | `/#/projects/orders` |
-| 건설시공능력 | `/#/projects/capability` |
-| 품질경영 | `/#/projects/quality` |
-| 안전경영 | `/#/projects/safety` |
 | 프로젝트 카테고리 | `/#/projects/housing`, `/#/projects/office`, `/#/projects/plant` 등 |
 | 기술자료 | `/#/technology/overview` |
 | 기술자료 News | `/#/technology/news` |

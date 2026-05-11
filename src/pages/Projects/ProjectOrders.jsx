@@ -7,9 +7,6 @@ import './Projects.css';
 
 const SUB_NAV = [
   { label: '공사수주 현황', path: '/projects/orders' },
-  { label: '건설시공능력', path: '/projects/capability' },
-  { label: '품질경영', path: '/projects/quality' },
-  { label: '안전경영', path: '/projects/safety' },
   { label: '주택', path: '/projects/housing' },
   { label: '업무시설', path: '/projects/office' },
   { label: '교육/의료', path: '/projects/education' },
