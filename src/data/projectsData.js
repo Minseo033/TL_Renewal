@@ -158,8 +158,7 @@ export const RECENT_PROJECTS = [
     "material": ".",
     "categories": [
       "플랜트"
-    ],
-    "status": "진행"
+    ]
   },
   {
     "id": "78",
@@ -176,8 +175,7 @@ export const RECENT_PROJECTS = [
     "material": "- 지하층/저층부 기둥, 벽체 : 유로폼 슬래브 : 합판 - 기준층 외부 벽체 : 갱폼 내부 벽체, 슬래브 : 알폼",
     "categories": [
       "판매시설"
-    ],
-    "status": "진행"
+    ]
   },
   {
     "id": "76",

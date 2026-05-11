@@ -317,27 +317,27 @@
   transform: rotate(90deg);
 }
 
-.modal-body {
+.project-modal-content .modal-body {
   display: grid;
   grid-template-columns: 1.2fr 1.5fr;
   height: 100%;
   overflow-y: auto;
 }
 
-.modal-image-wrap {
-  position: relative;
+.project-modal-content .modal-image-wrap {
   height: 100%;
   min-height: 400px;
   background: var(--color-bg);
   overflow: hidden;
 }
 
-.modal-image-wrap img {
-  position: absolute;
-  inset: 0;
+.project-modal-content .modal-image-wrap img {
+  display: block;
   width: 100%;
+  max-width: none;
   height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 .modal-info-wrap {
@@ -430,13 +430,17 @@
     white-space: normal;
   }
 
-  .modal-body {
+  .project-modal-content .modal-body {
     grid-template-columns: 1fr;
   }
   
-  .modal-image-wrap {
+  .project-modal-content .modal-image-wrap {
     height: 300px;
     min-height: auto;
+  }
+
+  .project-modal-content .modal-image-wrap img {
+    max-height: 100%;
   }
 
   .modal-info-wrap {
