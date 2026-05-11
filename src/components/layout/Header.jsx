@@ -100,7 +100,6 @@ export default function Header() {
           <div className="logo-text">
             <span className="logo-company">주식회사</span>
             <span className="logo-name">태일씨앤티</span>
-            <span className="logo-eng">TAEIL CONSTRUCTION & TECHNICAL CO., LTD.</span>
           </div>
         </Link>
 

@@ -31,7 +31,6 @@ export default function Location() {
       <div className="location-grid">
         <AnimatedSection direction="left" className="location-map">
           <div className="map-wrap location-summary-panel">
-            {/* 태관님이 주신 마커 포함 iframe 코드 적용 */}
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3166.309520186373!2d126.87737597542836!3d37.47702167206195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c9f88a14a6117%3A0x9eed50598162926!2zKOyjvCntg5zsnbzslKjslaTti7A!5e0!3m2!1sko!2skr!4v1778342459303!5m2!1sko!2skr"
               width="100%"

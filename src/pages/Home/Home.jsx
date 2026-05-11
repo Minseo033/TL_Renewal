@@ -58,7 +58,7 @@ const TRUST_METRICS = [
   { label: '설립', value: '1994', note: '지인개발 설립' },
   { label: '도급순위', value: '55위', note: '철근콘크리트공사' },
   { label: '시공능력평가액', value: '978억', note: '2025년' },
-  { label: '매출액', value: '700억', note: '2024년' },
+  { label: '매출액', value: '840억', note: '2025년' },
 ];
 
 const pickDisplayItems = (items, ids, limit) => {
@@ -110,7 +110,7 @@ export default function Home() {
           <div className="hero-copy">
             <span className="hero-badge">REINFORCED CONCRETE SPECIALIST</span>
             <h1 className="hero-title">
-              철근콘크리트로 대한민국의 골조를 세웁니다
+              철근콘크리트로 대한민국의<br/> 골조를 세웁니다
             </h1>
             <p className="hero-subtitle">
               태일씨앤티는 30년 현장 경험과 품질·안전 실행력으로
@@ -131,25 +131,6 @@ export default function Home() {
           <span>Scroll</span>
           <div className="hero-scroll-arrow" />
         </div>
-      </section>
-
-      <section className="decision-strip" aria-label="빠른 이동">
-        <Link to="/company/greeting">
-          <Building2 size={20} />
-          <span>어떤 회사인가요?</span>
-        </Link>
-        <Link to="/projects/orders">
-          <BadgeCheck size={20} />
-          <span>실적과 신뢰도</span>
-        </Link>
-        <Link to="/recruitment/jobs">
-          <BriefcaseBusiness size={20} />
-          <span>입사 지원 정보</span>
-        </Link>
-        <Link to="/pr/news">
-          <Sparkles size={20} />
-          <span>뉴스·사회공헌</span>
-        </Link>
       </section>
 
       <section className="trust-metric-strip" aria-label="태일씨앤티 주요 지표">

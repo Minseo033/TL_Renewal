@@ -84,31 +84,33 @@ export default function Benefits() {
       breadcrumb={[{ label: '인재채용', path: '/recruitment/jobs' }, { label: '복리후생' }]}
       subNav={SUB_NAV}
     >
-      <AnimatedSection>
-        <p className="section-eyebrow">EMPLOYEE BENEFITS</p>
-        <h2 className="section-title">복리후생 제도</h2>
-        <p className="section-subtitle single-line">
-          태일씨앤티는 임직원의 안정적인 삶과 자기계발을 위해 다양한 복지 프로그램을 운영하고 있습니다.
-        </p>
-      </AnimatedSection>
+      <div className="benefits-container">
+        <AnimatedSection>
+          <p className="section-eyebrow">EMPLOYEE BENEFITS</p>
+          <h2 className="section-title">복리후생 제도</h2>
+          <p className="section-subtitle single-line">
+            태일씨앤티는 임직원의 안정적인 삶과 자기계발을 위해 다양한 복지 프로그램을 운영하고 있습니다.
+          </p>
+        </AnimatedSection>
 
-      <div className="benefits-grid">
-        {BENEFITS.map((b, idx) => (
-          <AnimatedSection key={idx} delay={idx * 60} direction="up">
-            <div className="benefit-card">
-              <div className="benefit-header">
-                <div className="benefit-icon">{b.icon}</div>
-                <h3 className="benefit-title">{b.title}</h3>
+        <div className="benefits-grid">
+          {BENEFITS.map((b, idx) => (
+            <AnimatedSection key={idx} delay={idx * 60} direction="up">
+              <div className="benefit-card">
+                <span className="benefit-category">{b.category}</span>
+                <div className="benefit-header">
+                  <div className="benefit-icon">{b.icon}</div>
+                  <h3 className="benefit-title">{b.title}</h3>
+                </div>
+                <ul className="benefit-list">
+                  {b.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
               </div>
-              <span className="benefit-category">{b.category}</span>
-              <ul className="benefit-list">
-                {b.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </AnimatedSection>
-        ))}
+            </AnimatedSection>
+          ))}
+        </div>
       </div>
     </PageLayout>
   );

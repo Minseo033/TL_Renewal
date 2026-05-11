@@ -22,7 +22,6 @@ export default function Footer() {
                 </div>
                 <div>
                   <span className="footer-logo-name">(주)태일씨앤티</span>
-                  <span className="footer-logo-eng">TAEIL C&T CO., LTD.</span>
                 </div>
               </div>
               <p className="footer-desc">
