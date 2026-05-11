@@ -35,6 +35,12 @@
   opacity: 0.5;
 }
 
+.project-category-subtitle {
+  max-width: none;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
 .orders-table-wrap {
   background: #fff;
   border-radius: var(--radius-xl);
@@ -415,6 +421,11 @@
 
 /* ── Modal Responsive ── */
 @media (max-width: 850px) {
+  .project-category-subtitle {
+    max-width: 100%;
+    white-space: normal;
+  }
+
   .modal-body {
     grid-template-columns: 1fr;
   }

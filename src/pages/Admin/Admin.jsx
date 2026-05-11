@@ -26,6 +26,36 @@ const PROJECT_STATUS_OPTIONS = [
 ];
 const PROJECT_DISPLAY_LIMIT = 4;
 const NEWS_DISPLAY_LIMIT = 3;
+const CERT_IMAGE_PATH = './assets/images/company/certifications';
+const JOB_IMAGE_PATH = './assets/images/recruitment/jobs';
+
+const STATIC_IMAGE_CHECK_ITEMS = [
+  { key: 'cert-lisense-000', label: '업·면허/인증: 사업자 등록증 2023', path: `${CERT_IMAGE_PATH}/lisense_000.jpg` },
+  { key: 'cert-lisense-00', label: '업·면허/인증: 사업자 등록증 2015', path: `${CERT_IMAGE_PATH}/lisense_00.jpg` },
+  { key: 'cert-lisense-001', label: '업·면허/인증: 철근·콘크리트 공사업', path: `${CERT_IMAGE_PATH}/lisense_001.jpg` },
+  { key: 'cert-lisense-002', label: '업·면허/인증: 도장·습식·방수공사업', path: `${CERT_IMAGE_PATH}/lisense_002.jpg` },
+  { key: 'cert-lisense-003', label: '업·면허/인증: 구조물해체·비계공사업', path: `${CERT_IMAGE_PATH}/lisense_003.jpg` },
+  { key: 'cert-lisense-004', label: '업·면허/인증: ISO 9001', path: `${CERT_IMAGE_PATH}/lisense_004.jpg` },
+  { key: 'cert-lisense-005', label: '업·면허/인증: ISO 14001', path: `${CERT_IMAGE_PATH}/lisense_005.jpg` },
+  { key: 'cert-lisense-006', label: '업·면허/인증: ISO 45001', path: `${CERT_IMAGE_PATH}/lisense_006.jpg` },
+  { key: 'cert-lisense-007', label: '업·면허/인증: MAIN Biz', path: `${CERT_IMAGE_PATH}/lisense_007.jpg` },
+  { key: 'cert-lisense-008', label: '업·면허/인증: 가족친화인증서', path: `${CERT_IMAGE_PATH}/lisense_008.jpg` },
+  { key: 'cert-lisense-009', label: '업·면허/인증: 좋은일자리기업인증서', path: `${CERT_IMAGE_PATH}/lisense_009.jpg` },
+  { key: 'cert-lisense-010', label: '업·면허/인증: 인재육성형중소기업', path: `${CERT_IMAGE_PATH}/lisense_010.jpg` },
+  { key: 'cert-lisense-011', label: '업·면허/인증: 근무혁신우수기업', path: `${CERT_IMAGE_PATH}/lisense_011.jpg` },
+  { key: 'cert-lisense-012', label: '업·면허/인증: 벤처기업확인서', path: `${CERT_IMAGE_PATH}/lisense_012.jpg` },
+  { key: 'cert-lisense-013', label: '업·면허/인증: 중소기업확인서', path: `${CERT_IMAGE_PATH}/lisense_013.jpg` },
+  { key: 'cert-lisense-014', label: '업·면허/인증: 성과공유기업확인서', path: `${CERT_IMAGE_PATH}/lisense_014.jpg` },
+  { key: 'cert-lisense-015', label: '업·면허/인증: 소프트웨어사업자확인서', path: `${CERT_IMAGE_PATH}/lisense_015.jpg` },
+  { key: 'job-guide-01', label: '채용가이드 직무소개: 현장공사', path: `${JOB_IMAGE_PATH}/job_content_img_01.jpg` },
+  { key: 'job-guide-02', label: '채용가이드 직무소개: 현장안전', path: `${JOB_IMAGE_PATH}/job_content_img_02.jpg` },
+  { key: 'job-guide-03', label: '채용가이드 직무소개: 현장공무', path: `${JOB_IMAGE_PATH}/job_content_img_03.jpg` },
+  { key: 'job-guide-04', label: '채용가이드 직무소개: 본사공무', path: `${JOB_IMAGE_PATH}/job_content_img_04.jpg` },
+  { key: 'job-guide-05', label: '채용가이드 직무소개: 자재', path: `${JOB_IMAGE_PATH}/job_content_img_05.jpg` },
+  { key: 'job-guide-06', label: '채용가이드 직무소개: 재무회계', path: `${JOB_IMAGE_PATH}/job_content_img_06.jpg` },
+  { key: 'job-guide-07', label: '채용가이드 직무소개: 인사·총무', path: `${JOB_IMAGE_PATH}/job_content_img_07.jpg` },
+  { key: 'job-guide-08', label: '채용가이드 직무소개: IT', path: `${JOB_IMAGE_PATH}/job_content_img_08.jpg` },
+];
 
 const REQUIRED_PROJECT_FIELDS = [
   ['id', '프로젝트 ID'],
@@ -326,6 +356,7 @@ export default function Admin() {
         label: `홈 뉴스: ${item.title}`,
         path: item.image,
       })),
+      ...STATIC_IMAGE_CHECK_ITEMS,
     ];
 
     return items.filter((item) => item.path && item.path !== '.');
@@ -789,6 +820,10 @@ export default function Admin() {
           <p>
             새 이미지 파일은 데이터에 적은 경로와 실제 파일명이 정확히 일치해야 합니다.
             오류 상태가 나오면 public/assets/images 하위 폴더의 파일명과 확장자를 먼저 확인합니다.
+          </p>
+          <p>
+            주거래 시공사 페이지는 현재 이미지 리소스를 사용하지 않고 외부 홈페이지 링크만 연결합니다.
+            로고 이미지를 추가할 경우 ./assets/images/company/partners 하위에 넣고 상대경로로 연결합니다.
           </p>
         </div>
       </section>

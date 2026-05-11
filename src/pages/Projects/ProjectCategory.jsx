@@ -44,7 +44,7 @@ export default function ProjectCategory({ category }) {
       <AnimatedSection>
         <p className="section-eyebrow">PROJECT PORTFOLIO</p>
         <h2 className="section-title">{category} 실적</h2>
-        <p className="section-subtitle">
+        <p className="section-subtitle project-category-subtitle">
           대한민국 건설의 미래를 여는 태일씨앤티의 {category} 분야 주요 시공 실적입니다. (총 {filteredProjects.length}건)
         </p>
       </AnimatedSection>

@@ -2,27 +2,24 @@ import React, { useState } from 'react'; // useState 추가
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
-  BadgeCheck,
   BarChart3,
-  BriefcaseBusiness,
-  Building2,
+  Building,
+  Calendar,
   CalendarCheck,
   HardHat,
+  MapPin,
   MapPinned,
   Ruler,
   ShieldCheck,
-  Sparkles,
   Users,
   X,
-  Clock,
-  Building,
-  UserCheck
 } from 'lucide-react';
 import AnimatedSection from '../../components/ui/AnimatedSection';
 import { RECENT_PROJECTS } from '../../data/projectsData';
 import { NEWS_DATA } from '../../data/newsData';
 import { HOME_DISPLAY } from '../../data/homeDisplayData';
 import './Home.css';
+import '../Projects/Projects.css';
 
 // --- 데이터 로직 (기존 유지) ---
 const BUSINESS_LINKS = [
@@ -205,7 +202,14 @@ export default function Home() {
             {FEATURED_PROJECTS.map((project, index) => (
               <AnimatedSection key={project.id} delay={index * 80} direction="up">
                 <div className="featured-project-card" style={{ cursor: 'pointer' }} onClick={() => setSelectedProject(project)}>
-                  <img src={project.image} alt={project.name} />
+                  <div className="featured-project-image">
+                    <img src={project.image} alt={project.name} />
+                    {project.status && project.status !== '.' && (
+                      <span className={`project-status-badge ${project.status === '진행' ? 'is-active' : ''}`}>
+                        {project.status}
+                      </span>
+                    )}
+                  </div>
                   <div className="featured-project-body">
                     <span>{project.categories?.[0] || 'Project'}</span>
                     <h3>{project.name}</h3>
@@ -286,27 +290,37 @@ export default function Home() {
 
       {/* --- 통합 모달 시스템 --- */}
       {selectedProject && (
-        <div className="home-modal-overlay" onClick={() => setSelectedProject(null)}>
-          <div className="home-modal-window" onClick={e => e.stopPropagation()}>
-            <button className="home-modal-close" onClick={() => setSelectedProject(null)}><X size={32} /></button>
-            <div className="home-modal-body">
-              <img src={selectedProject.image} alt={selectedProject.name} className="modal-hero-img" />
-              <div className="modal-content-wrap">
-                <span className="modal-top-tag">{selectedProject.categories?.join(' / ')}</span>
-                <h2 className="modal-main-title">{selectedProject.name}</h2>
-                <div className="modal-detail-card">
-                  <table className="modal-detail-table">
-                    <tbody>
-                      <tr><th><MapPinned size={16}/> 주소</th><td>{selectedProject.address || '정보 없음'}</td></tr>
-                      <tr><th><Building2 size={16}/> 발주처</th><td>{selectedProject.partner || '정보 없음'}</td></tr>
-                      <tr><th><BadgeCheck size={16}/> 시공사</th><td>{selectedProject.contractor || 'KCC건설'}</td></tr>
-                      <tr><th><CalendarCheck size={16}/> 공사기간</th><td>{selectedProject.period || '정보 없음'}</td></tr>
-                    </tbody>
-                  </table>
+        <div className="project-modal-overlay" onClick={() => setSelectedProject(null)}>
+          <div className="project-modal-content" onClick={e => e.stopPropagation()}>
+            <button className="modal-close-btn" onClick={() => setSelectedProject(null)}>
+              <X size={24} />
+            </button>
+            <div className="modal-body">
+              <div className="modal-image-wrap">
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.name}
+                  onError={(event) => {
+                    event.currentTarget.src = './assets/images/company/greeting.jpg';
+                  }}
+                />
+              </div>
+              <div className="modal-info-wrap">
+                <p className="modal-eyebrow">PROJECT DETAILS</p>
+                <h2 className="modal-title">{selectedProject.name}</h2>
+
+                <div className="modal-details-grid">
+                  <DetailItem label="진행상태" value={selectedProject.status} />
+                  <DetailItem label="유형" value={selectedProject.type} />
+                  <DetailItem label="주소" value={selectedProject.address} icon={<MapPin size={16} />} />
+                  <DetailItem label="발주처 / 자" value={selectedProject.client} icon={<Building size={16} />} />
+                  <DetailItem label="시공사" value={selectedProject.partner} />
+                  <DetailItem label="규모" value={selectedProject.scale} />
+                  <DetailItem label="공사기간" value={selectedProject.period} icon={<Calendar size={16} />} />
+                  <DetailItem label="공법" value={selectedProject.method} />
+                  <DetailItem label="공사범위" value={selectedProject.scope} />
+                  <DetailItem label="시공자재" value={selectedProject.material} />
                 </div>
-                <p className="modal-footer-desc">
-                  태일씨앤티의 숙련된 기술력과 철저한 안전 관리를 바탕으로 최고의 품질을 실현하는 현장입니다.
-                </p>
               </div>
             </div>
           </div>
@@ -329,6 +343,22 @@ export default function Home() {
           </div>
         </div>
       )}
+    </div>
+  );
+}
+
+function DetailItem({ label, value, icon }) {
+  if (!value || value === '.') return null;
+
+  return (
+    <div className="modal-detail-item">
+      <div className="detail-label">
+        <span className="label-text">{label}</span>
+      </div>
+      <div className="detail-value">
+        {icon && <span className="value-icon">{icon}</span>}
+        <span className="value-text">{value}</span>
+      </div>
     </div>
   );
 }

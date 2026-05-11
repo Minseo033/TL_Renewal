@@ -268,19 +268,29 @@
 
   .nav-dropdown {
     position: static;
+    top: auto;
+    left: auto;
+    width: 100%;
     transform: none;
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
     padding-top: 0;
     display: none;
+    transition: none;
   }
 
-  .nav-item.active .nav-dropdown {
+  .header-nav .nav-item.active .nav-dropdown {
     display: block;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .nav-dropdown-inner {
+    width: 100%;
+    min-width: 0;
     box-shadow: none;
     border: none;
     border-radius: 0;
@@ -289,8 +299,10 @@
   }
 
   .nav-dropdown-link {
+    display: block;
     padding: 10px 40px;
     font-size: 14px;
+    color: var(--color-text-light);
   }
 
   .mobile-overlay {

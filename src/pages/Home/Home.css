@@ -393,10 +393,24 @@
   box-shadow: var(--shadow-card-hover);
 }
 
-.featured-project-card img {
+.featured-project-image {
+  position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.featured-project-card img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.featured-project-image .project-status-badge {
+  top: 12px;
+  left: 12px;
 }
 
 .featured-project-body {
@@ -727,7 +741,22 @@
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
   gap: 56px;
-  align-items: center;
+  align-items: stretch;
+}
+
+.field-system-grid > * {
+  min-height: 100%;
+}
+
+.field-system-copy {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.field-system-copy .strength-list {
+  margin-top: auto;
+  padding-top: 32px;
 }
 
 .field-process-board {
@@ -925,9 +954,27 @@
     align-items: flex-start;
   }
 
+  .field-system-grid > * {
+    min-height: 0;
+  }
+
+  .field-system-copy {
+    height: auto;
+  }
+
+  .field-system-copy .strength-list {
+    margin-top: 32px;
+    padding-top: 0;
+  }
+
   .featured-project-card {
     display: grid;
     grid-template-columns: 280px 1fr;
+  }
+
+  .featured-project-image {
+    height: 100%;
+    aspect-ratio: auto;
   }
 
   .featured-project-card img {
@@ -1086,6 +1133,7 @@
     display: block;
   }
 
+  .featured-project-image,
   .featured-project-card img,
   .news-highlight-item img {
     aspect-ratio: 16 / 10;

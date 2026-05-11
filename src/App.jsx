@@ -1,4 +1,4 @@
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/ui/ScrollToTop';
@@ -34,6 +34,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
 
         {/* 회사소개 */}
+        <Route path="/company" element={<Navigate to="/company/greeting" replace />} />
         <Route path="/company/greeting" element={<Greeting />} />
         <Route path="/company/philosophy" element={<Philosophy />} />
         <Route path="/company/history" element={<History />} />
@@ -43,6 +44,7 @@ export default function App() {
         <Route path="/company/location" element={<Location />} />
 
         {/* 사업실적 */}
+        <Route path="/projects" element={<Navigate to="/projects/orders" replace />} />
         <Route path="/projects/orders" element={<ProjectOrders />} />
         <Route path="/projects/housing" element={<ProjectCategory category="주택" />} />
         <Route path="/projects/office" element={<ProjectCategory category="업무시설" />} />
@@ -58,6 +60,7 @@ export default function App() {
         <Route path="/technology/news" element={<Technology mode="news" />} />
 
         {/* 홍보센터 */}
+        <Route path="/pr" element={<Navigate to="/pr/news" replace />} />
         <Route path="/pr/news" element={<News />} />
         <Route path="/pr/youtube" element={<Youtube />} />
         <Route path="/pr/video" element={<Youtube />} />
@@ -66,6 +69,7 @@ export default function App() {
         <Route path="/esg" element={<ESG />} />
 
         {/* 인재채용 */}
+        <Route path="/recruitment" element={<Navigate to="/recruitment/system" replace />} />
         <Route path="/recruitment/jobs" element={<Jobs />} />
         <Route path="/recruitment/system" element={<HRSystem />} />
         <Route path="/recruitment/guide" element={<Guide />} />
