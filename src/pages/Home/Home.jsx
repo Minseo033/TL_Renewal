@@ -1,3 +1,4 @@
+import React, { useState } from 'react'; // useState 추가
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -12,6 +13,10 @@ import {
   ShieldCheck,
   Sparkles,
   Users,
+  X,
+  Clock,
+  Building,
+  UserCheck
 } from 'lucide-react';
 import AnimatedSection from '../../components/ui/AnimatedSection';
 import { RECENT_PROJECTS } from '../../data/projectsData';
@@ -19,6 +24,7 @@ import { NEWS_DATA } from '../../data/newsData';
 import { HOME_DISPLAY } from '../../data/homeDisplayData';
 import './Home.css';
 
+// --- 데이터 로직 (기존 유지) ---
 const BUSINESS_LINKS = [
   { label: '주택', path: '/projects/housing', desc: '공동주택·주상복합' },
   { label: '업무시설', path: '/projects/office', desc: '오피스·R&D·데이터센터' },
@@ -89,64 +95,47 @@ const TOP_PARTNERS = Array.from(
   .slice(0, 6);
 
 export default function Home() {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedNews, setSelectedNews] = useState(null);
+
   return (
     <div className="home">
+      {/* 1. HERO (유지) */}
       <section className="hero renewal-hero">
         <div className="hero-bg">
-          <video
-            className="hero-video-bg"
-            autoPlay
-            muted
-            loop
-            playsInline
-            poster="./assets/images/esg/esg-main.png"
-          >
+          <video className="hero-video-bg" autoPlay muted loop playsInline poster="./assets/images/esg/esg-main.png">
             <source src="./assets/videos/intro.mp4" type="video/mp4" />
           </video>
           <div className="hero-overlay" />
         </div>
-
         <div className="hero-content renewal-hero-content">
           <div className="hero-copy">
             <span className="hero-badge">REINFORCED CONCRETE SPECIALIST</span>
-            <h1 className="hero-title">
-              철근콘크리트로 대한민국의<br/> 골조를 세웁니다
-            </h1>
-            <p className="hero-subtitle">
-              태일씨앤티는 30년 현장 경험과 품질·안전 실행력으로
-              대형 건설 프로젝트의 구조체 공사를 책임지는 전문 건설회사입니다.
-            </p>
+            <h1 className="hero-title">철근콘크리트로 대한민국의<br/> 골조를 세웁니다</h1>
+            <p className="hero-subtitle">태일씨앤티는 30년 현장 경험과 품질·안전 실행력으로 대형 건설 프로젝트의 구조체 공사를 책임지는 전문 건설회사입니다.</p>
             <div className="hero-actions">
-              <Link to="/projects/orders" className="btn btn-brand hero-btn-main">
-                주요 실적 보기 <ArrowRight size={17} />
-              </Link>
-              <Link to="/recruitment/jobs" className="btn btn-outline-white hero-btn-sub">
-                지원자 채용 정보
-              </Link>
+              <Link to="/projects/orders" className="btn btn-brand hero-btn-main">주요 실적 보기 <ArrowRight size={17} /></Link>
+              <Link to="/recruitment/jobs" className="btn btn-outline-white hero-btn-sub">지원자 채용 정보</Link>
             </div>
           </div>
         </div>
-
-        <div className="hero-scroll-hint">
-          <span>Scroll</span>
-          <div className="hero-scroll-arrow" />
-        </div>
+        <div className="hero-scroll-hint"><span>Scroll</span><div className="hero-scroll-arrow" /></div>
       </section>
 
+      {/* 2. TRUST STRIP (유지) */}
       <section className="trust-metric-strip" aria-label="태일씨앤티 주요 지표">
         <div className="container">
           <div className="trust-metric-grid">
             {TRUST_METRICS.map((metric) => (
               <div className="trust-metric-item" key={metric.label}>
-                <span>{metric.label}</span>
-                <strong>{metric.value}</strong>
-                <p>{metric.note}</p>
+                <span>{metric.label}</span><strong>{metric.value}</strong><p>{metric.note}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      {/* 3. FIELD SYSTEM (유지) */}
       <section className="section field-system-section">
         <div className="container">
           <div className="field-system-grid">
@@ -154,33 +143,23 @@ export default function Home() {
               <div className="field-system-copy">
                 <p className="section-eyebrow">WHAT TAEIL BUILDS</p>
                 <h2 className="section-title">골조로 입증된 태일씨앤티의 경쟁력</h2>
-                <p className="section-subtitle">
-                  태일씨앤티는 도면 검토, 철근 배근, 거푸집, 콘크리트 타설, 품질·안전 검측까지
-                  구조체 공사의 핵심 공정을 책임 있게 수행합니다.
-                </p>
+                <p className="section-subtitle">태일씨앤티는 도면 검토, 철근 배근, 거푸집, 콘크리트 타설, 품질·안전 검측까지 구조체 공사의 핵심 공정을 책임 있게 수행합니다.</p>
                 <div className="strength-list">
                   {CORE_STRENGTHS.map((item) => (
                     <div className="strength-item" key={item.title}>
                       <div className="strength-icon">{item.icon}</div>
-                      <div>
-                        <strong>{item.title}</strong>
-                        <p>{item.text}</p>
-                      </div>
+                      <div><strong>{item.title}</strong><p>{item.text}</p></div>
                     </div>
                   ))}
                 </div>
               </div>
             </AnimatedSection>
-
             <AnimatedSection direction="right" delay={120}>
               <div className="field-process-board">
                 {FIELD_PROCESS.map((step) => (
                   <div className="field-process-step" key={step.code}>
                     <span>{step.code}</span>
-                    <div>
-                      <strong>{step.title}</strong>
-                      <p>{step.text}</p>
-                    </div>
+                    <div><strong>{step.title}</strong><p>{step.text}</p></div>
                   </div>
                 ))}
               </div>
@@ -189,48 +168,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 4. PORTFOLIO (수정: 모달 연결) */}
       <section className="section portfolio-section">
         <div className="container">
           <AnimatedSection className="dashboard-heading">
-            <div>
-              <p className="section-eyebrow">PROJECT DASHBOARD</p>
-              <h2 className="section-title">공사수주 현황을 한눈에 보는 실적 지도</h2>
-            </div>
-            <Link to="/projects/orders" className="btn btn-primary">
-              전체 실적 보기 <ArrowRight size={16} />
-            </Link>
+            <div><p className="section-eyebrow">PROJECT DASHBOARD</p><h2 className="section-title">공사수주 현황을 한눈에 보는 실적 지도</h2></div>
+            <Link to="/projects/orders" className="btn btn-primary">전체 실적 보기 <ArrowRight size={16} /></Link>
           </AnimatedSection>
 
           <div className="portfolio-dashboard-grid">
             <AnimatedSection className="category-dashboard" direction="up">
-              <div className="dashboard-card-head">
-                <BarChart3 size={20} />
-                <strong>공사 유형별 등록 실적</strong>
-              </div>
+              <div className="dashboard-card-head"><BarChart3 size={20} /><strong>공사 유형별 등록 실적</strong></div>
               <div className="category-bars">
                 {CATEGORY_DASHBOARD.map((item) => (
                   <Link to={item.path} className="category-bar-row" key={item.label}>
                     <span>{item.label}</span>
-                    <div>
-                      <i style={{ width: `${Math.max(12, (item.count / MAX_CATEGORY_COUNT) * 100)}%` }} />
-                    </div>
+                    <div><i style={{ width: `${Math.max(12, (item.count / MAX_CATEGORY_COUNT) * 100)}%` }} /></div>
                     <strong>{item.count}</strong>
                   </Link>
                 ))}
               </div>
             </AnimatedSection>
-
             <AnimatedSection className="partner-dashboard" delay={100} direction="up">
-              <div className="dashboard-card-head">
-                <Users size={20} />
-                <strong>주요 시공사 협업 이력</strong>
-              </div>
+              <div className="dashboard-card-head"><Users size={20} /><strong>주요 시공사 협업 이력</strong></div>
               <div className="partner-rank-list">
                 {TOP_PARTNERS.map(([partner, count], index) => (
                   <div key={partner} className="partner-rank-item">
-                    <span>0{index + 1}</span>
-                    <p>{partner}</p>
-                    <strong>{count}건</strong>
+                    <span>0{index + 1}</span><p>{partner}</p><strong>{count}건</strong>
                   </div>
                 ))}
               </div>
@@ -240,7 +204,7 @@ export default function Home() {
           <div className="featured-project-grid">
             {FEATURED_PROJECTS.map((project, index) => (
               <AnimatedSection key={project.id} delay={index * 80} direction="up">
-                <Link to="/projects/orders" className="featured-project-card">
+                <div className="featured-project-card" style={{ cursor: 'pointer' }} onClick={() => setSelectedProject(project)}>
                   <img src={project.image} alt={project.name} />
                   <div className="featured-project-body">
                     <span>{project.categories?.[0] || 'Project'}</span>
@@ -248,23 +212,21 @@ export default function Home() {
                     <p><MapPinned size={14} />{project.address}</p>
                     <p><CalendarCheck size={14} />{project.period}</p>
                   </div>
-                </Link>
+                </div>
               </AnimatedSection>
             ))}
           </div>
-          <div className="mobile-scroll-cue" aria-hidden="true" />
         </div>
       </section>
 
+      {/* 5. RECRUIT (유지) */}
       <section className="recruit-focus-section">
         <div className="container">
           <AnimatedSection className="recruit-focus-card">
             <div>
               <span className="recruit-badge">FOR APPLICANTS</span>
               <h2>내일의 설계, 필요한 것만 단단하게</h2>
-              <p>
-                회사 정체성, 직무, 인사제도, 복리후생, FAQ까지 지원자가 궁금해하는 정보를 빠르게 확인할 수 있습니다.
-              </p>
+              <p>회사 정체성, 직무, 인사제도, 복리후생, FAQ까지 지원자가 궁금해하는 정보를 빠르게 확인할 수 있습니다.</p>
             </div>
             <div className="recruit-links">
               <Link to="/recruitment/system">인사제도</Link>
@@ -276,36 +238,31 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 6. NEWS (수정: 모달 연결) */}
       <section className="section news-section">
         <div className="container">
           <div className="news-inner renewal-news-inner">
             <AnimatedSection direction="left" className="news-header">
               <p className="section-eyebrow">NEWS & CONTRIBUTION</p>
               <h2 className="section-title">수상을 넘어 사회적 공헌으로</h2>
-              <p className="section-subtitle">
-                안전 성과와 지역사회 나눔, 현장 소식까지 태일씨앤티가 지켜온 책임의 기록을 전합니다.
-              </p>
+              <p className="section-subtitle">안전 성과와 지역사회 나눔, 현장 소식까지 태일씨앤티가 지켜온 책임의 기록을 전합니다.</p>
               <Link to="/pr/news" className="btn btn-outline news-more-btn">전체 보기</Link>
             </AnimatedSection>
             <div className="news-highlight-list">
               {FEATURED_NEWS.map((item, idx) => (
                 <AnimatedSection key={item.id} delay={idx * 80} direction="right">
-                  <Link to="/pr/news" className="news-highlight-item">
+                  <div className="news-highlight-item" style={{ cursor: 'pointer' }} onClick={() => setSelectedNews(item)}>
                     <img src={item.image} alt={item.title} />
-                    <div>
-                      <span>{item.category}</span>
-                      <h3>{item.title}</h3>
-                      <p>{item.date}</p>
-                    </div>
-                  </Link>
+                    <div><span>{item.category}</span><h3>{item.title}</h3><p>{item.date}</p></div>
+                  </div>
                 </AnimatedSection>
               ))}
             </div>
-            <div className="mobile-scroll-cue" aria-hidden="true" />
           </div>
         </div>
       </section>
 
+      {/* 7. MEDIA (유지) */}
       <section className="section media-section">
         <div className="container">
           <AnimatedSection className="section-header center">
@@ -316,19 +273,62 @@ export default function Home() {
             <div className="media-panel">
               <video controls autoPlay muted loop playsInline preload="auto">
                 <source src="./assets/videos/intro.mp4" type="video/mp4" />
-                브라우저가 동영상을 지원하지 않습니다.
               </video>
               <div className="media-summary">
                 <strong>태일씨앤티 기업 소개</strong>
                 <p>철근콘크리트 전문 시공 현장과 품질·안전을 향한 태일씨앤티의 기준을 영상으로 확인해 보세요.</p>
-                <Link to="/company/greeting" className="btn btn-primary">
-                  회사소개로 이동 <ArrowRight size={16} />
-                </Link>
+                <Link to="/company/greeting" className="btn btn-primary">회사소개로 이동 <ArrowRight size={16} /></Link>
               </div>
             </div>
           </AnimatedSection>
         </div>
       </section>
+
+      {/* --- 통합 모달 시스템 --- */}
+      {selectedProject && (
+        <div className="home-modal-overlay" onClick={() => setSelectedProject(null)}>
+          <div className="home-modal-window" onClick={e => e.stopPropagation()}>
+            <button className="home-modal-close" onClick={() => setSelectedProject(null)}><X size={32} /></button>
+            <div className="home-modal-body">
+              <img src={selectedProject.image} alt={selectedProject.name} className="modal-hero-img" />
+              <div className="modal-content-wrap">
+                <span className="modal-top-tag">{selectedProject.categories?.join(' / ')}</span>
+                <h2 className="modal-main-title">{selectedProject.name}</h2>
+                <div className="modal-detail-card">
+                  <table className="modal-detail-table">
+                    <tbody>
+                      <tr><th><MapPinned size={16}/> 주소</th><td>{selectedProject.address || '정보 없음'}</td></tr>
+                      <tr><th><Building2 size={16}/> 발주처</th><td>{selectedProject.partner || '정보 없음'}</td></tr>
+                      <tr><th><BadgeCheck size={16}/> 시공사</th><td>{selectedProject.contractor || 'KCC건설'}</td></tr>
+                      <tr><th><CalendarCheck size={16}/> 공사기간</th><td>{selectedProject.period || '정보 없음'}</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <p className="modal-footer-desc">
+                  태일씨앤티의 숙련된 기술력과 철저한 안전 관리를 바탕으로 최고의 품질을 실현하는 현장입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {selectedNews && (
+        <div className="home-modal-overlay" onClick={() => setSelectedNews(null)}>
+          <div className="home-modal-window" onClick={e => e.stopPropagation()}>
+            <button className="home-modal-close" onClick={() => setSelectedNews(null)}><X size={32} /></button>
+            <div className="home-modal-body">
+              <img src={selectedNews.image} alt={selectedNews.title} className="modal-hero-img" />
+              <div className="modal-content-wrap">
+                <span className="modal-top-tag">{selectedNews.category}</span>
+                <span className="modal-date-tag">{selectedNews.date}</span>
+                <h2 className="modal-main-title">{selectedNews.title}</h2>
+                <p className="modal-news-text">{selectedNews.content || "태일씨앤티의 다양한 소식과 활동을 전해드립니다."}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
