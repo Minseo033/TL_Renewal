@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
+import { RECRUITMENT_JOBS } from '../../data/recruitmentJobsData';
 import { 
   Search, AlertCircle, ChevronLeft, ChevronRight, 
   Users, MessageSquare, Lightbulb, BarChart3 
@@ -15,7 +16,6 @@ const SUB_NAV = [
   { label: '채용FAQ', path: '/recruitment/faq' },
 ];
 
-// 사진의 내용으로 업데이트된 인재상 데이터
 const VALUES = [
   { 
     icon: <BarChart3 size={32} />, 
@@ -39,22 +39,12 @@ const VALUES = [
   },
 ];
 
-const DUMMY_JOBS = [
-  { id: 224, title: '본사 경영기획실 재무회계(팀장급) 경력사원 모집', date: '2024-10-26', status: '접수마감' },
-  { id: 223, title: '철근콘크리트 공사 현장공무 및 시공관리 신입/경력 채용', date: '상시채용', status: '접수중' },
-  { id: 222, title: '안전보건팀 현장 안전관리자 경력사원 모집', date: '2024-09-15', status: '접수마감' },
-  { id: 221, title: '2024년 상반기 공무팀 신입 사원 모집', date: '2024-05-30', status: '접수마감' },
-  { id: 220, title: '현장 노무 관리 경력직 모집', date: '2024-04-12', status: '접수마감' },
-  { id: 219, title: '본사 자재팀 계약직 채용 공고', date: '2024-03-20', status: '접수마감' },
-  { id: 218, title: '현장 시공직 채용 (충청 지역)', date: '상시채용', status: '접수중' },
-];
-
 export default function Jobs() {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
-  const filteredJobs = DUMMY_JOBS.filter(job => 
+  const filteredJobs = RECRUITMENT_JOBS.filter(job =>
     job.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -79,7 +69,6 @@ export default function Jobs() {
         </div>
       </AnimatedSection>
 
-      {/* 업데이트된 인재상 그리드 */}
       <div className="talent-values-grid mb-24">
         {VALUES.map((v, idx) => (
           <AnimatedSection key={idx} delay={idx * 100}>

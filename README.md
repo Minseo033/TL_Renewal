@@ -118,7 +118,7 @@ public/
 | `Technology` | 기술자료 | 철근콘크리트 기술 역량, 공법, 품질·환경·안전 인증, 기술자료 News |
 | `PR` | 홍보센터 | 뉴스, 회사 소개영상 |
 | `ESG` | ESG경영 | 환경, 사회공헌, 안전 수상, 경영 신뢰 요소 |
-| `Recruitment` | 인재채용 | 직무소개, 인사제도, 채용가이드, 복리후생, 채용 FAQ |
+| `Recruitment` | 인재채용 | 직무소개, 인사제도, 채용가이드, 복리후생, 채용공고, 채용 FAQ |
 
 ## 주요 라우트
 
@@ -205,6 +205,17 @@ public/
 }
 ```
 
+채용공고 데이터는 `src/data/recruitmentJobsData.js`의 `RECRUITMENT_JOBS` 배열에서 관리합니다.
+
+```js
+{
+  id: 225,
+  title: "철근콘크리트 공사 현장공무 및 시공관리 신입/경력 채용",
+  date: "상시채용",
+  status: "접수중"
+}
+```
+
 데이터 추가 시 지켜야 할 규칙입니다.
 
 - 확인 가능한 자료만 추가합니다.
@@ -215,6 +226,7 @@ public/
 - 영상은 `public/assets/videos/...` 아래에 넣습니다.
 - `categories` 값은 기존 카테고리명과 맞춰야 카테고리 페이지에 노출됩니다.
 - 카테고리 후보: `주택`, `업무시설`, `교육/의료`, `플랜트`, `초고층`, `판매시설`, `기타`
+- 채용공고 `status` 값은 `접수중` 또는 `접수마감`을 사용합니다.
 
 ## CSS 협업 규칙
 
@@ -243,7 +255,7 @@ public/
 
 | 담당자 | 담당 영역 | 주 작업 폴더 | 역할 |
 | --- | --- | --- | --- |
-| 민서 | 관리자 페이지, 데이터 입력 구조 | `src/pages/Admin`, `src/data/projectsData.js` 연동 방식 | 공사수주 추가 흐름과 데이터 형식 설계 |
+| 민서 | 관리자 페이지, 데이터 입력 구조 | `src/pages/Admin`, `src/data/*.js` 연동 방식 | 공사수주, 뉴스, 채용공고 추가 흐름과 데이터 형식 설계 |
 | 태관 | `Company`, `Recruitment`, `Home` | `src/pages/Company`, `src/pages/Recruitment`, `src/pages/Home` | 회사 정체성, 지원자 경험, 홈 메시지 정리 |
 | 동훈 | `Projects`, `Technology`, `PR`, `ESG` | `src/pages/Projects`, `src/pages/Technology`, `src/pages/PR`, `src/pages/ESG` | 실적, 공법, 뉴스, ESG 정보의 일관성 관리 |
 
@@ -285,9 +297,9 @@ Home은 직접 크게 수정하지 말고, 홈에 반영하면 좋을 핵심 실
 
 ```txt
 나는 민서이고 관리자 페이지를 맡았어.
-정적 호스팅 환경을 전제로 src/pages/Admin 안에 공사수주 입력 보조 도구를 설계해줘.
+정적 호스팅 환경을 전제로 src/pages/Admin 안에 운영 데이터 입력 보조 도구를 설계해줘.
 진짜 서버 저장이나 프론트엔드 비밀번호 보안처럼 보이는 기능은 만들지 마.
-입력한 내용을 projectsData.js에 붙여넣을 수 있는 JSON/JS 객체 형태로 생성하는 방향으로 작업해줘.
+입력한 내용을 projectsData.js, newsData.js, recruitmentJobsData.js 등에 붙여넣을 수 있는 JSON/JS 객체 형태로 생성하는 방향으로 작업해줘.
 ```
 
 ### 모바일 QA 담당
@@ -317,8 +329,8 @@ global.css는 최소한으로 건드리고 각 페이지 CSS에서 해결해줘.
 
 - 관리자 페이지는 이 프로젝트 안에 `src/pages/Admin` 형태로 추가
 - 접속 예시: `/#/admin`
-- 기능은 공사수주 입력 폼과 JSON/JS 데이터 생성 도구 중심
-- 입력 결과를 바로 서버에 저장하지 않고, 운영자가 검토 후 `projectsData.js`에 반영
+- 기능은 공사수주, 뉴스, 채용공고, 채용 FAQ 입력 폼과 JSON/JS 데이터 생성 도구 중심
+- 입력 결과를 바로 서버에 저장하지 않고, 운영자가 검토 후 각 데이터 파일에 반영
 - 공개 배포 시 관리자 페이지를 숨기거나 내부용 빌드에서만 사용하는 방식 고려
 
 현재 `/admin`에 들어간 운영 보조 기능은 다음과 같습니다.
@@ -326,6 +338,7 @@ global.css는 최소한으로 건드리고 각 페이지 CSS에서 해결해줘.
 - 홈 노출 관리: `src/data/homeDisplayData.js`의 프로젝트/뉴스 ID 순서 생성
 - 공사수주 입력: `src/data/projectsData.js`에 추가할 프로젝트 객체 생성
 - 뉴스 입력: `src/data/newsData.js`에 추가할 뉴스 객체 생성
+- 채용공고 입력: `src/data/recruitmentJobsData.js`에 추가할 채용공고 객체 생성
 - 채용 FAQ 입력: `src/pages/Recruitment/FAQ.jsx`의 `FAQS` 배열에 추가할 객체 생성
 - 이미지 경로 점검: 입력한 이미지와 홈 노출 이미지가 실제로 로드되는지 확인
 
@@ -403,8 +416,6 @@ git show restore-before-renewal-refactor
 
 ## 현재 남은 주요 작업 후보
 
-- 관리자 페이지 데이터 입력 도구 설계
-- 공사수주 추가 폼과 `projectsData.js` 생성 포맷 연결
 - 모바일 화면 세부 QA
 - 홈 화면과 각 하위 페이지의 문구 톤 최종 통일
 - 프로젝트 상세 모달의 정보 표시 방식 개선

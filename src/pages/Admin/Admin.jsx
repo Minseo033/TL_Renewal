@@ -14,10 +14,12 @@ import PageLayout from '../../components/layout/PageLayout';
 import { RECENT_PROJECTS } from '../../data/projectsData';
 import { NEWS_DATA } from '../../data/newsData';
 import { HOME_DISPLAY } from '../../data/homeDisplayData';
+import { RECRUITMENT_JOBS } from '../../data/recruitmentJobsData';
 import './Admin.css';
 
 const CATEGORY_OPTIONS = ['주택', '업무시설', '초고층', '플랜트', '판매시설', '교육/의료', '기타'];
 const NEWS_CATEGORY_OPTIONS = ['수상', '행사소식', '사회공헌', '공지'];
+const JOB_STATUS_OPTIONS = ['접수중', '접수마감'];
 const PROJECT_DISPLAY_LIMIT = 4;
 const NEWS_DISPLAY_LIMIT = 3;
 
@@ -42,11 +44,19 @@ const REQUIRED_RECRUIT_FIELDS = [
   ['answer', '답변'],
 ];
 
+const REQUIRED_JOB_FIELDS = [
+  ['id', '공고 번호'],
+  ['title', '공고 제목'],
+  ['date', '마감일'],
+  ['status', '상태'],
+];
+
 const ADMIN_SECTIONS = [
   { id: 'overview', label: '대시보드', icon: LayoutDashboard, desc: '운영 현황' },
   { id: 'home', label: '홈 노출', icon: LayoutDashboard, desc: '메인 표시 순서' },
   { id: 'projects', label: '공사수주', icon: FileCode2, desc: '실적 데이터' },
   { id: 'news', label: '뉴스', icon: Newspaper, desc: '소식/사회공헌' },
+  { id: 'jobs', label: '채용공고', icon: BriefcaseBusiness, desc: '공고 등록' },
   { id: 'recruit', label: '채용 FAQ', icon: BriefcaseBusiness, desc: '지원자 정보' },
   { id: 'assets', label: '이미지 점검', icon: ImagePlus, desc: '경로 확인' },
   { id: 'guide', label: '반영 가이드', icon: Clipboard, desc: '운영 절차' },
@@ -96,6 +106,22 @@ const createInitialNewsForm = () => {
     isReal: true,
   };
 };
+
+const getNextJobId = () => {
+  const maxId = RECRUITMENT_JOBS.reduce((max, job) => {
+    const numericId = Number.parseInt(job.id, 10);
+    return Number.isNaN(numericId) ? max : Math.max(max, numericId);
+  }, 0);
+
+  return String(maxId + 1);
+};
+
+const createInitialJobForm = () => ({
+  id: getNextJobId(),
+  title: '',
+  date: '',
+  status: '접수중',
+});
 
 const selectKnownIds = (items, ids, limit) => {
   const selected = ids.filter((id) => items.some((item) => item.id === id));
@@ -156,6 +182,13 @@ const buildNewsItem = (form) => ({
   isReal: true,
 });
 
+const buildJobItem = (form) => ({
+  id: Number(form.id),
+  title: form.title.trim(),
+  date: form.date.trim(),
+  status: form.status.trim(),
+});
+
 const buildRecruitFaq = (form) => ({
   q: form.question.trim(),
   a: form.answer.trim(),
@@ -168,16 +201,19 @@ export default function Admin() {
   const [activeSection, setActiveSection] = useState('overview');
   const [projectForm, setProjectForm] = useState(createInitialProjectForm);
   const [newsForm, setNewsForm] = useState(createInitialNewsForm);
+  const [jobForm, setJobForm] = useState(createInitialJobForm);
   const [displayForm, setDisplayForm] = useState(createInitialDisplayForm);
   const [recruitForm, setRecruitForm] = useState(createInitialRecruitForm);
   const [copyStatus, setCopyStatus] = useState({});
 
   const project = useMemo(() => buildProject(projectForm), [projectForm]);
   const newsItem = useMemo(() => buildNewsItem(newsForm), [newsForm]);
+  const jobItem = useMemo(() => buildJobItem(jobForm), [jobForm]);
   const recruitFaqItem = useMemo(() => buildRecruitFaq(recruitForm), [recruitForm]);
 
   const generatedProjectCode = useMemo(() => formatObject(project), [project]);
   const generatedNewsCode = useMemo(() => formatObject(newsItem), [newsItem]);
+  const generatedJobCode = useMemo(() => formatObject(jobItem), [jobItem]);
   const generatedRecruitCode = useMemo(() => formatObject(recruitFaqItem), [recruitFaqItem]);
   const generatedDisplayCode = useMemo(() => formatHomeDisplayConfig(displayForm), [displayForm]);
 
@@ -241,6 +277,24 @@ export default function Admin() {
     return messages;
   }, [displayForm]);
 
+  const jobValidationMessages = useMemo(() => {
+    const messages = REQUIRED_JOB_FIELDS
+      .filter(([field]) => !String(jobForm[field]).trim())
+      .map(([, label]) => `${label}을 입력해 주세요.`);
+
+    const numericId = Number.parseInt(jobForm.id, 10);
+
+    if (Number.isNaN(numericId)) {
+      messages.push('공고 번호는 숫자로 입력해 주세요.');
+    }
+
+    if (RECRUITMENT_JOBS.some((item) => String(item.id) === String(jobForm.id).trim())) {
+      messages.push('이미 사용 중인 공고 번호입니다.');
+    }
+
+    return messages;
+  }, [jobForm]);
+
   const recruitValidationMessages = useMemo(() => REQUIRED_RECRUIT_FIELDS
     .filter(([field]) => !recruitForm[field].trim())
     .map(([, label]) => `${label}을 입력해 주세요.`), [recruitForm]);
@@ -248,6 +302,7 @@ export default function Admin() {
   const isProjectValid = projectValidationMessages.length === 0;
   const isNewsValid = newsValidationMessages.length === 0;
   const isDisplayValid = displayValidationMessages.length === 0;
+  const isJobValid = jobValidationMessages.length === 0;
   const isRecruitValid = recruitValidationMessages.length === 0;
 
   const imageCheckItems = useMemo(() => {
@@ -277,6 +332,11 @@ export default function Admin() {
   const updateNewsField = (field, value) => {
     setCopyStatus((prev) => ({ ...prev, news: '' }));
     setNewsForm((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const updateJobField = (field, value) => {
+    setCopyStatus((prev) => ({ ...prev, job: '' }));
+    setJobForm((prev) => ({ ...prev, [field]: value }));
   };
 
   const updateRecruitField = (field, value) => {
@@ -348,6 +408,7 @@ export default function Admin() {
 
     if (section === 'project') setProjectForm(createInitialProjectForm());
     if (section === 'news') setNewsForm(createInitialNewsForm());
+    if (section === 'job') setJobForm(createInitialJobForm());
     if (section === 'display') setDisplayForm(createInitialDisplayForm());
     if (section === 'recruit') setRecruitForm(createInitialRecruitForm());
   };
@@ -406,6 +467,7 @@ export default function Admin() {
           {activeSection === 'home' && renderHomeDisplaySection()}
           {activeSection === 'projects' && renderProjectSection()}
           {activeSection === 'news' && renderNewsSection()}
+          {activeSection === 'jobs' && renderJobSection()}
           {activeSection === 'recruit' && renderRecruitSection()}
           {activeSection === 'assets' && renderAssetSection()}
           {activeSection === 'guide' && renderGuideSection()}
@@ -418,6 +480,7 @@ export default function Admin() {
     const cards = [
       { label: '공사수주 데이터', value: `${RECENT_PROJECTS.length}건`, note: 'projectsData.js 기준' },
       { label: '뉴스 데이터', value: `${NEWS_DATA.length}건`, note: 'newsData.js 기준' },
+      { label: '채용공고', value: `${RECRUITMENT_JOBS.length}건`, note: 'recruitmentJobsData.js 기준' },
       { label: '홈 프로젝트', value: `${displayForm.featuredProjectIds.length}/${PROJECT_DISPLAY_LIMIT}`, note: '메인 노출 설정' },
       { label: '홈 뉴스', value: `${displayForm.featuredNewsIds.length}/${NEWS_DISPLAY_LIMIT}`, note: '메인 노출 설정' },
     ];
@@ -426,6 +489,7 @@ export default function Admin() {
       { id: 'home', title: '홈 노출 순서 조정', text: '심사나 발표에 맞춰 대표 실적과 뉴스를 먼저 보여줍니다.' },
       { id: 'projects', title: '공사수주 추가', text: '새 프로젝트 데이터를 입력하고 검증된 객체를 생성합니다.' },
       { id: 'news', title: '뉴스·사회공헌 추가', text: '수상, 행사, 사회공헌 소식을 뉴스 데이터로 준비합니다.' },
+      { id: 'jobs', title: '채용공고 추가', text: '지원자에게 노출할 채용공고 객체를 생성합니다.' },
       { id: 'assets', title: '이미지 경로 확인', text: '데이터에 연결된 이미지가 실제로 로드되는지 점검합니다.' },
     ];
 
@@ -616,6 +680,45 @@ export default function Admin() {
     );
   }
 
+  function renderJobSection() {
+    return (
+      <section className="admin-section-stack">
+        <div className="admin-workspace">
+          <form className="admin-form" onSubmit={(event) => event.preventDefault()}>
+            <PanelHeading icon={<BriefcaseBusiness size={20} />} title="채용공고 입력" />
+            <div className="admin-form-grid">
+              <TextField label="공고 번호 *" value={jobForm.id} onChange={(value) => updateJobField('id', value)} />
+              <SelectField label="상태 *" value={jobForm.status} options={JOB_STATUS_OPTIONS} onChange={(value) => updateJobField('status', value)} />
+              <TextField wide label="공고 제목 *" value={jobForm.title} onChange={(value) => updateJobField('title', value)} />
+              <TextField wide label="마감일 *" placeholder="2026-05-31 또는 상시채용" value={jobForm.date} onChange={(value) => updateJobField('date', value)} />
+            </div>
+          </form>
+
+          <aside className="admin-side">
+            <ValidationPanel
+              title="채용공고 검증 상태"
+              valid={isJobValid}
+              validText="필수 입력값이 모두 채워졌습니다. 공고 내용과 마감일을 최종 확인해 주세요."
+              messages={jobValidationMessages}
+            />
+            <JobPreview job={jobItem} />
+          </aside>
+        </div>
+
+        <CodePanel
+          eyebrow="GENERATED JOB DATA"
+          title="recruitmentJobsData.js 추가 객체"
+          code={generatedJobCode}
+          disabled={!isJobValid}
+          status={copyStatus.job}
+          onReset={() => resetSection('job')}
+          onCopy={() => copyCode('job', generatedJobCode, '채용공고 객체를 클립보드에 복사했습니다.')}
+          note="위 객체는 src/data/recruitmentJobsData.js의 RECRUITMENT_JOBS 배열 상단에 추가합니다. 공고 제목, 마감일, 접수 상태는 회사에서 실제로 게시할 내용만 입력합니다."
+        />
+      </section>
+    );
+  }
+
   function renderRecruitSection() {
     return (
       <section className="admin-section-stack">
@@ -689,6 +792,7 @@ export default function Admin() {
       { title: '홈 노출', file: 'src/data/homeDisplayData.js', text: '생성된 HOME_DISPLAY 설정 전체를 파일 내용으로 교체합니다.' },
       { title: '공사수주', file: 'src/data/projectsData.js', text: '생성된 프로젝트 객체를 RECENT_PROJECTS 배열 상단에 추가합니다.' },
       { title: '뉴스', file: 'src/data/newsData.js', text: '생성된 뉴스 객체를 NEWS_DATA 배열 상단에 추가합니다.' },
+      { title: '채용공고', file: 'src/data/recruitmentJobsData.js', text: '생성된 채용공고 객체를 RECRUITMENT_JOBS 배열 상단에 추가합니다.' },
       { title: '채용 FAQ', file: 'src/pages/Recruitment/FAQ.jsx', text: '생성된 FAQ 객체를 FAQS 배열에 추가합니다.' },
     ];
 
@@ -897,6 +1001,20 @@ function NewsPreview({ newsItem }) {
           <p>{newsItem.date || '게시일 입력 전'}</p>
           <p>{newsItem.content || '본문 입력 전'}</p>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function JobPreview({ job }) {
+  return (
+    <div className="admin-preview">
+      <PanelHeading icon={<BriefcaseBusiness size={20} />} title="채용공고 미리보기" />
+      <div className="admin-job-preview">
+        <span className={job.status === '접수중' ? 'active' : 'closed'}>{job.status || '상태 미선택'}</span>
+        <strong>{job.title || '공고 제목을 입력해 주세요'}</strong>
+        <p>번호 {Number.isNaN(job.id) ? '-' : job.id}</p>
+        <p>마감일 {job.date || '입력 전'}</p>
       </div>
     </div>
   );

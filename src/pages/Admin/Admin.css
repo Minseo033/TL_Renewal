@@ -661,6 +661,46 @@
   word-break: keep-all;
 }
 
+.admin-job-preview {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.admin-job-preview span {
+  justify-self: start;
+  padding: 5px 10px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.admin-job-preview span.active {
+  background: rgba(46, 139, 74, 0.12);
+  color: var(--color-brand);
+}
+
+.admin-job-preview span.closed {
+  background: rgba(156, 163, 175, 0.14);
+  color: var(--color-text-muted);
+}
+
+.admin-job-preview strong {
+  color: var(--color-primary);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  word-break: keep-all;
+}
+
+.admin-job-preview p {
+  color: var(--color-text-light);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 .admin-image-check-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
