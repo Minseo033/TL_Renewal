@@ -958,6 +958,83 @@
   .process-step { max-width: 100%; text-align: left; padding: 25px; }
 }
 /* ── Benefits ── */
+
+.benefit-card {
+  position: relative;
+  background: #fff;
+  border-radius: 24px;
+  padding: 32px;
+  border: 1px solid #eef0f2;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* 카테고리 태그 (성장, 안정 등)를 우측 상단에 배치 */
+.benefit-category {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: #f1f5f1;
+  color: #4a674a;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* 아이콘과 제목을 가로로 정렬 */
+.benefit-header {
+  display: flex;
+  align-items: center; /* 세로 중앙 정렬 */
+  gap: 16px;           /* 아이콘과 제목 사이 간격 */
+  margin-bottom: 24px;
+}
+
+.benefit-icon {
+  width: 64px;
+  height: 64px;
+  background: #f1f5f1; /* 이미지와 비슷한 연녹색 배경 */
+  color: #4a674a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  flex-shrink: 0;      /* 아이콘 크기 고정 */
+}
+
+.benefit-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0;          /* 불필요한 마진 제거 */
+}
+
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefit-list li {
+  position: relative;
+  padding-left: 20px;
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* 리스트 앞의 점 스타일링 */
+.benefit-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  background-color: #63b155;
+  border-radius: 50%;
+}
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

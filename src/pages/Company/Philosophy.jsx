@@ -4,6 +4,7 @@ import { Zap, Handshake, Target, ShieldCheck, MessageSquare, TrendingUp } from '
 import './Company.css';
 
 const philosophyImg = './assets/images/company/philosophy.png';
+const sloganImg = './assets/images/company/slogan.png'; // 슬로건 이미지 경로 추가
 
 const SUB_NAV = [
   { label: '인사말', path: '/company/greeting' },
@@ -39,7 +40,8 @@ const VALUES = [
 const VISION_ITEMS = [
   { label: '비전', value: '시대 변화에 적응하여 누구보다 앞선 기술로 전문건설산업의 선도적 역할을 해나갈 것입니다.', icon: <TrendingUp size={24} /> },
   { label: '핵심가치', value: '고객감동 및 철저한 품질관리 · 무재해 완벽시공 철저한 사후관리 · 지속적 기술개발과 원가절감', icon: <MessageSquare size={24} /> },
-  { label: '슬로건', value: '하나된 태일! 혁신적인 태일! 백년대계 태일!', icon: <ShieldCheck size={24} /> },
+  // 슬로건 텍스트를 이미지 노출을 위한 구조로 변경 (아래 렌더링 로직에서 처리)
+  { label: '슬로건', isSlogan: true, icon: <ShieldCheck size={24} /> },
 ];
 
 export default function Philosophy() {
@@ -50,12 +52,7 @@ export default function Philosophy() {
       subNav={SUB_NAV}
     >
       <AnimatedSection className="philosophy-hero" style={{ position: 'relative', overflow: 'hidden' }}>
-        <img
-          src={philosophyImg}
-          alt="경영이념"
-          style={{ position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', opacity:0.15 }}
-          onError={e => e.currentTarget.style.display='none'}
-        />
+        
         <div className="philosophy-hero-inner" style={{ position:'relative', zIndex:1 }}>
           <p className="section-eyebrow">OUR PHILOSOPHY</p>
           <h2 className="philosophy-main-title">책임완수 · 근면성실 · 인화단결</h2>
@@ -88,7 +85,16 @@ export default function Philosophy() {
               <span className="vision-icon">{item.icon}</span>
               <div>
                 <span className="vision-label">{item.label}</span>
-                <p className="vision-value">{item.value}</p>
+                {item.isSlogan ? (
+                  <img 
+                    src={sloganImg} 
+                    alt="하나된 태일! 혁신적인 태일! 백년대계 태일!" 
+                    className="vision-slogan-img"
+                    style={{ display: 'block', maxWidth: '280px', height: 'auto', marginTop: '10px' }} 
+                  />
+                ) : (
+                  <p className="vision-value">{item.value}</p>
+                )}
               </div>
             </div>
           ))}
