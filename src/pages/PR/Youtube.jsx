@@ -1,45 +1,29 @@
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
 import { ExternalLink, Play } from 'lucide-react';
+import {
+  YOUTUBE_CHANNEL_NAME,
+  YOUTUBE_CHANNEL_URL,
+  YOUTUBE_DISPLAY_URLS,
+  YOUTUBE_VIDEOS,
+  getYoutubeThumbnail,
+} from '../../data/youtubeData';
 import './PR.css';
 
-const YOUTUBE_CHANNEL_URL = 'https://www.youtube.com/@태일씨앤티경영기획실';
-const YOUTUBE_CHANNEL_NAME = '태일씨앤티 경영기획실';
-
-const YOUTUBE_VIDEOS = [
-  {
-    title: '태일씨앤티 공식 영상 01',
-    description: '태일씨앤티 공식 유튜브 채널의 주요 영상입니다.',
-    url: 'https://www.youtube.com/watch?v=5Z3fGjtwe4Y',
-  },
-  {
-    title: '태일씨앤티 공식 영상 02',
-    description: '현장과 기업 활동을 영상으로 소개합니다.',
-    url: 'https://www.youtube.com/watch?v=xUbH2iPAxUQ',
-  },
-  {
-    title: '태일씨앤티 공식 영상 03',
-    description: '태일씨앤티의 사람과 문화를 만날 수 있는 영상입니다.',
-    url: 'https://www.youtube.com/watch?v=-BP43hf0jIs',
-  },
-  {
-    title: '태일씨앤티 공식 영상 04',
-    description: '품질과 안전을 향한 현장의 모습을 전합니다.',
-    url: 'https://www.youtube.com/watch?v=HQbp7hn5DXo',
-  },
-];
+const YOUTUBE_DISPLAY_LIMIT = 4;
 
 const SUB_NAV = [
   { label: 'News', path: '/pr/news' },
   { label: '유튜브', path: '/pr/youtube' },
 ];
 
-function getYoutubeVideoId(url) {
-  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([^?&/]+)/);
-  return match ? match[1] : '';
-}
-
 export default function Youtube() {
+  const selectedVideos = YOUTUBE_DISPLAY_URLS
+    .map((url) => YOUTUBE_VIDEOS.find((video) => video.url === url))
+    .filter(Boolean);
+  const fallbackVideos = YOUTUBE_VIDEOS.filter((video) => !YOUTUBE_DISPLAY_URLS.includes(video.url));
+  const displayVideos = [...selectedVideos, ...fallbackVideos].slice(0, YOUTUBE_DISPLAY_LIMIT);
+
   return (
     <PageLayout
       title="홍보센터"
@@ -54,11 +38,8 @@ export default function Youtube() {
 
       <div className="youtube-page-main">
         <div className="yt-grid">
-          {YOUTUBE_VIDEOS.map((video, idx) => {
-            const videoId = getYoutubeVideoId(video.url);
-            const thumbnail = videoId
-              ? `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`
-              : './assets/images/esg/esg-main.png';
+          {displayVideos.map((video, idx) => {
+            const thumbnail = getYoutubeThumbnail(video.url);
 
             return (
               <AnimatedSection key={video.url} delay={idx * 80} direction="up">

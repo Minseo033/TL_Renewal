@@ -637,6 +637,78 @@
   -webkit-box-orient: vertical;
 }
 
+.admin-youtube-preview {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: #fff;
+}
+
+.admin-youtube-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #0d1b2a;
+}
+
+.admin-youtube-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.82;
+}
+
+.admin-youtube-thumb span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 34px;
+  text-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+.admin-youtube-preview > div:last-child {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+}
+
+.admin-youtube-preview > div:last-child > span {
+  justify-self: start;
+  padding: 5px 10px;
+  background: var(--color-accent);
+  color: var(--color-bg-dark);
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.admin-youtube-preview strong {
+  color: var(--color-primary);
+  font-size: 1.05rem;
+  line-height: 1.45;
+  word-break: keep-all;
+}
+
+.admin-youtube-preview p,
+.admin-youtube-preview code {
+  color: var(--color-text-light);
+  font-size: 13px;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.admin-youtube-preview code {
+  display: block;
+  overflow: hidden;
+  padding: 8px 10px;
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+  color: var(--color-brand);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .admin-faq-preview {
   display: grid;
   gap: 12px;

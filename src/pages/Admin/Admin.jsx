@@ -8,6 +8,7 @@ import {
   ImagePlus,
   LayoutDashboard,
   Newspaper,
+  Play as YoutubeIcon,
   RotateCcw,
 } from 'lucide-react';
 import PageLayout from '../../components/layout/PageLayout';
@@ -15,6 +16,12 @@ import { RECENT_PROJECTS } from '../../data/projectsData';
 import { NEWS_DATA } from '../../data/newsData';
 import { HOME_DISPLAY } from '../../data/homeDisplayData';
 import { RECRUITMENT_JOBS } from '../../data/recruitmentJobsData';
+import {
+  YOUTUBE_DISPLAY_URLS,
+  YOUTUBE_VIDEOS,
+  getYoutubeThumbnail,
+  getYoutubeVideoId,
+} from '../../data/youtubeData';
 import './Admin.css';
 
 const CATEGORY_OPTIONS = ['주택', '업무시설', '초고층', '플랜트', '판매시설', '교육/의료', '기타'];
@@ -26,6 +33,7 @@ const PROJECT_STATUS_OPTIONS = [
 ];
 const PROJECT_DISPLAY_LIMIT = 4;
 const NEWS_DISPLAY_LIMIT = 3;
+const YOUTUBE_DISPLAY_LIMIT = 4;
 const CERT_IMAGE_PATH = './assets/images/company/certifications';
 const JOB_IMAGE_PATH = './assets/images/recruitment/jobs';
 
@@ -73,6 +81,12 @@ const REQUIRED_NEWS_FIELDS = [
   ['content', '본문'],
 ];
 
+const REQUIRED_YOUTUBE_FIELDS = [
+  ['title', '영상 제목'],
+  ['description', '영상 설명'],
+  ['url', '유튜브 링크'],
+];
+
 const REQUIRED_RECRUIT_FIELDS = [
   ['question', '질문'],
   ['answer', '답변'],
@@ -90,6 +104,7 @@ const ADMIN_SECTIONS = [
   { id: 'home', label: '홈 노출', icon: LayoutDashboard, desc: '메인 표시 순서' },
   { id: 'projects', label: '공사수주', icon: FileCode2, desc: '실적 데이터' },
   { id: 'news', label: '뉴스', icon: Newspaper, desc: '소식/사회공헌' },
+  { id: 'youtube', label: '유튜브', icon: YoutubeIcon, desc: '영상 링크' },
   { id: 'jobs', label: '채용공고', icon: BriefcaseBusiness, desc: '공고 등록' },
   { id: 'recruit', label: '채용 FAQ', icon: BriefcaseBusiness, desc: '지원자 정보' },
   { id: 'assets', label: '이미지 점검', icon: ImagePlus, desc: '경로 확인' },
@@ -142,6 +157,12 @@ const createInitialNewsForm = () => {
   };
 };
 
+const createInitialYoutubeForm = () => ({
+  title: '',
+  description: '',
+  url: '',
+});
+
 const getNextJobId = () => {
   const maxId = RECRUITMENT_JOBS.reduce((max, job) => {
     const numericId = Number.parseInt(job.id, 10);
@@ -167,9 +188,22 @@ const selectKnownIds = (items, ids, limit) => {
   return [...selected, ...fallback].slice(0, limit);
 };
 
+const selectKnownUrls = (items, urls, limit) => {
+  const selected = urls.filter((url) => items.some((item) => item.url === url));
+  const fallback = items
+    .map((item) => item.url)
+    .filter((url) => !selected.includes(url));
+
+  return [...selected, ...fallback].slice(0, limit);
+};
+
 const createInitialDisplayForm = () => ({
   featuredProjectIds: selectKnownIds(RECENT_PROJECTS, HOME_DISPLAY.featuredProjectIds, PROJECT_DISPLAY_LIMIT),
   featuredNewsIds: selectKnownIds(NEWS_DATA, HOME_DISPLAY.featuredNewsIds, NEWS_DISPLAY_LIMIT),
+});
+
+const createInitialYoutubeDisplayForm = () => ({
+  featuredYoutubeUrls: selectKnownUrls(YOUTUBE_VIDEOS, YOUTUBE_DISPLAY_URLS, YOUTUBE_DISPLAY_LIMIT),
 });
 
 const createInitialRecruitForm = () => ({
@@ -219,6 +253,12 @@ const buildNewsItem = (form) => ({
   isReal: true,
 });
 
+const buildYoutubeItem = (form) => ({
+  title: form.title.trim(),
+  description: form.description.trim(),
+  url: form.url.trim(),
+});
+
 const buildJobItem = (form) => ({
   id: Number(form.id),
   title: form.title.trim(),
@@ -233,26 +273,32 @@ const buildRecruitFaq = (form) => ({
 
 const formatObject = (value) => JSON.stringify(value, null, 2);
 const formatHomeDisplayConfig = (displayForm) => `export const HOME_DISPLAY = ${JSON.stringify(displayForm, null, 2)};\n`;
+const formatYoutubeDisplayConfig = (youtubeDisplayForm) => `export const YOUTUBE_DISPLAY_URLS = ${JSON.stringify(youtubeDisplayForm.featuredYoutubeUrls, null, 2)};\n`;
 
 export default function Admin() {
   const [activeSection, setActiveSection] = useState('overview');
   const [projectForm, setProjectForm] = useState(createInitialProjectForm);
   const [newsForm, setNewsForm] = useState(createInitialNewsForm);
+  const [youtubeForm, setYoutubeForm] = useState(createInitialYoutubeForm);
   const [jobForm, setJobForm] = useState(createInitialJobForm);
   const [displayForm, setDisplayForm] = useState(createInitialDisplayForm);
+  const [youtubeDisplayForm, setYoutubeDisplayForm] = useState(createInitialYoutubeDisplayForm);
   const [recruitForm, setRecruitForm] = useState(createInitialRecruitForm);
   const [copyStatus, setCopyStatus] = useState({});
 
   const project = useMemo(() => buildProject(projectForm), [projectForm]);
   const newsItem = useMemo(() => buildNewsItem(newsForm), [newsForm]);
+  const youtubeItem = useMemo(() => buildYoutubeItem(youtubeForm), [youtubeForm]);
   const jobItem = useMemo(() => buildJobItem(jobForm), [jobForm]);
   const recruitFaqItem = useMemo(() => buildRecruitFaq(recruitForm), [recruitForm]);
 
   const generatedProjectCode = useMemo(() => formatObject(project), [project]);
   const generatedNewsCode = useMemo(() => formatObject(newsItem), [newsItem]);
+  const generatedYoutubeCode = useMemo(() => formatObject(youtubeItem), [youtubeItem]);
   const generatedJobCode = useMemo(() => formatObject(jobItem), [jobItem]);
   const generatedRecruitCode = useMemo(() => formatObject(recruitFaqItem), [recruitFaqItem]);
   const generatedDisplayCode = useMemo(() => formatHomeDisplayConfig(displayForm), [displayForm]);
+  const generatedYoutubeDisplayCode = useMemo(() => formatYoutubeDisplayConfig(youtubeDisplayForm), [youtubeDisplayForm]);
 
   const selectedHomeProjects = useMemo(
     () => displayForm.featuredProjectIds
@@ -266,6 +312,13 @@ export default function Admin() {
       .map((id) => NEWS_DATA.find((item) => item.id === id))
       .filter(Boolean),
     [displayForm.featuredNewsIds]
+  );
+
+  const selectedYoutubeVideos = useMemo(
+    () => youtubeDisplayForm.featuredYoutubeUrls
+      .map((url) => YOUTUBE_VIDEOS.find((item) => item.url === url))
+      .filter(Boolean),
+    [youtubeDisplayForm.featuredYoutubeUrls]
   );
 
   const projectValidationMessages = useMemo(() => {
@@ -300,6 +353,23 @@ export default function Admin() {
     return messages;
   }, [newsForm]);
 
+  const youtubeValidationMessages = useMemo(() => {
+    const messages = REQUIRED_YOUTUBE_FIELDS
+      .filter(([field]) => !String(youtubeForm[field]).trim())
+      .map(([, label]) => `${label}을 입력해 주세요.`);
+    const videoId = getYoutubeVideoId(youtubeForm.url);
+
+    if (youtubeForm.url.trim() && !videoId) {
+      messages.push('유튜브 영상 ID를 확인할 수 없습니다. youtube.com/watch, youtu.be, shorts 링크를 사용해 주세요.');
+    }
+
+    if (YOUTUBE_VIDEOS.some((item) => item.url.trim() === youtubeForm.url.trim())) {
+      messages.push('이미 등록된 유튜브 링크입니다.');
+    }
+
+    return messages;
+  }, [youtubeForm]);
+
   const displayValidationMessages = useMemo(() => {
     const messages = [];
 
@@ -313,6 +383,16 @@ export default function Admin() {
 
     return messages;
   }, [displayForm]);
+
+  const youtubeDisplayValidationMessages = useMemo(() => {
+    const messages = [];
+
+    if (youtubeDisplayForm.featuredYoutubeUrls.length !== YOUTUBE_DISPLAY_LIMIT) {
+      messages.push(`유튜브 노출 영상은 ${YOUTUBE_DISPLAY_LIMIT}개를 선택해 주세요.`);
+    }
+
+    return messages;
+  }, [youtubeDisplayForm]);
 
   const jobValidationMessages = useMemo(() => {
     const messages = REQUIRED_JOB_FIELDS
@@ -338,7 +418,9 @@ export default function Admin() {
 
   const isProjectValid = projectValidationMessages.length === 0;
   const isNewsValid = newsValidationMessages.length === 0;
+  const isYoutubeValid = youtubeValidationMessages.length === 0;
   const isDisplayValid = displayValidationMessages.length === 0;
+  const isYoutubeDisplayValid = youtubeDisplayValidationMessages.length === 0;
   const isJobValid = jobValidationMessages.length === 0;
   const isRecruitValid = recruitValidationMessages.length === 0;
 
@@ -370,6 +452,11 @@ export default function Admin() {
   const updateNewsField = (field, value) => {
     setCopyStatus((prev) => ({ ...prev, news: '' }));
     setNewsForm((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const updateYoutubeField = (field, value) => {
+    setCopyStatus((prev) => ({ ...prev, youtube: '' }));
+    setYoutubeForm((prev) => ({ ...prev, [field]: value }));
   };
 
   const updateJobField = (field, value) => {
@@ -429,6 +516,40 @@ export default function Admin() {
     });
   };
 
+  const toggleYoutubeDisplayUrl = (url) => {
+    setCopyStatus((prev) => ({ ...prev, youtubeDisplay: '' }));
+    setYoutubeDisplayForm((prev) => {
+      const selected = prev.featuredYoutubeUrls;
+      const hasUrl = selected.includes(url);
+
+      if (hasUrl) {
+        return { featuredYoutubeUrls: selected.filter((item) => item !== url) };
+      }
+
+      if (selected.length >= YOUTUBE_DISPLAY_LIMIT) {
+        return prev;
+      }
+
+      return { featuredYoutubeUrls: [...selected, url] };
+    });
+  };
+
+  const moveYoutubeDisplayUrl = (url, direction) => {
+    setCopyStatus((prev) => ({ ...prev, youtubeDisplay: '' }));
+    setYoutubeDisplayForm((prev) => {
+      const selected = [...prev.featuredYoutubeUrls];
+      const currentIndex = selected.indexOf(url);
+      const nextIndex = currentIndex + direction;
+
+      if (currentIndex < 0 || nextIndex < 0 || nextIndex >= selected.length) {
+        return prev;
+      }
+
+      [selected[currentIndex], selected[nextIndex]] = [selected[nextIndex], selected[currentIndex]];
+      return { featuredYoutubeUrls: selected };
+    });
+  };
+
   const copyCode = async (key, code, successMessage) => {
     try {
       await navigator.clipboard.writeText(code);
@@ -446,6 +567,8 @@ export default function Admin() {
 
     if (section === 'project') setProjectForm(createInitialProjectForm());
     if (section === 'news') setNewsForm(createInitialNewsForm());
+    if (section === 'youtube') setYoutubeForm(createInitialYoutubeForm());
+    if (section === 'youtubeDisplay') setYoutubeDisplayForm(createInitialYoutubeDisplayForm());
     if (section === 'job') setJobForm(createInitialJobForm());
     if (section === 'display') setDisplayForm(createInitialDisplayForm());
     if (section === 'recruit') setRecruitForm(createInitialRecruitForm());
@@ -505,6 +628,7 @@ export default function Admin() {
           {activeSection === 'home' && renderHomeDisplaySection()}
           {activeSection === 'projects' && renderProjectSection()}
           {activeSection === 'news' && renderNewsSection()}
+          {activeSection === 'youtube' && renderYoutubeSection()}
           {activeSection === 'jobs' && renderJobSection()}
           {activeSection === 'recruit' && renderRecruitSection()}
           {activeSection === 'assets' && renderAssetSection()}
@@ -518,15 +642,17 @@ export default function Admin() {
     const cards = [
       { label: '공사수주 데이터', value: `${RECENT_PROJECTS.length}건`, note: 'projectsData.js 기준' },
       { label: '뉴스 데이터', value: `${NEWS_DATA.length}건`, note: 'newsData.js 기준' },
+      { label: '유튜브 영상', value: `${YOUTUBE_VIDEOS.length}건`, note: 'youtubeData.js 기준' },
       { label: '채용공고', value: `${RECRUITMENT_JOBS.length}건`, note: 'recruitmentJobsData.js 기준' },
       { label: '홈 프로젝트', value: `${displayForm.featuredProjectIds.length}/${PROJECT_DISPLAY_LIMIT}`, note: '메인 노출 설정' },
-      { label: '홈 뉴스', value: `${displayForm.featuredNewsIds.length}/${NEWS_DISPLAY_LIMIT}`, note: '메인 노출 설정' },
+      { label: '유튜브 노출', value: `${youtubeDisplayForm.featuredYoutubeUrls.length}/${YOUTUBE_DISPLAY_LIMIT}`, note: '영상 홍보관 노출 설정' },
     ];
 
     const quickActions = [
       { id: 'home', title: '홈 노출 순서 조정', text: '심사나 발표에 맞춰 대표 실적과 뉴스를 먼저 보여줍니다.' },
       { id: 'projects', title: '공사수주 추가', text: '새 프로젝트 데이터를 입력하고 검증된 객체를 생성합니다.' },
       { id: 'news', title: '뉴스·사회공헌 추가', text: '수상, 행사, 사회공헌 소식을 뉴스 데이터로 준비합니다.' },
+      { id: 'youtube', title: '유튜브 영상 추가', text: '태일씨앤티 유튜브 링크를 입력해 영상 카드 데이터를 생성합니다.' },
       { id: 'jobs', title: '채용공고 추가', text: '지원자에게 노출할 채용공고 객체를 생성합니다.' },
       { id: 'assets', title: '이미지 경로 확인', text: '데이터에 연결된 이미지가 실제로 로드되는지 점검합니다.' },
     ];
@@ -719,6 +845,59 @@ export default function Admin() {
     );
   }
 
+  function renderYoutubeSection() {
+    return (
+      <section className="admin-section-stack">
+        <div className="admin-workspace">
+          <form className="admin-form" onSubmit={(event) => event.preventDefault()}>
+            <PanelHeading icon={<YoutubeIcon size={20} />} title="유튜브 영상 입력" />
+            <div className="admin-form-grid">
+              <TextField wide label="유튜브 링크 *" placeholder="https://www.youtube.com/watch?v=..." value={youtubeForm.url} onChange={(value) => updateYoutubeField('url', value)} />
+              <TextField wide label="영상 제목 *" value={youtubeForm.title} onChange={(value) => updateYoutubeField('title', value)} />
+              <TextField wide multiline label="영상 설명 *" value={youtubeForm.description} onChange={(value) => updateYoutubeField('description', value)} />
+            </div>
+          </form>
+
+          <aside className="admin-side">
+            <ValidationPanel
+              title="유튜브 검증 상태"
+              valid={isYoutubeValid}
+              validText="영상 링크와 노출 문구가 입력되었습니다. 공식 채널 영상인지 최종 확인해 주세요."
+              messages={youtubeValidationMessages}
+            />
+            <YoutubePreview video={youtubeItem} />
+          </aside>
+        </div>
+
+        <CodePanel
+          eyebrow="GENERATED YOUTUBE DATA"
+          title="youtubeData.js 추가 객체"
+          code={generatedYoutubeCode}
+          disabled={!isYoutubeValid}
+          status={copyStatus.youtube}
+          onReset={() => resetSection('youtube')}
+          onCopy={() => copyCode('youtube', generatedYoutubeCode, '유튜브 영상 객체를 클립보드에 복사했습니다.')}
+          note="위 객체는 src/data/youtubeData.js의 YOUTUBE_VIDEOS 배열 상단 또는 원하는 위치에 추가합니다. 링크는 태일씨앤티 공식 유튜브 채널의 실제 영상만 입력합니다."
+        />
+
+        {renderYoutubeDisplayPicker()}
+
+        {youtubeDisplayValidationMessages.length > 0 && <InlineAlert messages={youtubeDisplayValidationMessages} />}
+
+        <CodePanel
+          eyebrow="GENERATED YOUTUBE DISPLAY"
+          title="youtubeData.js 노출 설정"
+          code={generatedYoutubeDisplayCode}
+          disabled={!isYoutubeDisplayValid}
+          status={copyStatus.youtubeDisplay}
+          onReset={() => resetSection('youtubeDisplay')}
+          onCopy={() => copyCode('youtubeDisplay', generatedYoutubeDisplayCode, '유튜브 노출 설정을 클립보드에 복사했습니다.')}
+          note="위 설정은 src/data/youtubeData.js의 YOUTUBE_DISPLAY_URLS 배열을 교체할 때 사용합니다. 유튜브 페이지는 이 배열 순서대로 최대 4개 영상을 노출합니다."
+        />
+      </section>
+    );
+  }
+
   function renderJobSection() {
     return (
       <section className="admin-section-stack">
@@ -835,6 +1014,8 @@ export default function Admin() {
       { title: '홈 노출', file: 'src/data/homeDisplayData.js', text: '생성된 HOME_DISPLAY 설정 전체를 파일 내용으로 교체합니다.' },
       { title: '공사수주', file: 'src/data/projectsData.js', text: '생성된 프로젝트 객체를 RECENT_PROJECTS 배열 상단에 추가합니다.' },
       { title: '뉴스', file: 'src/data/newsData.js', text: '생성된 뉴스 객체를 NEWS_DATA 배열 상단에 추가합니다.' },
+      { title: '유튜브 영상', file: 'src/data/youtubeData.js', text: '생성된 유튜브 객체를 YOUTUBE_VIDEOS 배열에 추가합니다.' },
+      { title: '유튜브 노출', file: 'src/data/youtubeData.js', text: '생성된 YOUTUBE_DISPLAY_URLS 설정으로 노출 영상 4개와 순서를 관리합니다.' },
       { title: '채용공고', file: 'src/data/recruitmentJobsData.js', text: '생성된 채용공고 객체를 RECRUITMENT_JOBS 배열 상단에 추가합니다.' },
       { title: '채용 FAQ', file: 'src/pages/Recruitment/FAQ.jsx', text: '생성된 FAQ 객체를 FAQS 배열에 추가합니다.' },
     ];
@@ -908,6 +1089,55 @@ export default function Admin() {
               >
                 <span>{item[badgeKey]}</span>
                 <strong>{item[labelKey]}</strong>
+                <em>{isSelected ? '선택됨' : isLocked ? '최대 선택' : '추가'}</em>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+
+  function renderYoutubeDisplayPicker() {
+    const selectedUrls = youtubeDisplayForm.featuredYoutubeUrls;
+    const isFull = selectedUrls.length >= YOUTUBE_DISPLAY_LIMIT;
+
+    return (
+      <div className="admin-display-panel">
+        <PanelHeading icon={<YoutubeIcon size={20} />} title={`유튜브 노출 영상 ${selectedUrls.length}/${YOUTUBE_DISPLAY_LIMIT}`} />
+        <p className="admin-picker-help">
+          등록된 유튜브 영상 중 홍보센터에 노출할 영상을 선택합니다. 선택한 순서대로 최대 {YOUTUBE_DISPLAY_LIMIT}개가 표시됩니다.
+        </p>
+        <div className="admin-selected-list">
+          {selectedYoutubeVideos.map((item, index) => (
+            <div key={item.url} className="admin-selected-item">
+              <span>{index + 1}</span>
+              <strong>{item.title}</strong>
+              <div>
+                <button type="button" onClick={() => moveYoutubeDisplayUrl(item.url, -1)}>위</button>
+                <button type="button" onClick={() => moveYoutubeDisplayUrl(item.url, 1)}>아래</button>
+              </div>
+            </div>
+          ))}
+        </div>
+        {isFull && (
+          <p className="admin-picker-limit">최대 {YOUTUBE_DISPLAY_LIMIT}개가 선택되어 있습니다. 다른 영상을 추가하려면 먼저 선택된 영상을 해제해 주세요.</p>
+        )}
+        <div className="admin-choice-list">
+          {YOUTUBE_VIDEOS.map((item) => {
+            const isSelected = selectedUrls.includes(item.url);
+            const isLocked = isFull && !isSelected;
+
+            return (
+              <button
+                type="button"
+                key={item.url}
+                className={`${isSelected ? 'active' : ''} ${isLocked ? 'locked' : ''}`}
+                onClick={() => toggleYoutubeDisplayUrl(item.url)}
+                disabled={isLocked}
+              >
+                <span>YouTube</span>
+                <strong>{item.title}</strong>
                 <em>{isSelected ? '선택됨' : isLocked ? '최대 선택' : '추가'}</em>
               </button>
             );
@@ -1048,6 +1278,35 @@ function NewsPreview({ newsItem }) {
           <strong>{newsItem.title || '제목을 입력해 주세요'}</strong>
           <p>{newsItem.date || '게시일 입력 전'}</p>
           <p>{newsItem.content || '본문 입력 전'}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function YoutubePreview({ video }) {
+  const videoId = getYoutubeVideoId(video.url);
+  const thumbnail = getYoutubeThumbnail(video.url);
+
+  return (
+    <div className="admin-preview">
+      <PanelHeading icon={<YoutubeIcon size={20} />} title="유튜브 카드 미리보기" />
+      <div className="admin-youtube-preview">
+        <div className="admin-youtube-thumb">
+          <img
+            src={thumbnail}
+            alt=""
+            onError={(event) => {
+              event.currentTarget.src = './assets/images/esg/esg-main.png';
+            }}
+          />
+          <span aria-hidden="true">▶</span>
+        </div>
+        <div>
+          <span>YouTube</span>
+          <strong>{video.title || '영상 제목을 입력해 주세요'}</strong>
+          <p>{video.description || '영상 설명을 입력해 주세요'}</p>
+          <code>{videoId ? `videoId: ${videoId}` : '영상 ID 확인 전'}</code>
         </div>
       </div>
     </div>
