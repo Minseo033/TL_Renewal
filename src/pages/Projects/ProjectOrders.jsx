@@ -67,6 +67,11 @@ export default function ProjectOrders() {
                 <img src={project.image} alt={project.name} onError={(e) => {
                   e.target.src = './assets/images/company/greeting.jpg';
                 }} />
+                {project.status && (
+                  <span className={`project-status-badge ${project.status === '진행' ? 'is-active' : ''}`}>
+                    {project.status}
+                  </span>
+                )}
                 <div className="project-card-overlay">
                   <span className="view-detail-btn">상세보기 +</span>
                 </div>
@@ -117,6 +122,7 @@ export default function ProjectOrders() {
                 <h2 className="modal-title">{selectedProject.name}</h2>
                 
                 <div className="modal-details-grid">
+                  <DetailItem label="진행상태" value={selectedProject.status} />
                   <DetailItem label="유형" value={selectedProject.type} />
                   <DetailItem label="주소" value={selectedProject.address} icon={<MapPin size={16} />} />
                   <DetailItem label="발주처 / 자" value={selectedProject.client} icon={<Building size={16} />} />
