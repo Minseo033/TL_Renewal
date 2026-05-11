@@ -21,9 +21,6 @@ const NAV_ITEMS = [
     path: '/projects',
     sub: [
       { title: '공사수주 현황', path: '/projects/orders' },
-      { title: '건설시공능력', path: '/projects/capability' },
-      { title: '품질경영', path: '/projects/quality' },
-      { title: '안전경영', path: '/projects/safety' },
       { title: '주택', path: '/projects/housing' },
       { title: '업무시설', path: '/projects/office' },
       { title: '교육/의료', path: '/projects/education' },
