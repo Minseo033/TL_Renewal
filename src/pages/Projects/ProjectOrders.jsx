@@ -67,7 +67,7 @@ export default function ProjectOrders() {
                 <img src={project.image} alt={project.name} onError={(e) => {
                   e.target.src = './assets/images/company/greeting.jpg';
                 }} />
-                {project.status && (
+                {project.status && project.status !== '.' && (
                   <span className={`project-status-badge ${project.status === '진행' ? 'is-active' : ''}`}>
                     {project.status}
                   </span>

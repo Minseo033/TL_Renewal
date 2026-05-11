@@ -20,6 +20,10 @@ import './Admin.css';
 const CATEGORY_OPTIONS = ['주택', '업무시설', '초고층', '플랜트', '판매시설', '교육/의료', '기타'];
 const NEWS_CATEGORY_OPTIONS = ['수상', '행사소식', '사회공헌', '공지'];
 const JOB_STATUS_OPTIONS = ['접수중', '접수마감'];
+const PROJECT_STATUS_OPTIONS = [
+  { value: '', label: '표시 안 함' },
+  { value: '진행', label: '진행' },
+];
 const PROJECT_DISPLAY_LIMIT = 4;
 const NEWS_DISPLAY_LIMIT = 3;
 
@@ -89,6 +93,7 @@ const createInitialProjectForm = () => {
     method: '',
     scope: '',
     material: '',
+    status: '',
     categories: [],
   };
 };
@@ -154,6 +159,7 @@ const buildProject = (form) => {
   const period = hasDateRange
     ? `${toProjectDate(form.periodStart)}~${toProjectDate(form.periodEnd)}`
     : toStoredValue(form.periodText);
+  const status = form.status.trim();
 
   return {
     id: form.id.trim(),
@@ -169,6 +175,7 @@ const buildProject = (form) => {
     scope: toStoredValue(form.scope),
     material: toStoredValue(form.material),
     categories: form.categories,
+    ...(status ? { status } : {}),
   };
 };
 
@@ -585,6 +592,7 @@ export default function Admin() {
               <TextField label="공사명 *" value={projectForm.name} onChange={(value) => updateProjectField('name', value)} />
               <TextField wide label="이미지 경로" value={projectForm.image} onChange={(value) => updateProjectField('image', value)} />
               <TextField label="유형" value={projectForm.type} onChange={(value) => updateProjectField('type', value)} />
+              <SelectField label="진행 상태" value={projectForm.status} options={PROJECT_STATUS_OPTIONS} onChange={(value) => updateProjectField('status', value)} />
               <TextField label="발주처 *" value={projectForm.client} onChange={(value) => updateProjectField('client', value)} />
               <TextField label="시공사 *" value={projectForm.partner} onChange={(value) => updateProjectField('partner', value)} />
               <TextField label="공법" value={projectForm.method} onChange={(value) => updateProjectField('method', value)} />
@@ -633,7 +641,7 @@ export default function Admin() {
           status={copyStatus.project}
           onReset={() => resetSection('project')}
           onCopy={() => copyCode('project', generatedProjectCode, '공사수주 객체를 클립보드에 복사했습니다.')}
-          note="새 이미지는 public/assets/images/projects 폴더에 넣고, 위 객체를 src/data/projectsData.js의 RECENT_PROJECTS 배열 상단에 추가합니다."
+          note="새 이미지는 public/assets/images/projects 폴더에 넣고, 위 객체를 src/data/projectsData.js의 RECENT_PROJECTS 배열 상단에 추가합니다. 진행 상태를 비워두면 카드 배지가 표시되지 않고, 진행을 선택하면 공사수주 현황 카드에 진행 배지가 표시됩니다."
         />
       </section>
     );
@@ -895,7 +903,11 @@ function SelectField({ label, value, options, onChange }) {
     <label>
       <span>{label}</span>
       <select value={value} onChange={(event) => onChange(event.target.value)}>
-        {options.map((option) => <option key={option} value={option}>{option}</option>)}
+        {options.map((option) => {
+          const optionValue = typeof option === 'string' ? option : option.value;
+          const optionLabel = typeof option === 'string' ? option : option.label;
+          return <option key={optionValue || optionLabel} value={optionValue}>{optionLabel}</option>;
+        })}
       </select>
     </label>
   );
@@ -974,6 +986,7 @@ function ProjectPreview({ project }) {
         />
         <div>
           <span>{project.categories[0] || '유형 미선택'}</span>
+          {project.status && <span>{project.status}</span>}
           <strong>{project.name || '공사명을 입력해 주세요'}</strong>
           <p>{project.client || '발주처 입력 전'}</p>
           <p>{project.period === '.' ? '공사기간 입력 전' : project.period}</p>
