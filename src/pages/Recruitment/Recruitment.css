@@ -1,5 +1,107 @@
 /* Recruitment CSS */
 
+/* Recruitment.css */
+
+/* 페이지 상단 헤더 여백 */
+.hr-page-header {
+  margin-bottom: 80px; /* 타이틀과 첫 번째 카드 사이의 간격을 띄움 */
+}
+
+.hr-content-container {
+  padding-bottom: 100px; /* 마지막 카드 아래쪽 여백 */
+}
+
+/* 카드 래퍼 - 카드와 카드 사이의 여백 설정 */
+.hr-card-wrapper {
+  margin-bottom: 60px; /* 기존보다 20px~40px 정도 더 띄움 */
+  padding: 0 20px;
+}
+
+/* 흰색 배경 카드 기본 레이아웃 */
+.hr-white-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  transition: transform 0.3s ease;
+}
+
+.hr-white-card:hover {
+  transform: translateY(-5px); /* 마우스 올렸을 때 미세하게 반응 */
+}
+
+/* 좌측 타이틀 영역 */
+.hr-card-side {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fcfcfc;
+  border-right: 1px solid #f5f5f5;
+}
+
+.title-deco-line {
+  width: 30px;
+  height: 4px;
+  background: #63b155;
+  margin-bottom: 20px;
+}
+
+.card-side-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #1b3a5c;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.card-side-sub {
+  font-size: 0.9rem;
+  color: #999;
+  font-weight: 500;
+}
+
+/* 우측 이미지 콘텐츠 영역 */
+.hr-card-content {
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+
+.hr-system-img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* 모바일 대응 */
+@media (max-width: 900px) {
+  .hr-page-header {
+    margin-bottom: 40px;
+  }
+  .hr-white-card {
+    grid-template-columns: 1fr;
+  }
+  .hr-card-side {
+    padding: 40px 20px;
+    border-right: none;
+    border-bottom: 1px solid #f5f5f5;
+  }
+  .hr-card-content {
+    padding: 30px 20px;
+  }
+}
+
 /* ── Talent Banner ── */
 .talent-img-banner {
   position: relative;
@@ -1365,6 +1467,161 @@
 
 
 /* ── [인사제도] 레이아웃 전면 수정 ── */
+/* Recruitment.css */
+
+.hr-section-wrapper {
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+/* 핵심: 전체를 감싸는 흰색 카드 */
+.hr-white-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 260px 1fr; /* 좌측 제목, 우측 콘텐츠 */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+}
+
+/* 좌측 타이틀 영역 */
+.hr-card-side {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #fcfcfc;
+  border-right: 1px solid #f5f5f5;
+}
+
+.title-deco-line {
+  width: 30px;
+  height: 4px;
+  background: #63b155;
+  margin-bottom: 20px;
+}
+
+.core-values-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #1b3a5c;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+
+.core-values-sub {
+  font-size: 0.85rem;
+  color: #999;
+  letter-spacing: -0.5px;
+}
+
+/* 우측 콘텐츠 영역 */
+.hr-card-content {
+  padding: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 인재상 4분할 디자인 (이미지 완벽 재현) */
+.ideals-quad-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 2px;
+  background: #ddd; /* 선 두께 */
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  border: 1px solid #ddd;
+}
+
+.quad-item {
+  background: #4a5a71; /* 이미지의 어두운 배경 */
+  padding: 40px 30px;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.quad-item strong { display: block; font-size: 1.1rem; margin-bottom: 8px; }
+.quad-item p { font-size: 0.85rem; opacity: 0.7; word-break: keep-all; line-height: 1.4; margin-bottom: 15px; }
+
+.quad-icon {
+  width: 44px; height: 44px;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0.9;
+}
+
+.quad-center-circle {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 76px; height: 76px;
+  background: #000;
+  border: 6px solid #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 5;
+}
+
+/* 수식 레이아웃 정중앙 정렬 */
+.formula-flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  max-width: 800px;
+}
+
+.unit-icon-box {
+  width: 80px; height: 80px;
+  background: #f8f9fa;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #63b155;
+  margin-bottom: 15px;
+}
+
+.formula-sep { color: #63b155; opacity: 0.5; }
+.formula-sep-equal { background: #63b155; color: #fff; padding: 6px; border-radius: 4px; }
+
+.result-info-box {
+  padding: 25px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  min-width: 280px;
+}
+
+.result-tag { font-weight: 800; font-size: 14px; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; color: #333; }
+.result-info-box ul { list-style: none; padding: 0; }
+.result-info-box li { font-size: 13px; color: #666; margin-bottom: 6px; line-height: 1.5; }
+
+/* 보상제도 동그라미 */
+.reward-circle, .reward-circle-active {
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.5rem; font-weight: 900;
+  margin-bottom: 12px;
+}
+.reward-circle { border: 3px solid #eee; color: #63b155; }
+.reward-circle-active { background: #63b155; color: #fff; }
+
+@media (max-width: 900px) {
+  .hr-white-card { grid-template-columns: 1fr; }
+  .formula-flex-row { flex-direction: column; gap: 30px; }
+}
+
 
 .hr-system-container {
   max-width: 1200px;
