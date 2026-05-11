@@ -85,6 +85,37 @@ export default function Header() {
     setActiveMenu(null);
   };
 
+  const isMobileViewport = () => (
+    typeof window !== 'undefined'
+    && window.matchMedia('(max-width: 1024px)').matches
+  );
+
+  const toggleMobileMenu = () => {
+    setMobileOpen((open) => {
+      const nextOpen = !open;
+      if (!nextOpen) setActiveMenu(null);
+      return nextOpen;
+    });
+  };
+
+  const handleTopLinkClick = (event, item, idx) => {
+    if (item.sub.length > 0 && isMobileViewport()) {
+      event.preventDefault();
+      setActiveMenu((current) => (current === idx ? null : idx));
+      return;
+    }
+
+    closeMobileMenu();
+  };
+
+  const handleMenuEnter = (idx) => {
+    if (!isMobileViewport()) setActiveMenu(idx);
+  };
+
+  const handleMenuLeave = () => {
+    if (!isMobileViewport()) setActiveMenu(null);
+  };
+
   const headerClass = `header ${scrolled || !isHome ? 'header-solid' : 'header-transparent'}`;
 
   return (
@@ -100,19 +131,20 @@ export default function Header() {
           </div>
         </Link>
 
-        <nav className="header-nav" data-open={mobileOpen}>
+        <nav className="header-nav" data-open={mobileOpen ? 'true' : 'false'}>
           <ul className="nav-list">
             {NAV_ITEMS.map((item, idx) => (
               <li
                 key={idx}
                 className={`nav-item ${activeMenu === idx ? 'active' : ''}`}
-                onMouseEnter={() => setActiveMenu(idx)}
-                onMouseLeave={() => setActiveMenu(null)}
+                onMouseEnter={() => handleMenuEnter(idx)}
+                onMouseLeave={handleMenuLeave}
               >
                 <Link
                   to={item.sub.length > 0 ? item.sub[0].path : item.path}
                   className="nav-link"
-                  onClick={closeMobileMenu}
+                  onClick={(event) => handleTopLinkClick(event, item, idx)}
+                  aria-expanded={item.sub.length > 0 ? activeMenu === idx : undefined}
                 >
                   {item.title}
                 </Link>
@@ -139,8 +171,10 @@ export default function Header() {
 
         <button 
           className={`header-hamburger ${mobileOpen ? 'open' : ''}`}
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="메뉴 열기"
+          type="button"
+          onClick={toggleMobileMenu}
+          aria-label={mobileOpen ? '메뉴 닫기' : '메뉴 열기'}
+          aria-expanded={mobileOpen}
         >
           <span></span>
           <span></span>

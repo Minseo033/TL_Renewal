@@ -121,9 +121,11 @@ export default function Certifications() {
       {selectedImg && (
         <div className="cert-modal-overlay" onClick={() => setSelectedImg(null)}>
           <div className="cert-modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="modal-close-btn" onClick={() => setSelectedImg(null)}><X size={35} /></button>
-            <div className="modal-body">
-              <img src={selectedImg} alt="Original" />
+            <button className="cert-modal-close-btn" onClick={() => setSelectedImg(null)} aria-label="원본 이미지 닫기">
+              <X size={35} />
+            </button>
+            <div className="cert-modal-body">
+              <img className="cert-modal-image" src={selectedImg} alt="인증서 원본" />
             </div>
           </div>
         </div>
