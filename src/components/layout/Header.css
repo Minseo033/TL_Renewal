@@ -74,8 +74,8 @@
 }
 
 .logo-name {
-  font-size: 20px;
-  font-weight: 700;
+  font-size: 22px;
+  font-weight: 800;
   color: var(--color-brand);
   letter-spacing: -0.5px;
 }
@@ -100,9 +100,9 @@
 
 .nav-link {
   display: block;
-  padding: 10px 18px;
-  font-size: 15px;
-  font-weight: 500;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 600;
   color: var(--color-text);
   transition: color var(--transition-fast);
   white-space: nowrap;
@@ -145,7 +145,7 @@
 .nav-dropdown-link {
   display: block;
   padding: 10px 20px;
-  font-size: 14px;
+  font-size: 15px;
   color: var(--color-text-light);
   transition: all var(--transition-fast);
 }

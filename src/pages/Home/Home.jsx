@@ -64,6 +64,8 @@ const TRUST_METRICS = [
   { label: '매출액', value: '840억', note: '2025년' },
 ];
 
+const HOME_COMPANY_FILM_URL = 'https://www.youtube.com/embed/5Z3fGjtwe4Y';
+
 const pickDisplayItems = (items, ids, limit) => {
   const selected = ids
     .map((id) => items.find((item) => item.id === id))
@@ -400,9 +402,13 @@ export default function Home() {
           </AnimatedSection>
           <AnimatedSection delay={100}>
             <div className="media-panel">
-              <video controls autoPlay muted loop playsInline preload="auto">
-                <source src="./assets/videos/intro.mp4" type="video/mp4" />
-              </video>
+              <iframe
+                className="media-video-frame"
+                src={HOME_COMPANY_FILM_URL}
+                title="태일씨앤티 기업 홍보 영상"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
               <div className="media-summary">
                 <strong>태일씨앤티 기업 소개</strong>
                 <p>철근콘크리트 전문 시공 현장과 품질·안전을 향한 태일씨앤티의 기준을 영상으로 확인해 보세요.</p>

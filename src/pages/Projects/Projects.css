@@ -7,17 +7,28 @@
 }
 
 .order-stat-card {
-  background: var(--gradient-dark);
+  position: relative;
+  overflow: hidden;
+  background: #fff;
   border-radius: var(--radius-xl);
   padding: 30px 20px;
   text-align: center;
-  color: #fff;
-  box-shadow: var(--shadow-lg);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-card);
+}
+
+.order-stat-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-brand));
 }
 
 .order-stat-label {
   font-size: 13px;
-  opacity: 0.7;
+  color: var(--color-text-light);
   margin-bottom: 12px;
   line-height: 1.4;
   word-break: keep-all;
@@ -26,13 +37,14 @@
 .order-stat-value {
   font-size: 2.5rem;
   font-weight: 900;
-  color: var(--color-accent);
+  color: var(--color-primary);
   margin-bottom: 6px;
 }
 
 .order-stat-sub {
   font-size: 12px;
-  opacity: 0.5;
+  color: var(--color-text-light);
+  font-weight: 600;
 }
 
 .project-category-subtitle {
@@ -295,23 +307,25 @@
   flex-direction: column;
 }
 
-.modal-close-btn {
+.project-modal-content .modal-close-btn {
   position: absolute;
   top: 20px;
   right: 20px;
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(0,0,0,0.05);
+  background: rgba(255, 255, 255, 0.92);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-main);
-  z-index: 10;
+  color: var(--color-primary);
+  z-index: 30;
+  border: 1px solid rgba(13, 27, 42, 0.12);
+  box-shadow: 0 10px 24px rgba(13, 27, 42, 0.14);
   transition: all 0.2s ease;
 }
 
-.modal-close-btn:hover {
+.project-modal-content .modal-close-btn:hover {
   background: var(--color-primary);
   color: white;
   transform: rotate(90deg);

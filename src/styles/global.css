@@ -2,6 +2,14 @@
    태일씨앤티 Global Design System
    ======================================== */
 
+@font-face {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+  src: url("../assets/fonts/PretendardVariable.woff2") format("woff2-variations");
+}
+
 /* ---- CSS Variables ---- */
 :root {
   /* Primary Colors */
@@ -45,7 +53,7 @@
   --shadow-card-hover: 0 8px 30px rgba(0,0,0,0.12);
   
   /* Typography */
-  --font-primary: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
+  --font-primary: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", "맑은 고딕", sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
