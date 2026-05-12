@@ -31,14 +31,6 @@ const NAV_ITEMS = [
     ],
   },
   {
-    title: '기술자료',
-    path: '/technology',
-    sub: [
-      { title: '기술자료 안내', path: '/technology/overview' },
-      { title: '기술자료 News', path: '/technology/news' },
-    ],
-  },
-  {
     title: '홍보센터',
     path: '/pr',
     sub: [
