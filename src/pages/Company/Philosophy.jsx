@@ -83,11 +83,11 @@ export default function Philosophy() {
               <div>
                 <span className="vision-label">{item.label}</span>
                 {item.isSlogan ? (
-                  <img 
-                    src={sloganImg} 
-                    alt="하나된 태일! 혁신적인 태일! 백년대계 태일!" 
+                  <img
+                    src={sloganImg}
+                    alt="하나된 태일! 혁신적인 태일! 백년대계 태일!"
                     className="vision-slogan-img"
-                    style={{ display: 'block', maxWidth: '280px', height: 'auto', marginTop: '10px' }} 
+                    style={{ display: 'block', width: '100%', maxWidth: '280px', height: 'auto', marginTop: '10px' }}
                   />
                 ) : (
                   <p className="vision-value">{item.value}</p>
