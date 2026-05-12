@@ -985,9 +985,12 @@
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 560px;
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
     height: auto;
-    padding: 108px 0 56px;
+    align-items: center;
+    padding: calc(var(--header-height) + 48px) 0 max(64px, env(safe-area-inset-bottom));
   }
 
   .hero-title {
