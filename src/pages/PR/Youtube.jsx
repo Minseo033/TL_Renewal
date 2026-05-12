@@ -56,7 +56,6 @@ export default function Youtube() {
                     </span>
                   </div>
                   <div className="yt-card-info">
-                    <span className="yt-year-badge sm">YouTube</span>
                     <h3>{video.title}</h3>
                     <p>{video.description}</p>
                   </div>
