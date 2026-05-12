@@ -715,6 +715,36 @@
   justify-content: center;
   padding: 30px;
   background: var(--gradient-dark);
+
+/* Category dashboard progress-bar styling */
+.category-dashboard .category-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.category-dashboard .category-bar-row > div {
+  flex: 1 1 auto;
+  background: #eee;
+  height: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.category-dashboard .category-bar-row i {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #0b6cff 0%, #6fb1ff 100%);
+  border-radius: 8px;
+}
+
+.category-dashboard .category-bar-row i {
+  will-change: width;
+}
+.category-dashboard .category-bar-row strong {
+  color: var(--color-primary);
+  min-width: 36px;
+  text-align: right;
+}
   color: #fff;
   border-radius: var(--radius-md);
 }

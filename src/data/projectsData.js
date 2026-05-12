@@ -681,7 +681,7 @@ export const RECENT_PROJECTS = [
     "image": "./assets/images/projects/project_52.jpg",
     "type": "공동주택, 오피스텔, 오피스, 판매시설",
     "address": "서울 영등포구 여의도동 30",
-    "client": "",
+    "client": "GS건설(주)",
     "partner": "GS건설(주)",
     "scale": "지하 6층 ~ 지상 49층 연면적 246,370M2 (약 74,527평)",
     "period": "2018.08.08~2018.11.27",
