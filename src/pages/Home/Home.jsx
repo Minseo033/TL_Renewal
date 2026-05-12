@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // useState 추가
+import React, { useState, useEffect, useRef } from 'react'; // useState 추가
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -94,6 +94,115 @@ const TOP_PARTNERS = Array.from(
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedNews, setSelectedNews] = useState(null);
+  const [animateBars, setAnimateBars] = useState(false);
+  const categoryRef = useRef(null);
+  const [trustCounts, setTrustCounts] = useState(TRUST_METRICS.map(() => 0));
+  const [countValues, setCountValues] = useState(CATEGORY_DASHBOARD.map(() => 0));
+
+  useEffect(() => {
+    const el = categoryRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setAnimateBars(true);
+            obs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
+  // Trust metrics count-up (fast)
+  useEffect(() => {
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+    const handles = TRUST_METRICS.map((metric, idx) => {
+      const raw = String(metric.value || '');
+      const numStr = raw.replace(/[^0-9]/g, '');
+      const target = numStr ? parseInt(numStr, 10) : 0;
+      if (!target) return { timeoutId: null, rafId: null };
+
+      const duration = 150; // fastest
+      const delay = idx * 15;
+      let rafId = null;
+      let startTime = null;
+
+      const start = () => {
+        const step = (now) => {
+          if (!startTime) startTime = now;
+          const elapsed = now - startTime;
+          const progress = Math.min(1, elapsed / duration);
+          const eased = easeOutCubic(progress);
+          const value = Math.max(1, Math.round(target * eased));
+          setTrustCounts((prev) => {
+            const next = [...prev];
+            next[idx] = value;
+            return next;
+          });
+          if (progress < 1) rafId = requestAnimationFrame(step);
+        };
+        rafId = requestAnimationFrame(step);
+      };
+
+      const timeoutId = setTimeout(start, delay);
+      return { timeoutId, rafIdRef: () => rafId };
+    });
+
+    return () => {
+      handles.forEach((h) => {
+        if (h.timeoutId) clearTimeout(h.timeoutId);
+        const id = h.rafIdRef && h.rafIdRef();
+        if (id) cancelAnimationFrame(id);
+      });
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!animateBars) return;
+
+    const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+    const handles = CATEGORY_DASHBOARD.map((item, idx) => {
+      const target = item.count || 0;
+      const delay = idx * 140;
+      const duration = 1200; // ms
+
+      let rafId = null;
+      let startTime = null;
+
+      const start = () => {
+        const step = (now) => {
+          if (!startTime) startTime = now;
+          const elapsed = now - startTime;
+          const progress = Math.min(1, elapsed / duration);
+          const eased = easeOutCubic(progress);
+          const value = Math.round(target * eased);
+          setCountValues((prev) => {
+            const next = [...prev];
+            next[idx] = value;
+            return next;
+          });
+          if (progress < 1) rafId = requestAnimationFrame(step);
+        };
+        rafId = requestAnimationFrame(step);
+      };
+
+      const t = setTimeout(start, delay);
+      return { rafIdRef: () => rafId, timeoutId: t };
+    });
+
+    return () => {
+      handles.forEach((h) => {
+        clearTimeout(h.timeoutId);
+        const id = h.rafIdRef && h.rafIdRef();
+        if (id) cancelAnimationFrame(id);
+      });
+    };
+  }, [animateBars]);
 
   return (
     <div className="home">
@@ -123,11 +232,16 @@ export default function Home() {
       <section className="trust-metric-strip" aria-label="태일씨앤티 주요 지표">
         <div className="container">
           <div className="trust-metric-grid">
-            {TRUST_METRICS.map((metric) => (
-              <div className="trust-metric-item" key={metric.label}>
-                <span>{metric.label}</span><strong>{metric.value}</strong><p>{metric.note}</p>
-              </div>
-            ))}
+            {TRUST_METRICS.map((metric, idx) => {
+              const raw = String(metric.value || '');
+              const suffix = raw.replace(/[0-9,]/g, '').trim();
+              const display = typeof trustCounts[idx] === 'number' ? `${trustCounts[idx]}${suffix}` : metric.value;
+              return (
+                <div className="trust-metric-item" key={metric.label}>
+                  <span>{metric.label}</span><strong>{display}</strong><p>{metric.note}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -176,12 +290,23 @@ export default function Home() {
           <div className="portfolio-dashboard-grid">
             <AnimatedSection className="category-dashboard" direction="up">
               <div className="dashboard-card-head"><BarChart3 size={20} /><strong>공사 유형별 등록 실적</strong></div>
-              <div className="category-bars">
-                {CATEGORY_DASHBOARD.map((item) => (
+              <div className="category-bars" ref={categoryRef}>
+                {CATEGORY_DASHBOARD.map((item, idx) => (
                   <Link to={item.path} className="category-bar-row" key={item.label}>
                     <span>{item.label}</span>
-                    <div><i style={{ width: `${Math.max(12, (item.count / MAX_CATEGORY_COUNT) * 100)}%` }} /></div>
-                    <strong>{item.count}</strong>
+                    <div>
+                      <i
+                        style={{
+                          width: animateBars
+                            ? item.count
+                              ? `${Math.max(12, (item.count / MAX_CATEGORY_COUNT) * 100)}%`
+                              : '0%'
+                            : '0%',
+                          transition: `width 1200ms cubic-bezier(0.2,0.8,0.2,1) ${idx * 140}ms`,
+                        }}
+                      />
+                    </div>
+                    <strong>{typeof countValues[idx] === 'number' ? countValues[idx] : item.count}</strong>
                   </Link>
                 ))}
               </div>

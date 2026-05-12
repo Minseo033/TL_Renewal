@@ -399,6 +399,32 @@
   box-shadow: var(--shadow-card);
 }
 
+/* Vision section responsive fixes */
+.vision-section .vision-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+.vision-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.vision-item .vision-icon { flex: 0 0 36px; color: var(--color-primary); }
+.vision-item div { min-width: 0; }
+.vision-slogan-img {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin-top: 10px;
+}
+
+@media (max-width: 480px) {
+  .vision-item { gap: 8px; }
+  .vision-slogan-img { max-width: 220px; }
+}
+
 .organization-card span {
   color: var(--color-brand);
   font-size: 13px;

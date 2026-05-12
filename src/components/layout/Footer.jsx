@@ -9,6 +9,13 @@ import './Footer.css';
 export default function Footer() {
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [isEmailOpen, setIsEmailOpen] = useState(false);
+  const [isFamilySitesOpen, setIsFamilySitesOpen] = useState(false);
+
+  const FAMILY_SITES = [
+    { name: '태일 인트라넷', url: 'http://intranet.taeilcnt.co.kr/grp/index.jsp' },
+    { name: '태일 NAS', url: 'http://mail.taeilcnt.co.kr:5000/#/signin' },
+    { name: '태일 원격지원', url: 'http://210.126.2.139:8080/' }
+  ];
 
   const privacyArticles = [
     "제1조. 개인정보의 처리 목적", "제2조. 개인정보의 처리 및 보유 기간",
@@ -27,13 +34,8 @@ export default function Footer() {
         <div className="footer-top-layout">
           <div className="brand-side">
             <div className="logo-group">
-              <svg viewBox="0 0 40 40" className="footer-logo-svg">
-                <rect x="2" y="20" width="10" height="18" rx="1" fill="#3AA65C"/>
-                <rect x="15" y="12" width="10" height="26" rx="1" fill="#3AA65C"/>
-                <rect x="28" y="4" width="10" height="34" rx="1" fill="#4A90D9"/>
-                <rect x="2" y="2" width="36" height="4" rx="1" fill="#C9A84C"/>
-              </svg>
-              <span className="brand-title">(주)태일씨앤티</span>
+              <img src="./assets/images/logo/logo-circle.png" alt="태일씨앤티 로고" className="footer-logo" />
+              <span className="brand-title">(주) 태일씨앤티</span>
             </div>
             <div className="slogan-area">
               <p>오늘의 안전은 어제로부터, 내일의 안전은 오늘로부터!</p>
@@ -56,6 +58,22 @@ export default function Footer() {
                 <span>FAX. 02-2101-2141</span>
               </div>
             </div>
+            <button 
+              className="family-site-btn"
+              onClick={() => setIsFamilySitesOpen(!isFamilySitesOpen)}
+            >
+              FAMILY SITE
+              <span className={`family-arrow ${isFamilySitesOpen ? 'open' : ''}`}>▲</span>
+            </button>
+            {isFamilySitesOpen && (
+              <div className="family-sites-box">
+                {FAMILY_SITES.map((site, index) => (
+                  <a key={index} href={site.url} target="_blank" rel="noopener noreferrer" className="family-site-link">
+                    {site.name}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
@@ -82,7 +100,7 @@ export default function Footer() {
             </div>
             <div className="modal-body-content privacy-vertical-layout">
               <div className="privacy-intro-top">
-                주)태일씨앤티는 개인정보 보호법 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리지침을 수립·공개합니다.
+                (주) 태일씨앤티는 개인정보 보호법 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리지침을 수립·공개합니다.
               </div>
               <div className="privacy-list-bottom">
                 <ul className="article-ul">
