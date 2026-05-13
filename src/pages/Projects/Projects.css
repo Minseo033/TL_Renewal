@@ -39,6 +39,7 @@
   font-weight: 900;
   color: var(--color-primary);
   margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
 }
 
 .order-stat-sub {

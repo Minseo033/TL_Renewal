@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
 import { RECENT_PROJECTS } from '../../data/projectsData';
@@ -52,7 +52,7 @@ export default function ProjectOrders() {
           <AnimatedSection key={i} delay={i * 80} direction="up">
             <div className="order-stat-card">
               <p className="order-stat-label">{s.label}</p>
-              <p className="order-stat-value">{s.value}</p>
+              <CountUpStat value={s.value} delay={i * 180} />
               <p className="order-stat-sub">{s.sub}</p>
             </div>
           </AnimatedSection>
@@ -139,6 +139,67 @@ export default function ProjectOrders() {
         </div>
       )}
     </PageLayout>
+  );
+}
+
+function CountUpStat({ value, delay = 0 }) {
+  const parsedValue = useMemo(() => {
+    const match = String(value).match(/^([\d,]+)(.*)$/);
+    if (!match) return null;
+
+    return {
+      target: Number(match[1].replace(/,/g, '')),
+      suffix: match[2] || '',
+    };
+  }, [value]);
+
+  const [displayValue, setDisplayValue] = useState(0);
+
+  useEffect(() => {
+    if (!parsedValue) {
+      return undefined;
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let frameId;
+    let timeoutId;
+    const duration = 2000;
+
+    timeoutId = window.setTimeout(() => {
+      if (prefersReducedMotion) {
+        setDisplayValue(parsedValue.target);
+        return;
+      }
+
+      const startedAt = performance.now();
+
+      const animate = (now) => {
+        const progress = Math.min((now - startedAt) / duration, 1);
+        const easedProgress = 1 - Math.pow(1 - progress, 3);
+        setDisplayValue(Math.round(parsedValue.target * easedProgress));
+
+        if (progress < 1) {
+          frameId = window.requestAnimationFrame(animate);
+        }
+      };
+
+      frameId = window.requestAnimationFrame(animate);
+    }, delay);
+
+    return () => {
+      window.clearTimeout(timeoutId);
+      if (frameId) window.cancelAnimationFrame(frameId);
+    };
+  }, [delay, parsedValue, value]);
+
+  if (!parsedValue) {
+    return <p className="order-stat-value">{value}</p>;
+  }
+
+  return (
+    <p className="order-stat-value">
+      {Number(displayValue).toLocaleString('ko-KR')}{parsedValue.suffix}
+    </p>
   );
 }
 

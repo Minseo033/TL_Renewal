@@ -252,6 +252,7 @@
   font-size: 1.75rem;
   font-weight: 900;
   line-height: 1.1;
+  font-variant-numeric: tabular-nums;
 }
 
 .trust-metric-item p {

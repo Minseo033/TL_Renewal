@@ -96,10 +96,30 @@ const TOP_PARTNERS = Array.from(
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedNews, setSelectedNews] = useState(null);
+  const [animateTrustMetrics, setAnimateTrustMetrics] = useState(false);
   const [animateBars, setAnimateBars] = useState(false);
+  const trustMetricRef = useRef(null);
   const categoryRef = useRef(null);
   const [trustCounts, setTrustCounts] = useState(TRUST_METRICS.map(() => 0));
   const [countValues, setCountValues] = useState(CATEGORY_DASHBOARD.map(() => 0));
+
+  useEffect(() => {
+    const el = trustMetricRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setAnimateTrustMetrics(true);
+            obs.disconnect();
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   useEffect(() => {
     const el = categoryRef.current;
@@ -119,8 +139,10 @@ export default function Home() {
     return () => obs.disconnect();
   }, []);
 
-  // Trust metrics count-up (fast)
+  // Trust metrics count-up
   useEffect(() => {
+    if (!animateTrustMetrics) return;
+
     const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
     const handles = TRUST_METRICS.map((metric, idx) => {
       const raw = String(metric.value || '');
@@ -128,8 +150,8 @@ export default function Home() {
       const target = numStr ? parseInt(numStr, 10) : 0;
       if (!target) return { timeoutId: null, rafId: null };
 
-      const duration = 150; // fastest
-      const delay = idx * 15;
+      const duration = 2000;
+      const delay = idx * 180;
       let rafId = null;
       let startTime = null;
 
@@ -161,7 +183,7 @@ export default function Home() {
         if (id) cancelAnimationFrame(id);
       });
     };
-  }, []);
+  }, [animateTrustMetrics]);
 
   useEffect(() => {
     if (!animateBars) return;
@@ -231,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* 2. TRUST STRIP (유지) */}
-      <section className="trust-metric-strip" aria-label="태일씨앤티 주요 지표">
+      <section className="trust-metric-strip" aria-label="태일씨앤티 주요 지표" ref={trustMetricRef}>
         <div className="container">
           <div className="trust-metric-grid">
             {TRUST_METRICS.map((metric, idx) => {
