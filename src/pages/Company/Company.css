@@ -401,8 +401,8 @@
 
 /* Vision section responsive fixes */
 .vision-section .vision-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 18px;
 }
 .vision-item {
@@ -447,27 +447,39 @@
 
 /* ── Philosophy ── */
 .philosophy-hero {
+  position: relative;
+  overflow: hidden;
   text-align: center;
   padding: 40px;
-  background: var(--gradient-dark);
+  background: #fff;
+  border: 1px solid rgba(27, 58, 92, 0.14);
   border-radius: var(--radius-2xl);
   margin-bottom: 48px;
+  box-shadow: 0 18px 42px rgba(13, 27, 42, 0.08);
+}
+
+.philosophy-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-brand));
 }
 
 .philosophy-hero-inner .section-eyebrow {
-  color: var(--color-accent);
+  color: var(--color-brand);
 }
 
 .philosophy-main-title {
   font-size: 3rem;
   font-weight: 900;
-  color: #fff;
+  color: var(--color-primary);
   margin-bottom: 16px;
 }
 
 .philosophy-main-desc {
   font-size: 16px;
-  color: rgba(255,255,255,0.7);
+  color: var(--color-text-light);
   word-break: keep-all;
 }
 

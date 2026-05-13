@@ -1,0 +1,168 @@
+.recording-guide {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 3000;
+  width: min(520px, calc(100vw - 32px));
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(27, 58, 92, 0.14);
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(13, 27, 42, 0.22);
+  backdrop-filter: blur(14px);
+}
+
+.recording-guide-progress {
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-brand), var(--color-primary));
+  transition: width 0.25s ease;
+}
+
+.recording-guide-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px 10px;
+}
+
+.recording-guide-head span {
+  display: block;
+  color: var(--color-brand);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+}
+
+.recording-guide-head strong {
+  display: block;
+  margin-top: 2px;
+  color: var(--color-primary);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.recording-guide-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.recording-guide-actions button,
+.recording-guide-floating,
+.recording-guide-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid rgba(27, 58, 92, 0.12);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--color-primary);
+  font-size: 12px;
+  font-weight: 800;
+  transition: transform 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.recording-guide-actions button {
+  min-width: 32px;
+  height: 32px;
+  padding: 0 10px;
+}
+
+.recording-guide-actions button:hover,
+.recording-guide-floating:hover,
+.recording-guide-nav-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: #f4f8f6;
+  box-shadow: 0 8px 18px rgba(13, 27, 42, 0.12);
+}
+
+.recording-guide-body {
+  padding: 0 18px 14px;
+}
+
+.recording-guide-title {
+  color: var(--color-primary);
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.recording-guide-script {
+  margin-top: 8px;
+  color: var(--color-text-light);
+  font-size: 14px;
+  line-height: 1.72;
+  word-break: keep-all;
+}
+
+.recording-guide-hint {
+  margin-top: 10px;
+  color: var(--color-text-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.recording-guide-nav {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 8px;
+  padding: 12px 18px 18px;
+  border-top: 1px solid rgba(27, 58, 92, 0.08);
+}
+
+.recording-guide-nav-btn {
+  height: 40px;
+}
+
+.recording-guide-nav-btn.primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.recording-guide-nav-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.recording-guide-floating {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 3000;
+  height: 40px;
+  padding: 0 14px;
+  box-shadow: 0 14px 36px rgba(13, 27, 42, 0.18);
+}
+
+.recording-guide.is-collapsed {
+  width: min(360px, calc(100vw - 32px));
+}
+
+.recording-guide.is-collapsed .recording-guide-head {
+  padding-bottom: 12px;
+}
+
+@media (max-width: 640px) {
+  .recording-guide,
+  .recording-guide-floating {
+    right: 12px;
+    bottom: 12px;
+  }
+
+  .recording-guide {
+    width: calc(100vw - 24px);
+  }
+
+  .recording-guide-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .recording-guide-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

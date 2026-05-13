@@ -1331,20 +1331,22 @@
 }
 
 .faq-contact-inner {
-  background: var(--gradient-dark);
+  background: #fff;
+  border: 1px solid rgba(27, 58, 92, 0.12);
+  border-top: 4px solid var(--color-brand);
   border-radius: var(--radius-xl);
-  /* increase top padding so content sits lower inside the panel */
   padding: 48px 32px 36px;
   display: flex;
   align-items: center;
   gap: 16px;
-  color: #fff;
+  color: var(--color-primary);
   font-size: 36px;
+  box-shadow: 0 18px 42px rgba(13, 27, 42, 0.08);
 }
 
 .faq-contact-inner > div p {
   font-size: 14px;
-  opacity: 0.7;
+  color: var(--color-text-light);
   margin-bottom: 4px;
 }
 
@@ -2027,4 +2029,3 @@
   .flow-operator { transform: rotate(90deg); }
   .system-card-panel { padding: 40px 20px; }
 }
-
