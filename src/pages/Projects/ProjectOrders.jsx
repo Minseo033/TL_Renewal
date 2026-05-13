@@ -160,17 +160,11 @@ function CountUpStat({ value, delay = 0 }) {
       return undefined;
     }
 
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let frameId;
     let timeoutId;
     const duration = 2000;
 
     timeoutId = window.setTimeout(() => {
-      if (prefersReducedMotion) {
-        setDisplayValue(parsedValue.target);
-        return;
-      }
-
       const startedAt = performance.now();
 
       const animate = (now) => {
