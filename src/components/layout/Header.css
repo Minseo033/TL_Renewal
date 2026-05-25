@@ -190,6 +190,10 @@
   transform: rotate(45deg) translate(5px, 5px);
 }
 
+.header-hamburger.open span {
+  background: var(--color-primary) !important;
+}
+
 .header-hamburger.open span:nth-child(2) {
   opacity: 0;
 }

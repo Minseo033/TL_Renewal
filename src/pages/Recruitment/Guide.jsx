@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
-import { ChevronRight, Target, Lightbulb, TrendingUp } from 'lucide-react';
+import { ChevronDown, ChevronRight, Target, Lightbulb, TrendingUp } from 'lucide-react';
 import './Recruitment.css';
 
 const SUB_NAV = [
@@ -180,7 +180,10 @@ export default function Guide() {
                   </div>
                 </div>
                 {idx < OPEN_PROCESS.length - 1 && (
-                  <ChevronRight className="process-arrow" size={24} />
+                  <span className="process-arrow" aria-hidden="true">
+                    <ChevronRight className="process-arrow-horizontal" size={24} />
+                    <ChevronDown className="process-arrow-vertical" size={24} />
+                  </span>
                 )}
               </React.Fragment>
             ))}

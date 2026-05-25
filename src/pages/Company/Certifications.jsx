@@ -53,8 +53,20 @@ export default function Certifications() {
   const [selectedImg, setSelectedImg] = useState(null);
 
   useEffect(() => {
-    if (selectedImg) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = 'unset';
+    if (!selectedImg) return undefined;
+
+    const { overflow, paddingRight } = document.body.style;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+
+    return () => {
+      document.body.style.overflow = overflow;
+      document.body.style.paddingRight = paddingRight;
+    };
   }, [selectedImg]);
 
   const renderCard = (data) => (

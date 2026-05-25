@@ -970,9 +970,18 @@
 
 .process-arrow {
   color: var(--color-brand);
-  font-size: 20px;
-  font-weight: bold;
-  padding: 0 10px;
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(46, 139, 74, 0.1);
+  border: 1px solid rgba(46, 139, 74, 0.2);
+}
+
+.process-arrow-vertical {
+  display: none;
 }
 
 .tip-box {
@@ -1588,10 +1597,14 @@
     border-radius: 16px !important;
   }
 
-  /* 모바일 세로 1줄 배치 시 가로 화살표 아이콘은 시각적 가독성을 저해하므로 완전히 가림 처리 */
   .process-arrow {
-    display: none !important;
+    display: inline-grid !important;
+    align-self: center !important;
+    transform: none !important;
   }
+
+  .process-arrow-horizontal { display: none !important; }
+  .process-arrow-vertical { display: block !important; }
 
   /* 직무소개 모바일 탭 메뉴화 */
   .job-explorer-container {

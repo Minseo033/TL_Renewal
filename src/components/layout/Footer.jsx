@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { PiPhoneCall } from "react-icons/pi";
 import { IoLocationOutline } from "react-icons/io5";
@@ -10,6 +10,23 @@ export default function Footer() {
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
   const [isEmailOpen, setIsEmailOpen] = useState(false);
   const [isFamilySitesOpen, setIsFamilySitesOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isPrivacyOpen && !isEmailOpen) return undefined;
+
+    const { overflow, paddingRight } = document.body.style;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+
+    return () => {
+      document.body.style.overflow = overflow;
+      document.body.style.paddingRight = paddingRight;
+    };
+  }, [isPrivacyOpen, isEmailOpen]);
 
   const FAMILY_SITES = [
     { name: '태일 인트라넷', url: 'http://intranet.taeilcnt.co.kr/grp/index.jsp' },
