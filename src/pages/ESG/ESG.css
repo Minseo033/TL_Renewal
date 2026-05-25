@@ -185,7 +185,7 @@
   .esg-overview { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
   .esg-items-grid { grid-template-columns: 1fr; }
   .esg-hero-img {
-    max-height: none;
+    max-height: 360px;
     width: 100%;
   }
 }

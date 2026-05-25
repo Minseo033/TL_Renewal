@@ -33,6 +33,23 @@ export default function ProjectOrders() {
 
   const closeModal = () => setSelectedProject(null);
 
+  useEffect(() => {
+    if (!selectedProject) return undefined;
+
+    const { overflow, paddingRight } = document.body.style;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+
+    return () => {
+      document.body.style.overflow = overflow;
+      document.body.style.paddingRight = paddingRight;
+    };
+  }, [selectedProject]);
+
   return (
     <PageLayout
       title="사업실적"
@@ -59,7 +76,7 @@ export default function ProjectOrders() {
         ))}
       </div>
 
-      <div className="projects-grid">
+      <div className="projects-grid project-orders-grid">
         {RECENT_PROJECTS.slice(0, visibleCount).map((project, i) => (
           <AnimatedSection key={`${project.id}-${i}`} delay={(i % 12) * 50} direction="up">
             <div className="project-card" onClick={() => setSelectedProject(project)}>
