@@ -12,32 +12,34 @@ const SUB_NAV = [
   { label: '찾아오시는 길', path: '/company/location' },
 ];
 
+const PARTNER_IMAGE_PATH = './assets/images/company/partners/';
+
 const PARTNERS = [
-  { name: '삼성물산', note: '공사 수주 이력', url: 'https://www.secc.co.kr' },
-  { name: '삼성엔지니어링', note: '공사 수주 이력', url: 'https://www.samsungengineering.com' },
-  { name: '현대건설', note: '공사 수주 이력', url: 'https://www.hdec.kr/' },
-  { name: '현대엔지니어링', note: '공사 수주 이력', url: 'https://www.hec.co.kr' },
-  { name: 'GS건설', note: '공사 수주 이력', url: 'https://www.gsenc.com' },
-  { name: '대우건설', note: '공사 수주 이력', url: 'https://www.daewooenc.com' },
-  { name: 'DL이앤씨 / DL건설', note: '공사 수주 이력', url: 'https://www.dlenc.co.kr' },
-  { name: 'HDC 현대산업개발', note: '공사 수주 이력', url: 'https://hdc-dvp.com/' },
-  { name: 'SK에코플랜트', note: '공사 수주 이력', url: 'https://www.skecoplant.com' },
-  { name: '한라 / HL 디앤아이한라', note: '공사 수주 이력', url: 'https://www.hldni.com' },
-  { name: 'KCC건설', note: '공사 수주 이력', url: 'https://www.kccworld.co.kr' },
-  { name: 'CJ대한통운 / CJ건설', note: '공사 수주 이력', url: 'https://www.cjenc.co.kr' },
-  { name: '신세계건설', note: '공사 수주 이력', url: 'https://www.shinsegae-con.co.kr' },
-  { name: '삼성중공업', note: '공사 수주 이력', url: 'https://www.samsungshi.com' },
-  { name: '포스코 A&C', note: '공사 수주 이력', url: 'https://www.poscoanc.com/' },
-  { name: '두산건설', note: '공사 수주 이력', url: 'https://www.doosanenc.com/kr/' },
-  { name: '동부건설', note: '공사 수주 이력', url: 'https://dbcon.dongbu.co.kr/' },
-  { name: '한양', note: '공사 수주 이력', url: 'https://www.hycorp.co.kr/' },
-  { name: 'HJ중공업 (구 한진중공업)', note: '공사 수주 이력', url: 'https://www.hjsc.co.kr/' },
-  { name: '고려개발', note: '공사 수주 이력', url: 'https://www.dlenc.co.kr/' }, // 현재 DL건설로 통합
-  { name: '현대아산', note: '공사 수주 이력', url: 'https://www.hdasan.com/' },
-  { name: '벽산엔지니어링', note: '공사 수주 이력', url: 'http://www.bseng.co.kr/' },
-  { name: 'SM(주) 우방', note: '공사 수주 이력', url: 'https://wbjd.woobang.co.kr/' },
-  { name: 'KT engcore', note: '공사 수주 이력', url: 'https://www.ktengcore.com/' },
-  { name: '슈프림종합건설', note: '공사 수주 이력', url: 'http://www.supremecc.co.kr/' },
+  { name: '삼성물산', note: '공사 수주 이력', url: 'http://www.samsungcnt.com/index.do', image: 'partner_01.jpg' },
+  { name: '삼성엔지니어링', note: '공사 수주 이력', url: 'http://www.samsungengineering.co.kr/kor/index', image: 'partner_02.jpg' },
+  { name: 'Halla', note: '공사 수주 이력', url: 'http://www.halla.co.kr/', image: 'partner_03.jpg' },
+  { name: 'GS 건설', note: '공사 수주 이력', url: 'http://www.gsenc.com/', image: 'partner_04.jpg' },
+  { name: '현대엔지니어링', note: '공사 수주 이력', url: 'https://www.hec.co.kr/main.asp', image: 'partner_05.jpg' },
+  { name: '현대건설', note: '공사 수주 이력', url: 'http://www.hdec.kr/', image: 'partner_06.jpg' },
+  { name: '대우건설', note: '공사 수주 이력', url: 'http://www.daewooenc.com/', image: 'partner_07.jpg' },
+  { name: 'CJ건설', note: '공사 수주 이력', url: 'http://www.cjenc.co.kr/kr/Default.asp', image: 'partner_08.jpg' },
+  { name: '고려개발', note: '공사 수주 이력', url: 'https://www.kdc.co.kr', image: 'partner_09.jpg' },
+  { name: '동부건설', note: '공사 수주 이력', url: 'https://dbcon.dongbu.co.kr', image: 'partner_10.jpg' },
+  { name: 'KT engcore', note: '공사 수주 이력', url: 'https://www.ktengcore.com/', image: 'partner_11.jpg' },
+  { name: '슈프림종합건설(주)', note: '공사 수주 이력', url: 'http://www.supremecc.co.kr/', image: 'partner_12.jpg' },
+  { name: 'KCC건설', note: '공사 수주 이력', url: 'https://www.kccworld.net', image: 'partner_13.jpg' },
+  { name: '현대아산', note: '공사 수주 이력', url: 'http://www.hdasan.com', image: 'partner_14.jpg' },
+  { name: '한진중공업', note: '공사 수주 이력', url: 'http://www.hanjinsc.com/', image: 'partner_15.jpg' },
+  { name: '포스코', note: '공사 수주 이력', url: 'http://www.posco.co.kr', image: 'partner_16.jpg' },
+  { name: '두산건설', note: '공사 수주 이력', url: 'http://www.doosanenc.com/kr/', image: 'partner_17.jpg' },
+  { name: 'SM(주)우방', note: '공사 수주 이력', url: 'http://wbjd.woobang.co.kr/', image: 'partner_18.jpg' },
+  { name: 'SK건설', note: '공사 수주 이력', url: 'http://www.skec.co.kr/', image: 'partner_19.jpg' },
+  { name: '벽산엔지니어링', note: '공사 수주 이력', url: 'http://bseng2.doffgen.com/', image: 'partner_20.jpg' },
+  { name: '신세계건설', note: '공사 수주 이력', url: 'https://www.shinsegae-enc.com', image: 'partner_21.jpg' },
+  { name: '한양', note: '공사 수주 이력', url: 'http://www.hycorp.co.kr/', image: 'partner_22.jpg' },
+  { name: '현대산업개발', note: '공사 수주 이력', url: 'https://hdc-dvp.com/', image: 'partner_23.jpg' },
+  { name: 'CJ대한통운', note: '공사 수주 이력', url: 'http://bseng2.doffgen.com/', image: 'partner_24.jpg' },
+  { name: 'SK에코플랜트', note: '공사 수주 이력', url: 'https://www.shinsegae-enc.com', image: 'partner_25.jpg' },
 ];
 
 export default function Partners() {
@@ -64,9 +66,13 @@ export default function Partners() {
               rel="noopener noreferrer" 
               className="partner-card-page"
             >
-              <div className="partner-tier">{p.note}</div>
-              <div className="partner-name">{p.name}</div>
-              <div className="partner-link-hint">홈페이지 방문 →</div>
+              <div className="partner-logo-frame">
+                <img
+                  src={`${PARTNER_IMAGE_PATH}${p.image}`}
+                  alt={`${p.name} 로고`}
+                  className="partner-logo-image"
+                />
+              </div>
             </a>
           </AnimatedSection>
         ))}
