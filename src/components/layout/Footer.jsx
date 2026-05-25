@@ -96,7 +96,7 @@ export default function Footer() {
           <div className="modal-panel-window" onClick={e => e.stopPropagation()}>
             <div className="modal-head">
               <h3>개인정보 처리방침</h3>
-              <button className="modal-close-x" onClick={() => setIsPrivacyOpen(false)}><X size={24} /></button>
+              <button className="modal-close-x" onClick={() => setIsPrivacyOpen(false)} aria-label="개인정보 처리방침 닫기"><X size={24} /></button>
             </div>
             <div className="modal-body-content privacy-vertical-layout">
               <div className="privacy-intro-top">
@@ -120,7 +120,7 @@ export default function Footer() {
           <div className="modal-panel-window email-mini-size" onClick={e => e.stopPropagation()}>
             <div className="modal-head">
               <h3>이메일 무단수집 거부</h3>
-              <button className="modal-close-x" onClick={() => setIsEmailOpen(false)}><X size={24} /></button>
+              <button className="modal-close-x" onClick={() => setIsEmailOpen(false)} aria-label="이메일 무단수집 거부 닫기"><X size={24} /></button>
             </div>
             <div className="modal-body-content email-vertical-layout">
               <div className="email-main-text">

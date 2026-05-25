@@ -121,7 +121,7 @@ export default function ProjectCategory({ category }) {
       {selectedProject && (
         <div className="project-modal-overlay" onClick={closeModal}>
           <div className="project-modal-content" onClick={e => e.stopPropagation()}>
-            <button className="modal-close-btn" onClick={closeModal}>
+            <button className="modal-close-btn" onClick={closeModal} aria-label="프로젝트 상세 닫기">
               <X size={24} />
             </button>
             <div className="modal-body">

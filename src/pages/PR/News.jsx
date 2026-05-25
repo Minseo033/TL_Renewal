@@ -218,7 +218,7 @@ export default function News() {
               exit="exit"
               onClick={e => e.stopPropagation()}
             >
-              <button className="news-modal-close" onClick={closeModal}>
+              <button className="news-modal-close" onClick={closeModal} aria-label="뉴스 상세 닫기">
                 <X size={20} />
               </button>
 

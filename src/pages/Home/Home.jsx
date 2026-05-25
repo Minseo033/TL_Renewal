@@ -491,7 +491,7 @@ export default function Home() {
       {selectedProject && (
         <div className="project-modal-overlay" onClick={() => setSelectedProject(null)}>
           <div className="project-modal-content" onClick={e => e.stopPropagation()}>
-            <button className="modal-close-btn" onClick={() => setSelectedProject(null)}>
+            <button className="modal-close-btn" onClick={() => setSelectedProject(null)} aria-label="프로젝트 상세 닫기">
               <X size={24} />
             </button>
             <div className="modal-body">
@@ -529,7 +529,7 @@ export default function Home() {
       {selectedNews && (
         <div className="home-modal-overlay" onClick={() => setSelectedNews(null)}>
           <div className="home-modal-window" onClick={e => e.stopPropagation()}>
-            <button className="home-modal-close" onClick={() => setSelectedNews(null)}><X size={32} /></button>
+            <button className="home-modal-close" onClick={() => setSelectedNews(null)} aria-label="뉴스 상세 닫기"><X size={32} /></button>
             <div className="home-modal-body">
               <img src={selectedNews.image} alt={selectedNews.title} className="modal-hero-img" />
               <div className="modal-content-wrap">

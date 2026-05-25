@@ -2,7 +2,6 @@ import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/ui/ScrollToTop';
-import RecordingGuide from './components/ui/RecordingGuide';
 
 // Pages
 import Home from './pages/Home/Home';
@@ -81,7 +80,6 @@ export default function App() {
         <Route path="/admin" element={<Admin />} />
       </Routes>
       <Footer />
-      <RecordingGuide />
     </HashRouter>
   );
 }
