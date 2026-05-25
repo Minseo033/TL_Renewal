@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'; // useState 추가
+import React, { useState, useEffect, useRef } from 'react'; 
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -102,6 +102,36 @@ export default function Home() {
   const categoryRef = useRef(null);
   const [trustCounts, setTrustCounts] = useState(TRUST_METRICS.map(() => 0));
   const [countValues, setCountValues] = useState(CATEGORY_DASHBOARD.map(() => 0));
+
+  // ★ 수정: 끊김 현상 해결을 위해 게이지 바 직접 제어용 Ref 선언 (State 제거)
+  const progressRef = useRef(null);
+
+  // ★ 수정: 브라우저 주사율에 맞춰 부드럽게 연산하는 최적화 이펙트
+  useEffect(() => {
+    let ticking = false;
+
+    const updateProgress = () => {
+      if (!progressRef.current) return;
+      
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      
+      // DOM 엘리먼트의 스타일에 직접 주입하여 렌더링 부하 제거
+      progressRef.current.style.width = `${scrollPercent}%`;
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const el = trustMetricRef.current;
@@ -230,6 +260,23 @@ export default function Home() {
 
   return (
     <div className="home">
+      {/* ★ 수정: Ref 연결 및 최적화 트랜지션 효과 적용 */}
+      <div 
+        className="scroll-progress-bar" 
+        ref={progressRef}
+        style={{ 
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '0%', /* 자바스크립트가 실시간 제어하므로 초기값 0% 고정 */
+          height: '4px',
+          backgroundColor: '#2E8B4A', 
+          zIndex: 99999,
+          transition: 'width 0.08s cubic-bezier(0.1, 0.8, 0.3, 1)', /* 완벽하게 끈적이고 부드러운 가속도 추가 */
+          willChange: 'width' /* 브라우저 하드웨어 가속 유도 */
+        }} 
+      />
+
       {/* 1. HERO (유지) */}
       <section className="hero renewal-hero">
         <div className="hero-bg">
@@ -240,7 +287,6 @@ export default function Home() {
         </div>
         <div className="hero-content renewal-hero-content">
           <div className="hero-copy">
-            <span className="hero-badge">REINFORCED CONCRETE SPECIALIST</span>
             <h1 className="hero-title">철근콘크리트로 대한민국의<br/> 골조를 세웁니다</h1>
             <p className="hero-subtitle">태일씨앤티는 30년 현장 경험과 품질·안전 실행력으로 대형 건설 프로젝트의 구조체 공사를 책임지는 전문 건설회사입니다.</p>
             <div className="hero-actions">

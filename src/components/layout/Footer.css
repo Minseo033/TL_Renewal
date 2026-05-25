@@ -46,7 +46,7 @@
 .contact-side {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-end; /* PC에서는 우측 정렬 유지 */
   gap: 12px;
   position: relative;
   overflow: visible;
@@ -169,6 +169,7 @@
   color: #333;
   margin-bottom: 40px;
   word-break: keep-all;
+  text-align: left;
 }
 
 .email-footer-line {
@@ -223,18 +224,23 @@
 
 .family-sites-box {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
   margin-top: 8px;
   background: #0d1621;
   border: 1px solid #3AA65C;
   border-radius: 4px;
   padding: 8px;
   width: fit-content;
-  min-width: 150px;
+  min-width: 200px;
   position: absolute;
   top: 100%;
+  
+  /* 💡 [수정] 웹(PC) 환경에서는 FAMILY SITE 버튼 우측 기준 정렬로 롤백 */
   right: 0;
+  left: auto;
+  
   z-index: 100;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
@@ -253,10 +259,83 @@
   background: rgba(58, 166, 92, 0.1);
 }
 
-/* Responsive */
+/* Responsive (모바일 푸터 슬림화 & 모달 좌우 여백 최적화) */
 @media (max-width: 900px) {
-  .footer-top-layout { flex-direction: column; gap: 35px; }
-  .contact-side { align-items: flex-start; }
-  .contact-numbers { flex-direction: column; gap: 10px; }
-  .privacy-vertical-layout, .email-vertical-layout { padding: 25px; }
+  /* --- 푸터 레이아웃 모바일 최적화 --- */
+  .footer-container { 
+    padding: 35px 0 25px; 
+  }
+
+  .footer-top-layout { 
+    flex-direction: column; 
+    gap: 20px; 
+    margin-bottom: 20px; 
+  }
+
+  .logo-group {
+    margin-bottom: 12px;
+  }
+  
+  /* 모바일에서는 정렬 베이스가 좌측 정렬(flex-start)로 변경됨 */
+  .contact-side { 
+    align-items: flex-start; 
+    gap: 8px; 
+  }
+  
+  .contact-numbers { 
+    flex-direction: column; 
+    gap: 6px; 
+  }
+
+  .footer-line-divider {
+    margin-bottom: 15px;
+  }
+
+  .footer-bottom-layout {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px; 
+  }
+
+  .policy-nav {
+    gap: 15px; 
+  }
+
+  /* 💡 [추가 핵심] 모바일 환경에서만 박스를 왼쪽 정렬(left: 0)로 변경 */
+  .family-sites-box {
+    left: 0;
+    right: auto;
+  }
+
+  /* --- 모바일 모달 창 여백 및 마진 최적화 --- */
+  .modal-panel-window {
+    width: calc(100% - 40px); 
+    margin: 0 20px;           
+    max-height: 85vh;         
+  }
+
+  .modal-head {
+    padding: 15px 25px;       
+  }
+
+  .privacy-vertical-layout { 
+    padding: 25px; 
+    gap: 20px;
+    max-height: 60vh;         
+  }
+
+  .privacy-intro-top {
+    padding: 15px;            
+    font-size: 0.9rem;
+  }
+
+  .email-vertical-layout { 
+    padding: 35px 20px;       
+  }
+
+  .email-main-text {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    text-align: left;
+  }
 }

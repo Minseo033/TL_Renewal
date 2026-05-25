@@ -52,8 +52,11 @@ export default function Philosophy() {
       <AnimatedSection className="philosophy-hero" style={{ position: 'relative', overflow: 'hidden' }}>
         <div className="philosophy-hero-inner" style={{ position:'relative', zIndex:1 }}>
           <p className="section-eyebrow">OUR PHILOSOPHY</p>
-          <h2 className="philosophy-main-title">책임완수 · 근면성실 · 인화단결</h2>
-          <p className="philosophy-main-desc">
+          {/* 👇 이 부분에 style={{ wordBreak: 'keep-all' }} 이 추가되었습니다! */}
+          <h2 className="philosophy-main-title" style={{ wordBreak: 'keep-all' }}>
+            책임완수 · 근면성실 · 인화단결
+          </h2>
+          <p className="philosophy-main-desc" style={{ wordBreak: 'keep-all' }}>
             태일씨앤티는 사훈과 태일인 DNA를 바탕으로 고객과 협력사에 신뢰를 제공합니다.
           </p>
         </div>
