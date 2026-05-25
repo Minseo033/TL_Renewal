@@ -35,6 +35,23 @@ export default function ProjectCategory({ category }) {
     window.scrollTo(0, 0);
   }, [category]);
 
+  useEffect(() => {
+    if (!selectedProject) return undefined;
+
+    const { overflow, paddingRight } = document.body.style;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = 'hidden';
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    }
+
+    return () => {
+      document.body.style.overflow = overflow;
+      document.body.style.paddingRight = paddingRight;
+    };
+  }, [selectedProject]);
+
   return (
     <PageLayout
       title="사업실적"
@@ -49,7 +66,7 @@ export default function ProjectCategory({ category }) {
         </p>
       </AnimatedSection>
 
-      <div className="projects-grid">
+      <div className="projects-grid project-category-grid">
         {filteredProjects.slice(0, visibleCount).map((project, i) => (
           <AnimatedSection key={`${project.id}-${category}-${i}`} delay={(i % 6) * 50} direction="up">
             <div className="project-card" onClick={() => setSelectedProject(project)}>

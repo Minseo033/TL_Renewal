@@ -280,4 +280,7 @@
   .news-page-date { order: -1; width: 100%; }
   .yt-grid { grid-template-columns: 1fr; }
   .yt-card-info { padding: 16px; }
+  .yt-channel-cta { padding: 24px 18px; gap: 20px; }
+  .yt-channel-cta h3 { font-size: 1.15rem; }
+  .yt-channel-link--cta { padding: 12px; }
 }

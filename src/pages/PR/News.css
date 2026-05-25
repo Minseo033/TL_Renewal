@@ -447,5 +447,12 @@
 @media (max-width: 600px) {
   .news-grid { grid-template-columns: 1fr; }
   .news-swiper { height: 260px; }
+  .news-slide-content { padding: 24px 22px; }
+  .news-slide-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
   .news-slide-meta .news-read-more { display: none; }
 }
