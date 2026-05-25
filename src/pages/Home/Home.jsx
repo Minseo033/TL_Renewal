@@ -15,9 +15,11 @@ import {
   X,
 } from 'lucide-react';
 import AnimatedSection from '../../components/ui/AnimatedSection';
+import NewsModal from '../../components/ui/NewsModal';
 import { RECENT_PROJECTS } from '../../data/projectsData';
 import { NEWS_DATA } from '../../data/newsData';
 import { HOME_DISPLAY } from '../../data/homeDisplayData';
+import { FALLBACK_NEWS_IMAGE, cleanText, getNewsCoverImage } from '../../utils/newsUtils';
 import './Home.css';
 import '../Projects/Projects.css';
 
@@ -65,17 +67,6 @@ const TRUST_METRICS = [
 ];
 
 const HOME_COMPANY_FILM_URL = 'https://www.youtube.com/embed/5Z3fGjtwe4Y';
-const FALLBACK_NEWS_IMAGE = './assets/images/company/greeting.jpg';
-
-const cleanText = (value = '') => value
-  .replace(/&lsquo;|&rsquo;/g, "'")
-  .replace(/&ldquo;|&rdquo;/g, '"')
-  .replace(/&amp;/g, '&')
-  .replace(/\.?더보기$/g, '')
-  .replace(/202년/g, '2025년')
-  .trim();
-
-const getNewsCoverImage = (item) => item?.image || item?.images?.[0] || FALLBACK_NEWS_IMAGE;
 
 const pickDisplayItems = (items, ids, limit) => {
   const selected = ids
@@ -116,16 +107,9 @@ export default function Home() {
 
   // ★ 수정: 끊김 현상 해결을 위해 게이지 바 직접 제어용 Ref 선언 (State 제거)
   const progressRef = useRef(null);
-  const selectedNewsCover = getNewsCoverImage(selectedNews);
-  const selectedNewsGallery = selectedNews
-    ? [...new Set(selectedNews.images || [])].filter((image) => image && image !== selectedNewsCover)
-    : [];
-  const selectedNewsParagraphs = selectedNews
-    ? cleanText(selectedNews.content).split('\n').filter((paragraph) => paragraph.trim())
-    : [];
 
   useEffect(() => {
-    if (!selectedProject && !selectedNews) return undefined;
+    if (!selectedProject) return undefined;
 
     const { overflow, paddingRight } = document.body.style;
     const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
@@ -139,7 +123,7 @@ export default function Home() {
       document.body.style.overflow = overflow;
       document.body.style.paddingRight = paddingRight;
     };
-  }, [selectedProject, selectedNews]);
+  }, [selectedProject]);
 
   // ★ 수정: 브라우저 주사율에 맞춰 부드럽게 연산하는 최적화 이펙트
   useEffect(() => {
@@ -567,50 +551,7 @@ export default function Home() {
         </div>
       )}
 
-      {selectedNews && (
-        <div className="home-modal-overlay" onClick={() => setSelectedNews(null)}>
-          <div className="home-modal-window" onClick={e => e.stopPropagation()}>
-            <button className="home-modal-close" onClick={() => setSelectedNews(null)} aria-label="뉴스 상세 닫기"><X size={32} /></button>
-            <div className="home-modal-body">
-              <img
-                src={selectedNewsCover}
-                alt={cleanText(selectedNews.title)}
-                className="modal-hero-img"
-                onError={(event) => {
-                  event.currentTarget.src = FALLBACK_NEWS_IMAGE;
-                }}
-              />
-              <div className="modal-content-wrap">
-                <span className="modal-top-tag">{selectedNews.category}</span>
-                <span className="modal-date-tag">{selectedNews.date}</span>
-                <h2 className="modal-main-title">{cleanText(selectedNews.title)}</h2>
-                <div className="modal-news-text">
-                  {selectedNewsParagraphs.length > 0
-                    ? selectedNewsParagraphs.map((paragraph, index) => (
-                      <p key={index}>{cleanText(paragraph)}</p>
-                    ))
-                    : <p>태일씨앤티의 다양한 소식과 활동을 전해드립니다.</p>}
-                </div>
-                {selectedNewsGallery.length > 0 && (
-                  <div className="home-modal-gallery">
-                    {selectedNewsGallery.map((image, index) => (
-                      <figure key={`${image}-${index}`}>
-                        <img
-                          src={image}
-                          alt={`${cleanText(selectedNews.title)} 관련 이미지 ${index + 1}`}
-                          onError={(event) => {
-                            event.currentTarget.closest('figure').style.display = 'none';
-                          }}
-                        />
-                      </figure>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <NewsModal news={selectedNews} onClose={() => setSelectedNews(null)} />
     </div>
   );
 }

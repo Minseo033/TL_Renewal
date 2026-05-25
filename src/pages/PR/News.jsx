@@ -1,11 +1,12 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
-import { motion, AnimatePresence } from 'framer-motion';
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
+import NewsModal from '../../components/ui/NewsModal';
 import { NEWS_DATA } from '../../data/newsData';
-import { Calendar, ArrowRight, X, Plus, ChevronRight } from 'lucide-react';
+import { Calendar, ArrowRight, Plus, ChevronRight } from 'lucide-react';
+import { FALLBACK_NEWS_IMAGE, cleanText, getNewsCoverImage } from '../../utils/newsUtils';
 
 // Swiper CSS
 import 'swiper/css';
@@ -14,83 +15,17 @@ import 'swiper/css/effect-fade';
 
 import './News.css';
 
-const MotionDiv = motion.div;
-const MotionP = motion.p;
-
 const SUB_NAV = [
   { label: 'News', path: '/pr/news' },
   { label: '유튜브', path: '/pr/youtube' },
 ];
 
-const FALLBACK_IMG = './assets/images/company/greeting.jpg';
 const FEATURED_COUNT = 3;
 const GRID_PAGE_SIZE = 6;
-
-const cleanText = (value = '') => value
-  .replace(/&lsquo;|&rsquo;/g, "'")
-  .replace(/&ldquo;|&rdquo;/g, '"')
-  .replace(/&amp;/g, '&')
-  .replace(/\.?더보기$/g, '')
-  .replace(/202년/g, '2025년')
-  .trim();
-
-// Framer Motion variants
-const overlayVariants = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.3 } },
-  exit: { opacity: 0, transition: { duration: 0.25 } },
-};
-
-const modalVariants = {
-  hidden: { opacity: 0, y: 60, scale: 0.97 },
-  visible: {
-    opacity: 1, y: 0, scale: 1,
-    transition: { type: 'spring', stiffness: 300, damping: 30 },
-  },
-  exit: { opacity: 0, y: 40, scale: 0.97, transition: { duration: 0.2 } },
-};
-
-const contentStagger = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.06, delayChildren: 0.15 },
-  },
-};
-
-const paraVariants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 200, damping: 25 } },
-};
 
 export default function News() {
   const [visibleGridCount, setVisibleGridCount] = useState(GRID_PAGE_SIZE);
   const [selectedNews, setSelectedNews] = useState(null);
-  const modalBodyRef = useRef(null);
-
-  // Scroll modal content to top when opening a new article
-  useEffect(() => {
-    if (selectedNews && modalBodyRef.current) {
-      modalBodyRef.current.scrollTop = 0;
-    }
-  }, [selectedNews]);
-
-  useEffect(() => {
-    if (!selectedNews) return undefined;
-
-    const { overflow, paddingRight } = document.body.style;
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-
-    document.body.style.overflow = 'hidden';
-    if (scrollbarWidth > 0) {
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-    }
-
-    return () => {
-      document.body.style.overflow = overflow;
-      document.body.style.paddingRight = paddingRight;
-    };
-  }, [selectedNews]);
 
   const featured = NEWS_DATA.slice(0, Math.min(FEATURED_COUNT, NEWS_DATA.length));
   const gridStart = featured.length;
@@ -101,13 +36,6 @@ export default function News() {
   };
 
   const closeModal = () => setSelectedNews(null);
-
-  const paragraphs = selectedNews
-    ? cleanText(selectedNews.content).split('\n').filter(p => p.trim())
-    : [];
-  const galleryImages = selectedNews
-    ? [...new Set(selectedNews.images || [])].filter(image => image && image !== selectedNews.image)
-    : [];
 
   return (
     <PageLayout
@@ -138,10 +66,10 @@ export default function News() {
               <SwiperSlide key={item.id}>
                 <div className="news-slide" onClick={() => setSelectedNews(item)}>
                   <img
-                    src={item.image || FALLBACK_IMG}
+                    src={getNewsCoverImage(item)}
                     alt={cleanText(item.title)}
                     className="news-slide-img"
-                    onError={e => { e.target.src = FALLBACK_IMG; }}
+                    onError={e => { e.currentTarget.src = FALLBACK_NEWS_IMAGE; }}
                   />
                   <div className="news-slide-gradient" />
                   <div className="news-slide-content">
@@ -169,9 +97,9 @@ export default function News() {
               <article className="news-card" onClick={() => setSelectedNews(item)}>
                 <div className="news-card-image">
                   <img
-                    src={item.image || FALLBACK_IMG}
+                    src={getNewsCoverImage(item)}
                     alt={cleanText(item.title)}
-                    onError={e => { e.target.src = FALLBACK_IMG; }}
+                    onError={e => { e.currentTarget.src = FALLBACK_NEWS_IMAGE; }}
                   />
                   {item.category && (
                     <span className="news-tag news-tag--over">{item.category}</span>
@@ -199,83 +127,7 @@ export default function News() {
         </div>
       )}
 
-      {/* ── Detail Modal (Framer Motion) ── */}
-      <AnimatePresence>
-        {selectedNews && (
-          <MotionDiv
-            className="news-modal-overlay"
-            variants={overlayVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            onClick={closeModal}
-          >
-            <MotionDiv
-              className="news-modal"
-              variants={modalVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              onClick={e => e.stopPropagation()}
-            >
-              <button className="news-modal-close" onClick={closeModal} aria-label="뉴스 상세 닫기">
-                <X size={20} />
-              </button>
-
-              {/* Hero */}
-              <div className="news-modal-hero">
-                <img
-                  src={selectedNews.image || FALLBACK_IMG}
-                  alt={cleanText(selectedNews.title)}
-                  onError={e => { e.target.src = FALLBACK_IMG; }}
-                />
-                <div className="news-modal-hero-gradient" />
-                <div className="news-modal-hero-text">
-                  {selectedNews.category && (
-                    <span className="news-tag news-tag--white">{selectedNews.category}</span>
-                  )}
-                  <h2 className="news-modal-title">{cleanText(selectedNews.title)}</h2>
-                  <time className="news-modal-date">
-                    <Calendar size={14} />{selectedNews.date}
-                  </time>
-                </div>
-              </div>
-
-              {/* Body with stagger animation */}
-              <MotionDiv
-                ref={modalBodyRef}
-                className="news-modal-content"
-                variants={contentStagger}
-                initial="hidden"
-                animate="visible"
-              >
-                {/* Lead paragraph — first one is bigger */}
-                {paragraphs.length > 0 && (
-                  <MotionP className="news-modal-lead" variants={paraVariants}>
-                    {cleanText(paragraphs[0])}
-                  </MotionP>
-                )}
-                {paragraphs.slice(1).map((para, i) => (
-                  <MotionP key={i} variants={paraVariants}>{cleanText(para)}</MotionP>
-                ))}
-                {galleryImages.length > 0 && (
-                  <MotionDiv className="news-modal-gallery" variants={paraVariants}>
-                    {galleryImages.map((image, i) => (
-                      <figure className="news-modal-gallery-item" key={`${image}-${i}`}>
-                        <img
-                          src={image}
-                          alt={`${cleanText(selectedNews.title)} 현장 사진 ${i + 1}`}
-                          onError={e => { e.currentTarget.closest('figure').style.display = 'none'; }}
-                        />
-                      </figure>
-                    ))}
-                  </MotionDiv>
-                )}
-              </MotionDiv>
-            </MotionDiv>
-          </MotionDiv>
-        )}
-      </AnimatePresence>
+      <NewsModal news={selectedNews} onClose={closeModal} />
     </PageLayout>
   );
 }
