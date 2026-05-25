@@ -1,10 +1,8 @@
-/* Company Pages Shared CSS */
-/* 테스트 */
 /* Company.css */
 
 .license-table-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2열 구성으로 카드를 넓게 써서 표 공간 확보 */
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
@@ -117,7 +115,7 @@
 }
 
 @media (max-width: 1024px) {
-  .license-table-grid { grid-template-columns: 1fr; }
+  .license-table-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* Company.css */
@@ -202,9 +200,11 @@
 .modal-close-btn { position: absolute; top: -50px; right: 0; background: none; border: none; color: #fff; cursor: pointer; }
 
 @media (max-width: 768px) {
-  .cert-table-grid { grid-template-columns: 1fr; }
+  .cert-table-grid { grid-template-columns: repeat(2, 1fr); }
   .cert-table-card { flex-direction: column; }
+  .license-table-card { flex-direction: column; }
   .card-info-side { border-right: none; border-bottom: 1px dashed var(--color-border-light); }
+  .card-left { border-right: none; border-bottom: 1px dashed var(--color-border-light); }
 }
 
 
@@ -348,8 +348,6 @@
   margin: 0 auto;
 }
 
-/* quote-mark removed - decorative quotes handled in markup removed */
-
 .ceo-values {
   display: flex;
   gap: 10px;
@@ -399,19 +397,50 @@
   box-shadow: var(--shadow-card);
 }
 
-/* Vision section responsive fixes */
+/* ── Vision Section ── */
+.vision-section {
+  background: var(--color-bg);
+  border-radius: var(--radius-2xl);
+  padding: 24px 20px;
+  box-sizing: border-box;
+}
+
+.vision-section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 16px;
+}
+
 .vision-section .vision-grid {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 12px;
+  width: 100%;
 }
+
 .vision-item {
   display: flex;
-  gap: 12px;
   align-items: flex-start;
+  gap: 16px;
+  padding: 24px;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  width: 100%;
+  box-sizing: border-box;
 }
-.vision-item .vision-icon { flex: 0 0 36px; color: var(--color-primary); }
-.vision-item div { min-width: 0; }
+
+.vision-item .vision-icon {
+  flex: 0 0 36px;
+  color: var(--color-primary);
+}
+
+.vision-item div {
+  min-width: 0;
+  flex: 1;
+}
+
 .vision-slogan-img {
   display: block;
   width: 100%;
@@ -420,8 +449,13 @@
   margin-top: 10px;
 }
 
+@media (max-width: 768px) {
+  .vision-section { padding: 20px 16px; }
+  .vision-item { gap: 12px; padding: 18px; }
+}
+
 @media (max-width: 480px) {
-  .vision-item { gap: 8px; }
+  .vision-item { gap: 10px; padding: 14px; }
   .vision-slogan-img { max-width: 220px; }
 }
 
@@ -475,6 +509,7 @@
   font-weight: 900;
   color: var(--color-primary);
   margin-bottom: 16px;
+  word-break: keep-all;
 }
 
 .philosophy-main-desc {
@@ -547,36 +582,6 @@
   word-break: keep-all;
 }
 
-/* Vision */
-.vision-section {
-  background: var(--color-bg);
-  border-radius: var(--radius-2xl);
-  padding: 40px;
-}
-
-.vision-section-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: 24px;
-}
-
-.vision-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.vision-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 20px;
-  background: #fff;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-}
-
 .vision-icon {
   font-size: 28px;
   flex-shrink: 0;
@@ -600,8 +605,6 @@
 }
 
 /* ── History Timeline ── */
-/* ── History Timeline (수정본 전체) ── */
-
 .history-header {
   margin-bottom: 48px;
 }
@@ -628,20 +631,20 @@
   display: grid;
   grid-template-columns: 1fr 40px 1fr;
   gap: 0;
-  align-items: start;
+  align-items: start; 
   margin-bottom: 40px;
   position: relative;
   z-index: 1;
 }
 
 /* 지그재그 배치 설정 */
-.timeline-row.left .timeline-year-wrap { order: 1; text-align: right; padding-right: 24px; }
+.timeline-row.left .timeline-year-wrap { order: 1; text-align: right; padding-right: 24px; margin-top: 0; }
 .timeline-row.left .timeline-dot { order: 2; }
-.timeline-row.left .timeline-content { order: 3; padding-left: 24px; }
+.timeline-row.left .timeline-content { order: 3; padding-left: 24px; margin-top: 0; }
 
-.timeline-row.right .timeline-year-wrap { order: 3; text-align: left; padding-left: 24px; }
+.timeline-row.right .timeline-year-wrap { order: 3; text-align: left; padding-left: 24px; margin-top: 0; }
 .timeline-row.right .timeline-dot { order: 2; }
-.timeline-row.right .timeline-content { order: 1; padding-right: 24px; text-align: right; }
+.timeline-row.right .timeline-content { order: 1; padding-right: 24px; text-align: right; margin-top: 0; }
 
 .timeline-year {
   display: inline-block;
@@ -651,7 +654,7 @@
   padding: 8px 16px;
   background: linear-gradient(135deg, rgba(27,58,92,0.08), rgba(46,139,74,0.08));
   border-radius: var(--radius-md);
-  margin-top: 6px;
+  margin-top: 0;
 }
 
 .timeline-dot {
@@ -661,7 +664,7 @@
   background: var(--color-brand);
   border: 3px solid #fff;
   box-shadow: 0 0 0 3px var(--color-brand);
-  margin: 10px auto 0;
+  margin: 14px auto 0;
   flex-shrink: 0;
 }
 
@@ -672,148 +675,96 @@
   box-shadow: var(--shadow-card);
 }
 
-/* 연혁 리스트 아이템 스타일 */
 .timeline-content ul li {
-  display: flex; /* 태그와 텍스트 정렬을 위해 flex로 변경 */
-  align-items: flex-start;
+  display: flex;
+  align-items: center;
   font-size: 14px;
   color: var(--color-text-light);
   padding: 6px 0;
   position: relative;
   word-break: keep-all;
+  gap: 16px;
 }
 
-/* 기존 불렛 점 제거 (태그가 역할을 대신함) */
 .timeline-content ul li::before {
   display: none !important;
 }
 
-/* 연혁 텍스트 스타일 */
 .history-text {
   line-height: 1.6;
   flex: 1;
 }
 
-/* ── 태그 시스템 (New) ── */
+/* ── 태그 시스템 ── */
 .history-tag {
   display: inline-block;
   font-size: 11px;
   font-weight: 800;
   padding: 2px 8px;
   border-radius: 4px;
-  margin-right: 10px;
   min-width: 42px;
   text-align: center;
   line-height: 1.4;
   flex-shrink: 0;
-  margin-top: 2px;
 }
 
-/* 태그별 색상 정의 */
+.timeline-row.right .timeline-content ul li {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.timeline-row.left .history-tag { margin-right: 0; }
+.timeline-row.right .history-tag { margin-left: 0; }
+
 .tag-order { background-color: rgba(27, 58, 92, 0.1); color: var(--color-primary); } 
 .tag-cert { background-color: rgba(46, 139, 74, 0.1); color: var(--color-brand); }   
 .tag-award { background-color: rgba(201, 168, 76, 0.1); color: #b08d2b; }           
 .tag-setup { background-color: #f0f0f0; color: #333; }                               
 .tag-hr, .tag-it, .tag-change, .tag-default { background-color: rgba(0, 0, 0, 0.05); color: #666; }
 
-/* 오른쪽 행(Right Row) 정렬 반전 */
-.timeline-row.right .timeline-content ul li {
-  flex-direction: row-reverse;
-  text-align: right;
-}
 
-.timeline-row.right .history-tag {
-  margin-right: 0;
-  margin-left: 10px;
-}
-
-/* ── 반응형 모바일 (768px 이하) ── */
 @media (max-width: 768px) {
   .timeline-line { left: 20px; }
-  .timeline-row {
-    grid-template-columns: 40px 1fr;
+  
+  .timeline-row { 
+    grid-template-columns: 40px 1fr; 
+    position: relative;
+    align-items: start;
   }
+  
   .timeline-row.left .timeline-year-wrap,
   .timeline-row.right .timeline-year-wrap {
-    order: 2; text-align: left; padding-left: 16px; padding-right: 0;
-    grid-column: 2;
+    order: 2; text-align: left; padding-left: 16px; padding-right: 0; grid-column: 2;
+    margin-top: 0;
   }
+  
   .timeline-row.left .timeline-dot,
-  .timeline-row.right .timeline-dot { order: 1; margin: 10px 0 0 1px; }
+  .timeline-row.right .timeline-dot { 
+    order: 1;
+    position: absolute;
+    left: 20px;
+    top: 24px;
+    transform: translate(-50%, -50%);
+    margin: 0;
+  }
+  
   .timeline-row.left .timeline-content,
   .timeline-row.right .timeline-content {
-    order: 3; padding-left: 16px; padding-right: 0; text-align: left;
-    grid-column: 2;
+    order: 3; padding-left: 16px; padding-right: 0; text-align: left; grid-column: 2;
+    margin-top: 10px; 
   }
-
-  /* 모바일에서는 오른쪽 행도 왼쪽 정렬로 통일 */
+  
+  .timeline-row.left .timeline-content ul li,
   .timeline-row.right .timeline-content ul li {
     flex-direction: row;
     text-align: left;
   }
-  .timeline-row.right .history-tag {
-    margin-left: 0;
-    margin-right: 10px;
-  }
+
+  .organization-grid { grid-template-columns: 1fr; }
+  .philosophy-main-title { font-size: 2rem; }
 }
 
 /* ── Partners Page ── */
-
-/* Company.css */
-
-.partners-grid-page {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 20px;
-  margin-top: 40px;
-}
-
-.partner-card-page {
-  display: block; /* a 태그를 카드 형태로 */
-  padding: 30px 24px;
-  background: #fff;
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--radius-md);
-  text-decoration: none; /* 밑줄 제거 */
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.partner-card-page:hover {
-  transform: translateY(-7px);
-  border-color: var(--color-brand);
-  box-shadow: var(--shadow-lg);
-}
-
-.partner-tier {
-  font-size: 12px;
-  color: var(--color-brand);
-  font-weight: 800;
-  margin-bottom: 8px;
-}
-
-.partner-name {
-  font-size: 1.25rem;
-  font-weight: 900;
-  color: var(--color-primary);
-  line-height: 1.4;
-  word-break: keep-all;
-}
-
-.partner-link-hint {
-  margin-top: 15px;
-  font-size: 11px;
-  color: var(--color-text-muted);
-  font-weight: 700;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.partner-card-page:hover .partner-link-hint {
-  opacity: 1;
-}
-
 .partners-grid-page {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -829,6 +780,8 @@
   box-shadow: var(--shadow-card);
   transition: all var(--transition-base);
   border: 1px solid var(--color-border-light);
+  display: block;
+  text-decoration: none;
 }
 
 .partner-card-page:hover {
@@ -850,11 +803,23 @@
   font-size: 15px;
   font-weight: 600;
   color: var(--color-primary);
+  word-break: keep-all;
+}
+
+.partner-link-hint {
+  margin-top: 15px;
+  font-size: 11px;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.partner-card-page:hover .partner-link-hint {
+  opacity: 1;
 }
 
 /* ── Certifications ── */
-/* Company.css */
-
 .cert-section-group { margin-top: 40px; }
 
 .cert-group-title {
@@ -909,6 +874,7 @@
 .modal-close-btn {
   position: absolute; top: -50px; right: 0; background: none; border: none; color: #fff; cursor: pointer;
 }
+
 .cert-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1014,22 +980,15 @@
 .map-wrap {
   width: 100%;
   height: 100%;
-  min-height: 450px; /* 지도가 최소한으로 가질 높이 */
+  min-height: 450px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
-/* 모바일 대응 */
 @media (max-width: 992px) {
-  .location-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .map-wrap {
-    height: 350px;
-    min-height: 350px;
-  }
+  .location-grid { grid-template-columns: 1fr; }
+  .map-wrap { height: 350px; min-height: 350px; }
 }
 
 .location-summary-panel {
@@ -1043,10 +1002,6 @@
     linear-gradient(135deg, rgba(13, 27, 42, 0.96), rgba(27, 58, 92, 0.86)),
     linear-gradient(45deg, rgba(46, 139, 74, 0.26), transparent 46%),
     linear-gradient(160deg, transparent 58%, rgba(201, 168, 76, 0.24));
-}
-
-/* center text horizontally as well so single-line appears perfectly centered */
-.location-summary-panel {
   align-items: center;
   text-align: center;
 }
@@ -1105,11 +1060,9 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 450px;
-  /* ensure the info card stretches to fill the grid cell height */
   height: 100%;
 }
 
-/* Make the AnimatedSection wrapper stretch so children can be 100% height */
 .location-grid .location-map,
 .location-grid .location-info {
   display: flex;
@@ -1117,7 +1070,6 @@
 }
 
 .location-grid .location-map .map-wrap {
-  /* when right card is taller, let map-wrap expand to match */
   align-self: stretch;
 }
 
@@ -1206,54 +1158,20 @@
   .philosophy-values { grid-template-columns: 1fr; }
   .partners-grid-page { grid-template-columns: repeat(3, 1fr); }
   .organization-grid { grid-template-columns: repeat(2, 1fr); }
-  .cert-grid { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
   .license-grid { grid-template-columns: repeat(2, 1fr); }
   .location-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
-  .greeting-title {
-    font-size: 1.65rem;
-  }
-
-  .greeting-body p {
-    font-size: 14px;
-    line-height: 1.75;
-  }
-
-  .timeline-line { left: 20px; }
-  .timeline-row {
-    grid-template-columns: 40px 1fr;
-  }
-  .timeline-row.left .timeline-year-wrap,
-  .timeline-row.right .timeline-year-wrap {
-    order: 2; text-align: left; padding-left: 16px; padding-right: 0;
-    grid-column: 2;
-  }
-  .timeline-row.left .timeline-dot,
-  .timeline-row.right .timeline-dot { order: 1; margin: 10px 0 0 1px; }
-  .timeline-row.left .timeline-content,
-  .timeline-row.right .timeline-content {
-    order: 3; padding-left: 16px; padding-right: 0; text-align: left;
-    grid-column: 2;
-  }
-  .timeline-row.right .timeline-content ul li {
-    padding-left: 16px; padding-right: 0;
-  }
-  .timeline-row.right .timeline-content ul li::before {
-    right: auto; left: 0;
-  }
+  .greeting-title { font-size: 1.65rem; }
+  .greeting-body p { font-size: 14px; line-height: 1.75; }
   .partners-grid-page { grid-template-columns: repeat(2, 1fr); }
-  .organization-grid { grid-template-columns: 1fr; }
-  .license-grid { grid-template-columns: 1fr; }
-  .philosophy-main-title { font-size: 2rem; }
+  .license-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 480px) {
-  .philosophy-values,
-  .partners-grid-page,
-  .cert-grid,
-  .license-grid {
+  .philosophy-values {
     display: flex;
     gap: 14px;
     overflow-x: auto;
@@ -1264,114 +1182,76 @@
     scrollbar-width: none;
   }
 
-  .philosophy-values::-webkit-scrollbar,
-  .partners-grid-page::-webkit-scrollbar,
-  .cert-grid::-webkit-scrollbar,
-  .license-grid::-webkit-scrollbar {
+  .philosophy-values::-webkit-scrollbar {
     display: none;
   }
 
-  .philosophy-values > *,
-  .partners-grid-page > *,
-  .cert-grid > *,
-  .license-grid > * {
+  .philosophy-values > * {
     flex: 0 0 82%;
     scroll-snap-align: start;
   }
 
-  .ceo-card,
-  .organization-visual {
-    border-radius: var(--radius-lg);
+  .partners-grid-page,
+  .cert-grid,
+  .license-grid,
+  .cert-grid-page,
+  .license-grid-new,
+  .cert-table-grid,
+  .license-table-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
-  .philosophy-hero {
-    padding: 28px 18px;
-    border-radius: var(--radius-lg);
+  .card-info-side, .card-table-side, .card-left, .card-right { 
+    padding: 12px; 
   }
+  .card-title-label, .lic-title-main { 
+    font-size: 14px; 
+    margin-bottom: 8px; 
+  }
+  .mini-table th, .info-mini-table th { 
+    width: 45px; 
+    font-size: 10px; 
+    padding: 3px 0; 
+  }
+  .mini-table td, .info-mini-table td { 
+    font-size: 11px; 
+    padding: 3px 0; 
+  }
+
+  .ceo-card,
+  .organization-visual { border-radius: var(--radius-lg); }
+  .philosophy-hero { padding: 28px 18px; border-radius: var(--radius-lg); }
 }
 
-/* 인증 원본 보기 모달: 다른 페이지의 공통 modal-body/grid 스타일과 분리 */
+/* 인증 원본 보기 모달 */
 .cert-modal-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 10000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px;
-  background: rgba(0, 0, 0, 0.78);
-  backdrop-filter: blur(5px);
+  position: fixed; inset: 0; z-index: 10000;
+  display: flex; align-items: center; justify-content: center;
+  padding: 32px; background: rgba(0, 0, 0, 0.78); backdrop-filter: blur(5px);
 }
 
 .cert-modal-content {
-  position: relative;
-  display: inline-flex;
-  width: auto;
-  max-width: min(94vw, 980px);
-  max-height: 90vh;
-  padding: 12px;
-  background: #fff;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-xl);
+  position: relative; display: inline-flex; width: auto;
+  max-width: min(94vw, 980px); max-height: 90vh;
+  padding: 12px; background: #fff; border-radius: var(--radius-md); box-shadow: var(--shadow-xl);
 }
 
-.cert-modal-body {
-  overflow: auto;
-  max-width: calc(94vw - 24px);
-  max-height: calc(90vh - 24px);
-  background: #fff;
-}
-
-.cert-modal-image {
-  display: block;
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: calc(90vh - 24px);
-  object-fit: contain;
-}
+.cert-modal-body { overflow: auto; max-width: calc(94vw - 24px); max-height: calc(90vh - 24px); background: #fff; }
+.cert-modal-image { display: block; width: auto; max-width: 100%; height: auto; max-height: calc(90vh - 24px); object-fit: contain; }
 
 .cert-modal-close-btn {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 0;
-  border-radius: 50%;
-  color: var(--color-primary);
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: var(--shadow-md);
-  cursor: pointer;
+  position: absolute; top: 18px; right: 18px; z-index: 1;
+  display: grid; place-items: center; width: 44px; height: 44px; border: 0;
+  border-radius: 50%; color: var(--color-primary); background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow-md); cursor: pointer;
 }
 
 @media (max-width: 640px) {
-  .cert-modal-overlay {
-    padding: 14px;
-  }
-
-  .cert-modal-content {
-    max-width: 96vw;
-    max-height: 88vh;
-    padding: 8px;
-  }
-
-  .cert-modal-body {
-    max-width: calc(96vw - 16px);
-    max-height: calc(88vh - 16px);
-  }
-
-  .cert-modal-image {
-    max-height: calc(88vh - 16px);
-  }
-
-  .cert-modal-close-btn {
-    top: 12px;
-    right: 12px;
-    width: 40px;
-    height: 40px;
-  }
+  .cert-modal-overlay { padding: 14px; }
+  .cert-modal-content { max-width: 96vw; max-height: 88vh; padding: 8px; }
+  .cert-modal-body { max-width: calc(96vw - 16px); max-height: calc(88vh - 16px); }
+  .cert-modal-image { max-height: calc(88vh - 16px); }
+  .cert-modal-close-btn { top: 12px; right: 12px; width: 40px; height: 40px; }
 }

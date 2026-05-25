@@ -101,7 +101,7 @@ export default function Jobs() {
 
           <div className="job-warning-box">
             <AlertCircle size={22} />
-            입사지원서를 허위로 작성한 경우 입사가 취소될 수 있습니다.
+            입사지원서를 허위로 작성하신 경우 입사가 취소될 수 있습니다.
           </div>
 
           <div className="job-table-wrapper">
