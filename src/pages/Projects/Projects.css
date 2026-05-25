@@ -519,7 +519,8 @@
     scroll-snap-align: start;
   }
 
-  .project-orders-grid {
+  .project-orders-grid,
+  .project-category-grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 18px;
@@ -529,7 +530,8 @@
     scroll-snap-type: none;
   }
 
-  .project-orders-grid > * {
+  .project-orders-grid > *,
+  .project-category-grid > * {
     flex: initial;
     scroll-snap-align: none;
   }

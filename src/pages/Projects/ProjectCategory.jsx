@@ -66,7 +66,7 @@ export default function ProjectCategory({ category }) {
         </p>
       </AnimatedSection>
 
-      <div className="projects-grid">
+      <div className="projects-grid project-category-grid">
         {filteredProjects.slice(0, visibleCount).map((project, i) => (
           <AnimatedSection key={`${project.id}-${category}-${i}`} delay={(i % 6) * 50} direction="up">
             <div className="project-card" onClick={() => setSelectedProject(project)}>
