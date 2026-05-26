@@ -66,9 +66,7 @@ const toList = (value) => {
 export default function Jobs() {
   const [searchTerm, setSearchTerm] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedJob, setSelectedJob] = useState(() =>
-    RECRUITMENT_JOBS.find((job) => job.status === '접수중') || RECRUITMENT_JOBS[0]
-  );
+  const [selectedJob, setSelectedJob] = useState(null);
   const itemsPerPage = 5;
 
   const filteredJobs = RECRUITMENT_JOBS.filter(job =>
@@ -80,8 +78,13 @@ export default function Jobs() {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredJobs.slice(indexOfFirstItem, indexOfLastItem);
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const selectJob = (job) => setSelectedJob(job);
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    setSelectedJob(null);
+  };
+  const selectJob = (job) => {
+    setSelectedJob((current) => (current?.id === job.id ? null : job));
+  };
 
   return (
     <PageLayout
@@ -122,6 +125,7 @@ export default function Jobs() {
                 onChange={(e) => {
                   setSearchTerm(e.target.value);
                   setCurrentPage(1);
+                  setSelectedJob(null);
                 }}
               />
             </div>
