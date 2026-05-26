@@ -23,15 +23,15 @@ const VALUES = [
     color: '#1B3A5C',
   },
   {
-    icon: <Handshake size={36} strokeWidth={1.5} />,
-    title: '인화단결',
-    desc: '상호존중 및 소통을 바탕으로 협력사와 상생합니다.',
-    color: '#2E8B4A',
-  },
-  {
     icon: <Target size={36} strokeWidth={1.5} />,
     title: '근면성실',
     desc: '성실한 자세와 꾸준한 노력으로 고객에게 최고 품질의 결과물을 제공합니다.',
+    color: '#2E8B4A',
+  },
+  {
+    icon: <Handshake size={36} strokeWidth={1.5} />,
+    title: '인화단결',
+    desc: '상호존중 및 소통을 바탕으로 협력사와 상생합니다.',
     color: '#C9A84C',
   },
 ];
