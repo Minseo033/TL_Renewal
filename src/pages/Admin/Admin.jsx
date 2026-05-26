@@ -177,6 +177,18 @@ const createInitialJobForm = () => ({
   title: '',
   date: '',
   status: '접수중',
+  department: '',
+  career: '',
+  employmentType: '',
+  workplace: '',
+  summary: '',
+  duties: '',
+  qualifications: '',
+  preferred: '',
+  process: '서류전형\n면접전형\n최종합격',
+  application: '지원방법: 당사 홈페이지 온라인 지원 또는 채용 사이트 접수\n제출서류: 이력서 및 자기소개서',
+  contact: '태일씨앤티 채용담당자 (070-8897-0761)',
+  notice: '입사지원서를 허위로 작성하신 경우 입사가 취소될 수 있습니다.\n국가보훈대상자 및 장애인은 관련 법령에 의거하여 우대합니다.',
 });
 
 const selectKnownIds = (items, ids, limit) => {
@@ -259,12 +271,45 @@ const buildYoutubeItem = (form) => ({
   url: form.url.trim(),
 });
 
-const buildJobItem = (form) => ({
-  id: Number(form.id),
-  title: form.title.trim(),
-  date: form.date.trim(),
-  status: form.status.trim(),
-});
+const splitMultiline = (value) => value
+  .split('\n')
+  .map((item) => item.trim())
+  .filter(Boolean);
+
+const addDetailField = (detail, key, value) => {
+  if (Array.isArray(value)) {
+    if (value.length > 0) detail[key] = value;
+    return;
+  }
+
+  const trimmed = value.trim();
+  if (trimmed) detail[key] = trimmed;
+};
+
+const buildJobItem = (form) => {
+  const detail = {};
+
+  addDetailField(detail, 'department', form.department);
+  addDetailField(detail, 'career', form.career);
+  addDetailField(detail, 'employmentType', form.employmentType);
+  addDetailField(detail, 'workplace', form.workplace);
+  addDetailField(detail, 'summary', form.summary);
+  addDetailField(detail, 'duties', splitMultiline(form.duties));
+  addDetailField(detail, 'qualifications', splitMultiline(form.qualifications));
+  addDetailField(detail, 'preferred', splitMultiline(form.preferred));
+  addDetailField(detail, 'process', splitMultiline(form.process));
+  addDetailField(detail, 'application', splitMultiline(form.application));
+  addDetailField(detail, 'contact', form.contact);
+  addDetailField(detail, 'notice', splitMultiline(form.notice));
+
+  return {
+    id: Number(form.id),
+    title: form.title.trim(),
+    date: form.date.trim(),
+    status: form.status.trim(),
+    ...(Object.keys(detail).length > 0 ? { detail } : {}),
+  };
+};
 
 const buildRecruitFaq = (form) => ({
   q: form.question.trim(),
@@ -909,6 +954,18 @@ export default function Admin() {
               <SelectField label="상태 *" value={jobForm.status} options={JOB_STATUS_OPTIONS} onChange={(value) => updateJobField('status', value)} />
               <TextField wide label="공고 제목 *" value={jobForm.title} onChange={(value) => updateJobField('title', value)} />
               <TextField wide label="마감일 *" placeholder="2026-05-31 또는 상시채용" value={jobForm.date} onChange={(value) => updateJobField('date', value)} />
+              <TextField label="모집부문" placeholder="예: 현장공무 및 시공관리" value={jobForm.department} onChange={(value) => updateJobField('department', value)} />
+              <TextField label="경력구분" placeholder="예: 신입/경력" value={jobForm.career} onChange={(value) => updateJobField('career', value)} />
+              <TextField label="고용형태" placeholder="예: 정규직" value={jobForm.employmentType} onChange={(value) => updateJobField('employmentType', value)} />
+              <TextField label="근무지" placeholder="예: 본사 또는 현장" value={jobForm.workplace} onChange={(value) => updateJobField('workplace', value)} />
+              <TextField wide multiline className="admin-news-content" label="공고 요약" value={jobForm.summary} onChange={(value) => updateJobField('summary', value)} />
+              <TextField wide multiline className="admin-news-content" label="담당업무" placeholder="줄바꿈으로 항목을 구분합니다." value={jobForm.duties} onChange={(value) => updateJobField('duties', value)} />
+              <TextField wide multiline className="admin-news-content" label="자격요건" placeholder="줄바꿈으로 항목을 구분합니다." value={jobForm.qualifications} onChange={(value) => updateJobField('qualifications', value)} />
+              <TextField wide multiline className="admin-news-content" label="우대사항" placeholder="줄바꿈으로 항목을 구분합니다." value={jobForm.preferred} onChange={(value) => updateJobField('preferred', value)} />
+              <TextField wide multiline className="admin-news-content" label="전형절차" value={jobForm.process} onChange={(value) => updateJobField('process', value)} />
+              <TextField wide multiline className="admin-news-content" label="지원 안내" value={jobForm.application} onChange={(value) => updateJobField('application', value)} />
+              <TextField wide label="문의처" value={jobForm.contact} onChange={(value) => updateJobField('contact', value)} />
+              <TextField wide multiline className="admin-news-content" label="유의사항" value={jobForm.notice} onChange={(value) => updateJobField('notice', value)} />
             </div>
           </form>
 
@@ -931,7 +988,7 @@ export default function Admin() {
           status={copyStatus.job}
           onReset={() => resetSection('job')}
           onCopy={() => copyCode('job', generatedJobCode, '채용공고 객체를 클립보드에 복사했습니다.')}
-          note="위 객체는 src/data/recruitmentJobsData.js의 RECRUITMENT_JOBS 배열 상단에 추가합니다. 공고 제목, 마감일, 접수 상태는 회사에서 실제로 게시할 내용만 입력합니다."
+          note="위 객체는 src/data/recruitmentJobsData.js의 RECRUITMENT_JOBS 배열 상단에 추가합니다. 상세 항목은 채용공고 탭에서 게시판 형태로 표시되므로 회사에서 확정한 내용만 입력합니다."
         />
       </section>
     );
@@ -1314,6 +1371,22 @@ function YoutubePreview({ video }) {
 }
 
 function JobPreview({ job }) {
+  const detail = job.detail || {};
+  const countItems = (value) => {
+    if (Array.isArray(value)) return value;
+    return value ? [value] : [];
+  };
+  const detailCount = [
+    detail.department,
+    detail.career,
+    detail.employmentType,
+    detail.workplace,
+    detail.summary,
+    ...countItems(detail.duties),
+    ...countItems(detail.qualifications),
+    ...countItems(detail.preferred),
+  ].filter(Boolean).length;
+
   return (
     <div className="admin-preview">
       <PanelHeading icon={<BriefcaseBusiness size={20} />} title="채용공고 미리보기" />
@@ -1322,6 +1395,11 @@ function JobPreview({ job }) {
         <strong>{job.title || '공고 제목을 입력해 주세요'}</strong>
         <p>번호 {Number.isNaN(job.id) ? '-' : job.id}</p>
         <p>마감일 {job.date || '입력 전'}</p>
+        {detail.department && <p>모집부문 {detail.department}</p>}
+        {detail.career && <p>경력구분 {detail.career}</p>}
+        {detail.workplace && <p>근무지 {detail.workplace}</p>}
+        {detail.summary && <p>{detail.summary}</p>}
+        <small>상세 게시판 항목 {detailCount}개</small>
       </div>
     </div>
   );
