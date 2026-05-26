@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PageLayout from '../../components/layout/PageLayout';
 import AnimatedSection from '../../components/ui/AnimatedSection';
@@ -69,7 +69,6 @@ export default function Jobs() {
   const [selectedJob, setSelectedJob] = useState(() =>
     RECRUITMENT_JOBS.find((job) => job.status === '접수중') || RECRUITMENT_JOBS[0]
   );
-  const detailRef = useRef(null);
   const itemsPerPage = 5;
 
   const filteredJobs = RECRUITMENT_JOBS.filter(job =>
@@ -82,12 +81,7 @@ export default function Jobs() {
   const currentItems = filteredJobs.slice(indexOfFirstItem, indexOfLastItem);
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const selectJob = (job) => {
-    setSelectedJob(job);
-    window.setTimeout(() => {
-      detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }, 0);
-  };
+  const selectJob = (job) => setSelectedJob(job);
 
   return (
     <PageLayout
@@ -150,32 +144,49 @@ export default function Jobs() {
               </thead>
               <tbody>
                 {currentItems.length > 0 ? (
-                  currentItems.map((job) => (
-                    <tr
-                      key={job.id}
-                      className={selectedJob?.id === job.id ? 'selected' : ''}
-                      onClick={() => selectJob(job)}
-                    >
-                      <td>{job.id}</td>
-                      <td className="title-cell">
-                        <button
-                          type="button"
-                          onClick={(event) => {
-                            event.stopPropagation();
-                            selectJob(job);
-                          }}
+                  currentItems.map((job) => {
+                    const isSelected = selectedJob?.id === job.id;
+                    const detailId = `job-detail-${job.id}`;
+
+                    return (
+                      <React.Fragment key={job.id}>
+                        <tr
+                          className={isSelected ? 'selected' : ''}
+                          onClick={() => selectJob(job)}
+                          aria-expanded={isSelected}
                         >
-                          {job.title}
-                        </button>
-                      </td>
-                      <td>{job.date}</td>
-                      <td>
-                        <span className={`job-status-badge ${job.status === '접수중' ? 'active' : 'closed'}`}>
-                          {job.status}
-                        </span>
-                      </td>
-                    </tr>
-                  ))
+                          <td>{job.id}</td>
+                          <td className="title-cell">
+                            <button
+                              type="button"
+                              aria-expanded={isSelected}
+                              aria-controls={detailId}
+                              onClick={(event) => {
+                                event.stopPropagation();
+                                selectJob(job);
+                              }}
+                            >
+                              <span>{job.title}</span>
+                              <ChevronRight className="job-title-arrow" size={16} />
+                            </button>
+                          </td>
+                          <td>{job.date}</td>
+                          <td>
+                            <span className={`job-status-badge ${job.status === '접수중' ? 'active' : 'closed'}`}>
+                              {job.status}
+                            </span>
+                          </td>
+                        </tr>
+                        {isSelected && (
+                          <tr className="job-detail-row">
+                            <td colSpan="4">
+                              <JobDetailBoard id={detailId} job={job} />
+                            </td>
+                          </tr>
+                        )}
+                      </React.Fragment>
+                    );
+                  })
                 ) : (
                   <tr>
                     <td colSpan="4" style={{padding: '60px', color: '#94a3b8'}}>검색 결과가 없습니다.</td>
@@ -215,17 +226,16 @@ export default function Jobs() {
             </div>
           )}
 
-          <JobDetailBoard ref={detailRef} job={selectedJob} />
         </div>
       </AnimatedSection>
     </PageLayout>
   );
 }
 
-const JobDetailBoard = React.forwardRef(function JobDetailBoard({ job }, ref) {
+function JobDetailBoard({ id, job }) {
   if (!job) {
     return (
-      <article className="job-detail-board" ref={ref}>
+      <article className="job-detail-board" id={id}>
         <div className="job-detail-empty">
           <FileText size={28} />
           <strong>공고를 선택해 주세요</strong>
@@ -248,7 +258,7 @@ const JobDetailBoard = React.forwardRef(function JobDetailBoard({ job }, ref) {
   const hasCustomDetail = duties.length + qualifications.length + preferred.length + process.length > 0;
 
   return (
-    <article className="job-detail-board" ref={ref}>
+    <article className="job-detail-board" id={id}>
       <div className="job-detail-header">
         <div>
           <p className="section-eyebrow">JOB DETAIL</p>
@@ -321,7 +331,7 @@ const JobDetailBoard = React.forwardRef(function JobDetailBoard({ job }, ref) {
       </div>
     </article>
   );
-});
+}
 
 function DetailSection({ icon, title, items }) {
   return (
