@@ -286,7 +286,7 @@ export default function Home() {
         </div>
         <div className="hero-content renewal-hero-content">
           <div className="hero-copy">
-            <h1 className="hero-title">철근콘크리트로 대한민국의<br/> 골조를 세웁니다</h1>
+            <h1 className="hero-title">철근콘크리트로<br/>대한민국의 골조를 세웁니다</h1>
             <p className="hero-subtitle">태일씨앤티는 30년 현장 경험과 품질·안전 실행력으로 대형 건설 프로젝트의 구조체 공사를 책임지는 전문 건설회사입니다.</p>
             <div className="hero-actions">
               <Link to="/projects/orders" className="btn btn-brand hero-btn-main">주요 실적 보기 <ArrowRight size={17} /></Link>
