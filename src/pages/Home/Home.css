@@ -345,10 +345,6 @@
   word-break: keep-all;
 }
 
-
-/* ==========================================================================
-   ★ 변경점: WHAT TAEIL BUILDS (레퍼런스 이미지의 UI 완벽 반영)
-   ========================================================================== */
 .field-system-section {
   padding-top: 76px;
   background: var(--color-bg);
@@ -358,7 +354,7 @@
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
   gap: 56px;
-  align-items: stretch; /* 좌우 높이 완벽 일치 */
+  align-items: stretch;
 }
 
 .field-system-grid > * {
@@ -376,7 +372,6 @@
   padding-top: 32px;
 }
 
-/* 우측 슬라이더 메인 컨테이너 */
 .ref-style-board {
   display: flex;
   flex-direction: column;
@@ -385,11 +380,10 @@
   background: transparent;
 }
 
-/* 1) 상단 메인 이미지 뷰포트 (남는 세로 공간을 꽉 채움) */
 .ref-slider-viewport {
   position: relative;
   width: 100%;
-  flex-grow: 1; /* 핵심: 아래 빈 공간을 이미지 영역이 다 먹음 */
+  flex-grow: 1;
   min-height: 300px;
   background: #0d1b2a;
   overflow: hidden;
@@ -416,7 +410,6 @@
   object-fit: cover;
 }
 
-/* ★ 우측 하단 연두색 박스 (텍스트 + 버튼) */
 .ref-overlap-green-box {
   position: absolute;
   right: 0;
@@ -470,7 +463,6 @@
   transform: scale(1.1);
 }
 
-/* 2) 하단 번호 및 설명 텍스트 바 (좌측 카드 최하단과 바닥선 일치) */
 .ref-description-bar {
   display: flex;
   align-items: flex-start;
@@ -479,7 +471,6 @@
   margin-top: auto;
 }
 
-/* 크고 연한 회색의 정렬 번호 */
 .ref-process-code {
   font-size: 3.5rem;
   font-weight: 900;
@@ -523,10 +514,6 @@
   to { opacity: 1; transform: translateX(0); }
 }
 
-
-/* ==========================================================================
-   PORTFOLIO SECTION
-   ========================================================================== */
 .portfolio-section {
   background: #fff;
 }
@@ -683,9 +670,6 @@
   color: var(--color-brand);
 }
 
-/* ==========================================================================
-   PROCESS SECTION (기존 유지)
-   ========================================================================== */
 .process-section {
   background: linear-gradient(135deg, rgba(13, 27, 42, 0.98), rgba(27, 58, 92, 0.94));
   color: #fff;
@@ -1081,10 +1065,6 @@
     transform: translateY(8px);
   }
 }
-
-/* ==========================================================================
-   미디어 쿼리 (반응형)
-   ========================================================================== */
 
 @media (max-width: 1024px) {
   .identity-grid,
@@ -1484,5 +1464,72 @@
   .featured-project-body p, 
   .news-highlight-item p {
     margin-top: auto !important;
+  }
+}
+
+/* 우측 슬라이더 메인 컨테이너를 카드 형태로 변경 */
+.ref-style-board {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  
+  /* ★ 핵심 디자인: 흰색 카드 스타일 적용 */
+  background: #ffffff;
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* 상단 메인 이미지 뷰포트 (이미지 카드 내부 디자인) */
+.ref-slider-viewport {
+  position: relative;
+  width: 100%;
+  flex-grow: 1;
+  min-height: 320px;
+  background: #0d1b2a;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* 하단 설명 바 (카드 내부 하단 여백) */
+.ref-description-bar {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px 5px 5px 5px;
+  margin-top: auto;
+}
+
+/* 슬라이더 내부 번호 색상 (참조 사이트 톤) */
+.ref-process-code {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #f1f5f9;
+  line-height: 0.85;
+  letter-spacing: -2px;
+}
+
+/* 슬라이더 내부 제목 색상 */
+.ref-process-text h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0a1d37;
+  margin: 0 0 8px 0;
+}
+
+/* 슬라이더 내부 본문 색상 */
+.ref-process-text p {
+  font-size: 0.95rem;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* 모바일 대응 */
+@media (max-width: 1024px) {
+  .ref-style-board {
+    padding: 20px;
+    margin-top: 20px;
   }
 }
