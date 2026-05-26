@@ -351,14 +351,11 @@ export default function Home() {
                     ))}
                   </div>
 
-                  {/* ★ 레퍼런스 매칭: 우측 하단 텍스트박스 + 버튼 통합 연두색 컨테이너 */}
+                  {/* 우측 하단 슬라이드 컨트롤 */}
                   <div className="ref-overlap-green-box">
-                    <div className="green-box-title">
-                      태일씨앤티의<br/> 골조 기준
-                    </div>
                     <div className="green-box-controls">
-                      <button onClick={handlePrevStep} aria-label="이전"><ChevronLeft size={18} /></button>
-                      <button onClick={handleNextStep} aria-label="다음"><ChevronRight size={18} /></button>
+                      <button type="button" onClick={handlePrevStep} aria-label="이전 공정 이미지 보기"><ChevronLeft size={18} /></button>
+                      <button type="button" onClick={handleNextStep} aria-label="다음 공정 이미지 보기"><ChevronRight size={18} /></button>
                     </div>
                   </div>
                 </div>
