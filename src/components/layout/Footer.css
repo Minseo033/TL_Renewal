@@ -26,8 +26,6 @@
 
 .footer-logo { width: 40px; height: 40px; }
 
-.footer-logo-svg { width: 34px; height: 34px; }
-
 .brand-title {
   color: #ffffff;
   font-size: 24px;
@@ -65,12 +63,6 @@
 }
 
 .green-accent { color: #3AA65C; font-size: 18px; }
-
-.white-bold {
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 17px;
-}
 
 /* Divider & Bottom row */
 .footer-line-divider {

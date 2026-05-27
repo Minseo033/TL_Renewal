@@ -7,16 +7,6 @@
   margin-bottom: 80px; /* 타이틀과 첫 번째 카드 사이의 간격을 띄움 */
 }
 
-/* 복리후생 등 메인 페이지 헤더 전용 영어 서브텍스트 스타일 */
-.hr-page-header .side-eng {
-  font-size: 0.9rem;
-  color: #94a3b8;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-  display: block;
-}
-
 .hr-content-container {
   padding-bottom: 100px; /* 마지막 카드 아래쪽 여백 */
 }
@@ -122,16 +112,6 @@
   }
 }
 
-/* ── Talent Banner ── */
-.talent-img-banner {
-  position: relative;
-  height: 280px;
-  border-radius: var(--radius-2xl);
-  overflow: hidden;
-  margin-bottom: 36px;
-  box-shadow: var(--shadow-xl);
-}
-
 /* 말줄임표(...)로 인해 글자가 잘리던 문제 완전 해결 */
 .section-subtitle.single-line {
   white-space: normal !important;
@@ -145,63 +125,6 @@
   margin-bottom: 40px;
   font-size: 1rem;
   color: #64748b;
-}
-
-/* Header with icon: place an icon left and title/subtitle to the right */
-.section-with-icon {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-.section-with-icon .section-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  background: rgba(27,58,92,0.06);
-  color: var(--color-primary);
-  border-radius: 12px;
-}
-@media (max-width: 768px) {
-  .section-with-icon { flex-direction: column; text-align: center; }
-  .section-with-icon .section-icon { width: 48px; height: 48px; }
-}
-
-.talent-banner-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.talent-banner-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(27,58,92,0.85) 0%, rgba(46,139,74,0.7) 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  color: #fff;
-  text-align: center;
-}
-
-.talent-banner-overlay h3 {
-  font-size: 2rem;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-}
-
-.talent-banner-overlay h3 span {
-  color: var(--color-accent);
-}
-
-.talent-banner-overlay p {
-  font-size: 15px;
-  opacity: 0.85;
-  letter-spacing: 2px;
 }
 
 /* 기본 PC 상태 인재상 격자 */
@@ -235,16 +158,6 @@
 .talent-value-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
-}
-
-.talent-value-num {
-  position: absolute;
-  top: 10px;
-  right: 16px;
-  font-size: 3rem;
-  font-weight: 900;
-  color: rgba(0,0,0,0.04);
-  line-height: 1;
 }
 
 .talent-value-icon {
@@ -289,282 +202,6 @@
   .talent-value-card {
     padding: 40px 20px;
   }
-}
-
-.job-categories-section {
-  background: #fff;
-  border-radius: var(--radius-xl);
-  padding: 36px;
-  box-shadow: var(--shadow-card);
-}
-
-.jobs-section-title {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.job-category-block {
-  margin-bottom: 28px;
-}
-
-.job-category-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.job-cat-icon {
-  font-size: 20px;
-}
-
-.job-category-header h4 {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--color-primary);
-}
-
-.job-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.job-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px;
-  background: var(--color-bg);
-  border-radius: var(--radius-lg);
-  border-left: 3px solid var(--color-brand);
-}
-
-.job-item-info {
-  flex: 1;
-}
-
-.job-title {
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--color-primary);
-  margin-bottom: 4px;
-}
-
-.job-desc {
-  font-size: 13px;
-  color: var(--color-text-light);
-  margin-bottom: 4px;
-}
-
-.job-required {
-  font-size: 12px;
-  color: var(--color-text-muted);
-}
-
-.required-label {
-  font-weight: 600;
-  color: var(--color-brand);
-}
-
-.job-apply-btn {
-  flex-shrink: 0;
-  font-size: 13px;
-  padding: 8px 20px;
-}
-
-/* ── HR System ── */
-.hr-section { margin-bottom: 30px; }
-
-.hr-grid-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr;
-  min-height: 240px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.hr-side-title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  position: relative;
-}
-
-.hr-side-title h3 { font-size: 1.6rem; font-weight: 800; }
-.side-bar { width: 40px; height: 4px; background: #63b155; margin-bottom: 15px; }
-
-.green-bg { background: #4a5a71; }
-.blue-bg { background: #5a6a81; }
-.dark-bg { background: #3a4a61; }
-
-.hr-content-box {
-  background: #fdfdfd;
-  padding: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.gray-bg { background: #f4f4f4; }
-
-.ideals-quad-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  background: #ccc;
-  position: relative;
-  border: 1px solid #ccc;
-}
-
-.ideal-item {
-  background: #666;
-  padding: 30px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.ideal-text strong { display: block; font-size: 1.1rem; margin-top: 10px; margin-bottom: 5px; }
-.ideal-text p { font-size: 0.85rem; opacity: 0.8; word-break: keep-all; }
-
-.center-person-icon {
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  background: #000;
-  width: 70px; height: 70px;
-  border-radius: 50%;
-  display: grid; place-items: center;
-  border: 4px solid #f4f4f4;
-}
-
-.system-formula {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  gap: 20px;
-  width: 100%;
-}
-
-.formula-item { text-align: center; color: #555; }
-.formula-item span, .formula-item strong { display: block; margin-top: 10px; font-weight: 800; }
-
-.formula-symbol { color: #63b155; }
-.formula-symbol-equal { background: #63b155; color: #fff; padding: 5px; }
-
-.formula-result-list {
-  background: #fff;
-  border: 1px solid #eee;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.formula-result-list ul { list-style: none; padding: 0; margin-top: 10px; }
-.formula-result-list li { font-size: 0.9rem; margin-bottom: 5px; color: #666; }
-
-.circle-icon {
-  width: 60px; height: 60px;
-  border: 4px solid #ccc;
-  border-radius: 50%;
-  display: grid; place-items: center;
-  font-size: 1.5rem; font-weight: 900; color: #63b155;
-}
-
-@media (max-width: 1024px) {
-  .hr-grid-layout { grid-template-columns: 1fr; gap: 30px; }
-  .hr-side-title { position: static; text-align: center; }
-  .hr-side-title .side-bar { margin: 0 auto 20px; }
-  .ideals-modern-grid { grid-template-columns: 1fr; }
-  .system-flex-flow { flex-direction: column; gap: 40px; }
-  .flow-operator { transform: rotate(90deg); }
-  .system-card-panel { padding: 40px 20px; }
-}
-
-.hr-system-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-top: 36px;
-}
-
-.hr-system-card {
-  background: #fff;
-  border-radius: var(--radius-xl);
-  padding: 32px;
-  box-shadow: var(--shadow-card);
-  transition: all var(--transition-base);
-}
-
-.hr-system-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-card-hover);
-}
-
-.hr-system-card-img {
-  width: calc(100% + 64px);
-  margin: -32px -32px 20px -32px;
-  height: 180px;
-  overflow: hidden;
-  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-}
-
-.hr-system-card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform var(--transition-base);
-}
-
-.hr-system-card:hover .hr-system-card-img img {
-  transform: scale(1.04);
-}
-
-.hr-system-icon {
-  font-size: 36px;
-  margin-bottom: 12px;
-}
-
-.hr-system-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--color-brand);
-}
-
-.hr-system-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.hr-system-list li {
-  font-size: 14px;
-  color: var(--color-text-light);
-  padding-left: 16px;
-  position: relative;
-  line-height: 1.5;
-  word-break: keep-all;
-}
-
-.hr-system-list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--color-brand);
-  font-weight: 700;
 }
 
 /* ── [AhnLab Style] Job Explorer ── */
@@ -1113,76 +750,6 @@
   }
 }
 
-.job-intro-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.job-intro-card {
-  background: #fff;
-  border-radius: var(--radius-xl);
-  padding: 35px 28px;
-  box-shadow: var(--shadow-card);
-  border: 1px solid var(--color-border-light);
-  border-top: 5px solid var(--color-brand);
-  transition: all var(--transition-base);
-}
-
-.job-intro-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-card-hover);
-}
-
-.job-intro-card h4 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: 24px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.job-intro-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.job-intro-item {
-  position: relative;
-}
-
-.job-intro-item strong {
-  display: block;
-  font-size: 15px;
-  color: var(--color-primary);
-  margin-bottom: 6px;
-  padding-left: 14px;
-  position: relative;
-}
-
-.job-intro-item strong::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 8px;
-  width: 6px;
-  height: 6px;
-  background: var(--color-brand);
-  border-radius: 1px;
-  transform: rotate(45deg);
-}
-
-.job-intro-item p {
-  font-size: 13.5px;
-  color: var(--color-text-light);
-  line-height: 1.6;
-  padding-left: 14px;
-  word-break: keep-all;
-}
-
 /* 채용 프로세스 기본 플로우 형태 고정 */
 .process-wrapper {
   background: linear-gradient(to right, #f8fbf9, #ffffff);
@@ -1425,13 +992,6 @@
   margin-bottom: 8px;
 }
 
-.benefit-desc {
-  font-size: 13px;
-  color: var(--color-text-light);
-  line-height: 1.5;
-  word-break: keep-all;
-}
-
 .benefit-list {
   display: flex;
   flex-direction: column;
@@ -1585,238 +1145,8 @@
   font-size: 15px;
 }
 
-/* ── [HR SYSTEM] Modernized Styling ── */
-:root {
-  --hr-primary: #1b3a5c;
-  --hr-accent: #63b155;
-  --hr-bg-light: #f8fafc;
-  --hr-border: #e2e8f0;
-  --transition-cubic: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.hr-section {
-  margin-bottom: 120px;
-  opacity: 0;
-  animation: fadeInUp 0.8s forwards ease-out;
-}
-
-.hr-grid-layout {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 50px;
-  align-items: start;
-}
-
-.hr-side-title {
-  position: sticky;
-  top: 100px;
-  padding: 20px 0;
-}
-
-.hr-side-title .side-bar {
-  width: 40px;
-  height: 6px;
-  background: var(--hr-accent);
-  border-radius: 3px;
-  margin-bottom: 24px;
-}
-
-.hr-side-title h3 {
-  font-size: 2.4rem;
-  font-weight: 800;
-  color: var(--hr-primary);
-  line-height: 1.2;
-  letter-spacing: -1px;
-}
-
-.hr-side-title .side-eng {
-  display: block;
-  font-size: 0.9rem;
-  color: #94a3b8;
-  margin-top: 10px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.ideals-modern-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-
-.ideal-card {
-  background: #fff;
-  padding: 45px 35px;
-  border-radius: 24px;
-  border: 1px solid var(--hr-border);
-  transition: var(--transition-cubic);
-  position: relative;
-  overflow: hidden;
-}
-
-.ideal-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 4px;
-  background: var(--hr-accent);
-  transform: scaleX(0);
-  transition: var(--transition-cubic);
-}
-
-.ideal-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
-  border-color: transparent;
-}
-
-.ideal-card:hover::before {
-  transform: scaleX(1);
-}
-
-.ideal-icon-box {
-  width: 60px;
-  height: 60px;
-  background: var(--hr-bg-light);
-  border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--hr-primary);
-  margin-bottom: 28px;
-  transition: var(--transition-cubic);
-}
-
-.ideal-card:hover .ideal-icon-box {
-  background: var(--hr-accent);
-  color: #fff;
-  transform: rotateY(180deg);
-}
-
-.ideal-text strong {
-  display: block;
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--hr-primary);
-  margin-bottom: 12px;
-}
-
-.ideal-text p {
-  font-size: 1rem;
-  color: #64748b;
-  line-height: 1.6;
-  word-break: keep-all;
-}
-
-.system-card-panel {
-  background: #fff;
-  border-radius: 30px;
-  padding: 60px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
-  border: 1px solid var(--hr-border);
-}
-
-.system-flex-flow {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.flow-node {
-  flex: 1;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.node-icon-circle {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: var(--hr-bg-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--hr-primary);
-  margin-bottom: 20px;
-  border: 2px solid transparent;
-  transition: var(--transition-cubic);
-}
-
-.flow-node:hover .node-icon-circle {
-  border-color: var(--hr-accent);
-  background: #fff;
-  transform: scale(1.1);
-}
-
-.flow-operator {
-  color: #cbd5e1;
-  font-size: 24px;
-}
-
-.flow-result-box {
-  flex: 1.4;
-  background: var(--hr-primary);
-  padding: 35px;
-  border-radius: 24px;
-  color: #fff;
-}
-
-.result-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255,255,255,0.1);
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-size: 0.85rem;
-  margin-bottom: 20px;
-  color: var(--hr-accent);
-}
-
-.result-list {
-  list-style: none;
-  padding: 0;
-}
-
-.result-list li {
-  font-size: 0.95rem;
-  margin-bottom: 12px;
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  opacity: 0.9;
-}
-
-.result-list li::before {
-  content: '→';
-  color: var(--hr-accent);
-}
-
-.reward-highlight {
-  background: var(--hr-accent) !important;
-  color: #fff !important;
-}
-
-@media (max-width: 1024px) {
-  .hr-grid-layout { grid-template-columns: 1fr; gap: 30px; }
-  .hr-side-title { position: static; text-align: center; }
-  .hr-side-title .side-bar { margin: 0 auto 20px; }
-  .ideals-modern-grid { grid-template-columns: 1fr; }
-  .system-flex-flow { flex-direction: column; gap: 40px; }
-  .flow-operator { transform: rotate(90deg); }
-  .system-card-panel { padding: 40px 20px; }
-}
-
-
 /* ── ★ 모바일 최적화 미디어 쿼리 (480px 이하) ★ ── */
 @media (max-width: 480px) {
-  .talent-img-banner {
-    height: 210px;
-    border-radius: var(--radius-lg);
-  }
-
   /* 모바일 화면 인재상 2열 고정 */
   .talent-values-grid {
     display: grid !important;
@@ -2127,12 +1457,7 @@
   }
 
   /* 복리후생, 인사제도 등 기타 리스트들은 1열 세로 고정 */
-  .benefits-grid,
-  .hr-system-grid,
-  .hr-content-grid,
-  .ideals-modern-grid,
-  .ideals-quad-grid,
-  .ideals-quad-container {
+  .benefits-grid {
     display: grid !important;
     grid-template-columns: 1fr !important;
     grid-template-rows: auto !important;
@@ -2143,67 +1468,17 @@
     max-width: 100% !important;
   }
 
-  .benefits-grid > *,
-  .hr-system-grid > *,
-  .hr-content-grid > *,
-  .ideals-modern-grid > * {
+  .benefits-grid > * {
     flex: none !important;
     width: 100% !important;
   }
 
-  /* 인사제도 플로우 패널 레이아웃 세로형 정렬 */
-  .system-formula,
-  .formula-flex-row,
-  .system-flex-flow,
-  .hr-system-panel {
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 30px !important;
-  }
-
-  .formula-item,
-  .flow-node,
-  .result-info-box,
-  .flow-result-box,
-  .system-node,
-  .result-box-dark {
-    width: 100% !important;
-    box-sizing: border-box;
-    flex: none !important;
-  }
-
-  .formula-symbol,
-  .formula-symbol-equal,
-  .formula-sep,
-  .formula-sep-equal,
-  .flow-operator {
-    transform: rotate(90deg) !important;
-    display: inline-block !important;
-    margin: 10px 0 !important;
-  }
-
-  .center-person-icon,
-  .quad-center-circle {
-    display: none !important;
-  }
-
-  .quad-item {
-    border-radius: 12px;
-  }
-
-  .job-categories-section,
   .guide-tips,
   .faq-contact {
     margin-left: -4px;
     margin-right: -4px;
     padding: 22px 18px;
     border-radius: var(--radius-lg);
-  }
-
-  .job-item {
-    padding: 16px;
-    border-radius: var(--radius-md);
   }
 
   .faq-question {

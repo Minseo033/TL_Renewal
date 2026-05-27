@@ -148,12 +148,6 @@ button {
   padding: 0 var(--spacing-xl);
 }
 
-.container-wide {
-  max-width: var(--max-width-wide);
-  margin: 0 auto;
-  padding: 0 var(--spacing-xl);
-}
-
 .section {
   padding: var(--spacing-5xl) 0;
 }
@@ -427,7 +421,7 @@ button {
     --header-height: 70px;
   }
   
-  .container, .container-wide {
+  .container {
     padding: 0 var(--spacing-lg);
   }
   
@@ -503,7 +497,7 @@ button {
     --font-size-3xl: 1.25rem;
   }
   
-  .container, .container-wide {
+  .container {
     padding: 0 18px;
   }
 }

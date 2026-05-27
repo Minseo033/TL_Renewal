@@ -15,8 +15,7 @@
 
 .header-transparent .nav-link,
 .header-transparent .logo-name,
-.header-transparent .logo-company,
-.header-transparent .logo-eng {
+.header-transparent .logo-company {
   color: #fff;
 }
 
@@ -78,13 +77,6 @@
   font-weight: 800;
   color: var(--color-brand);
   letter-spacing: -0.5px;
-}
-
-.logo-eng {
-  font-size: 7px;
-  font-weight: 400;
-  opacity: 0.6;
-  letter-spacing: 0.5px;
 }
 
 /* Navigation */

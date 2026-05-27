@@ -14,7 +14,6 @@ import Certifications from './pages/Company/Certifications';
 import Location from './pages/Company/Location';
 import ProjectOrders from './pages/Projects/ProjectOrders';
 import ProjectCategory from './pages/Projects/ProjectCategory';
-import Technology from './pages/Technology/Technology';
 import News from './pages/PR/News';
 import Youtube from './pages/PR/Youtube';
 import ESG from './pages/ESG/ESG';
@@ -54,11 +53,6 @@ export default function App() {
         <Route path="/projects/retail" element={<ProjectCategory category="판매시설" />} />
         <Route path="/projects/others" element={<ProjectCategory category="기타" />} />
 
-        {/* 기술자료 */}
-        <Route path="/technology" element={<Technology />} />
-        <Route path="/technology/overview" element={<Technology />} />
-        <Route path="/technology/news" element={<Technology mode="news" />} />
-
         {/* 홍보센터 */}
         <Route path="/pr" element={<Navigate to="/pr/news" replace />} />
         <Route path="/pr/news" element={<News />} />
@@ -78,6 +72,8 @@ export default function App() {
 
         {/* 관리자 도구 */}
         <Route path="/admin" element={<Admin />} />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
     </HashRouter>

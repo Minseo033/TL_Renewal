@@ -94,6 +94,8 @@ const TOP_PARTNERS = Array.from(
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedNews, setSelectedNews] = useState(null);
+  const [heroVideoEnabled, setHeroVideoEnabled] = useState(false);
+  const [heroVideoLoaded, setHeroVideoLoaded] = useState(false);
   const [animateTrustMetrics, setAnimateTrustMetrics] = useState(false);
   const [animateBars, setAnimateBars] = useState(false);
   const trustMetricRef = useRef(null);
@@ -105,6 +107,11 @@ export default function Home() {
   // 슬라이더 상태 및 타이머
   const [activeStep, setActiveStep] = useState(0);
   const stepTimerRef = useRef(null);
+
+  useEffect(() => {
+    const timeoutId = window.setTimeout(() => setHeroVideoEnabled(true), 900);
+    return () => window.clearTimeout(timeoutId);
+  }, []);
 
   useEffect(() => {
     if (!selectedProject) return undefined;
@@ -279,9 +286,26 @@ export default function Home() {
       {/* 1. HERO */}
       <section className="hero renewal-hero">
         <div className="hero-bg">
-          <video className="hero-video-bg" autoPlay muted loop playsInline poster="./assets/images/esg/esg-main.png">
-            <source src="./assets/videos/intro.mp4" type="video/mp4" />
-          </video>
+          <img
+            className="hero-poster-bg"
+            src="./assets/images/home/hero-poster.jpg"
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+            fetchPriority="high"
+          />
+          <video
+            className={`hero-video-bg${heroVideoLoaded ? ' is-loaded' : ''}`}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+            poster="./assets/images/home/hero-poster.jpg"
+            src={heroVideoEnabled ? './assets/videos/intro.mp4' : undefined}
+            aria-hidden="true"
+            onCanPlay={() => setHeroVideoLoaded(true)}
+          />
           <div className="hero-overlay" />
         </div>
         <div className="hero-content renewal-hero-content">
