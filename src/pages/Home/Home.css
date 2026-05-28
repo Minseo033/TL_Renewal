@@ -511,18 +511,6 @@
   box-shadow: var(--shadow-lg);
 }
 
-.recruit-badge {
-  display: inline-flex;
-  margin-bottom: 12px;
-  padding: 6px 12px;
-  background: rgba(46, 139, 74, 0.1);
-  color: var(--color-brand);
-  border-radius: var(--radius-full);
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 1px;
-}
-
 .recruit-focus-card h2 {
   margin-bottom: 12px;
   color: var(--color-primary);

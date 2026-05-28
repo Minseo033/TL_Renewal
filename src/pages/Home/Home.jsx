@@ -472,7 +472,6 @@ export default function Home() {
         <div className="container">
           <AnimatedSection className="recruit-focus-card">
             <div>
-              <span className="recruit-badge">FOR APPLICANTS</span>
               <h2>내일의 설계, 필요한 것만 단단하게</h2>
               <p>회사 정체성, 직무, 인사제도, 복리후생, FAQ까지 지원자가 궁금해하는 정보를 빠르게 확인할 수 있습니다.</p>
             </div>
