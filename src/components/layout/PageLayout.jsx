@@ -1,33 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
+import { PAGE_BANNERS } from '../../data/pageBanners';
 import './PageLayout.css';
-
-const PAGE_BANNERS = [
-  {
-    matcher: (path) => path.startsWith('/company'),
-    image: './assets/images/banners/company-banner.jpg',
-    position: 'center 48%',
-  },
-  {
-    matcher: (path) => path.startsWith('/projects'),
-    image: './assets/images/banners/projects-banner.jpg',
-    position: 'center 48%',
-  },
-  {
-    matcher: (path) => path.startsWith('/pr'),
-    image: './assets/images/banners/pr-banner.jpg',
-    position: 'center 50%',
-  },
-  {
-    matcher: (path) => path.startsWith('/esg'),
-    image: './assets/images/banners/esg-banner.jpg',
-    position: 'center 45%',
-  },
-  {
-    matcher: (path) => path.startsWith('/recruitment'),
-    image: './assets/images/banners/recruitment-banner.jpg',
-    position: 'center 48%',
-  },
-];
 
 export default function PageLayout({ title, breadcrumb, subNav, children }) {
   const location = useLocation();
@@ -43,11 +16,14 @@ export default function PageLayout({ title, breadcrumb, subNav, children }) {
       <div className="page-banner" style={bannerStyle}>
         {pageBanner && (
           <img
+            key={pageBanner.image}
             className="page-banner-image"
             src={pageBanner.image}
             alt=""
             aria-hidden="true"
             decoding="async"
+            loading="eager"
+            fetchPriority="high"
           />
         )}
         <div className="page-banner-bg-pattern" />

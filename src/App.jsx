@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import ScrollToTop from './components/ui/ScrollToTop';
+import { preloadPageBannerImages } from './data/pageBanners';
 
 // Pages
 import Home from './pages/Home/Home';
@@ -25,6 +27,10 @@ import FAQ from './pages/Recruitment/FAQ';
 import Admin from './pages/Admin/Admin';
 
 export default function App() {
+  useEffect(() => {
+    preloadPageBannerImages();
+  }, []);
+
   return (
     <HashRouter>
       <ScrollToTop />
