@@ -34,7 +34,6 @@ export default function PageLayout({ title, breadcrumb, subNav, children }) {
   const pageBanner = PAGE_BANNERS.find(({ matcher }) => matcher(location.pathname));
   const bannerStyle = pageBanner
     ? {
-        '--page-banner-image': `url("${pageBanner.image}")`,
         '--page-banner-position': pageBanner.position,
       }
     : undefined;
@@ -42,7 +41,15 @@ export default function PageLayout({ title, breadcrumb, subNav, children }) {
   return (
     <main className="page-wrapper">
       <div className="page-banner" style={bannerStyle}>
-        <div className="page-banner-image" aria-hidden="true" />
+        {pageBanner && (
+          <img
+            className="page-banner-image"
+            src={pageBanner.image}
+            alt=""
+            aria-hidden="true"
+            decoding="async"
+          />
+        )}
         <div className="page-banner-bg-pattern" />
         <div className="page-banner-content">
           <h1>{title}</h1>

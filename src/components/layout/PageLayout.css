@@ -27,9 +27,10 @@
   position: absolute;
   inset: 0;
   z-index: 0;
-  background-image: var(--page-banner-image, linear-gradient(135deg, #0D1B2A 0%, #1B3A5C 60%, #2A5580 100%));
-  background-position: var(--page-banner-position, center);
-  background-size: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--page-banner-position, center);
   opacity: 1;
   filter: saturate(1.06) contrast(1.03);
   transform: scale(1.02);
