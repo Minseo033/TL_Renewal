@@ -1,12 +1,48 @@
 import { Link, useLocation } from 'react-router-dom';
 import './PageLayout.css';
 
+const PAGE_BANNERS = [
+  {
+    matcher: (path) => path.startsWith('/company'),
+    image: './assets/images/banners/company-banner.jpg',
+    position: 'center 48%',
+  },
+  {
+    matcher: (path) => path.startsWith('/projects'),
+    image: './assets/images/banners/projects-banner.jpg',
+    position: 'center 48%',
+  },
+  {
+    matcher: (path) => path.startsWith('/pr'),
+    image: './assets/images/banners/pr-banner.jpg',
+    position: 'center 50%',
+  },
+  {
+    matcher: (path) => path.startsWith('/esg'),
+    image: './assets/images/banners/esg-banner.jpg',
+    position: 'center 45%',
+  },
+  {
+    matcher: (path) => path.startsWith('/recruitment'),
+    image: './assets/images/banners/recruitment-banner.jpg',
+    position: 'center 48%',
+  },
+];
+
 export default function PageLayout({ title, breadcrumb, subNav, children }) {
   const location = useLocation();
+  const pageBanner = PAGE_BANNERS.find(({ matcher }) => matcher(location.pathname));
+  const bannerStyle = pageBanner
+    ? {
+        '--page-banner-image': `url("${pageBanner.image}")`,
+        '--page-banner-position': pageBanner.position,
+      }
+    : undefined;
 
   return (
     <main className="page-wrapper">
-      <div className="page-banner">
+      <div className="page-banner" style={bannerStyle}>
+        <div className="page-banner-image" aria-hidden="true" />
         <div className="page-banner-bg-pattern" />
         <div className="page-banner-content">
           <h1>{title}</h1>

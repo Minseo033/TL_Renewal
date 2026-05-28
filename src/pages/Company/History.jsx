@@ -232,8 +232,8 @@ export default function History() {
       <div className="history-timeline">
         {HISTORY.map((item, idx) => (
           <AnimatedSection
-            key={idx}
-            delay={idx * 50}
+            key={item.year}
+            delay={Math.min(idx * 35, 220)}
             direction={idx % 2 === 0 ? 'left' : 'right'}
             className={`timeline-row ${idx % 2 === 0 ? 'left' : 'right'}`}
           >

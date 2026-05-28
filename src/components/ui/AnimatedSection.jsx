@@ -5,18 +5,28 @@ export default function AnimatedSection({ children, className = '', delay = 0, d
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    const node = ref.current;
+    if (!node) return undefined;
+
+    if (typeof window === 'undefined') return undefined;
+
+    if (!('IntersectionObserver' in window)) {
+      const frameId = window.requestAnimationFrame(() => setVisible(true));
+      return () => window.cancelAnimationFrame(frameId);
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setVisible(true), delay);
-          observer.unobserve(entry.target);
+          setVisible(true);
+          observer.unobserve(node);
         }
       },
-      { threshold: 0.05 }
+      { threshold: 0.08, rootMargin: '0px 0px -6% 0px' }
     );
-    if (ref.current) observer.observe(ref.current);
+    observer.observe(node);
     return () => observer.disconnect();
-  }, [delay]);
+  }, []);
 
   const transforms = {
     up: 'translateY(30px)',

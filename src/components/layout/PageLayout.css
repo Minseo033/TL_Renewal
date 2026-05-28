@@ -6,27 +6,47 @@
 .page-banner {
   position: relative;
   height: 280px;
-  background: linear-gradient(135deg, #0D1B2A 0%, #1B3A5C 60%, #2A5580 100%);
+  background: #0D1B2A;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
+.page-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(9, 24, 38, 0.08) 0%, rgba(9, 24, 38, 0.04) 50%, rgba(9, 24, 38, 0.08) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.05) 100%);
+}
+
+.page-banner-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--page-banner-image, linear-gradient(135deg, #0D1B2A 0%, #1B3A5C 60%, #2A5580 100%));
+  background-position: var(--page-banner-position, center);
+  background-size: cover;
+  opacity: 1;
+  filter: saturate(1.06) contrast(1.03);
+  transform: scale(1.02);
+}
+
 .page-banner-bg-pattern {
   position: absolute;
   inset: 0;
-  background-image: 
-    radial-gradient(circle at 20% 50%, rgba(46,139,74,0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 50%, rgba(201,168,76,0.1) 0%, transparent 50%),
-    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  z-index: 2;
+  display: none;
 }
 
 .page-banner-content {
   text-align: center;
   color: #fff;
   position: relative;
-  z-index: 1;
+  z-index: 3;
   animation: fadeInUp 0.6s ease;
 }
 
@@ -35,6 +55,7 @@
   font-weight: 700;
   margin-bottom: 12px;
   letter-spacing: -0.5px;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.52);
 }
 
 .page-banner-breadcrumb {
@@ -44,6 +65,7 @@
   gap: 6px;
   color: rgba(255,255,255,0.65);
   font-size: 14px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 .page-banner-breadcrumb a {
