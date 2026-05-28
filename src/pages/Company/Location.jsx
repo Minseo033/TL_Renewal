@@ -82,7 +82,7 @@ export default function Location() {
               </div>
               <div className="transport-item">
                 <span className="transport-badge car">자차</span>
-                <p>한라원앤원타워 지하주차장 이용 (방문객 무료 2시간)</p>
+                <p>한라원앤원타워 지하주차장 이용</p>
               </div>
             </div>
           </div>
