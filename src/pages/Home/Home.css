@@ -1216,26 +1216,37 @@
   }
 
   .portfolio-section .featured-project-grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 16px;
-    overflow: visible;
-    margin-right: 0;
-    padding: 0;
-    scroll-snap-type: none;
-    scrollbar-width: auto;
-    -webkit-overflow-scrolling: auto;
+    display: flex !important;
+    gap: 14px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-right: -18px;
+    padding: 4px 18px 10px 0;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    align-items: stretch !important;
   }
 
   .portfolio-section .featured-project-grid > * {
-    flex: initial !important;
-    width: 100% !important;
+    flex: 0 0 82% !important;
+    width: auto !important;
     min-width: 0;
-    scroll-snap-align: none;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
   }
 
-  .portfolio-section .featured-project-card,
+  .portfolio-section .featured-project-card {
+    width: 100%;
+    transform: none !important;
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    user-select: none;
+  }
+
   .portfolio-section .featured-project-card img {
+    pointer-events: none;
     -webkit-user-drag: none;
     user-select: none;
   }
