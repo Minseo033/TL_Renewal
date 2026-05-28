@@ -1210,6 +1210,37 @@
   }
 }
 
+@media (max-width: 480px) {
+  .portfolio-section {
+    overflow-x: hidden;
+  }
+
+  .portfolio-section .featured-project-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+    overflow: visible;
+    margin-right: 0;
+    padding: 0;
+    scroll-snap-type: none;
+    scrollbar-width: auto;
+    -webkit-overflow-scrolling: auto;
+  }
+
+  .portfolio-section .featured-project-grid > * {
+    flex: initial !important;
+    width: 100% !important;
+    min-width: 0;
+    scroll-snap-align: none;
+  }
+
+  .portfolio-section .featured-project-card,
+  .portfolio-section .featured-project-card img {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+}
+
 /* 우측 슬라이더 메인 컨테이너를 카드 형태로 변경 */
 .ref-style-board {
   display: flex;

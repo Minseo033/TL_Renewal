@@ -60,17 +60,26 @@
 }
 
 .page-banner-breadcrumb {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  color: rgba(255,255,255,0.65);
+  width: fit-content;
+  margin: 0 auto;
+  padding: 7px 12px;
+  background: rgba(9, 24, 38, 0.46);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-full);
+  color: rgba(255,255,255,0.92);
   font-size: 14px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.52);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .page-banner-breadcrumb a {
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.88);
   transition: color var(--transition-fast);
 }
 
@@ -79,11 +88,12 @@
 }
 
 .page-banner-breadcrumb .active {
-  color: var(--color-accent);
+  color: #FFD86B;
 }
 
 .breadcrumb-sep {
-  opacity: 0.5;
+  color: rgba(255,255,255,0.72);
+  opacity: 1;
 }
 
 .page-content {
@@ -109,6 +119,7 @@
 
   .page-banner-breadcrumb {
     justify-content: flex-start;
+    margin: 0;
     font-size: 12px;
   }
 
