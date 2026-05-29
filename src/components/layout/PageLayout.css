@@ -65,15 +65,13 @@
   width: fit-content;
   margin: 0 auto;
   padding: 7px 12px;
-  background: rgba(9, 24, 38, 0.05); 
+  background: rgba(9, 24, 38, 0.46);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-full);
   color: rgba(255, 255, 255, 0.92);
   font-size: 14px;
   font-weight: 700;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.52);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
 }
 
 .page-banner-breadcrumb a {
