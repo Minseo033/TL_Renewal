@@ -70,7 +70,6 @@ src/
     PR/
     Projects/
     Recruitment/
-    Technology/
   styles/
     global.css
 public/
@@ -86,7 +85,6 @@ public/
 | `Home` | 메인 홈 | 회사의 첫 인상, 핵심 메시지, 실적 요약, 뉴스, 채용 CTA, 회사 영상 |
 | `Company` | 회사소개 | 인사말, 경영이념, 회사연혁, 조직도, 주거래 시공사, 업·면허/인증, 위치 |
 | `Projects` | 사업실적 | 공사수주 현황과 주택, 업무시설, 교육/의료, 플랜트 등 카테고리별 실적 |
-| `Technology` | 기술자료 | 철근콘크리트 기술 역량, 공법, 품질·환경·안전 인증 관련 콘텐츠 |
 | `PR` | 홍보센터 | 뉴스 목록/상세, 유튜브 영상 홍보관 |
 | `ESG` | ESG경영 | 환경, 사회공헌, 안전 수상, 경영 신뢰 요소 |
 | `Recruitment` | 인재채용 | 직무소개, 인사제도, 채용가이드, 복리후생, 채용공고, 채용 FAQ |
@@ -114,8 +112,6 @@ public/
 | 초고층 실적 | `/#/projects/highrise` |
 | 판매시설 실적 | `/#/projects/retail` |
 | 기타 실적 | `/#/projects/others` |
-| 기술자료 | `/#/technology/overview` |
-| 기술자료 News | `/#/technology/news` |
 | 뉴스 | `/#/pr/news` |
 | 영상 홍보관 | `/#/pr/youtube` |
 | ESG경영 | `/#/esg` |
