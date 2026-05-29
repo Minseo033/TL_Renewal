@@ -48,6 +48,107 @@ npm run preview
 npm run lint
 ```
 
+## 폴더 구조
+
+```txt
+src/
+  App.jsx
+  components/
+    layout/        # Header, Footer, PageLayout
+    ui/            # AnimatedSection, ScrollToTop
+  data/
+    homeDisplayData.js
+    newsData.js
+    projectsData.js
+    recruitmentJobsData.js
+    youtubeData.js
+  pages/
+    Admin/
+    Company/
+    ESG/
+    Home/
+    PR/
+    Projects/
+    Recruitment/
+    Technology/
+  styles/
+    global.css
+public/
+  assets/
+    images/
+    videos/
+```
+
+## 페이지별 역할
+
+| 폴더 | 화면 | 설명 |
+| --- | --- | --- |
+| `Home` | 메인 홈 | 회사의 첫 인상, 핵심 메시지, 실적 요약, 뉴스, 채용 CTA, 회사 영상 |
+| `Company` | 회사소개 | 인사말, 경영이념, 회사연혁, 조직도, 주거래 시공사, 업·면허/인증, 위치 |
+| `Projects` | 사업실적 | 공사수주 현황과 주택, 업무시설, 교육/의료, 플랜트 등 카테고리별 실적 |
+| `Technology` | 기술자료 | 철근콘크리트 기술 역량, 공법, 품질·환경·안전 인증 관련 콘텐츠 |
+| `PR` | 홍보센터 | 뉴스 목록/상세, 유튜브 영상 홍보관 |
+| `ESG` | ESG경영 | 환경, 사회공헌, 안전 수상, 경영 신뢰 요소 |
+| `Recruitment` | 인재채용 | 직무소개, 인사제도, 채용가이드, 복리후생, 채용공고, 채용 FAQ |
+| `Admin` | 관리자 페이지 | 정적 데이터 파일에 추가할 코드를 생성하는 운영 보조 화면 |
+
+## 주요 라우트
+
+이 프로젝트는 `HashRouter`를 사용하므로 배포 후 주소는 `/#/...` 형식으로 동작합니다.
+
+| 구분 | 라우트 |
+| --- | --- |
+| 홈 | `/#/` |
+| 회사소개 | `/#/company/greeting` |
+| 경영이념 | `/#/company/philosophy` |
+| 회사연혁 | `/#/company/history` |
+| 기구조직도 | `/#/company/organization` |
+| 주거래 시공사 | `/#/company/partners` |
+| 업·면허/인증 | `/#/company/certifications` |
+| 찾아오시는 길 | `/#/company/location` |
+| 공사수주 현황 | `/#/projects/orders` |
+| 주택 실적 | `/#/projects/housing` |
+| 업무시설 실적 | `/#/projects/office` |
+| 교육/의료 실적 | `/#/projects/education` |
+| 플랜트 실적 | `/#/projects/plant` |
+| 초고층 실적 | `/#/projects/highrise` |
+| 판매시설 실적 | `/#/projects/retail` |
+| 기타 실적 | `/#/projects/others` |
+| 기술자료 | `/#/technology/overview` |
+| 기술자료 News | `/#/technology/news` |
+| 뉴스 | `/#/pr/news` |
+| 영상 홍보관 | `/#/pr/youtube` |
+| ESG경영 | `/#/esg` |
+| 인재채용 | `/#/recruitment/jobs` |
+| 인사제도 | `/#/recruitment/system` |
+| 채용가이드 | `/#/recruitment/guide` |
+| 복리후생 | `/#/recruitment/benefits` |
+| 채용 FAQ | `/#/recruitment/faq` |
+| 관리자 페이지 | `/#/admin` |
+
+## 데이터 파일 설명
+
+이 프로젝트는 별도 서버 없이 `src/data`의 정적 데이터 파일을 화면에 연결합니다.
+
+| 파일 | 주요 export | 설명 |
+| --- | --- | --- |
+| `src/data/homeDisplayData.js` | `HOME_DISPLAY` | 홈 화면에 노출할 대표 프로젝트와 대표 뉴스 ID 순서를 관리합니다. |
+| `src/data/projectsData.js` | `RECENT_PROJECTS` | 공사수주 현황과 사업실적 카테고리 페이지에서 사용하는 프로젝트 목록입니다. |
+| `src/data/newsData.js` | `NEWS_DATA` | 홍보센터 뉴스 목록과 상세보기에서 사용하는 뉴스 데이터입니다. 메인 이미지와 본문 추가 이미지를 함께 관리합니다. |
+| `src/data/youtubeData.js` | `YOUTUBE_CHANNEL_URL`, `YOUTUBE_CHANNEL_NAME`, `YOUTUBE_VIDEOS`, `YOUTUBE_DISPLAY_URLS` | 유튜브 채널 정보와 영상 홍보관에 노출할 영상 링크를 관리합니다. |
+| `src/data/recruitmentJobsData.js` | `RECRUITMENT_JOBS` | 인재채용 페이지에서 사용하는 채용공고 목록입니다. |
+
+### 데이터 작성 기준
+
+- 이미지 경로는 `./assets/images/...` 형식으로 작성합니다.
+- 이미지 파일은 `public/assets/images/...` 아래에 둡니다.
+- 영상 파일은 `public/assets/videos/...` 아래에 둡니다.
+- 프로젝트 카테고리는 기존 카테고리명과 맞춰야 각 실적 페이지에 노출됩니다.
+- 프로젝트에서 값이 없거나 노출하지 않을 항목은 `.`로 두면 상세 화면에서 숨김 처리됩니다.
+- 뉴스 본문 추가 이미지는 `images` 배열에 넣으면 상세보기 본문 영역에 표시됩니다.
+- 유튜브 영상은 `youtubeData.js`의 영상 URL을 수정하면 화면에 반영됩니다.
+- 채용공고 `status` 값은 `접수중` 또는 `접수마감`을 사용합니다.
+
 ## 관리자 페이지 이용 방법
 
 ### 접속 방법
