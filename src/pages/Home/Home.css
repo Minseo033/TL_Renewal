@@ -863,17 +863,22 @@
   .featured-project-card {
     display: flex !important;
     flex-direction: row !important;
+    height: auto !important;
+    min-height: 190px;
   }
 
   .featured-project-image {
+    flex: 0 0 280px;
     width: 280px !important;
-    height: auto !important;
+    height: 190px !important;
     aspect-ratio: auto;
   }
 
   .featured-project-card img {
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     aspect-ratio: auto;
+    object-fit: cover;
   }
 
   /* 태블릿 환경의 슬라이드 컨트롤 대응 */
@@ -1020,13 +1025,33 @@
   .news-highlight-item {
     display: flex !important;
     flex-direction: column !important;
+    height: auto !important;
+    min-height: 0;
   }
 
   .featured-project-image,
-  .featured-project-card img,
   .news-highlight-item img {
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 10 !important;
     width: 100% !important;
+    height: auto !important;
+    max-height: 190px;
+  }
+
+  .featured-project-image {
+    flex: 0 0 auto;
+  }
+
+  .featured-project-card img {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
+    object-fit: cover;
+  }
+
+  .featured-project-body {
+    height: auto !important;
+    min-height: 0;
+    flex: 1 1 auto !important;
   }
 
   .news-highlight-item img {
