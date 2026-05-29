@@ -18,9 +18,7 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    linear-gradient(90deg, rgba(9, 24, 38, 0.08) 0%, rgba(9, 24, 38, 0.04) 50%, rgba(9, 24, 38, 0.08) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.01) 0%, rgba(0, 0, 0, 0.05) 100%);
+  background:linear-gradient(90deg, rgba(9, 24, 38, 0.04) 0%, rgba(9, 24, 38, 0.02) 50%, rgba(9, 24, 38, 0.04) 100%), linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.02) 100%);
 }
 
 .page-banner-image {
@@ -67,10 +65,10 @@
   width: fit-content;
   margin: 0 auto;
   padding: 7px 12px;
-  background: rgba(9, 24, 38, 0.46);
+  background: rgba(9, 24, 38, 0.05); 
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-full);
-  color: rgba(255,255,255,0.92);
+  color: rgba(255, 255, 255, 0.92);
   font-size: 14px;
   font-weight: 700;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.52);
@@ -88,7 +86,7 @@
 }
 
 .page-banner-breadcrumb .active {
-  color: #FFD86B;
+  color: #3AA65C;
 }
 
 .breadcrumb-sep {
