@@ -39,8 +39,8 @@ const FIELD_PROCESS = [
   { code: '01', title: '도면·물량 검토', text: '착공 전 구조, 공정, 물량 리스크를 먼저 정리합니다.', image: './assets/images/home/home_01.avif' },
   { code: '02', title: '철근 배근', text: '구조 안전의 기준이 되는 철근 배근 품질을 관리합니다.', image: './assets/images/home/home_02.avif' },
   { code: '03', title: '거푸집·동바리', text: '형상, 수직도, 지지 조건을 현장 기준에 맞춰 점검합니다.', image: './assets/images/home/home_03.avif' },
-  { code: '04', title: '콘크리트 타설', text: '타설 순서와 품질 상태를 공정 흐름 안에서 통제합니다.', image: './assets/images/home/home_04.jpeg' },
-  { code: '05', title: '품질·안전 검측', text: '위험성 평가와 검측을 반복 가능한 운영 체계로 연결합니다.', image: './assets/images/home/home_05.jpeg' },
+  { code: '04', title: '콘크리트 타설', text: '타설 순서와 품질 상태를 공정 흐름 안에서 통제합니다.', image: './assets/images/home/home_04.png' },
+  { code: '05', title: '품질·안전 검측', text: '위험성 평가와 검측을 반복 가능한 운영 체계로 연결합니다.', image: './assets/images/home/home_05.png' },
 ];
 
 const CORE_STRENGTHS = [
